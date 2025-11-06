@@ -1,6 +1,6 @@
 from BaseClasses import Region, Item, ItemClassification
 from .Locations import grinch_locations_to_id, grinch_locations, GrinchLocation, get_location_names_per_category
-from .Items import grinch_items_to_id, GrinchItem, ALL_ITEMS_TABLE, MISC_ITEMS_TABLE, get_item_names_per_category
+from .Items import grinch_items_to_id, GrinchItem, ALL_ITEMS_TABLE, MISC_ITEMS_TABLE, get_item_names_per_category, TRAPS_TABLE
 from .Regions import connect_regions
 from .Rules import set_location_rules
 
@@ -68,8 +68,8 @@ class GrinchWorld(World):
 
         # Fill remaining locations according to weight ratio
         for filler in MISC_ITEMS_TABLE:
-            weight_ratio = self.options.filler_weight[filler] / total_fillerweights
-            filler_count = round(unfilled_locations * weight_ratio)
+            filler_weight_ratio = self.options.filler_weight[filler] / total_fillerweights
+            filler_count = round(unfilled_locations * filler_weight_ratio)
             for _ in range(filler_count):
                 self_itempool.append(self.create_item(filler))
 
@@ -77,11 +77,31 @@ class GrinchWorld(World):
         while len(self_itempool) < unfilled_locations:
             self_itempool.append(self.create_item(self.get_other_filler_item(list(MISC_ITEMS_TABLE.keys()))))
 
-        self.multiworld.itempool += self_itempool
-
         # for _ in range(unfilled_locations):
         #     self_itempool.append(self.create_item((self.get_other_filler_item(list(MISC_ITEMS_TABLE.keys())))))
         # self.multiworld.itempool += self_itempool
+
+        # Total available weight sum
+        if self.options.trap_percentage > 0:
+            total_trapweights = sum(self.options.trap_weight[trap] for trap in TRAPS_TABLE)
+
+            if total_trapweights <= 0:
+                raise Exception("ERROR: Traps are enabled, but all trap weights are zero or undefined")
+
+            # Total traps to generate (percentage of unfilled locations)
+            total_traps = round(unfilled_locations * (self.options.trap_percentage / 100))
+
+            for trap in TRAPS_TABLE:
+                trap_weight_ratio = self.options.trap_weight[trap] / total_trapweights
+                trap_count = round(total_traps * trap_weight_ratio)
+                for _ in range(trap_count):
+                    self_itempool.append(self.create_item(trap))
+
+            # Handle rounding differences
+            while len(self_itempool) < total_traps:
+                self_itempool.append(self.create_item(self.get_other_filler_item(list(TRAPS_TABLE.keys()))))
+
+        self.multiworld.itempool += self_itempool
 
     def set_rules(self):
         self.multiworld.completion_condition[self.player] = lambda state: state.has("Goal", self.player)

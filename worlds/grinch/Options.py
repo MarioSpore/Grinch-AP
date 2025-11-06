@@ -105,6 +105,26 @@ class FillerWeight(OptionCounter):
     }
     display_name = "Filler Weights"
 
+class TrapPercentage(Range):
+    """
+    Set a percentage of how many filler items are replaced with traps here.
+    """
+    display_name = "Trap Percentage"
+    range_start = 0
+    range_end = 100
+    default = 10
+
+class PerTrapWeight(OptionCounter):
+    """
+    Determines how often each filler item appears in the itempool
+    """
+    display_name = "Enabled Traps with Weight"
+    default = {
+        "Depletion Trap": 10,
+        "Dump it to Crumpit": 5,
+        "Who sent me back?": 10,
+    }
+
 @dataclass
 class GrinchOptions(PerGameCommonOptions):#DeathLinkMixin
     starting_area: StartingArea
@@ -119,3 +139,5 @@ class GrinchOptions(PerGameCommonOptions):#DeathLinkMixin
     ring_link: RingLinkOption
     trap_link: TrapLinkOption
     filler_weight: FillerWeight
+    trap_weight: PerTrapWeight
+    trap_percentage: TrapPercentage
