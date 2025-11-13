@@ -114,23 +114,23 @@ class GrinchClient(BizHawkClient):
                     + "There may be a slight delay to check you are not in demo mode before locations start to send."
                 )
 
-            if not self.loc_unlimited_eggs:
+                if not self.loc_unlimited_eggs:
 
-                self.ring_link_enabled = bool(ctx.slot_data["ring_link"])
+                    self.ring_link_enabled = bool(ctx.slot_data["ring_link"])
 
-                tags = copy.deepcopy(ctx.tags)
+                    tags = copy.deepcopy(ctx.tags)
 
-                if self.ring_link_enabled:
-                    ctx.tags.add("RingLink")
+                    if self.ring_link_enabled:
+                        ctx.tags.add("RingLink")
 
-                else:
-                    ctx.tags -= {"RingLink"}
+                    else:
+                        ctx.tags -= {"RingLink"}
 
-                if tags != ctx.tags:
-                    Utils.async_start(
-                        ctx.send_msgs([{"cmd": "ConnectUpdate", "tags": ctx.tags}]),
-                        "Update RingLink Tags",
-                    )
+                    if tags != ctx.tags:
+                        Utils.async_start(
+                            ctx.send_msgs([{"cmd": "ConnectUpdate", "tags": ctx.tags}]),
+                            "Update RingLink Tags",
+                        )
 
             case "Bounced":
                 if "tags" not in args:
