@@ -114,6 +114,8 @@ class GrinchClient(BizHawkClient):
                     + "There may be a slight delay to check you are not in demo mode before locations start to send."
                 )
 
+            if not self.loc_unlimited_eggs:
+
                 self.ring_link_enabled = bool(ctx.slot_data["ring_link"])
 
                 tags = copy.deepcopy(ctx.tags)
