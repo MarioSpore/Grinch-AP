@@ -18,7 +18,7 @@ from Options import (
 
 class StartingArea(Choice):
     """
-    Here, you can select which area you'll start the game with. [NOT IMPLEMENTED]
+    Here, you can select which area you'll start the game with.
     Whichever one you pick is the region you'll have access to at the start of the Multiworld.
     """
 
