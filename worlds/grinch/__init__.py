@@ -81,7 +81,7 @@ class GrinchWorld(World):
 
         # Adds gadgets
         for gadgets_added in GADGETS_TABLE:
-            if self.options.gadget_rando and gadgets_added in self.options.moves_to_randomize:
+            if self.options.gadget_rando and gadgets_added in self.options.gadgets_to_randomize:
                 self_itempool.append(self.create_item(gadgets_added))
             else:
                 self.multiworld.push_precollected(self.create_item(gadgets_added))
