@@ -1305,7 +1305,7 @@ grinch_locations = {
         1406,
         [
             GrinchRamData(0x01011, value=1),
-            GrinchRamData(0x0F84E4, value=72),
+            GrinchRamData(0x0F84E4, value=0x48),
         ],
     ),
     "MC - I hate Christmas!": GrinchLocationData(
@@ -1314,7 +1314,7 @@ grinch_locations = {
         1407,
         [
             GrinchRamData(0x01011, value=1),
-            GrinchRamData(0x0F84E4, value=56),
+            GrinchRamData(0x0F84E4, value=0x38),
         ],
     ),
     "MC - My heart is like a pea!": GrinchLocationData(
@@ -1323,7 +1323,7 @@ grinch_locations = {
         1408,
         [
             GrinchRamData(0x01011, value=1),
-            GrinchRamData(0x0F84E4, value=88),
+            GrinchRamData(0x0F84E4, value=0x58),
         ],
     ),
 }
