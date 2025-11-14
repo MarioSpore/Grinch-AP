@@ -439,33 +439,63 @@ rules_dict: dict[str, list[list[str]]] = {
     "WV - City Hall - Binoculars BP left side of Library": [
         [
             grinch_items.moves.SEIZE,
-        ]
+        ],
     ],
     "WV - City Hall - Binoculars BP front side of Library": [
         [
             grinch_items.moves.SEIZE,
-        ]
+        ],
     ],
     "WV - City Hall - Binoculars BP right side of Library": [
         [
             grinch_items.moves.SEIZE,
-        ]
+        ],
     ],
     "WV - REL BP left of City Hall": [[]],
     "WV - REL BP left of Clock Tower": [[]],
-    "WV - Post Office - REL BP inside Silver Room": [[]],
-    "WV - Post Office - REL BP at Entrance Door after Mission Completion": [[]],
-    "WV - City Hall - GC BP in Safe Room": [[]],
-    "WV - City Hall - GC BP in Statue Room": [[]],
+    "WV - Post Office - REL BP inside Silver Room": [
+        [
+            grinch_items.moves.MAX
+        ],
+    ],
+    "WV - Post Office - REL BP at Entrance Door after Mission Completion": [
+        [
+            grinch_items.moves.MAX
+        ],
+    ],
+    "WV - City Hall - GC BP in Safe Room": [
+        [
+            grinch_items.moves.SNEAK
+        ],
+        [
+            grinch_items.gadgets.SLIME_SHOOTER
+        ],
+        [
+            grinch_items.gadgets.GRINCH_COPTER
+        ],
+    ],
+    "WV - City Hall - GC BP in Statue Room": [
+        [
+            grinch_items.moves.SNEAK
+        ],
+        [
+            grinch_items.gadgets.SLIME_SHOOTER
+        ],
+        [
+            grinch_items.gadgets.GRINCH_COPTER
+        ],
+    ],
     "WV - Clock Tower - GC BP in Bedroom": [
-        [grinch_items.gadgets.ROCKET_SPRING]
-        # "move_rando"
-        #   [MX, grinch_items.gadgets.ROCKET_SPRING]
+        [
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.MAX,
+        ],
     ],
     "WV - Clock Tower - GC BP in Bell Room": [
         [
             grinch_items.gadgets.ROCKET_SPRING,
-        ]
+            grinch_items.moves.MAX,
+        ],
     ],
     # Who Forest Blueprints
     "WF - RS BP behind Vacuum Tube": [[]],
@@ -488,129 +518,155 @@ rules_dict: dict[str, list[list[str]]] = {
         [
             grinch_items.gadgets.ROCKET_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.BAD_BREATH,
         ],
         [
             grinch_items.gadgets.ROCKET_EGG_LAUNCHER,
             grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.BAD_BREATH,
         ],
     ],
     "WF - SS BP in Branch Platform House next to Beast": [
         [
             grinch_items.gadgets.ROCKET_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.BAD_BREATH,
         ],
         [
             grinch_items.gadgets.ROCKET_EGG_LAUNCHER,
             grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.BAD_BREATH,
         ],
     ],
     "WF - SS BP in House in front of Civic Center Cave": [
         [
             grinch_items.gadgets.ROCKET_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.BAD_BREATH,
         ],
         [
             grinch_items.gadgets.ROCKET_EGG_LAUNCHER,
             grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.BAD_BREATH,
         ],
     ],
     "WF - SS BP in House next to Tree House": [
         [
             grinch_items.gadgets.ROCKET_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.BAD_BREATH,
         ],
         [
             grinch_items.gadgets.ROCKET_EGG_LAUNCHER,
             grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.BAD_BREATH,
         ],
     ],
     "WF - SS BP in House across from Tree House": [
         [
             grinch_items.gadgets.ROCKET_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.BAD_BREATH,
         ],
         [
             grinch_items.gadgets.ROCKET_EGG_LAUNCHER,
             grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.BAD_BREATH,
         ],
     ],
     "WF - SS BP in 2nd House near Vacuum Tube Right Side": [
         [
             grinch_items.gadgets.ROCKET_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.BAD_BREATH,
         ],
         [
             grinch_items.gadgets.ROCKET_EGG_LAUNCHER,
             grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.BAD_BREATH,
         ],
     ],
     "WF - SS BP in 2nd House near Vacuum Tube Left Side": [
         [
             grinch_items.gadgets.ROCKET_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.BAD_BREATH,
         ],
         [
             grinch_items.gadgets.ROCKET_EGG_LAUNCHER,
             grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.BAD_BREATH,
         ],
     ],
     "WF - SS BP in 2nd House near Vacuum Tube inbetween Blueprints": [
         [
             grinch_items.gadgets.ROCKET_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.BAD_BREATH,
         ],
         [
             grinch_items.gadgets.ROCKET_EGG_LAUNCHER,
             grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.BAD_BREATH,
         ],
     ],
     "WF - SS BP in House near Vacuum Tube": [
         [
             grinch_items.gadgets.ROCKET_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.BAD_BREATH,
         ],
         [
             grinch_items.gadgets.ROCKET_EGG_LAUNCHER,
             grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.BAD_BREATH,
         ],
     ],
     "WF - Ski Resort - GC BP inside Dog's Fence": [
         [
             grinch_items.gadgets.ROCKET_EGG_LAUNCHER,
-        ]
+        ],
     ],
     "WF - Ski Resort - GC BP in Max Cave": [
         [
             grinch_items.gadgets.SLIME_SHOOTER,
-        ]
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.MAX,
+        ],
     ],
     "WF - Civic Center - GC BP on Left Side in Bat Cave Wall": [
         [
             grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.SNEAK,
         ],
         [
             grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
             grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SNEAK,
         ],
     ],
     "WF - Civic Center - GC BP in Frozen Ice": [
         [
             grinch_items.gadgets.ROCKET_EGG_LAUNCHER,
             grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.SNEAK,
         ],
         [
             grinch_items.gadgets.ROCKET_EGG_LAUNCHER,
             grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
             grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SNEAK,
         ],
         [
             grinch_items.gadgets.SLIME_SHOOTER,
             grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.SNEAK,
         ],
         [
             grinch_items.gadgets.SLIME_SHOOTER,
             grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
             grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SNEAK,
         ],
     ],
     # Who Dump Blueprints
@@ -618,84 +674,104 @@ rules_dict: dict[str, list[list[str]]] = {
         [
             grinch_items.gadgets.ROCKET_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
         ],
         [
             grinch_items.gadgets.ROCKET_EGG_LAUNCHER,
             grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
         ],
         [
             grinch_items.gadgets.SLIME_SHOOTER,
             grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
         ],
         [
             grinch_items.gadgets.SLIME_SHOOTER,
             grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
         ],
     ],
     "WD - OCD BP inside Pipe on Minefield side": [
         [
             grinch_items.gadgets.ROCKET_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
         ],
         [
             grinch_items.gadgets.ROCKET_EGG_LAUNCHER,
             grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
         ],
     ],
     "WD - OCD BP in Vent to Mayor's House": [
         [
             grinch_items.gadgets.ROCKET_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
         ],
         [
             grinch_items.gadgets.ROCKET_EGG_LAUNCHER,
             grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
         ],
     ],
     "WD - OCD BP inside Pipe on Power Plant side": [
         [
             grinch_items.gadgets.ROCKET_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
         ],
         [
             grinch_items.gadgets.ROCKET_EGG_LAUNCHER,
             grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
         ],
         [
             grinch_items.gadgets.SLIME_SHOOTER,
             grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
         ],
         [
             grinch_items.gadgets.SLIME_SHOOTER,
             grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
         ],
     ],
     "WD - OCD BP near Right Side of Power Plant Wall": [
         [
             grinch_items.gadgets.ROCKET_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
         ],
         [
             grinch_items.gadgets.ROCKET_EGG_LAUNCHER,
             grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
         ],
         [
             grinch_items.gadgets.SLIME_SHOOTER,
             grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
         ],
         [
             grinch_items.gadgets.SLIME_SHOOTER,
             grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
         ],
     ],
     "WD - OCD BP near Who-Bris' Shack": [
         [
             grinch_items.gadgets.ROCKET_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.SEIZE,
         ]
     ],
     "WD - Minefield - OCD BP on Left Side of House": [
-        []
+        [
+            grinch_items.gadgets.ROTT
+        ],
         # "move_rando"
         # [grinch_items.gadgets.ROCKET_EGG_LAUNCHER, grinch_items.gadgets.GRINCH_COPTER],
         # [grinch_items.gadgets.ROCKET_EGG_LAUNCHER, grinch_items.gadgets.SLIME_SHOOTER, grinch_items.gadgets.ROCKET_SPRING]
