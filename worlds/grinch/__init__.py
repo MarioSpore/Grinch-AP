@@ -87,18 +87,17 @@ class GrinchWorld(World):
                 self.multiworld.push_precollected(self.create_item(gadgets_added))
 
         for vacuums_added in KEYS_TABLE:
-            if self.options.starting_area == 0:
+            if self.options.starting_area.value == 0:
                 self.multiworld.push_precollected(self.create_item("Whoville Vacuum Tube"))
-                self_itempool.append(self.create_item(vacuums_added))
-            elif self.options.starting_area == 1:
+            elif self.options.starting_area.value == 1:
                 self.multiworld.push_precollected(self.create_item("Who Forest Vacuum Tube"))
-                self_itempool.append(self.create_item(vacuums_added))
-            elif self.options.starting_area == 2:
+            elif self.options.starting_area.value == 2:
                 self.multiworld.push_precollected(self.create_item("Who Dump Vacuum Tube"))
-                self_itempool.append(self.create_item(vacuums_added))
-            elif self.options.starting_area == 3:
+            elif self.options.starting_area.value == 3:
                 self.multiworld.push_precollected((self.create_item("Who Lake Vacuum Tube")))
+            else:
                 self_itempool.append(self.create_item(vacuums_added))
+
 
 
         # Get number of current unfilled locations
