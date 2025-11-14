@@ -13,6 +13,8 @@ from Options import (
     PerGameCommonOptions,
     OptionSet,
     OptionCounter,
+    StartInventoryPool,
+    # DeathLinkMixin
 )
 
 
@@ -239,3 +241,4 @@ class GrinchOptions(PerGameCommonOptions):  # DeathLinkMixin
     filler_weight: FillerWeight
     trap_percentage: TrapPercentage
     trap_weight: TrapWeight
+    start_inventory_from_pool: StartInventoryPool
