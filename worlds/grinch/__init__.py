@@ -95,6 +95,7 @@ class GrinchWorld(World):
             else:
                 self.multiworld.push_precollected(self.create_item(gadgets_added))
 
+        # When the starting area is chosen, add the key to the starting inventory.
         if self.options.starting_area.value == 0:
             self.multiworld.push_precollected(self.create_item("Whoville Vacuum Tube"))
         elif self.options.starting_area.value == 1:
@@ -112,7 +113,7 @@ class GrinchWorld(World):
             if vacuums_added not in player_starting_inventory:
                 self_itempool.append(self.create_item(vacuums_added))
 
-        #Get number of current unfilled locations
+        # Get number of current unfilled locations
         unfilled_locations: int = len(self.multiworld.get_unfilled_locations(self.player)) - len(self_itempool)
         trap_locations: int = int(math.floor(unfilled_locations * (self.options.trap_percentage / 100)))
         filler_locations = unfilled_locations - trap_locations
@@ -130,7 +131,6 @@ class GrinchWorld(World):
                 list(self.options.filler_weight.keys()), list(self.options.filler_weight.values()))[0]))
         # else:
         # self_itempool.append(self.create_item("5 Rotten Eggs"))
-
 
         self.multiworld.itempool += self_itempool
 
