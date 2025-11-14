@@ -770,12 +770,15 @@ rules_dict: dict[str, list[list[str]]] = {
     ],
     "WD - Minefield - OCD BP on Left Side of House": [
         [
-            grinch_items.gadgets.ROTT
+            grinch_items.gadgets.GRINCH_COPTER,
         ],
-        # "move_rando"
-        # [grinch_items.gadgets.ROTTEN_EGG_LAUNCHER, grinch_items.gadgets.GRINCH_COPTER],
-        # [grinch_items.gadgets.ROTTEN_EGG_LAUNCHER, grinch_items.gadgets.SLIME_SHOOTER, grinch_items.gadgets.ROCKET_SPRING]
-        # [MX]
+        [
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.gadgets.ROCKET_SPRING,
+        ],
+        [
+            grinch_items.moves.MAX,
+        ],
     ],
     "WD - Minefield - OCD BP on Right Side of Shack": [
         [
@@ -787,27 +790,31 @@ rules_dict: dict[str, list[list[str]]] = {
         ],
     ],
     "WD - Minefield - OCD BP inside Guardian's House": [
-        []
-        # "move_rando"
-        # [grinch_items.gadgets.ROTTEN_EGG_LAUNCHER, grinch_items.gadgets.GRINCH_COPTER],
-        # [grinch_items.gadgets.ROTTEN_EGG_LAUNCHER, grinch_items.gadgets.SLIME_SHOOTER, grinch_items.gadgets.ROCKET_SPRING]
-        # [MX]
+        [
+            grinch_items.gadgets.GRINCH_COPTER,
+        ],
+        [
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.gadgets.ROCKET_SPRING,
+        ],
+        [
+            grinch_items.moves.MAX,
+        ],
     ],
     "WD - Power Plant - GC BP in Max Cave": [
-        []
-        # "move_rando"
-        # [MX]
+        [
+            grinch_items.moves.MAX,
+        ],
     ],
     "WD - Power Plant - GC BP After First Gate": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.MAX,
         ],
         [
             grinch_items.gadgets.GRINCH_COPTER,
         ],
-        # "move_rando"
-        #   [MX, grinch_items.gadgets.ROTTEN_EGG_LAUNCHER, grinch_items.gadgets.ROCKET_SPRING]
     ],
     "WD - Generator Building - GC BP on the Highest Platform": [
         [
@@ -834,66 +841,98 @@ rules_dict: dict[str, list[list[str]]] = {
         ],
     ],
     # Who Lake Blueprints
-    "WL - South Shore - MM BP on Bridge to Scout's Hut": [[]],
-    "WL - South Shore - MM BP across from Tent near Porcupine": [[]],
-    "WL - South Shore - MM BP near Outhouse": [[]],
-    "WL - South Shore - MM BP near Hill Bridge": [[]],
+    "WL - South Shore - MM BP on Bridge to Scout's Hut": [
+        [
+            grinch_items.moves.MAX,
+        ],
+            grinch_items.moves.SNEAK,
+    ],
+    "WL - South Shore - MM BP across from Tent near Porcupine": [
+        [
+            grinch_items.moves.MAX,
+        ],
+            grinch_items.moves.SNEAK,
+    ],
+    "WL - South Shore - MM BP near Outhouse": [
+        [
+            grinch_items.moves.MAX,
+        ],
+            grinch_items.moves.SNEAK,
+    ],
+    "WL - South Shore - MM BP near Hill Bridge": [
+        [
+            grinch_items.moves.MAX,
+        ],
+            grinch_items.moves.SNEAK,
+    ],
     "WL - South Shore - MM BP on Scout's Hut Roof": [
         [
             grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SNEAK,
         ],
         [
             grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.SNEAK,
         ],
     ],
     "WL - South Shore - MM BP on Grass Platform": [
         [
             grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SNEAK,
         ],
         [
             grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.SNEAK,
         ],
     ],
     "WL - South Shore - MM BP across Zipline Platform": [
         [
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.moves.SNEAK,
         ],
         [
             grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.SNEAK,
         ],
     ],
     "WL - South Shore - MM BP behind Summer Beast": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.moves.SNEAK,
         ],
         [
             grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.SNEAK,
         ],
     ],
     "WL - North Shore - MM BP below Bridge": [[]],
     "WL - North Shore - MM BP behind Skunk Hut": [[]],
     "WL - North Shore - MM BP inside Skunk Hut": [
-        []
-        # "move_rando"
-        # [MX]
+        [
+            grinch_items.moves.MAX,
+        ],
     ],
     "WL - North Shore - MM BP inside House's Fence": [
-        []
-        # "move_rando"
-        # [MX]
-    ],
-    "WL - North Shore - MM BP inside Boulder Box near Bridge": [[]],
-    "WL - North Shore - MM BP inside Boulder Box behind Skunk Hut": [[]],
-    "WL - North Shore - MM BP inside Drill House": [[]],
-    "WL - North Shore - MM BP on Crow Platform near Drill House": [[]],
-    "WL - Submarine World - GC BP Just Below Water Surface": [[grinch_items.gadgets.MARINE_MOBILE]],
-    "WL - Submarine World - GC BP Underwater": [
         [
-            grinch_items.gadgets.MARINE_MOBILE,
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "WL - North Shore - MM BP inside Boulder Box near Bridge": [
+        [
+            grinch_items.moves.SEIZE,
         ]
     ],
+    "WL - North Shore - MM BP inside Boulder Box behind Skunk Hut": [
+        [
+            grinch_items.moves.SEIZE,
+        ]
+    ],
+    "WL - North Shore - MM BP inside Drill House": [[]],
+    "WL - North Shore - MM BP on Crow Platform near Drill House": [[]],
+    "WL - Submarine World - GC BP Just Below Water Surface": [[]],
+    "WL - Submarine World - GC BP Underwater": [[]],
     "WL - Mayor's Villa - GC BP on Tree Branch": [
         [
             grinch_items.gadgets.GRINCH_COPTER,
@@ -901,6 +940,7 @@ rules_dict: dict[str, list[list[str]]] = {
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
         ],
     ],
     "WL - Mayor's Villa - GC BP in Pirate's Cave": [
@@ -910,6 +950,7 @@ rules_dict: dict[str, list[list[str]]] = {
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
         ],
     ],
     # Finale
@@ -989,13 +1030,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROCKET_SPRING,
         ],
     ],
-    "WL - North Shore - Heart of Stone": [
-        [
-            grinch_items.moves.MAX,
-        ]
-        # "move_rando"
-        # [MX]
-    ],
+    "WL - North Shore - Heart of Stone": [[]],
     # Supadows
     "Spin N' Win - Easy": [[]],
     "Spin N' Win - Hard": [[]],
