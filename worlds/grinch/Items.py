@@ -45,7 +45,7 @@ def get_item_names_per_category() -> dict[str, set[str]]:
 class grinch_items:
     class gadgets:
         BINOCULARS: str = "Binoculars"
-        ROCKET_EGG_LAUNCHER: str = "Rotten Egg Launcher"
+        ROTTEN_EGG_LAUNCHER: str = "Rotten Egg Launcher"
         ROCKET_SPRING: str = "Rocket Spring"
         SLIME_SHOOTER: str = "Slime Shooter"
         OCTOPUS_CLIMBING_DEVICE: str = "Octopus Climbing Device"
@@ -118,7 +118,7 @@ GADGETS_TABLE: dict[str, GrinchItemData] = {
             # GrinchRamData(0x0100BC, binary_bit_pos=0)
         ],
     ),
-    grinch_items.gadgets.ROCKET_EGG_LAUNCHER: GrinchItemData(
+    grinch_items.gadgets.ROTTEN_EGG_LAUNCHER: GrinchItemData(
         [grinch_categories.GADGETS],
         101,
         IC.progression,
