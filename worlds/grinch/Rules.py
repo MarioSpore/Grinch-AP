@@ -1048,32 +1048,53 @@ rules_dict: dict[str, list[list[str]]] = {
     "MC - 1st Crate Squashed": [
         [
             grinch_items.moves.PANCAKE,
-        ]
+        ],
     ],
     "MC - 2nd Crate Squashed": [
         [
             grinch_items.moves.PANCAKE,
-        ]
+        ],
     ],
     "MC - 3rd Crate Squashed": [
         [
             grinch_items.moves.PANCAKE,
-        ]
+        ],
     ],
     "MC - 4th Crate Squashed": [
         [
             grinch_items.moves.PANCAKE,
-        ]
+        ],
     ],
     "MC - 5th Crate Squashed": [
         [
             grinch_items.moves.PANCAKE,
-        ]
+        ],
     ],
     "MC - Interact with the Telescope": [[]],
     "MC - I hate Whos!": [[]],
     "MC - I hate Christmas!": [[]],
     "MC - My heart is like a pea!": [[]],
+    "MC - Move Boulder": [
+        [
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.SEIZE,
+        ],
+    ],
+    "MC - Collect Max Door Key": [
+        [
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.SEIZE,
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "MC - Open Door with Breath Analyzer": [
+        [
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.SEIZE,
+            grinch_items.moves.MAX,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
     # "Green Present": [
     #     []
     # ],

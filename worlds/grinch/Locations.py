@@ -1326,6 +1326,30 @@ grinch_locations = {
             GrinchRamData(0x0F84E4, value=0x58),
         ],
     ),
+    "MC - Move Boulder": GrinchLocationData(
+        "Mount Crumpit",
+        ["Mount Crumpit"],
+        1409,
+        [
+            GrinchRamData(0x0101FE, binary_bit_pos=3),
+        ],
+    ),
+    "MC - Collect Max Door Key": GrinchLocationData(
+        "Mount Crumpit",
+        ["Mount Crumpit"],
+        1410,
+        [
+            GrinchRamData(0x0101FE, binary_bit_pos=4),
+        ],
+    ),
+    "MC - Open Door with Breath Analyzer": GrinchLocationData(
+        "Mount Crumpit",
+        ["Mount Crumpit"],
+        1411,
+        [
+            GrinchRamData(0x0101FE, binary_bit_pos=5),
+        ],
+    ),
 }
 
 
