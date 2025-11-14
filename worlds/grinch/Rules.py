@@ -1070,6 +1070,10 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.PANCAKE,
         ]
     ],
+    "MC - Interact with the Telescope": [[]],
+    "MC - I hate Whos!": [[]],
+    "MC - I hate Christmas!": [[]],
+    "MC - My heart is like a pea!": [[]],
     # "Green Present": [
     #     []
     # ],

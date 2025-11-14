@@ -1291,6 +1291,41 @@ grinch_locations = {
             GrinchRamData(0x095343, value=5),
         ],
     ),
+    "MC - Interact with the Telescope": GrinchLocationData(
+        "Mount Crumpit",
+        ["Mount Crumpit"],
+        1405,
+        [
+            GrinchRamData(0x01011, value=1),
+        ],
+    ),
+    "MC - I hate whos!": GrinchLocationData(
+        "Mount Crumpit",
+        ["Mount Crumpit"],
+        1406,
+        [
+            GrinchRamData(0x01011, value=1),
+            GrinchRamData(0x0F84E4, value=72),
+        ],
+    ),
+    "MC - I hate Christmas!": GrinchLocationData(
+        "Mount Crumpit",
+        ["Mount Crumpit"],
+        1407,
+        [
+            GrinchRamData(0x01011, value=1),
+            GrinchRamData(0x0F84E4, value=56),
+        ],
+    ),
+    "MC - My heart is like a pea!": GrinchLocationData(
+        "Mount Crumpit",
+        ["Mount Crumpit"],
+        1408,
+        [
+            GrinchRamData(0x01011, value=1),
+            GrinchRamData(0x0F84E4, value=88),
+        ],
+    ),
 }
 
 
