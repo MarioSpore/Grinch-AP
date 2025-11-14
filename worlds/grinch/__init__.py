@@ -86,16 +86,22 @@ class GrinchWorld(World):
             else:
                 self.multiworld.push_precollected(self.create_item(gadgets_added))
 
-        for vacuums_added in KEYS_TABLE:
-            if self.options.starting_area.value == 0:
-                self.multiworld.push_precollected(self.create_item("Whoville Vacuum Tube"))
-            elif self.options.starting_area.value == 1:
-                self.multiworld.push_precollected(self.create_item("Who Forest Vacuum Tube"))
-            elif self.options.starting_area.value == 2:
-                self.multiworld.push_precollected(self.create_item("Who Dump Vacuum Tube"))
-            elif self.options.starting_area.value == 3:
-                self.multiworld.push_precollected((self.create_item("Who Lake Vacuum Tube")))
-            else:
+
+        if self.options.starting_area.value == 0:
+            self.multiworld.push_precollected(self.create_item("Whoville Vacuum Tube"))
+        elif self.options.starting_area.value == 1:
+            self.multiworld.push_precollected(self.create_item("Who Forest Vacuum Tube"))
+        elif self.options.starting_area.value == 2:
+            self.multiworld.push_precollected(self.create_item("Who Dump Vacuum Tube"))
+        elif self.options.starting_area.value == 3:
+            self.multiworld.push_precollected((self.create_item("Who Lake Vacuum Tube")))
+
+        # Precollected items is stored per player. First, we must get the current player's starting inventory.
+        # From here, we get an AP item list. But, we only care about the name. So we get a list of strings as a result.
+        player_starting_inventory: list[str] = [item.name for item in self.multiworld.precollected_items[self.player]]
+
+        for vacuums_added in KEYS_TABLE.keys():
+            if vacuums_added not in player_starting_inventory:
                 self_itempool.append(self.create_item(vacuums_added))
 
 
