@@ -61,7 +61,9 @@ class GrinchWorld(World):
                     self_itempool.append(self.create_item(item))
 
         #Get number of current unfilled locations
-        unfilled_locations: int = len(self.multiworld.get_unfilled_locations(self.player)) - len(ALL_ITEMS_TABLE.keys()) - 3
+        unfilled_locations: int = (
+            len(self.multiworld.get_unfilled_locations(self.player)) - len(self_itempool)
+        )
 
         # Total available weight sum
         total_fillerweights = sum(self.options.filler_weight[filler] for filler in MISC_ITEMS_TABLE)
