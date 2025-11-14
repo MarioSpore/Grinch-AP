@@ -1299,7 +1299,7 @@ grinch_locations = {
             GrinchRamData(0x01011, value=1),
         ],
     ),
-    "MC - I hate whos!": GrinchLocationData(
+    "MC - I hate Whos!": GrinchLocationData(
         "Mount Crumpit",
         ["Mount Crumpit"],
         1406,
