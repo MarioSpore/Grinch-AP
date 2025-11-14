@@ -33,8 +33,16 @@ class GrinchWorld(World):
 
     def generate_early(self) -> None: #Special conditions changed before generation occurs
         if self.options.ring_link == 1 and self.options.unlimited_eggs == 1:
-            raise OptionError("Cannot enable both unlimited rotten eggs and ring links. You can only enable one of these at a time." +
-                                      f"The following player's YAML needs to be fixed: {self.player_name}")
+            raise OptionError("Cannot enable both unlimited rotten eggs and ring links. You can only enable one of " +
+                f"these at a time. The following player's YAML needs to be fixed: {self.player_name}")
+
+        # Total available weight sum of filler items.
+        # If this is 0, it means no filler was provided by the user, which will cause generation errors as there will
+        #   be not enough items for all defined locations. Later this can be changed to default item and this get removed.
+        total_fillerweights = sum(self.options.filler_weight[filler] for filler in self.options.filler_weight.keys())
+        if total_fillerweights <= 0:
+            raise OptionError("Cannot begin generation as no filler options are defined. At least one filler item " +
+                f"must have a weight of at least 1. The following player's YAML needs to be fixed: {self.player_name}")
 
 
     def create_regions(self): #Generates all regions for the multiworld
@@ -63,46 +71,22 @@ class GrinchWorld(World):
                     self_itempool.append(self.create_item(item))
 
         #Get number of current unfilled locations
-        unfilled_locations: int = (
-            len(self.multiworld.get_unfilled_locations(self.player)) - len(self_itempool)
-        )
+        unfilled_locations: int = len(self.multiworld.get_unfilled_locations(self.player)) - len(self_itempool)
+        trap_locations: int = int(math.floor(unfilled_locations * (self.options.trap_percentage / 100)))
+        filler_locations = unfilled_locations - trap_locations
 
-        filler_locations: int = math.floor(unfilled_locations * (1 - (self.options.trap_percentage / 100)))
-        trap_locations: int = math.floor(unfilled_locations * (self.options.trap_percentage / 100))
+        # If trap_locations is 0, this will automatically get skipped
+        for _ in range(trap_locations):
+            self_itempool.append(self.create_item(self.random.choices(
+                list(self.options.trap_weight.keys()), list(self.options.trap_weight.values()))[0]))
 
-        # This catches the extra 1 or 2 unfilled_locations that come up from the math.floor()
-        extra_locations = unfilled_locations - (filler_locations + trap_locations)
-        filler_locations += extra_locations
-
-        # Total available weight sum
-        total_fillerweights = sum(self.options.filler_weight[filler] for filler in MISC_ITEMS_TABLE)
-
-        # Fill remaining locations according to weight ratio
-        for filler in MISC_ITEMS_TABLE:
-            # This ratio is a decimal between 0 and 1, and when multiplied by 100 is the % of that filler
-            # item in the available unfilled locations
-            filler_weight_ratio = self.options.filler_weight[filler] / total_fillerweights
-            filler_count = round(filler_locations * filler_weight_ratio)
-
-            for _ in range(filler_count):
-                self_itempool.append(self.create_item(filler))
-
-        # # Make sure we don't underfill (in case of rounding losses)
-        # while len(self_itempool) < unfilled_locations:
-        #     self_itempool.append(self.create_item(self.get_other_filler_item(list(MISC_ITEMS_TABLE.keys()))))
-
-        # Total available weight sum
-        if self.options.trap_percentage > 0:
-            total_trapweights = sum(self.options.trap_weight[trap] for trap in TRAPS_TABLE)
-
-            if self.options.trap_percentage > 0 and total_trapweights <= 0:
-                raise Exception("ERROR: Traps are enabled, but all trap weights are zero or undefined")
-
-            for trap in TRAPS_TABLE:
-                trap_weight_ratio = self.options.trap_weight[trap] / total_trapweights
-                trap_count = round(trap_locations * trap_weight_ratio)
-                for _ in range(trap_count):
-                    self_itempool.append(self.create_item(trap))
+        # total_fillerweights = sum(self.options.filler_weight[filler] for filler in self.options.filler_weight.keys())
+        for _ in range(filler_locations):
+            # if total_fillerweights > 0:
+                self_itempool.append(self.create_item(self.random.choices(
+                    list(self.options.filler_weight.keys()), list(self.options.filler_weight.values()))[0]))
+            # else:
+                # self_itempool.append(self.create_item("5 Rotten Eggs"))
 
         self.multiworld.itempool += self_itempool
 
