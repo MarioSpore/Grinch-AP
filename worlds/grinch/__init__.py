@@ -1,3 +1,5 @@
+import math
+
 from BaseClasses import Region, Item, ItemClassification
 from .Locations import grinch_locations_to_id, grinch_locations, GrinchLocation, get_location_names_per_category
 from .Items import grinch_items_to_id, GrinchItem, ALL_ITEMS_TABLE, MISC_ITEMS_TABLE, get_item_names_per_category, TRAPS_TABLE
@@ -65,45 +67,45 @@ class GrinchWorld(World):
             len(self.multiworld.get_unfilled_locations(self.player)) - len(self_itempool)
         )
 
+        filler_locations: int = math.floor(unfilled_locations * (1 - (self.options.trap_percentage / 100)))
+        trap_locations: int = math.floor(unfilled_locations * (self.options.trap_percentage / 100))
+
+        # This catches the extra 1 or 2 unfilled_locations that come up from the math.floor()
+        extra_locations = unfilled_locations - (filler_locations + trap_locations)
+        filler_locations += extra_locations
+
         # Total available weight sum
         total_fillerweights = sum(self.options.filler_weight[filler] for filler in MISC_ITEMS_TABLE)
 
         # Fill remaining locations according to weight ratio
         for filler in MISC_ITEMS_TABLE:
+            # This ratio is a decimal between 0 and 1, and when multiplied by 100 is the % of that filler
+            # item in the available unfilled locations
             filler_weight_ratio = self.options.filler_weight[filler] / total_fillerweights
-            filler_count = round(unfilled_locations * filler_weight_ratio)
+            filler_count = round(filler_locations * filler_weight_ratio)
+
             for _ in range(filler_count):
                 self_itempool.append(self.create_item(filler))
 
-        # Make sure we don't underfill (in case of rounding losses)
-        while len(self_itempool) < unfilled_locations:
-            self_itempool.append(self.create_item(self.get_other_filler_item(list(MISC_ITEMS_TABLE.keys()))))
-
-        # for _ in range(unfilled_locations):
-        #     self_itempool.append(self.create_item((self.get_other_filler_item(list(MISC_ITEMS_TABLE.keys())))))
-        # self.multiworld.itempool += self_itempool
+        # # Make sure we don't underfill (in case of rounding losses)
+        # while len(self_itempool) < unfilled_locations:
+        #     self_itempool.append(self.create_item(self.get_other_filler_item(list(MISC_ITEMS_TABLE.keys()))))
 
         # Total available weight sum
         if self.options.trap_percentage > 0:
             total_trapweights = sum(self.options.trap_weight[trap] for trap in TRAPS_TABLE)
 
-            if total_trapweights <= 0:
+            if self.options.trap_percentage > 0 and total_trapweights <= 0:
                 raise Exception("ERROR: Traps are enabled, but all trap weights are zero or undefined")
-
-            # Total traps to generate (percentage of unfilled locations)
-            total_traps = round(unfilled_locations * (self.options.trap_percentage / 100))
 
             for trap in TRAPS_TABLE:
                 trap_weight_ratio = self.options.trap_weight[trap] / total_trapweights
-                trap_count = round(total_traps * trap_weight_ratio)
+                trap_count = round(trap_locations * trap_weight_ratio)
                 for _ in range(trap_count):
                     self_itempool.append(self.create_item(trap))
 
-            # Handle rounding differences
-            while len(self_itempool) < total_traps:
-                self_itempool.append(self.create_item(self.get_other_filler_item(list(TRAPS_TABLE.keys()))))
-
         self.multiworld.itempool += self_itempool
+
 
     def set_rules(self):
         self.multiworld.completion_condition[self.player] = lambda state: state.has("Goal", self.player)
