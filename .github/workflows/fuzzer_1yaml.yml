@@ -1,0 +1,21 @@
+name: fuzzer_1yaml
+on:
+  workflow_dispatch:
+
+jobs:
+  fuzz:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-python@v5
+      with:
+        python-version: "~3.12.6"
+        cache: pip
+    - name: Fuzzer-Check-1-yml
+      uses: Eijebong/ap-actions/fuzz@main
+      with:
+        apworld-path: worlds/grinch
+        ap-version: '0.6.3'
+        python-version: '3.12'
+        runs: 15000
+        yamls-per-run: 1
