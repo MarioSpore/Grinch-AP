@@ -234,7 +234,7 @@ class GrinchClient(BizHawkClient):
         locations_sent_to_ap: set[int] = await ctx.check_locations(local_locations_checked)
 
         if len(locations_sent_to_ap) > 0:
-            await self.remove_physical_items(ctx)
+            await self.constant_address_update(ctx)
 
         ctx.locations_checked = set(local_locations_checked)
 
@@ -337,8 +337,8 @@ class GrinchClient(BizHawkClient):
                 goal_ram_data.endian,
             )
 
-            if (current_ram_address_value & (1 << goal_ram_data.binary_bit_pos)) > 0:
-                # if current_ram_address_value == goal_ram_address.value:
+            # if (current_ram_address_value & (1 << goal_ram_data.binary_bit_pos)) > 0:
+            if current_ram_address_value == goal_ram_data.value:
                 ctx.finished_game = True
                 await ctx.send_msgs(
                     [
@@ -501,7 +501,10 @@ class GrinchClient(BizHawkClient):
         )
 
         # If not in game or at a menu, or loading the publisher logos
-        if ingame_map_id <= 0x04 or ingame_map_id == 0x35 or ingame_map_id == 0x36 or ingame_map_id == 0x37:
+        if (ingame_map_id <= 0x04 or
+                ingame_map_id == 0x35 or
+                ingame_map_id == 0x36 or
+                ingame_map_id == 0x37):
             self.ingame_log = False
             return False
 
