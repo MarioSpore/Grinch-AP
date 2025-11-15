@@ -67,13 +67,14 @@ class ExcludeEnvironments(OptionSet):
 
     WARNING: Removing too many environments may cause generation to fail.
 
-    Valid keys: "Whoville", "Who Forest", "Who Dump", "Who Lake", "Post Office", "Clock Tower", "City Hall",
-                  "Ski Resort", "Civic Center", "Minefield", "Power Plant", "Generator Building", "Scout's Hut",
-                  "North Shore", "Mayor's Villa", "Sleigh Ride"
+    Valid keys: "Mount Crumpit, "Whoville", "Who Forest", "Who Dump", "Who Lake", "Post Office", "Clock Tower",
+                "City Hall", "Ski Resort", "Civic Center", "Minefield", "Power Plant", "Generator Building",
+                "Scout's Hut", "North Shore", "Mayor's Villa", "Sleigh Ride"
     """
 
     display_name = "Exclude Environments"
     valid_keys = {
+        "Mount Crumpit"
         "Whoville",
         "Who Forest",
         "Who Dump",
@@ -129,7 +130,7 @@ class Gadgetrando(DefaultOnToggle):
 
 class Gadgetrandolist(OptionSet):
     """
-    If "Randomize Gadgets" is enabled, gadgets that you add to the dictionary will be randomized. [NOT IMPLEMENTED]
+    If "Randomize Gadgets" is enabled, gadgets that you add to the dictionary will be randomized.
     """
 
     display_name = "Gadgets Randomized"
@@ -146,13 +147,17 @@ class Gadgetrandolist(OptionSet):
 class Moverando(Toggle):
     """
     Determines whether the Grinch's moves will be randomized or not.
+
+    NOTE: Tutorial section would be logical linearly and vacuum tubes would still be logical. To access them, you can use
+    /dumpittocrumpit command to directly teleport you to the main lobby. And to teleport back to the top, type
+    /tutorialworld to be warped back up so you can access their checks.
     """
 
     display_name = "Randomize Moves"
 
 class Moverandolist(OptionSet):
     """
-    If "Randomize Moves" is enabled, the Grinch's moves that you add to the dictionary will be randomized. [NOT IMPLEMENTED]
+    If "Randomize Moves" is enabled, the Grinch's moves that you add to the dictionary will be randomized.
     """
 
     display_name = "Moves Randomized"
@@ -190,7 +195,7 @@ class TrapLinkOption(Toggle):
 
 class FillerWeight(OptionCounter):
     """
-    Determines which filler is added to the pool. [NOT IMPLEMENTED]
+    Determines which filler is added to the pool.
     """
 
     display_name = "Filler Weights"
@@ -202,7 +207,7 @@ class FillerWeight(OptionCounter):
 
 class TrapPercentage(Range):
     """
-    Determines how much filler is replaced with traps. [NOT IMPLEMENTED]
+    Determines how much filler is replaced with traps.
     """
 
     display_name = "Trap Percentage"
@@ -212,7 +217,7 @@ class TrapPercentage(Range):
 
 class TrapWeight(OptionCounter):
     """
-    Determines which traps are replaced with filler in the pool. [NOT IMPLEMENTED]
+    Determines which traps are replaced with filler in the pool.
     """
 
     display_name = "Trap Weights"
