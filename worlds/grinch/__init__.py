@@ -1,7 +1,9 @@
+import math
+
 from BaseClasses import Region, Item, ItemClassification
 from .Locations import grinch_locations_to_id, grinch_locations, GrinchLocation, get_location_names_per_category
-from .Items import grinch_items_to_id, GrinchItem, ALL_ITEMS_TABLE, MISC_ITEMS_TABLE, get_item_names_per_category, \
-    MOVES_TABLE, USEFUL_ITEMS_TABLE
+from .Items import (grinch_items_to_id, GrinchItem, ALL_ITEMS_TABLE, MISC_ITEMS_TABLE, get_item_names_per_category,
+    TRAPS_TABLE, MOVES_TABLE, USEFUL_ITEMS_TABLE)
 from .Regions import connect_regions
 from .Rules import set_location_rules
 
@@ -32,10 +34,17 @@ class GrinchWorld(World):
 
     def generate_early(self) -> None:  # Special conditions changed before generation occurs
         if self.options.ring_link == 1 and self.options.unlimited_eggs == 1:
-            raise OptionError(
-                "Cannot enable both unlimited rotten eggs and ring links. You can only enable one of these at a time."
-                + f"The following player's YAML needs to be fixed: {self.player_name}"
-            )
+            raise OptionError("Cannot enable both unlimited rotten eggs and ring links. You can only enable one of " +
+                f"these at a time. The following player's YAML needs to be fixed: {self.player_name}")
+
+        # Total available weight sum of filler items.
+        # If this is 0, it means no filler was provided by the user, which will cause generation errors as there will
+        #   be not enough items for all defined locations. Later this can be changed to default item and this get removed.
+        total_fillerweights = sum(self.options.filler_weight[filler] for filler in self.options.filler_weight.keys())
+        if total_fillerweights <= 0:
+            raise OptionError("Cannot begin generation as no filler options are defined. At least one filler item " +
+                f"must have a weight of at least 1. The following player's YAML needs to be fixed: {self.player_name}")
+
 
     def create_regions(self):  # Generates all regions for the multiworld
         for region_name in access_rules_dict.keys():
@@ -86,7 +95,7 @@ class GrinchWorld(World):
             else:
                 self.multiworld.push_precollected(self.create_item(gadgets_added))
 
-
+        # When the starting area is chosen, add the key to the starting inventory.
         if self.options.starting_area.value == 0:
             self.multiworld.push_precollected(self.create_item("Whoville Vacuum Tube"))
         elif self.options.starting_area.value == 1:
@@ -104,15 +113,24 @@ class GrinchWorld(World):
             if vacuums_added not in player_starting_inventory:
                 self_itempool.append(self.create_item(vacuums_added))
 
-
-
         # Get number of current unfilled locations
-        unfilled_locations: int = (
-            len(self.multiworld.get_unfilled_locations(self.player)) - len(self_itempool)
-        )
+        unfilled_locations: int = len(self.multiworld.get_unfilled_locations(self.player)) - len(self_itempool)
+        trap_locations: int = int(math.floor(unfilled_locations * (self.options.trap_percentage / 100)))
+        filler_locations = unfilled_locations - trap_locations
 
-        for _ in range(unfilled_locations):
-            self_itempool.append(self.create_item((self.get_other_filler_item(list(MISC_ITEMS_TABLE.keys())))))
+        # If trap_locations is 0, this will automatically get skipped
+        for _ in range(trap_locations):
+            self_itempool.append(self.create_item(self.random.choices(
+                list(self.options.trap_weight.keys()), list(self.options.trap_weight.values()))[0]))
+
+        # total_fillerweights = sum(self.options.filler_weight[filler] for filler in self.options.filler_weight.keys())
+        for _ in range(filler_locations):
+            # if total_fillerweights > 0:
+            self_itempool.append(self.create_item(self.random.choices(
+                # Keys are the individual items, values are the weights based on the option being set
+                list(self.options.filler_weight.keys()), list(self.options.filler_weight.values()))[0]))
+        # else:
+        # self_itempool.append(self.create_item("5 Rotten Eggs"))
 
         self.multiworld.itempool += self_itempool
 
