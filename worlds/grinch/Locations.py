@@ -1296,7 +1296,7 @@ grinch_locations = {
         ["Mount Crumpit"],
         1405,
         [
-            GrinchRamData(0x01011, value=1),
+            GrinchRamData(0x010111, value=1),
         ],
     ),
     "MC - I hate Whos!": GrinchLocationData(
@@ -1304,7 +1304,7 @@ grinch_locations = {
         ["Mount Crumpit"],
         1406,
         [
-            GrinchRamData(0x01011, value=1),
+            GrinchRamData(0x010111, value=1),
             GrinchRamData(0x0F84E4, value=0x48),
         ],
     ),
@@ -1313,7 +1313,7 @@ grinch_locations = {
         ["Mount Crumpit"],
         1407,
         [
-            GrinchRamData(0x01011, value=1),
+            GrinchRamData(0x010111, value=1),
             GrinchRamData(0x0F84E4, value=0x38),
         ],
     ),
@@ -1322,7 +1322,7 @@ grinch_locations = {
         ["Mount Crumpit"],
         1408,
         [
-            GrinchRamData(0x01011, value=1),
+            GrinchRamData(0x010111, value=1),
             GrinchRamData(0x0F84E4, value=0x58),
         ],
     ),
