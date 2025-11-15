@@ -6,6 +6,7 @@ import copy
 import uuid
 import Utils
 from worlds.grinch.RamHandler import UpdateMethod
+from . import MOVES_TABLE
 from .Locations import grinch_locations, GrinchLocation
 from .Items import (
     ALL_ITEMS_TABLE,
@@ -349,60 +350,60 @@ class GrinchClient(BizHawkClient):
                 )
 
     # This function's entire purpose is to take away items we physically received ingame, but have not received from AP
-    async def remove_physical_items(self, ctx: "BizHawkClientContext"):
-        ram_addr_dict: dict[int, list[int]] = {}
-
-        list_recv_itemids: list[int] = [netItem.item for netItem in ctx.items_received]
-        items_to_check: dict[str, GrinchItemData] = {**GADGETS_TABLE}  # , **SLEIGH_PARTS_TABLE
-        heart_count = len(list(item_id for item_id in list_recv_itemids if item_id == 42570))
-        heart_item_data = ALL_ITEMS_TABLE["Heart of Stone"]
-        ram_addr_dict[heart_item_data.update_ram_addr[0].ram_address] = [
-            min(heart_count, 4),
-            1,
-        ]
-
-        # Setting mission count for all accesses back to 0 to prevent warping/unlocking after completing 3 missions
-        ram_addr_dict[0x0100F0] = [0, 4]
-
-        for item_name, item_data in items_to_check.items():
-            # If item is an event or already been received, ignore.
-            if item_data.id is None or GrinchLocation.get_apid(item_data.id) in list_recv_itemids:
-                continue
-
-            # This assumes we don't have the item so we must set all the data to 0
-            for addr_to_update in item_data.update_ram_addr:
-                is_binary = True if not addr_to_update.binary_bit_pos is None else False
-
-                if is_binary:
-                    if addr_to_update.ram_address in ram_addr_dict.keys():
-                        current_bin_value = ram_addr_dict[addr_to_update.ram_address][0]
-
-                    else:
-                        current_bin_value = int.from_bytes(
-                            (
-                                await bizhawk.read(
-                                    ctx.bizhawk_ctx,
-                                    [
-                                        (
-                                            addr_to_update.ram_address,
-                                            addr_to_update.byte_size,
-                                            addr_to_update.ram_area,
-                                        )
-                                    ],
-                                )
-                            )[0],
-                            addr_to_update.endian,
-                        )
-                    current_bin_value &= ~(1 << addr_to_update.binary_bit_pos)
-                    ram_addr_dict[addr_to_update.ram_address] = [current_bin_value, 1]
-
-                else:
-                    ram_addr_dict[addr_to_update.ram_address] = [
-                        0,
-                        addr_to_update.byte_size,
-                    ]
-
-        await bizhawk.write(ctx.bizhawk_ctx, self.convert_dict_to_ram_list(ram_addr_dict))
+    # async def remove_physical_items(self, ctx: "BizHawkClientContext"):
+    #     ram_addr_dict: dict[int, list[int]] = {}
+    #
+    #     list_recv_itemids: list[int] = [netItem.item for netItem in ctx.items_received]
+    #     items_to_check: dict[str, GrinchItemData] = {**GADGETS_TABLE, **MOVES_TABLE}  # , **SLEIGH_PARTS_TABLE
+    #     heart_count = len(list(item_id for item_id in list_recv_itemids if item_id == 42570))
+    #     heart_item_data = ALL_ITEMS_TABLE["Heart of Stone"]
+    #     ram_addr_dict[heart_item_data.update_ram_addr[0].ram_address] = [
+    #         min(heart_count, 4),
+    #         1,
+    #     ]
+    #
+    #     # Setting mission count for all accesses back to 0 to prevent warping/unlocking after completing 3 missions
+    #     ram_addr_dict[0x0100F0] = [0, 4]
+    #
+    #     for item_name, item_data in items_to_check.items():
+    #         # If item is an event or already been received, ignore.
+    #         if item_data.id is None or GrinchLocation.get_apid(item_data.id) in list_recv_itemids:
+    #             continue
+    #
+    #         # This assumes we don't have the item so we must set all the data to 0
+    #         for addr_to_update in item_data.update_ram_addr:
+    #             is_binary = True if not addr_to_update.binary_bit_pos is None else False
+    #
+    #             if is_binary:
+    #                 if addr_to_update.ram_address in ram_addr_dict.keys():
+    #                     current_bin_value = ram_addr_dict[addr_to_update.ram_address][0]
+    #
+    #                 else:
+    #                     current_bin_value = int.from_bytes(
+    #                         (
+    #                             await bizhawk.read(
+    #                                 ctx.bizhawk_ctx,
+    #                                 [
+    #                                     (
+    #                                         addr_to_update.ram_address,
+    #                                         addr_to_update.byte_size,
+    #                                         addr_to_update.ram_area,
+    #                                     )
+    #                                 ],
+    #                             )
+    #                         )[0],
+    #                         addr_to_update.endian,
+    #                     )
+    #                 current_bin_value &= ~(1 << addr_to_update.binary_bit_pos)
+    #                 ram_addr_dict[addr_to_update.ram_address] = [current_bin_value, 1]
+    #
+    #             else:
+    #                 ram_addr_dict[addr_to_update.ram_address] = [
+    #                     0,
+    #                     addr_to_update.byte_size,
+    #                 ]
+    #
+    #     await bizhawk.write(ctx.bizhawk_ctx, self.convert_dict_to_ram_list(ram_addr_dict))
 
     def convert_dict_to_ram_list(self, addr_dict: dict[int, list[int]]) -> list[tuple[int, Sequence[int], str]]:
         addr_list_to_update: list[tuple[int, Sequence[int], str]] = []
@@ -421,7 +422,18 @@ class GrinchClient(BizHawkClient):
             **KEYS_TABLE,
             **MISSION_ITEMS_TABLE,
             **SLEIGH_TABLE,
+            **GADGETS_TABLE,
+            **MOVES_TABLE,
         }
+        heart_count = len(list(item_id for item_id in list_recv_itemids if item_id == 42570))
+        heart_item_data = ALL_ITEMS_TABLE["Heart of Stone"]
+        ram_addr_dict[heart_item_data.update_ram_addr[0].ram_address] = [
+            min(heart_count, 4),
+            1,
+        ]
+
+        # Setting mission count for all accesses back to 0 to prevent warping/unlocking after completing 3 missions
+        ram_addr_dict[0x0100F0] = [0, 4]
 
         for item_name, item_data in items_to_check.items():
             # If item is an event or already been received, ignore.
