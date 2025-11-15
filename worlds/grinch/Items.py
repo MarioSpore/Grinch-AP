@@ -566,6 +566,7 @@ MOVES_TABLE: dict[str, GrinchItemData] = {
         IC.progression,
         [
             GrinchRamData(0x0100BB, binary_bit_pos=4),
+            GrinchRamData(0x0100BB, binary_bit_pos=6),
         ],
     ),
     grinch_items.moves.SNEAK: GrinchItemData(
