@@ -557,7 +557,7 @@ MOVES_TABLE: dict[str, GrinchItemData] = {
         702,
         IC.progression,
         [
-            GrinchRamData(0x0100BB, binary_bit_pos=3),
+            GrinchRamData(0x0100BB, binary_bit_pos=2),
         ],
     ),
     grinch_items.moves.MAX: GrinchItemData(
