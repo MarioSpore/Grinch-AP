@@ -1179,8 +1179,8 @@ grinch_locations = {
         "Sleigh Room",
         ["Sleigh Ride"],
         1301,
-        [GrinchRamData(0x0100BF, binary_bit_pos=7)],
-    ),  # [GrinchRamData(0x010000, value=0x3E)]),
+        [GrinchRamData(0x010000, value=0x3E)], # [GrinchRamData(0x0100BF, binary_bit_pos=7)],
+    ),
     # Heart of Stones
     "WV - Post Office - Heart of Stone": GrinchLocationData(
         "Post Office",
