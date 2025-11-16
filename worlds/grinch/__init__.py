@@ -144,6 +144,9 @@ class GrinchWorld(World):
         return {
             "give_unlimited_eggs": self.options.unlimited_eggs.value,
             "ring_link": self.options.ring_link.value,
+            "staring_area": self.options.starting_area.value,
+            "exclude_environments": self.options.exclude_environments.value,
+            "giftsanity": self.options.giftsanity.value,
         }
 
     def generate_output(self, output_directory: str) -> None:
