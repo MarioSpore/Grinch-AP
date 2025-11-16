@@ -39,6 +39,18 @@ MAX_EGGS: int = 200
 EGG_COUNT_ADDR: int = 0x010058
 EGG_ADDR_BYTESIZE: int = 2
 
+# Address and value used in checking to teleport player.
+START_BUTTON_ADDR: int = 0x01000B
+OTHER_BUTTON_ADDR: int = 0x01000A
+BUTTONS_ADDR_SIZE: int = 1
+
+# Address and values to teleport
+MAP_REGION_ADDR: int = 0x010000
+TRIGGER_PLAYER_TELEPORT: int = 0x08FB94
+LOBBY_TRIGGER_ADDR: int = 0x0101FF
+TRIGGER_ADDR_SIZE: int = 1
+MOUNT_CRUMPIT_MAP_ID: int = 0x05
+
 
 class GrinchClient(BizHawkClient):
     game = "The Grinch"
@@ -142,7 +154,7 @@ class GrinchClient(BizHawkClient):
                     and "RingLink" in args["tags"]
                     and args["data"]["source"] != self.unique_client_id
                 ):
-                    Utils.async_start(self.ring_link_input(args["data"]["amount"], ctx), "SyncEggs")
+                    Utils.async_start(self.ring_link_input(args["data"]["amount"], ctx), "Grinch - SyncEggs")
 
     async def set_auth(self, ctx: "BizHawkClientContext") -> None:
         await ctx.get_username()
@@ -158,10 +170,13 @@ class GrinchClient(BizHawkClient):
             if not await self.ingame_checker(ctx):
                 return
 
-            if not any(task.get_name() == "Grinch EggLink" for task in asyncio.all_tasks()):
-                print("EggLink")
+            if "RingLink" in ctx.tags and not any(
+                task.get_name() == "Grinch EggLink" for task in asyncio.all_tasks()):
                 self.send_ring_link = True
                 Utils.async_start(self.ring_link_output(ctx), name="Grinch EggLink")
+
+            if not any(task.get_name() == "Grinch - PlayerButtonInput" for task in asyncio.all_tasks()):
+                Utils.async_start(self.watch_to_teleport_player(ctx), "Grinch - PlayerButtonInput")
 
             await self.location_checker(ctx)
             await self.receiving_items_handler(ctx)
@@ -349,62 +364,6 @@ class GrinchClient(BizHawkClient):
                         }
                     ]
                 )
-
-    # This function's entire purpose is to take away items we physically received ingame, but have not received from AP
-    # async def remove_physical_items(self, ctx: "BizHawkClientContext"):
-    #     ram_addr_dict: dict[int, list[int]] = {}
-    #
-    #     list_recv_itemids: list[int] = [netItem.item for netItem in ctx.items_received]
-    #     items_to_check: dict[str, GrinchItemData] = {**GADGETS_TABLE, **MOVES_TABLE}  # , **SLEIGH_PARTS_TABLE
-    #     heart_count = len(list(item_id for item_id in list_recv_itemids if item_id == 42570))
-    #     heart_item_data = ALL_ITEMS_TABLE["Heart of Stone"]
-    #     ram_addr_dict[heart_item_data.update_ram_addr[0].ram_address] = [
-    #         min(heart_count, 4),
-    #         1,
-    #     ]
-    #
-    #     # Setting mission count for all accesses back to 0 to prevent warping/unlocking after completing 3 missions
-    #     ram_addr_dict[0x0100F0] = [0, 4]
-    #
-    #     for item_name, item_data in items_to_check.items():
-    #         # If item is an event or already been received, ignore.
-    #         if item_data.id is None or GrinchLocation.get_apid(item_data.id) in list_recv_itemids:
-    #             continue
-    #
-    #         # This assumes we don't have the item so we must set all the data to 0
-    #         for addr_to_update in item_data.update_ram_addr:
-    #             is_binary = True if not addr_to_update.binary_bit_pos is None else False
-    #
-    #             if is_binary:
-    #                 if addr_to_update.ram_address in ram_addr_dict.keys():
-    #                     current_bin_value = ram_addr_dict[addr_to_update.ram_address][0]
-    #
-    #                 else:
-    #                     current_bin_value = int.from_bytes(
-    #                         (
-    #                             await bizhawk.read(
-    #                                 ctx.bizhawk_ctx,
-    #                                 [
-    #                                     (
-    #                                         addr_to_update.ram_address,
-    #                                         addr_to_update.byte_size,
-    #                                         addr_to_update.ram_area,
-    #                                     )
-    #                                 ],
-    #                             )
-    #                         )[0],
-    #                         addr_to_update.endian,
-    #                     )
-    #                 current_bin_value &= ~(1 << addr_to_update.binary_bit_pos)
-    #                 ram_addr_dict[addr_to_update.ram_address] = [current_bin_value, 1]
-    #
-    #             else:
-    #                 ram_addr_dict[addr_to_update.ram_address] = [
-    #                     0,
-    #                     addr_to_update.byte_size,
-    #                 ]
-    #
-    #     await bizhawk.write(ctx.bizhawk_ctx, self.convert_dict_to_ram_list(ram_addr_dict))
 
     def convert_dict_to_ram_list(self, addr_dict: dict[int, list[int]]) -> list[tuple[int, Sequence[int], str]]:
         addr_list_to_update: list[tuple[int, Sequence[int], str]] = []
@@ -620,6 +579,49 @@ class GrinchClient(BizHawkClient):
 
         return uid
 
+    async def watch_to_teleport_player(self, ctx: "BizHawkClientContext"):
+        while ctx.slot:
+            if not self.ingame_checker(ctx):
+                await asyncio.sleep(5)
+                continue
+
+            # Start button pressed and held is captured at bit 3
+            get_start_button_state: int = int.from_bytes(
+                (await bizhawk.read(ctx.bizhawk_ctx, [(START_BUTTON_ADDR, BUTTONS_ADDR_SIZE, "MainRAM")]))[0],
+                "little",)
+
+            if not (get_start_button_state & (1 << 3)) > 0:
+                await asyncio.sleep(1)
+                continue
+
+            # Right Bumper pressed and held is captured at bit 3
+            # Right Trigger pressed and held is captured at bit 1
+            # Left Bumper pressed and held is captured at bit 2
+            # Left Trigger pressed and held is captured at bit 0
+            get_other_buttons_state: int = int.from_bytes(
+                (await bizhawk.read(ctx.bizhawk_ctx, [(OTHER_BUTTON_ADDR, BUTTONS_ADDR_SIZE, "MainRAM")]))[0],
+                "little",)
+
+            rb_pressed: bool = (get_other_buttons_state & (1 << 3)) > 0
+            rt_pressed: bool = (get_other_buttons_state & (1 << 1)) > 0
+            lb_pressed: bool = (get_other_buttons_state & (1 << 2)) > 0
+            lt_pressed: bool = (get_other_buttons_state & (1 << 0)) > 0
+
+            # If RT and LT are both held + start, sending player up to the top of MC / Tutorial area.
+            if rt_pressed and lt_pressed:
+                await bizhawk.write(ctx.bizhawk_ctx,
+                    [(LOBBY_TRIGGER_ADDR, int(0).to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM")],)
+                await _teleport_player(ctx, MOUNT_CRUMPIT_MAP_ID)
+
+            # If RB and LB are both held + start, sending player to grinch computer room / lobby.
+            if lb_pressed and rb_pressed:
+                await bizhawk.write(ctx.bizhawk_ctx,
+                    [(LOBBY_TRIGGER_ADDR, int(1).to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM")],)
+                await _teleport_player(ctx, MOUNT_CRUMPIT_MAP_ID)
+
+            await asyncio.sleep(1)
+            continue
+
 
 def _cmd_ringlink(self):
     """Toggle ringling from client. Overrides default setting."""
@@ -643,3 +645,10 @@ async def _update_ring_link(ctx: "BizHawkClientContext", ring_link: bool):
 
     if old_tags != ctx.tags and ctx.server and not ctx.server.socket.closed:
         await ctx.send_msgs([{"cmd": "ConnectUpdate", "tags": ctx.tags}])
+
+async def _teleport_player(ctx: "BizHawkClientContext", map_id: int):
+    await bizhawk.write(
+        ctx.bizhawk_ctx,
+        [(MAP_REGION_ADDR, map_id.to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM"),
+        (TRIGGER_PLAYER_TELEPORT, int(1).to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM")],
+    )
