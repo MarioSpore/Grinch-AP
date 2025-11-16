@@ -175,6 +175,9 @@ class GrinchClient(BizHawkClient):
                 self.send_ring_link = True
                 Utils.async_start(self.ring_link_output(ctx), name="Grinch EggLink")
 
+            if not any(task.get_name() == "Grinch - PlayerButtonInput" for task in asyncio.all_tasks()):
+                Utils.async_start(self.watch_to_teleport_player(ctx), "Grinch - PlayerButtonInput")
+
             await self.location_checker(ctx)
             await self.receiving_items_handler(ctx)
             await self.goal_checker(ctx)
