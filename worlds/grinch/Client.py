@@ -502,10 +502,9 @@ class GrinchClient(BizHawkClient):
         )
 
         # If not in game or at a menu, or loading the publisher logos
-        if (ingame_map_id <= 0x04 or
-                ingame_map_id == 0x35 or
-                ingame_map_id == 0x36 or
-                ingame_map_id == 0x37):
+        # If it is not greater than 0x02 and less than 0x35, you are not in game
+        # 0x3E is an exception to allow goaling directly after defeating santa instead of after end credits.
+        if not (0x02 < ingame_map_id < 0x35) or not ingame_map_id == 0x3E:
             self.ingame_log = False
             return False
 
