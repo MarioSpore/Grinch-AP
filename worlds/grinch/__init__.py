@@ -45,6 +45,11 @@ class GrinchWorld(World):
             raise OptionError("Cannot begin generation as no filler options are defined. At least one filler item " +
                 f"must have a weight of at least 1. The following player's YAML needs to be fixed: {self.player_name}")
 
+        total_trapweights = sum(self.options.trap_weight[trap] for trap in self.options.trap_weight.keys())
+        if total_trapweights <= 0 and self.options.trap_percentage >= 1:
+            raise OptionError("Cannot begin generation as no trap options are defined. At least one trap item " +
+                f"must have a weight of at least 1. The following player's YAML needs to be fixed: {self.player_name}")
+
 
     def create_regions(self):  # Generates all regions for the multiworld
         for region_name in access_rules_dict.keys():
