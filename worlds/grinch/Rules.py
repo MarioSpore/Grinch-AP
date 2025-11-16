@@ -125,20 +125,24 @@ access_rules_dict: dict[str, list[list[str]]] = {
     "Scout's Hut": [
         [
             grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.SNEAK,
         ],
         [
             grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SNEAK,
         ],
     ],
     "North Shore": [
         [
             grinch_items.level_items.WL_SCOUT_CLOTHES,
-        ]
+            grinch_items.moves.SNEAK,
+        ],
     ],
     "Mayor's Villa": [
         [
             grinch_items.level_items.WL_SCOUT_CLOTHES,
-        ]
+            grinch_items.moves.SNEAK,
+        ],
     ],
     "Submarine World": [
         [
@@ -962,13 +966,13 @@ rules_dict: dict[str, list[list[str]]] = {
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.keys.SLEIGH_ROOM_KEY,
-        ]
+        ],
     ],
     "WF - Skis": [
         [
             grinch_items.keys.SLEIGH_ROOM_KEY,
             grinch_items.moves.MAX,
-        ]
+        ],
     ],
     "WD - Tires": [
         [
@@ -977,19 +981,20 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.keys.SLEIGH_ROOM_KEY,
             grinch_items.moves.SEIZE,
             grinch_items.moves.PANCAKE,
-        ]
+        ],
     ],
     "WL - Submarine World - Twin-End Tuba": [
         [
             grinch_items.gadgets.MARINE_MOBILE,
             grinch_items.keys.SLEIGH_ROOM_KEY,
-        ]
+        ],
     ],
     "WL - South Shore - GPS": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.keys.SLEIGH_ROOM_KEY,
-        ]
+            grinch_items.moves.SNEAK,
+        ],
     ],
     "MC - Sleigh Ride - Stealing All Gifts": [
         # ["Exhaust Pipes", "Tires", "Skis", "Twin-End Tuba"]
