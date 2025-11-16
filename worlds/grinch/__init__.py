@@ -50,8 +50,9 @@ class GrinchWorld(World):
         if hasattr(self.multiworld, "re_gen_passthrough"):
             if self.game in self.multiworld.re_gen_passthrough:
                 slot_data = self.multiworld.re_gen_passthrough[self.game]
+                print(slot_data)
                 self.options.unlimited_eggs.value = slot_data["give_unlimited_eggs"]
-                self.options.starting_area.value = slot_data["staring_area"]
+                self.options.starting_area.value = slot_data["starting_area"]
                 self.options.exclude_environments.value = ["exclude_environments"]
                 self.options.giftsanity.value = slot_data["giftsanity"]
 
