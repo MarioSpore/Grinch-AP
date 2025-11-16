@@ -89,6 +89,8 @@ class GrinchClient(BizHawkClient):
                 raise Exception("Invalid rom detected. You are not playing Grinch USA Version.")
 
             ctx.command_processor.commands["ringlink"] = _cmd_ringlink
+            ctx.command_processor.commands["dumpittocrumpit"] = _cmd_dumpittocrumpit
+            ctx.command_processor.commands["tutorialland"] = _cmd_tutorialland
 
         except Exception:
             return False
@@ -620,6 +622,10 @@ class GrinchClient(BizHawkClient):
 
         return uid
 
+def _cmd_dumpittocrumpit(self, ctx: "BizHawkClientContext"):
+    bizhawk.write()
+def _cmd_tutorialland(self, ctx: "BizHawkClientContext"):
+    bizhawk.write()
 
 def _cmd_ringlink(self):
     """Toggle ringling from client. Overrides default setting."""
