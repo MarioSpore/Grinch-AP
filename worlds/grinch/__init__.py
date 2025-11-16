@@ -1,6 +1,6 @@
 import math
 
-from BaseClasses import Region, Item, ItemClassification
+from BaseClasses import Region, Item, ItemClassification, Location
 from .Locations import grinch_locations_to_id, grinch_locations, GrinchLocation, get_location_names_per_category
 from .Items import (grinch_items_to_id, GrinchItem, ALL_ITEMS_TABLE, MISC_ITEMS_TABLE, get_item_names_per_category,
     TRAPS_TABLE, MOVES_TABLE, USEFUL_ITEMS_TABLE)
@@ -54,13 +54,12 @@ class GrinchWorld(World):
 
         for location, data in grinch_locations.items():
             region = self.get_region(data.region)
-            entry = GrinchLocation(self.player, location, region, data)
 
             if location == "MC - Sleigh Ride - Neutralizing Santa":
-                entry.place_locked_item(
-                    Item("Goal", ItemClassification.progression, GrinchItem.get_apid(data.id), self.player)
-                )
+                region.add_event(location, "Goal", None, Location, Item)
+                continue
 
+            entry = GrinchLocation(self.player, location, region, data)
             region.locations.append(entry)
 
         connect_regions(self)
