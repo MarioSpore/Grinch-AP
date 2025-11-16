@@ -39,6 +39,18 @@ MAX_EGGS: int = 200
 EGG_COUNT_ADDR: int = 0x010058
 EGG_ADDR_BYTESIZE: int = 2
 
+# Address and value used in checking to teleport player.
+START_BUTTON_ADDR: int = 0x01000B
+OTHER_BUTTON_ADDR: int = 0x01000A
+BUTTONS_ADDR_SIZE: int = 1
+
+# Address and values to teleport
+MAP_REGION_ADDR: int = 0x010000
+TRIGGER_PLAYER_TELEPORT: int = 0x08FB94
+LOBBY_TRIGGER_ADDR: int = 0x0101FF
+TRIGGER_ADDR_SIZE: int = 1
+MOUNT_CRUMPIT_MAP_ID: int = 0x05
+
 
 class GrinchClient(BizHawkClient):
     game = "The Grinch"
@@ -564,6 +576,49 @@ class GrinchClient(BizHawkClient):
 
         return uid
 
+    async def watch_to_teleport_player(self, ctx: "BizHawkClientContext"):
+        while ctx.slot:
+            if not self.ingame_checker(ctx):
+                await asyncio.sleep(5)
+                continue
+
+            # Start button pressed and held is captured at bit 3
+            get_start_button_state: int = int.from_bytes(
+                (await bizhawk.read(ctx.bizhawk_ctx, [(START_BUTTON_ADDR, BUTTONS_ADDR_SIZE, "MainRAM")]))[0],
+                "little",)
+
+            if not (get_start_button_state & (1 << 3)) > 0:
+                await asyncio.sleep(1)
+                continue
+
+            # Right Bumper pressed and held is captured at bit 3
+            # Right Trigger pressed and held is captured at bit 1
+            # Left Bumper pressed and held is captured at bit 2
+            # Left Trigger pressed and held is captured at bit 0
+            get_other_buttons_state: int = int.from_bytes(
+                (await bizhawk.read(ctx.bizhawk_ctx, [(OTHER_BUTTON_ADDR, BUTTONS_ADDR_SIZE, "MainRAM")]))[0],
+                "little",)
+
+            rb_pressed: bool = (get_other_buttons_state & (1 << 3)) > 0
+            rt_pressed: bool = (get_other_buttons_state & (1 << 1)) > 0
+            lb_pressed: bool = (get_other_buttons_state & (1 << 2)) > 0
+            lt_pressed: bool = (get_other_buttons_state & (1 << 0)) > 0
+
+            # If RT and LT are both held + start, sending player up to the top of MC / Tutorial area.
+            if rt_pressed and lt_pressed:
+                await bizhawk.write(ctx.bizhawk_ctx,
+                    [(LOBBY_TRIGGER_ADDR, int(0).to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM")],)
+                await _teleport_player(ctx, MOUNT_CRUMPIT_MAP_ID)
+
+            # If RB and LB are both held + start, sending player to grinch computer room / lobby.
+            if lb_pressed and rb_pressed:
+                await bizhawk.write(ctx.bizhawk_ctx,
+                    [(LOBBY_TRIGGER_ADDR, int(1).to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM")],)
+                await _teleport_player(ctx, MOUNT_CRUMPIT_MAP_ID)
+
+            await asyncio.sleep(1)
+            continue
+
 
 def _cmd_ringlink(self):
     """Toggle ringling from client. Overrides default setting."""
@@ -587,3 +642,10 @@ async def _update_ring_link(ctx: "BizHawkClientContext", ring_link: bool):
 
     if old_tags != ctx.tags and ctx.server and not ctx.server.socket.closed:
         await ctx.send_msgs([{"cmd": "ConnectUpdate", "tags": ctx.tags}])
+
+async def _teleport_player(ctx: "BizHawkClientContext", map_id: int):
+    await bizhawk.write(
+        ctx.bizhawk_ctx,
+        [(MAP_REGION_ADDR, map_id.to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM"),
+        (TRIGGER_PLAYER_TELEPORT, int(1).to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM")],
+    )
