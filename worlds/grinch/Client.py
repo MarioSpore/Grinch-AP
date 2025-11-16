@@ -239,6 +239,7 @@ class GrinchClient(BizHawkClient):
         ctx.locations_checked = set(local_locations_checked)
 
     async def receiving_items_handler(self, ctx: "BizHawkClientContext"):
+        from CommonClient import logger
         # Len will give us the size of the items received list & we will track that against how many items we received already
         # If the list says that we have 3 items and we already received items, we will ignore and continue.
         # Otherwise, we will get the new items and give them to the player.
