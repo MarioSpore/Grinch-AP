@@ -490,49 +490,6 @@ USEFUL_ITEMS_TABLE: dict[str, GrinchItemData] = {
 }
 
 # Traps
-TRAPS_TABLE: dict[str, GrinchItemData] = {
-    # alias to Ice Trap for traplink
-    # "Freeze Trap": GrinchItemData(["Traps"], 600, IC.trap, [GrinchRamData()]),
-    # "Bee Trap": GrinchItemData(["Traps"], 601, IC.trap, [GrinchRamData()]),
-    # "Electrocution Trap": GrinchItemData(["Traps"], 602, IC.trap, [GrinchRamData()]),
-    # alias to Slowness Trap for traplink
-    # "Tip Toe Trap": GrinchItemData(["Traps"], 603, IC.trap, [GrinchRamData()]),
-    # This item may not function properly if you receive it during a loading screen or in Mount Crumpit
-    # alias to Exhaustion Trap
-    #     "Damage Trap": GrinchItemData(["Traps"], 604, IC.trap, [GrinchRamData(0x0E8FDC, value=-20, update_method=UpdateMethod.ADD)]),
-    grinch_items.trap_items.DEPLETION_TRAP: GrinchItemData(
-        [grinch_categories.TRAPS],
-        605,
-        IC.trap,
-        [GrinchRamData(0x010058, value=0, byte_size=2)],
-    ),
-    grinch_items.trap_items.DUMP_IT_TO_CRUMPIT: GrinchItemData(
-        [grinch_categories.TRAPS],
-        606,
-        IC.trap,  # Alias to Home Trap for traplink
-        [
-            GrinchRamData(0x010000, value=0x05),
-            GrinchRamData(0x08FB94, value=1),
-            GrinchRamData(0x0100B4, value=0),
-        ],
-    ),
-    # alias to Spring Trap for traplink
-    # "Rocket Spring Trap": GrinchItemData(["Traps"], 607, IC.trap, [GrinchRamData()]),
-    # alias to Home Trap for traplink
-    grinch_items.trap_items.WHO_SENT_ME_BACK: GrinchItemData(
-        [grinch_categories.TRAPS],
-        608,
-        IC.trap,
-        [
-            GrinchRamData(0x08FB94, value=1),
-        ],
-    ),
-    # "Cutscene Trap": GrinchItemData(["Traps"], 609, IC.trap, [GrinchRamData()]),
-    # "No Vac Trap": GrinchItemData(["Traps"], 610, IC.trap, [GrinchRamData(0x0102DA, value=0]),
-    # "Invisible Trap": GrinchItemData(["Traps"], 611, IC.trap, [GrinchRamData(0x0102DA, value=0, byte_size=4)])
-    # "Child Trap": GrinchItemData(["Traps"], 612, IC.trap,[GrinchRamData()])
-    # "Disable Jump Trap": GrinchItemData(["Traps"], 613, IC.trap,[GrinchRamData(0x010026, binary_bit_pos=6)])
-}
 
 # Movesets
 MOVES_TABLE: dict[str, GrinchItemData] = {
@@ -580,6 +537,50 @@ MOVES_TABLE: dict[str, GrinchItemData] = {
 }
 
 # Double star combines all dictionaries from each individual list together
+TRAPS_TABLE: dict[str, GrinchItemData] = {
+    # alias to Ice Trap for traplink
+    # "Freeze Trap": GrinchItemData(["Traps"], 600, IC.trap, [GrinchRamData()]),
+    # "Bee Trap": GrinchItemData(["Traps"], 601, IC.trap, [GrinchRamData()]),
+    # "Electrocution Trap": GrinchItemData(["Traps"], 602, IC.trap, [GrinchRamData()]),
+    # alias to Slowness Trap for traplink
+    # "Tip Toe Trap": GrinchItemData(["Traps"], 603, IC.trap, [GrinchRamData()]),
+    # This item may not function properly if you receive it during a loading screen or in Mount Crumpit
+    # alias to Exhaustion Trap
+    #     "Damage Trap": GrinchItemData(["Traps"], 604, IC.trap, [GrinchRamData(0x0E8FDC, value=-20, update_method=UpdateMethod.ADD)]),
+    grinch_items.trap_items.DEPLETION_TRAP: GrinchItemData(
+        [grinch_categories.TRAPS],
+        605,
+        IC.trap,
+        [GrinchRamData(0x010058, value=0, byte_size=2)],
+    ),
+    grinch_items.trap_items.DUMP_IT_TO_CRUMPIT: GrinchItemData(
+        [grinch_categories.TRAPS],
+        606,
+        IC.trap,  # Alias to Home Trap for traplink
+        [
+            GrinchRamData(0x010000, value=0x05),
+            GrinchRamData(0x0101FF, binary_bit_pos=0),
+            GrinchRamData(0x0100B4, value=0),
+            GrinchRamData(0x08FB94, value=1),
+        ],
+    ),
+    # alias to Spring Trap for traplink
+    # "Rocket Spring Trap": GrinchItemData(["Traps"], 607, IC.trap, [GrinchRamData()]),
+    # alias to Home Trap for traplink
+    grinch_items.trap_items.WHO_SENT_ME_BACK: GrinchItemData(
+        [grinch_categories.TRAPS],
+        608,
+        IC.trap,
+        [
+            GrinchRamData(0x08FB94, value=1),
+        ],
+    ),
+    # "Cutscene Trap": GrinchItemData(["Traps"], 609, IC.trap, [GrinchRamData()]),
+    # "No Vac Trap": GrinchItemData(["Traps"], 610, IC.trap, [GrinchRamData(0x0102DA, value=0]),
+    # "Invisible Trap": GrinchItemData(["Traps"], 611, IC.trap, [GrinchRamData(0x0102DA, value=0, byte_size=4)])
+    # "Child Trap": GrinchItemData(["Traps"], 612, IC.trap,[GrinchRamData()])
+    # "Disable Jump Trap": GrinchItemData(["Traps"], 613, IC.trap,[GrinchRamData(0x010026, binary_bit_pos=6)])
+}
 ALL_ITEMS_TABLE: dict[str, GrinchItemData] = {
     **GADGETS_TABLE,
     **MISSION_ITEMS_TABLE,
