@@ -626,8 +626,10 @@ class GrinchClient(BizHawkClient):
             continue
 
 def _cmd_dumpittocrumpit(self, ctx: "BizHawkClientContext"):
+    """Sends Grinch directly to the computer room"""
     bizhawk.write()
 def _cmd_tutorialland(self, ctx: "BizHawkClientContext"):
+    """Sends Grinch directly to the telescope where the tutorial starts"""
     bizhawk.write()
 
 def _cmd_ringlink(self):
