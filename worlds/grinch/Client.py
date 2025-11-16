@@ -50,6 +50,7 @@ TRIGGER_PLAYER_TELEPORT: int = 0x08FB94
 LOBBY_TRIGGER_ADDR: int = 0x0101FF
 TRIGGER_ADDR_SIZE: int = 1
 MOUNT_CRUMPIT_MAP_ID: int = 0x05
+DISGUISE_OFF_ADDR: int = 0x0100B4
 
 
 class GrinchClient(BizHawkClient):
@@ -656,5 +657,6 @@ async def _teleport_player(ctx: "BizHawkClientContext", map_id: int):
     await bizhawk.write(
         ctx.bizhawk_ctx,
         [(MAP_REGION_ADDR, map_id.to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM"),
-        (TRIGGER_PLAYER_TELEPORT, int(1).to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM")],
+        (TRIGGER_PLAYER_TELEPORT, int(1).to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM"),
+        (DISGUISE_OFF_ADDR, int(0).to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM"),],
     )

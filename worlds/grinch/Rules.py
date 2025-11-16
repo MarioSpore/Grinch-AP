@@ -177,21 +177,25 @@ rules_dict: dict[str, list[list[str]]] = {
     "WL - North Shore - First Visit": [[]],
     "WL - Mayor's Villa - First Visit": [[]],
     # Whoville Missions
-    "WV - Post Office - Shuffling The Mail": [[]],
+    "WV - Post Office - Shuffling The Mail": [
+        [
+            grinch_items.moves.MAX,
+        ],
+    ],
     "WV - Smashing Snowmen": [
         [
             grinch_items.moves.PANCAKE,
-        ]
+        ],
     ],
     "WV - Painting The Mayor's Posters": [
         [
             grinch_items.level_items.WV_PAINT_BUCKET,
-        ]
+        ],
     ],
     "WV - Launching Eggs Into Houses": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-        ]
+        ],
     ],
     "WV - City Hall - Modifying The Mayor's Statue": [
         [

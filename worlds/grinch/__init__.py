@@ -28,6 +28,8 @@ class GrinchWorld(World):
     item_name_groups = get_item_names_per_category()
     location_name_groups = get_location_names_per_category()
 
+    ut_can_gen_without_yaml = True  # class var that tells it to ignore the player yaml
+
     def __init__(self, *args, **kwargs):  # Pulls __init__ function and takes control from there in BaseClasses.py
         self.origin_region_name: str = "Mount Crumpit"
         super(GrinchWorld, self).__init__(*args, **kwargs)
@@ -49,6 +51,15 @@ class GrinchWorld(World):
         if total_trapweights <= 0 and self.options.trap_percentage >= 1:
             raise OptionError("Cannot begin generation as no trap options are defined. At least one trap item " +
                 f"must have a weight of at least 1. The following player's YAML needs to be fixed: {self.player_name}")
+
+        if hasattr(self.multiworld, "re_gen_passthrough"):
+            if self.game in self.multiworld.re_gen_passthrough:
+                slot_data = self.multiworld.re_gen_passthrough[self.game]
+                print(slot_data)
+                self.options.unlimited_eggs.value = slot_data["give_unlimited_eggs"]
+                self.options.starting_area.value = slot_data["starting_area"]
+                self.options.exclude_environments.value = ["exclude_environments"]
+                self.options.giftsanity.value = slot_data["giftsanity"]
 
 
     def create_regions(self):  # Generates all regions for the multiworld
@@ -149,7 +160,7 @@ class GrinchWorld(World):
         return {
             "give_unlimited_eggs": self.options.unlimited_eggs.value,
             "ring_link": self.options.ring_link.value,
-            "staring_area": self.options.starting_area.value,
+            "starting_area": self.options.starting_area.value,
             "exclude_environments": self.options.exclude_environments.value,
             "giftsanity": self.options.giftsanity.value,
         }
