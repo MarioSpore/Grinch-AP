@@ -27,44 +27,40 @@ class GrinchRamData:
     byte_size: int = 1
     endian = "little"
     update_method: UpdateMethod = UpdateMethod.SET
-    min_count: int = 0
-    max_count: int = 255
+    min_count: Optional[int] = 0
+    max_count: Optional[int] = None
     ram_area = "MainRAM"
 
     def __init__(
         self,
         ram_address: int,
-        value: Optional[int] = None,
-        binary_bit_pos: int = -1,
+        value: Optional[int] = 1,
+        binary_bit_pos: Optional[int] = None,
         byte_size: int = 1,
         update_method: UpdateMethod = UpdateMethod.SET,
-        min_count: int = -1,
-        max_count: int = -1,
+        min_count: Optional[int] = None,
+        max_count: Optional[int] = None,
         endian: str = "little",
         ram_area: str = "MainRAM",
     ):
         self.ram_address = ram_address
+        self.update_method = update_method
 
-        if value:
+        if value is not None and value > -1:
             self.value = value
-        else:
-            self.value = 1
 
-        if binary_bit_pos > -1:
+        if binary_bit_pos is not None and binary_bit_pos > -1:
             self.binary_bit_pos = binary_bit_pos
 
-        if byte_size > 0:
+        if byte_size is not None and byte_size > 0:
             self.byte_size = byte_size
 
-        if update_method:
-            self.update_method = update_method
-
-        if min_count and min_count > -1:
+        if min_count is not None and min_count > -1:
             self.min_count = min_count
 
-        if max_count and max_count > -1:
+        if max_count is not None and max_count > -1:
             self.max_count = max_count
-        elif max_count and max_count > ((2 ** (self.byte_size * 8)) - 1):
+        elif max_count is not None and max_count > ((2 ** (self.byte_size * 8)) - 1):
             raise ValueError("max_count cannot be larger than the RAM addresses max possible value")
         else:
             self.max_count = (2 ** (self.byte_size * 8)) - 1
@@ -75,12 +71,20 @@ class GrinchRamData:
         # Error Handling
         if self.value and self.value > self.max_count:
             raise ValueError(
-                f"Value passed in is greater than max_count.\n\nRAM Address: {self.ram_address}\nValue: {self.value}\nMax Count: {self.max_count}"
+                f"Value passed in is greater than max_count.\n\nRAM Address: {self.ram_address}\nValue: {self.value}" +
+                f"\nMax Count: {self.max_count}"
             )
 
         if self.value and self.value < self.min_count:
             raise ValueError(
-                f"Value passed in is lower than min_count.\n\nRAM Address: {self.ram_address}\nValue: {self.value}\nMin Count: {self.max_count}"
+                f"Value passed in is lower than min_count.\n\nRAM Address: {self.ram_address}\nValue: {self.value}" +
+                f"\nMin Count: {self.max_count}"
+            )
+
+        if self.min_count > self.max_count:
+            raise ValueError(
+                f"Max_cout passed in is lower than min_count.\n\nRAM Address: {self.ram_address}\nValue: {self.value}" +
+                f"\nMin Count: {self.max_count}\nMax Count: {self.max_count}"
             )
 
         if self.binary_bit_pos and self.update_method not in [UpdateMethod.SET, UpdateMethod.FREEZE]:
