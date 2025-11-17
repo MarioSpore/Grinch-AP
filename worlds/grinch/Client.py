@@ -612,14 +612,20 @@ class GrinchClient(BizHawkClient):
 
             # If RT and LT are both held + start, sending player up to the top of MC / Tutorial area.
             if rt_pressed and lt_pressed:
+                lobby_val = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx, [(LOBBY_TRIGGER_ADDR,
+                    TRIGGER_ADDR_SIZE, "MainRAM")]))[0],"little")
+                lobby_val = set_binary_position(lobby_val, 0, False)
                 await bizhawk.write(ctx.bizhawk_ctx,
-                    [(LOBBY_TRIGGER_ADDR, int(0).to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM")],)
+                    [(LOBBY_TRIGGER_ADDR, lobby_val.to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM")])
                 await _teleport_player(ctx, MOUNT_CRUMPIT_MAP_ID)
 
             # If RB and LB are both held + start, sending player to grinch computer room / lobby.
             if lb_pressed and rb_pressed:
+                lobby_val = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx, [(LOBBY_TRIGGER_ADDR,
+                    TRIGGER_ADDR_SIZE, "MainRAM")]))[0], "little")
+                lobby_val = set_binary_position(lobby_val, 0, False)
                 await bizhawk.write(ctx.bizhawk_ctx,
-                    [(LOBBY_TRIGGER_ADDR, int(1).to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM")],)
+                    [(LOBBY_TRIGGER_ADDR, lobby_val.to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM")])
                 await _teleport_player(ctx, MOUNT_CRUMPIT_MAP_ID)
 
             await asyncio.sleep(1)
@@ -662,3 +668,13 @@ async def _teleport_player(ctx: "BizHawkClientContext", map_id: int):
         (TRIGGER_PLAYER_TELEPORT, int(1).to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM"),
         (DISGUISE_OFF_ADDR, int(0).to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM"),],
     )
+
+# TODO remove these in favor of Art's refactor. Use GrinchRamData going forward.
+def check_binary_position(value_to_check: int, binary_position: int) -> bool:
+    return (value_to_check & (1 << binary_position)) > 0
+
+def set_binary_position(value_to_check: int, binary_position: int, turn_on: bool) -> int:
+    if turn_on:
+        return value_to_check | 1 << binary_position
+    else:
+        return value_to_check & ~(1 << binary_position)
