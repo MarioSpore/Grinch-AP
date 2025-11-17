@@ -42,6 +42,8 @@ def interpret_rule(
 # - You can get softlocked in an area and would require restarting
 # - You have a chance to get teleported back to the start by doing this
 # - You take damage to brute force through certain areas
+# - You waste a lot of Rotten Eggs when there are intentional game design alternatives not to.
+# Example being guessing bell order in Countdown to Xmas Clock. Skipping areas via GC does not count.
 
 access_rules_dict: dict[str, list[list[str]]] = {
     "Whoville": [
