@@ -623,7 +623,7 @@ class GrinchClient(BizHawkClient):
             if lb_pressed and rb_pressed:
                 lobby_val = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx, [(LOBBY_TRIGGER_ADDR,
                     TRIGGER_ADDR_SIZE, "MainRAM")]))[0], "little")
-                lobby_val = set_binary_position(lobby_val, 0, False)
+                lobby_val = set_binary_position(lobby_val, 0, True)
                 await bizhawk.write(ctx.bizhawk_ctx,
                     [(LOBBY_TRIGGER_ADDR, lobby_val.to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM")])
                 await _teleport_player(ctx, MOUNT_CRUMPIT_MAP_ID)
