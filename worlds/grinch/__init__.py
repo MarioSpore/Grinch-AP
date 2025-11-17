@@ -135,17 +135,18 @@ class GrinchWorld(World):
 
         # If trap_locations is 0, this will automatically get skipped
         for _ in range(trap_locations):
-            self_itempool.append(self.create_item(self.random.choices(
-                list(self.options.trap_weight.keys()), list(self.options.trap_weight.values()))[0]))
+            # Keys are the individual items, values are the weights based on the option being set
+            self_itempool.append(self.create_item(self.get_weighted_filler_item
+                (list(self.options.trap_weight.keys()), list(self.options.trap_weight.values()))))
 
         # total_fillerweights = sum(self.options.filler_weight[filler] for filler in self.options.filler_weight.keys())
         for _ in range(filler_locations):
             # if total_fillerweights > 0:
-            self_itempool.append(self.create_item(self.random.choices(
                 # Keys are the individual items, values are the weights based on the option being set
-                list(self.options.filler_weight.keys()), list(self.options.filler_weight.values()))[0]))
-        # else:
-        # self_itempool.append(self.create_item("5 Rotten Eggs"))
+                self_itempool.append(self.create_item(self.get_weighted_filler_item(
+                    list(self.options.filler_weight.keys()), list(self.options.filler_weight.values()))[0]))
+            # else:
+                # self_itempool.append(self.create_item("5 Rotten Eggs"))
 
         self.multiworld.itempool += self_itempool
 
@@ -153,8 +154,10 @@ class GrinchWorld(World):
         self.multiworld.completion_condition[self.player] = lambda state: state.has("Goal", self.player)
         set_location_rules(self)
 
-    def get_other_filler_item(self, other_filler: list[str]) -> str:
-        return self.random.choices(other_filler)[0]
+    def get_weighted_filler_item(self, other_filler: list[str], weights_dict: list[int]) -> str:
+        # The below does this for deterministic reasons, otherwise if you rolled the same seed, you would get different outcomes.
+        local_dict: dict[str, int] = dict(sorted(dict(zip(other_filler, weights_dict)).items()))
+        return self.random.choices(list(local_dict.keys()), list(local_dict.values()))[0]
 
     def fill_slot_data(self):
         return {
