@@ -44,6 +44,10 @@ def interpret_rule(
 # - You take damage to brute force through certain areas
 # - You waste a lot of Rotten Eggs when there are intentional game design alternatives not to.
 # Example being guessing bell order in Countdown to Xmas Clock. Skipping areas via GC does not count.
+# - Sections where you are camera locked in an area and have to perform precise jumps to get around it.
+# Example using Pancake on Mole in North Shore up to the drill house
+# - Locations that might just barely be enough in reach to jump towards without moving a boulder
+# Example being WL - South Shore - MM BP on Grass Platform
 
 access_rules_dict: dict[str, list[list[str]]] = {
     "Whoville": [
