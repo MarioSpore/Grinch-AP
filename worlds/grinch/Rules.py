@@ -915,7 +915,9 @@ rules_dict: dict[str, list[list[str]]] = {
         [
             grinch_items.moves.MAX,
         ],
+        [
             grinch_items.moves.SNEAK,
+        ],
     ],
     "WL - South Shore - MM BP near Hill Bridge": [
         [
@@ -959,9 +961,20 @@ rules_dict: dict[str, list[list[str]]] = {
     ],
     "WL - South Shore - MM BP behind Summer Beast": [
         [
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
             grinch_items.moves.SNEAK,
+            grinch_items.moves.PANCAKE,
         ],
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
@@ -1001,12 +1014,12 @@ rules_dict: dict[str, list[list[str]]] = {
     "WL - North Shore - MM BP inside Boulder Box near Bridge": [
         [
             grinch_items.moves.SEIZE,
-        ]
+        ],
     ],
     "WL - North Shore - MM BP inside Boulder Box behind Skunk Hut": [
         [
             grinch_items.moves.SEIZE,
-        ]
+        ],
     ],
     "WL - North Shore - MM BP inside Drill House": [
         [
@@ -1088,7 +1101,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.MAX,
             grinch_items.moves.SEIZE,
             grinch_items.moves.PANCAKE,
-        ]
+        ],
     ],
     "MC - Sleigh Ride - Neutralizing Santa": [
         # ["Exhaust Pipes", "Tires", "Skis", "Twin-End Tuba"]
@@ -1103,7 +1116,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.MAX,
             grinch_items.moves.SEIZE,
             grinch_items.moves.PANCAKE,
-        ]
+        ],
     ],
     # Hearts of Stone
     "WV - Post Office - Heart of Stone": [[]],
