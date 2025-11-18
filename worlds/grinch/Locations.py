@@ -1355,6 +1355,30 @@ grinch_locations = {
             GrinchRamData(0x0101FE, binary_bit_pos=5),
         ],
     ),
+    "WL - Scout's Hut - Steal Scout's Hat": GrinchLocationData(
+        "Scout's Hut",
+        ["Scout's Hut", "Who Lake"],
+        1500,
+        [
+            GrinchRamData(0x095349, binary_bit_pos=1),
+        ],
+    ),
+    "WL - Scout's Hut - Steal Scout's Shirt": GrinchLocationData(
+        "Scout's Hut",
+        ["Scout's Hut", "Who Lake"],
+        1501,
+        [
+            GrinchRamData(0x095349, binary_bit_pos=2),
+        ],
+    ),
+    "WL - Scout's Hut - Steal Scout's Shorts": GrinchLocationData(
+        "Scout's Hut",
+        ["Scout's Hut", "Who Lake"],
+        1502,
+        [
+            GrinchRamData(0x095349, binary_bit_pos=3),
+        ],
+    ),
 }
 
 

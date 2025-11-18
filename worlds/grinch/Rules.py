@@ -965,6 +965,23 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.SNEAK,
         ],
     ],
+    "WL - Scout's Hut - Steal Scout's Hat": [
+        [
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WL - Scout's Hut - Steal Scout's Shirt": [
+        [
+            grinch_items.moves.BAD_BREATH,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WL - Scout's Hut - Steal Scout's Shorts": [
+        [
+            grinch_items.moves.BAD_BREATH,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
     "WL - North Shore - MM BP below Bridge": [[]],
     "WL - North Shore - MM BP behind Skunk Hut": [[]],
     "WL - North Shore - MM BP inside Skunk Hut": [
