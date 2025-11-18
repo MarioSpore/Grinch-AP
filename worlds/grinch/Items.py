@@ -551,7 +551,7 @@ TRAPS_TABLE: dict[str, GrinchItemData] = {
         [grinch_categories.TRAPS],
         605,
         IC.trap,
-        [GrinchRamData(0x010058, value=0, byte_size=2)],
+        [GrinchRamData(0x010058, value=1, byte_size=2)],
     ),
     grinch_items.trap_items.DUMP_IT_TO_CRUMPIT: GrinchItemData(
         [grinch_categories.TRAPS],
