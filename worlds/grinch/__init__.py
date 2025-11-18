@@ -92,9 +92,10 @@ class GrinchWorld(World):
         for item, data in {**MISSION_ITEMS_TABLE, **SLEIGH_TABLE}.items():
             self_itempool.append(self.create_item(item))
 
-            if item == "Heart of Stone":
+        for hearts_added in USEFUL_ITEMS_TABLE:
+            if hearts_added == "Heart of Stone":
                 for _ in range(4):
-                    self_itempool.append(self.create_item(item))
+                    self_itempool.append(self.create_item(hearts_added))
 
         # Add moves
         for moves_added in MOVES_TABLE:
