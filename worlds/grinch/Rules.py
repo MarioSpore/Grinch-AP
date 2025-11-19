@@ -677,6 +677,9 @@ rules_dict: dict[str, list[list[str]]] = {
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
         ],
+        [
+            grinch_items.gadgets.GRINCH_COPTER,
+        ],
     ],
     "WF - Ski Resort - GC BP in Max Cave": [
         [
