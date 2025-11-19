@@ -13,7 +13,7 @@ from Options import (
     PerGameCommonOptions,
     OptionSet,
     OptionCounter,
-    StartInventoryPool,
+    StartInventoryPool, OptionGroup,
     # DeathLinkMixin
 )
 
@@ -234,6 +234,37 @@ class TrapWeight(OptionCounter):
         "Who sent me back?": 33,
         "Depletion Trap": 34,
     }
+
+grinch_option_groups = [
+    OptionGroup("Filler/Trap Settings", [
+        FillerWeight,
+        RingLinkOption,
+        TrapPercentage,
+        TrapWeight,
+        TrapLinkOption,
+    ]),
+    OptionGroup("Location Settings", [
+        Missionsanity,
+        ExcludeEnvironments,
+        Gifts,
+        Supadow,
+    ]),
+    OptionGroup("Quality of Life", [
+        UnlimitedEggs,
+    ]),
+    OptionGroup("Item Pool", [
+        StartingArea,
+        ProgressiveVacuum,
+        ProgressiveGadget,
+        Gadgetrando,
+        Gadgetrandolist,
+        Moverando,
+        Moverandolist
+    ]),
+    OptionGroup("Logic Settings", [
+        AdvancedLogic,
+    ]),
+]
 
 @dataclass
 class GrinchOptions(PerGameCommonOptions):  # DeathLinkMixin
