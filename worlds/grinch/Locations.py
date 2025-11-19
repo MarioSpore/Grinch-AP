@@ -1360,6 +1360,7 @@ grinch_locations = {
         ["Scout's Hut", "Who Lake"],
         1500,
         [
+            GrinchRamData(0x010000, value=0x13),
             GrinchRamData(0x095349, binary_bit_pos=1),
         ],
     ),
@@ -1368,6 +1369,7 @@ grinch_locations = {
         ["Scout's Hut", "Who Lake"],
         1501,
         [
+            GrinchRamData(0x010000, value=0x13),
             GrinchRamData(0x095349, binary_bit_pos=2),
         ],
     ),
@@ -1376,6 +1378,7 @@ grinch_locations = {
         ["Scout's Hut", "Who Lake"],
         1502,
         [
+            GrinchRamData(0x010000, value=0x13),
             GrinchRamData(0x095349, binary_bit_pos=3),
         ],
     ),
