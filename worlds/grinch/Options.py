@@ -59,6 +59,14 @@ class Missionsanity(Choice):
     option_both = 3
     default = 1
 
+class AdvancedLogic(Toggle):
+
+    """
+    Enables logic to allow skips, damage boosts, glitches, game restarts, excessive egg usage, and various other
+    unintentional ways that beginners wouldn't grasp on their first playthrough if this is enabled to be considered
+    logical. [NOT IMPLEMENTED]
+    """
+    display_name = "Advanced Logic"
 
 class ExcludeEnvironments(OptionSet):
     """
@@ -247,3 +255,4 @@ class GrinchOptions(PerGameCommonOptions):  # DeathLinkMixin
     trap_percentage: TrapPercentage
     trap_weight: TrapWeight
     start_inventory_from_pool: StartInventoryPool
+    advanced_logic: AdvancedLogic
