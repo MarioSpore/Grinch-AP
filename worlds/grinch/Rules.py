@@ -687,6 +687,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.SLIME_SHOOTER,
             grinch_items.moves.PANCAKE,
             grinch_items.moves.MAX,
+            grinch_items.moves.BAD_BREATH,
         ],
     ],
     "WF - Civic Center - GC BP on Left Side in Bat Cave Wall": [
