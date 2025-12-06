@@ -242,7 +242,6 @@ rules_dict: dict[str, list[list[str]]] = {
         [
             grinch_items.level_items.WV_SCULPTING_TOOLS,
             grinch_items.gadgets.GRINCH_COPTER,
-            grinch_items.moves.BAD_BREATH,
         ]
     ],
     "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock": [
