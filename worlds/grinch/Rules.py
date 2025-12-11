@@ -1034,12 +1034,10 @@ rules_dict: dict[str, list[list[str]]] = {
     ],
     "WL - North Shore - MM BP inside Drill House": [
         [
-            grinch_items.moves.PANCAKE,
         ],
     ],
     "WL - North Shore - MM BP on Crow Platform near Drill House": [
         [
-            grinch_items.moves.PANCAKE,
         ],
     ],
     "WL - Submarine World - GC BP Just Below Water Surface": [[]],
