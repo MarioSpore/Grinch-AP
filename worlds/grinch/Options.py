@@ -68,10 +68,10 @@ class AdvancedLogic(Toggle):
     """
     display_name = "Advanced Logic"
 
-class ExcludeEnvironments(OptionSet):
+class ExcludeEnvironment(OptionSet):
     """
     Allows entire environments to be entirely removed to ensure you are not logically required to enter the environment
-    along with any and all checks that are in that environment too. [NOT IMPLEMENTED]
+    along with any and all checks that are in that environment too.
 
     WARNING: Removing too many environments may cause generation to fail.
 
@@ -271,7 +271,7 @@ class GrinchOptions(PerGameCommonOptions):  # DeathLinkMixin
     starting_area: StartingArea
     progressive_vacuum: ProgressiveVacuum
     missionsanity: Missionsanity
-    exclude_environments: ExcludeEnvironments
+    exclude_environment: ExcludeEnvironment
     progressive_gadget: ProgressiveGadget
     supadow_minigames: Supadow
     giftsanity: Gifts

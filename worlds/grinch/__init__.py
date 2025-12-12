@@ -58,7 +58,7 @@ class GrinchWorld(World):
                 print(slot_data)
                 self.options.unlimited_eggs.value = slot_data["give_unlimited_eggs"]
                 self.options.starting_area.value = slot_data["starting_area"]
-                self.options.exclude_environments.value = ["exclude_environments"]
+                self.options.exclude_environment.value = ["exclude_environment"]
                 self.options.giftsanity.value = slot_data["giftsanity"]
 
 
@@ -73,6 +73,13 @@ class GrinchWorld(World):
 
             if location == "MC - Sleigh Ride - Neutralizing Santa":
                 region.add_event(location, "Goal", None, Location, Item)
+                continue
+
+            # If the region is in the list to be ignored, DON'T create the location and just continue.
+            # Ex if Mount Crumpit is in the exclude env list, no locations should exist in Mount Crumpit.
+            if region in self.options.exclude_environment.value:
+                if region.name == "Mount Crumpit":
+                    logger.warning(f"Player {self.player_name} has excluded Mount Crumpit, which is where a large number of Sphere 1 locations usually exist.")
                 continue
 
             entry = GrinchLocation(self.player, location, region, data)
