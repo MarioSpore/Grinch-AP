@@ -60,6 +60,7 @@ class GrinchWorld(World):
                 self.options.starting_area.value = slot_data["starting_area"]
                 self.options.exclude_environment.value = ["exclude_environment"]
                 self.options.giftsanity.value = slot_data["giftsanity"]
+                self.options.progressive_vacuum = slot_data["progressive_vacuum"]
 
 
     def create_regions(self):  # Generates all regions for the multiworld
@@ -118,23 +119,32 @@ class GrinchWorld(World):
             else:
                 self.multiworld.push_precollected(self.create_item(gadgets_added))
 
+        if not self.options.progressive_vacuum:
         # When the starting area is chosen, add the key to the starting inventory.
-        if self.options.starting_area.value == 0:
-            self.multiworld.push_precollected(self.create_item("Whoville Vacuum Tube"))
-        elif self.options.starting_area.value == 1:
-            self.multiworld.push_precollected(self.create_item("Who Forest Vacuum Tube"))
-        elif self.options.starting_area.value == 2:
-            self.multiworld.push_precollected(self.create_item("Who Dump Vacuum Tube"))
-        elif self.options.starting_area.value == 3:
-            self.multiworld.push_precollected((self.create_item("Who Lake Vacuum Tube")))
+            if self.options.starting_area.value == 0:
+                self.multiworld.push_precollected(self.create_item("Whoville Vacuum Tube"))
+            elif self.options.starting_area.value == 1:
+                self.multiworld.push_precollected(self.create_item("Who Forest Vacuum Tube"))
+            elif self.options.starting_area.value == 2:
+                self.multiworld.push_precollected(self.create_item("Who Dump Vacuum Tube"))
+            elif self.options.starting_area.value == 3:
+                self.multiworld.push_precollected((self.create_item("Who Lake Vacuum Tube")))
+        else:
+            self.multiworld.push_precollected((self.create_item("Progressive Vacuum Tube")))
+
 
         # Precollected items is stored per player. First, we must get the current player's starting inventory.
         # From here, we get an AP item list. But, we only care about the name. So we get a list of strings as a result.
         player_starting_inventory: list[str] = [item.name for item in self.multiworld.precollected_items[self.player]]
 
-        for vacuums_added in KEYS_TABLE.keys():
-            if vacuums_added not in player_starting_inventory:
-                self_itempool.append(self.create_item(vacuums_added))
+        if not self.options.progressive_vacuum:
+            for vacuums_added in KEYS_TABLE.keys():
+                if vacuums_added not in player_starting_inventory:
+                    self_itempool.append(self.create_item(vacuums_added))
+        else:
+            progress_vac_count: int = min(player_starting_inventory.count("Progressive Vacuum Tube"),3)
+            for _ in range(3 - progress_vac_count):
+                self_itempool.append(self.create_item("Progressive Vacuum Tube"))
 
         # Get number of current unfilled locations
         unfilled_locations: int = len(self.multiworld.get_unfilled_locations(self.player)) - len(self_itempool)

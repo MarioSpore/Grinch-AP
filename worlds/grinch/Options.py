@@ -104,7 +104,7 @@ class ExcludeEnvironment(OptionSet):
 
 class ProgressiveGadget(Toggle):  # DefaultOnToggle
     """
-    Determines whether you get access to a gadget as individual blueprint count. [NOT IMPLEMENTED]
+    Determines whether you get access to a gadget as individual blueprint count.
     """
 
     display_name = "Progressive Gadgets"

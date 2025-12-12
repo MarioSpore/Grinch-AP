@@ -108,3 +108,4 @@ def connect_regions(world: "GrinchWorld"):
     grinchconnect(world, "Who Lake", "North Shore")
     grinchconnect(world, "North Shore", "Mayor's Villa")
     grinchconnect(world, "Sleigh Room", "Bike Race")
+    grinchconnect(world, "Sleigh Ride", "Sleigh Room")

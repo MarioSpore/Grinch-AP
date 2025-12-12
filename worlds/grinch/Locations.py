@@ -1170,13 +1170,13 @@ grinch_locations = {
     ),
     # Sleigh Room Locations
     "MC - Sleigh Ride - Stealing All Gifts": GrinchLocationData(
-        "Sleigh Room",
+        "Sleigh Ride",
         ["Sleigh Ride"],
         1300,
         [GrinchRamData(0x0100BF, binary_bit_pos=6)],
     ),
     "MC - Sleigh Ride - Neutralizing Santa": GrinchLocationData(
-        "Sleigh Room",
+        "Sleigh Ride",
         ["Sleigh Ride"],
         1301,
         [GrinchRamData(0x010000, value=0x3E)],# [GrinchRamData(0x0100BF, binary_bit_pos=7)],

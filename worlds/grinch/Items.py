@@ -393,6 +393,15 @@ KEYS_TABLE: dict[str, GrinchItemData] = {
         IC.progression,
         [GrinchRamData(0x0100AA, binary_bit_pos=4)],
     ),
+    grinch_items.keys.PROGRESSIVE_VACUUM_TUBE: GrinchItemData(
+        [grinch_categories.VACUUM_TUBES],
+        404,
+        IC.progression,
+        [GrinchRamData(0x010200, binary_bit_pos=1),
+        GrinchRamData(0x0100AA, binary_bit_pos=2),
+        GrinchRamData(0x0100AA, binary_bit_pos=3),
+        GrinchRamData(0x0100AA, binary_bit_pos=4)],
+    ),
 }
 
 

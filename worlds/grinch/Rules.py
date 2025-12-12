@@ -32,7 +32,15 @@ def interpret_rule(
 
     access_list: list[Callable[[CollectionState], bool]] = []
     for item_set in rule_set:
-        access_list.append(lambda state, items=tuple(item_set): state.has_all(items, player))
+        item_name_list: list[str] = []
+        for item_names in item_set:
+            if "Progressive Vacuum Tube" in item_names:
+                item_count: int = int(item_names.split(":")[0]) # 2:Progressive Vacuum Tube
+                vac_name: str = str(item_names.split(":")[1])
+                item_name_list += vac_name * item_count # This will add "Progressive Vacuum Tube" X amount of items (item_count)
+            else:
+                item_name_list += item_names
+        access_list.append(lambda state, items=tuple(item_name_list): state.has_all(items, player))
 
     return access_list
 
@@ -54,6 +62,9 @@ access_rules_dict: dict[str, list[list[str]]] = {
         [
             grinch_items.keys.WHOVILLE,
         ],
+        [
+            "1:"+grinch_items.keys.PROGRESSIVE_VACUUM_TUBE
+        ],
     ],
     "Post Office": [
         [
@@ -74,6 +85,9 @@ access_rules_dict: dict[str, list[list[str]]] = {
         [
             grinch_items.keys.WHO_FOREST,
         ],
+        [
+            "2:" + grinch_items.keys.PROGRESSIVE_VACUUM_TUBE
+        ],
     ],
     "Ski Resort": [
         [
@@ -91,6 +105,9 @@ access_rules_dict: dict[str, list[list[str]]] = {
     "Who Dump": [
         [
             grinch_items.keys.WHO_DUMP,
+        ],
+        [
+            "3:" + grinch_items.keys.PROGRESSIVE_VACUUM_TUBE
         ],
     ],
     "Minefield": [
@@ -142,6 +159,9 @@ access_rules_dict: dict[str, list[list[str]]] = {
         [
             grinch_items.keys.WHO_LAKE,
         ],
+        [
+            "4:" + grinch_items.keys.PROGRESSIVE_VACUUM_TUBE
+        ],
     ],
     "Scout's Hut": [
         [
@@ -174,8 +194,29 @@ access_rules_dict: dict[str, list[list[str]]] = {
             grinch_items.keys.SLEIGH_ROOM_KEY,
         ]
     ],
+    "Sleigh Ride": [
+        [
+        grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        grinch_items.keys.WHOVILLE,
+        grinch_items.keys.WHO_FOREST,
+        grinch_items.keys.WHO_DUMP,
+        grinch_items.keys.WHO_LAKE,
+        grinch_items.gadgets.ROCKET_SPRING,
+        grinch_items.gadgets.MARINE_MOBILE,
+        grinch_items.moves.MAX,
+        grinch_items.moves.SEIZE,
+        grinch_items.moves.PANCAKE,
+        ],
+        grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        "4:"+grinch_items.keys.PROGRESSIVE_VACUUM_TUBE,
+        grinch_items.gadgets.ROCKET_SPRING,
+        grinch_items.gadgets.MARINE_MOBILE,
+        grinch_items.moves.MAX,
+        grinch_items.moves.SEIZE,
+        grinch_items.moves.PANCAKE,
+        ],
     "Spin N' Win": [[]],
-    "Dankamania": [],
+    "Dankamania": [[]],
     "The Copter Race Contest": [[]],
     "Bike Race": [[]],
 }
@@ -1100,31 +1141,11 @@ rules_dict: dict[str, list[list[str]]] = {
     "MC - Sleigh Ride - Stealing All Gifts": [
         # ["Exhaust Pipes", "Tires", "Skis", "Twin-End Tuba"]
         [
-            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-            grinch_items.keys.WHOVILLE,
-            grinch_items.keys.WHO_FOREST,
-            grinch_items.keys.WHO_DUMP,
-            grinch_items.keys.WHO_LAKE,
-            grinch_items.gadgets.ROCKET_SPRING,
-            grinch_items.gadgets.MARINE_MOBILE,
-            grinch_items.moves.MAX,
-            grinch_items.moves.SEIZE,
-            grinch_items.moves.PANCAKE,
         ],
     ],
     "MC - Sleigh Ride - Neutralizing Santa": [
         # ["Exhaust Pipes", "Tires", "Skis", "Twin-End Tuba"]
         [
-            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-            grinch_items.keys.WHOVILLE,
-            grinch_items.keys.WHO_FOREST,
-            grinch_items.keys.WHO_DUMP,
-            grinch_items.keys.WHO_LAKE,
-            grinch_items.gadgets.ROCKET_SPRING,
-            grinch_items.gadgets.MARINE_MOBILE,
-            grinch_items.moves.MAX,
-            grinch_items.moves.SEIZE,
-            grinch_items.moves.PANCAKE,
         ],
     ],
     # Hearts of Stone
