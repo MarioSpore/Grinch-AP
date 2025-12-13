@@ -245,7 +245,7 @@ grinch_option_groups = [
     ]),
     OptionGroup("Location Settings", [
         Missionsanity,
-        ExcludeEnvironments,
+        ExcludeEnvironment,
         Gifts,
         Supadow,
     ]),
