@@ -10,6 +10,7 @@ if TYPE_CHECKING:
     from . import GrinchWorld
 
 mainareas_list = [
+    "Mount Crumpit"
     "Whoville",
     "Who Forest",
     "Who Dump",
@@ -30,6 +31,7 @@ subareas_list = [
     "North Shore",
     "Mayor's Villa",
     "Sleigh Room",
+    "Sleigh Ride",
 ]
 
 supadow_list = [
@@ -108,4 +110,4 @@ def connect_regions(world: "GrinchWorld"):
     grinchconnect(world, "Who Lake", "North Shore")
     grinchconnect(world, "North Shore", "Mayor's Villa")
     grinchconnect(world, "Sleigh Room", "Bike Race")
-    grinchconnect(world, "Sleigh Ride", "Sleigh Room")
+    grinchconnect(world, "Sleigh Room", "Sleigh Ride")
