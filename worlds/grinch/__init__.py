@@ -61,6 +61,8 @@ class GrinchWorld(World):
                 self.options.exclude_environment.value = ["exclude_environment"]
                 self.options.giftsanity.value = slot_data["giftsanity"]
                 self.options.progressive_vacuum = slot_data["progressive_vacuum"]
+                self.options.missionsanity = slot_data["missionsanity"]
+                self.options.supadow_minigames = slot_data["supadow_minigames"]
 
 
     def create_regions(self):  # Generates all regions for the multiworld
@@ -193,6 +195,8 @@ class GrinchWorld(World):
             "exclude_environments": self.options.exclude_environment.value,
             "giftsanity": self.options.giftsanity.value,
             "progressive_vacuum": self.options.progressive_vacuum.value,
+            "missionsanity": self.options.missionsanity.value,
+            "supadow_minigames": self.options.supadow_minigames,
         }
 
     def generate_output(self, output_directory: str) -> None:
