@@ -22,6 +22,7 @@ class StartingArea(Choice):
     """
     Here, you can select which area you'll start the game with.
     Whichever one you pick is the region you'll have access to at the start of the Multiworld.
+    If progressive_vacuum is enabled, this is not considered and you will always start in Whoville.
     """
 
     option_whoville = 0
@@ -34,7 +35,8 @@ class StartingArea(Choice):
 
 class ProgressiveVacuum(Toggle):  # DefaultOnToggle
     """
-    Determines whether you get access to main areas progressively [NOT IMPLEMENTED]
+    Determines whether you get access to main areas progressively.
+
 
     Enabled: Whoville > Who Forest > Who Dump > Who Lake
     """
@@ -104,7 +106,7 @@ class ExcludeEnvironment(OptionSet):
 
 class ProgressiveGadget(Toggle):  # DefaultOnToggle
     """
-    Determines whether you get access to a gadget as individual blueprint count.
+    Determines whether you get access to a gadget as individual blueprint count. [NOT IMPLEMENTED]
     """
 
     display_name = "Progressive Gadgets"
