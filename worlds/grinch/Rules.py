@@ -1,6 +1,6 @@
+from types import MappingProxyType
 from typing import Callable
 
-import Utils
 from BaseClasses import CollectionState
 from worlds.AutoWorld import World
 from worlds.generic.Rules import add_rule
@@ -29,23 +29,23 @@ def interpret_rule(
         return []
 
     # Otherwise, if a region/location DOES have items required, make the section(s) return list of logic.
-
     access_list: list[Callable[[CollectionState], bool]] = []
+
     for item_set in rule_set:
-        item_name_list: list[str] = []
-        for item_names in item_set:
-            if "Progressive Vacuum Tube" in item_names:
-                item_count: int = int(item_names.split(":")[0]) # 2:Progressive Vacuum Tube
-                vac_name: str = str(item_names.split(":")[1])
-                item_name_list += vac_name * item_count # This will add "Progressive Vacuum Tube" X amount of items (item_count)
+        item_names_and_count: dict[str, int] = {}
+        for item_name in item_set:
+            if ":" in item_name:
+                item_count: int = int(item_name.split(":")[0])
+                req_item_name: str = str(item_name.split(":")[1])
+                item_names_and_count[req_item_name] = item_count
             else:
-                item_name_list += item_names
-        access_list.append(lambda state, items=tuple(item_name_list): state.has_all(items, player))
+                item_names_and_count[item_name] = 1
+        access_list.append(
+            lambda state, items=MappingProxyType(item_names_and_count): state.has_all_counts(items, player))
 
     return access_list
 
-    # Each item in the list is a separate list of rules. Each separate list is just an "OR" condition.
-
+# Each item in the list is a separate list of rules. Each separate list is just an "OR" condition.
 # NOTE: Locations will never be in logic if any of these are true ingame:
 # - You can get softlocked in an area and would require restarting
 # - You have a chance to get teleported back to the start by doing this
@@ -207,6 +207,7 @@ access_rules_dict: dict[str, list[list[str]]] = {
         grinch_items.moves.SEIZE,
         grinch_items.moves.PANCAKE,
         ],
+        [
         grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
         "4:"+grinch_items.keys.PROGRESSIVE_VACUUM_TUBE,
         grinch_items.gadgets.ROCKET_SPRING,
@@ -214,7 +215,8 @@ access_rules_dict: dict[str, list[list[str]]] = {
         grinch_items.moves.MAX,
         grinch_items.moves.SEIZE,
         grinch_items.moves.PANCAKE,
-        ],
+        ]
+    ],
     "Spin N' Win": [[]],
     "Dankamania": [[]],
     "The Copter Race Contest": [[]],
