@@ -78,7 +78,8 @@ class GrinchWorld(World):
 
             if "Giftsanity" in (data.location_group or []) and self.options.giftsanity.value == 0:
                 continue
-            if location == "WF - Squashing All Gifts" and self.options.giftsanity.value == 0:
+
+            if "Missions" in (data.location_group or []) and self.options.missionsanity.value == 0 or self.options.missionsanity.value == 2:
                 continue
 
             # If the region is in the list to be ignored, DON'T create the location and just continue.

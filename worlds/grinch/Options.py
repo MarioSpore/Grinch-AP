@@ -46,7 +46,8 @@ class ProgressiveVacuum(Toggle):  # DefaultOnToggle
 
 class Missionsanity(Choice):
     """
-    How mission checks are randomized in the pool [NOT IMPLEMENTED]
+    How mission checks are randomized in the pool.
+    Currently, enabling completion or both enables the mission completion. Any other setting only removes them.
 
     None: Does not add mission checks
     Completion: Only completing the mission gives you a check
