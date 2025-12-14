@@ -186,6 +186,7 @@ class GrinchWorld(World):
             "starting_area": self.options.starting_area.value,
             "exclude_environments": self.options.exclude_environment.value,
             "giftsanity": self.options.giftsanity.value,
+            "progressive_vacuum": self.options.progressive_vacuum,
         }
 
     def generate_output(self, output_directory: str) -> None:
