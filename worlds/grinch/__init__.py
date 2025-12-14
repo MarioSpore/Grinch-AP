@@ -76,13 +76,9 @@ class GrinchWorld(World):
                 region.add_event(location, "Goal", None, Location, Item)
                 continue
 
-            if location == "WV - Squashing All Gifts" and self.options.giftsanity.value == 0:
+            if "Giftsanity" in (data.location_group or []) and self.options.giftsanity.value == 0:
                 continue
             if location == "WF - Squashing All Gifts" and self.options.giftsanity.value == 0:
-                continue
-            if location == "WD - Squashing All Gifts" and self.options.giftsanity.value == 0:
-                continue
-            if location == "WL - Squashing All Gifts" and self.options.giftsanity.value == 0:
                 continue
 
             # If the region is in the list to be ignored, DON'T create the location and just continue.
