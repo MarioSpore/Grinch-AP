@@ -139,11 +139,13 @@ class GrinchWorld(World):
 
         if not self.options.progressive_vacuum:
             for vacuums_added in KEYS_TABLE.keys():
+                if vacuums_added == "Progressive Vacuum Tube":
+                    continue
                 if vacuums_added not in player_starting_inventory:
                     self_itempool.append(self.create_item(vacuums_added))
         else:
-            progress_vac_count: int = min(player_starting_inventory.count("Progressive Vacuum Tube"),3)
-            for _ in range(3 - progress_vac_count):
+            progress_vac_count: int = min(player_starting_inventory.count("Progressive Vacuum Tube"),4)
+            for _ in range(4 - progress_vac_count):
                 self_itempool.append(self.create_item("Progressive Vacuum Tube"))
 
         # Get number of current unfilled locations
@@ -182,7 +184,7 @@ class GrinchWorld(World):
             "give_unlimited_eggs": self.options.unlimited_eggs.value,
             "ring_link": self.options.ring_link.value,
             "starting_area": self.options.starting_area.value,
-            "exclude_environments": self.options.exclude_environments.value,
+            "exclude_environments": self.options.exclude_environment.value,
             "giftsanity": self.options.giftsanity.value,
         }
 
