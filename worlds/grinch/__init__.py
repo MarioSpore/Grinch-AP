@@ -1,7 +1,7 @@
 import math
 
 from BaseClasses import Region, Item, ItemClassification, Location
-from .Locations import grinch_locations_to_id, grinch_locations, GrinchLocation, get_location_names_per_category
+from .Locations import grinch_locations_to_id, grinch_locations, GrinchLocation, get_location_names_per_category, GrinchLocationData
 from .Items import (grinch_items_to_id, GrinchItem, ALL_ITEMS_TABLE, MISC_ITEMS_TABLE, get_item_names_per_category,
     TRAPS_TABLE, MOVES_TABLE, USEFUL_ITEMS_TABLE)
 from .Regions import connect_regions
@@ -74,6 +74,15 @@ class GrinchWorld(World):
 
             if location == "MC - Sleigh Ride - Neutralizing Santa":
                 region.add_event(location, "Goal", None, Location, Item)
+                continue
+
+            if location == "WV - Squashing All Gifts" and self.options.giftsanity.value == 0:
+                continue
+            if location == "WF - Squashing All Gifts" and self.options.giftsanity.value == 0:
+                continue
+            if location == "WD - Squashing All Gifts" and self.options.giftsanity.value == 0:
+                continue
+            if location == "WL - Squashing All Gifts" and self.options.giftsanity.value == 0:
                 continue
 
             # If the region is in the list to be ignored, DON'T create the location and just continue.

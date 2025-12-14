@@ -123,7 +123,7 @@ class Supadow(Toggle):
 class Gifts(Range):
     """
     Considers how many gifts must be squashed per check.
-    Enabling this will also enable squashing all gifts in a region mission alongside this. [NOT IMPLEMENTED]
+    Setting the value higher than 0 will also enable squashing all gifts in a region mission alongside this.
     """
 
     display_name = "Gifts Squashed per Check"
