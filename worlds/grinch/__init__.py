@@ -196,7 +196,7 @@ class GrinchWorld(World):
             "giftsanity": self.options.giftsanity.value,
             "progressive_vacuum": self.options.progressive_vacuum.value,
             "missionsanity": self.options.missionsanity.value,
-            "supadow_minigames": self.options.supadow_minigames,
+            "supadow_minigames": self.options.supadow_minigames.value,
         }
 
     def generate_output(self, output_directory: str) -> None:
