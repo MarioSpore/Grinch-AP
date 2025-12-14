@@ -78,7 +78,7 @@ class GrinchWorld(World):
 
             # If the region is in the list to be ignored, DON'T create the location and just continue.
             # Ex if Mount Crumpit is in the exclude env list, no locations should exist in Mount Crumpit.
-            if region in self.options.exclude_environment.value:
+            if region.name in self.options.exclude_environment.value:
                 if region.name == "Mount Crumpit":
                     logger.warning(f"Player {self.player_name} has excluded Mount Crumpit, which is where a large number of Sphere 1 locations usually exist.")
                 continue
