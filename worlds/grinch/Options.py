@@ -184,6 +184,7 @@ class Moverandolist(OptionSet):
 class UnlimitedEggs(Toggle):
     """
     Determine whether or not you run out of rotten eggs when you utilize your gadgets.
+    NOTE: Attempting to enable this with ringlink will force generation to stop until either option is enabled.
     """
 
     display_name = "Unlimited Rotten Eggs"
@@ -192,6 +193,7 @@ class UnlimitedEggs(Toggle):
 class RingLinkOption(Toggle):
     """
     Whenever this is toggled, your ammo is linked with other ringlink-compatible games that also have this enabled.
+    NOTE: Attempting to enable this with unlimited_eggs will force generation to stop until either option is enabled.
     """
 
     display_name = "Ring Link"
