@@ -105,13 +105,28 @@ class GrinchWorld(World):
     def create_items(self):  # Generates all items for the multiworld
         self_itempool: list[GrinchItem] = []
 
-        for item, data in {**MISSION_ITEMS_TABLE, **SLEIGH_TABLE}.items():
+        for item, data in {**SLEIGH_TABLE}.items():
             self_itempool.append(self.create_item(item))
 
         for hearts_added in USEFUL_ITEMS_TABLE:
             if hearts_added == "Heart of Stone":
                 for _ in range(4):
                     self_itempool.append(self.create_item(hearts_added))
+
+        SUBAREA_ITEMS = {
+            "Who Cloak",
+            "Scout Clothes",
+            "Cable Car Access Card",
+        }
+
+        for mission_items_added in MISSION_ITEMS_TABLE:
+            if self.options.missionsanity.value in (0, 2):
+                if mission_items_added in SUBAREA_ITEMS:
+                    self_itempool.append(self.create_item(mission_items_added))
+                else:
+                    self.multiworld.push_precollected(self.create_item(mission_items_added))
+            else:
+                self_itempool.append(self.create_item(mission_items_added))
 
         # Add moves
         for moves_added in MOVES_TABLE:
@@ -155,6 +170,7 @@ class GrinchWorld(World):
             progress_vac_count: int = min(player_starting_inventory.count("Progressive Vacuum Tube"),4)
             for _ in range(4 - progress_vac_count):
                 self_itempool.append(self.create_item("Progressive Vacuum Tube"))
+
 
         # Get number of current unfilled locations
         unfilled_locations: int = len(self.multiworld.get_unfilled_locations(self.player)) - len(self_itempool)
