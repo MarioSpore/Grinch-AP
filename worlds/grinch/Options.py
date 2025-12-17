@@ -121,16 +121,13 @@ class Supadow(Toggle):
     display_name = "Supadow Minigames"
 
 
-class Gifts(Range):
+class Gifts(Toggle):
     """
-    Considers how many gifts must be squashed per check.
-    Setting the value higher than 0 will also enable squashing all gifts in a region mission alongside this.
+    Determines whether or not individual gifts are checks
+    NOTE: This currently only disables the missions relating to squashing all gifts for an entire region.
     """
 
-    display_name = "Gifts Squashed per Check"
-    range_start = 0
-    range_end = 300
-    default = 0
+    display_name = "Giftsanity"
 
 class Gadgetrando(DefaultOnToggle):
     """

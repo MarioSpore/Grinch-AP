@@ -78,7 +78,7 @@ class GrinchWorld(World):
                 region.add_event(location, "Goal", None, Location, Item)
                 continue
 
-            if "Giftsanity" in (data.location_group or []) and self.options.giftsanity.value == 0:
+            if "Giftsanity" in (data.location_group or []) and not self.options.giftsanity.value:
                 continue
 
             if "Missions" in (data.location_group or []) and self.options.missionsanity.value == 0 or self.options.missionsanity.value == 2:
