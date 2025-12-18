@@ -152,10 +152,7 @@ class Moverando(Toggle):
     """
     Determines whether the Grinch's moves will be randomized or not.
     NOTE: Tutorial section would be logical linearly and vacuum tubes would still be logical. To access them, you can use
-    the commands listed below:
-    /dumpittocrumpit command to directly teleport you to the main lobby.
-    /tutorialworld to be warped back up to the top so you can access the tutorial checks checks.
-    NOTE 2: Commands are currently unused, funny enough.
+    certain controller combinations to warp to their respective areas in Mount Crumpit at any time.
     To warp to the computer room, press and hold start, L1, and R1 at the same time.
     To warp to the top, press and hold start, L2, and R2 at the same time.
     """
