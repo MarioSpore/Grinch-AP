@@ -36,7 +36,7 @@ class StartingArea(Choice):
 class ProgressiveVacuum(Toggle):  # DefaultOnToggle
     """
     Determines whether you get access to main areas progressively.
-    Enabled: Whoville > Who Forest > Who Dump > Who Lake
+    If enabled, you will receive Whoville, Who Forest, Who Dump, and Who Lake in that order.
     """
 
     display_name = "Progressive Vacuum Tubes"
@@ -46,10 +46,10 @@ class Missionsanity(Choice):
     """
     How mission checks are randomized in the pool.
     Currently, enabling completion or both enables the mission completion. Any other setting only removes them.
-    None: Does not add mission checks
-    Completion: Only completing the mission gives you a check
-    Individual: Individual tasks for one mission, such as individual snowmen squashed, are checks.
-    Both: Both individual tasks and mission completion are randomized.
+    - none: Does not add mission checks
+    - completion: Only completing the mission gives you a check
+    - individual: Individual tasks for one mission, such as individual snowmen squashed, are checks.
+    - both: Both individual tasks and mission completion are randomized.
     """
 
     display_name = "Mission Locations"
@@ -73,6 +73,7 @@ class ExcludeEnvironment(OptionSet):
     Allows entire environments to be entirely removed to ensure you are not logically required to enter the environment
     along with any and all checks that are in that environment too.
     WARNING: Removing too many environments may cause generation to fail.
+
     Valid keys: "Mount Crumpit, "Whoville", "Who Forest", "Who Dump", "Who Lake", "Post Office", "Clock Tower",
                 "City Hall", "Ski Resort", "Civic Center", "Minefield", "Power Plant", "Generator Building",
                 "Scout's Hut", "North Shore", "Mayor's Villa", "Sleigh Ride"
@@ -102,7 +103,7 @@ class ExcludeEnvironment(OptionSet):
 
 class ProgressiveGadget(Toggle):  # DefaultOnToggle
     """
-    Determines whether you get access to a gadget as individual blueprint count. [NOT IMPLEMENTED]
+    Determines whether you get access to a gadget as the individual blueprint count. [NOT IMPLEMENTED]
     """
 
     display_name = "Progressive Gadgets"
@@ -151,8 +152,12 @@ class Moverando(Toggle):
     """
     Determines whether the Grinch's moves will be randomized or not.
     NOTE: Tutorial section would be logical linearly and vacuum tubes would still be logical. To access them, you can use
-    /dumpittocrumpit command to directly teleport you to the main lobby. And to teleport back to the top, type
-    /tutorialworld to be warped back up so you can access their checks.
+    the commands listed below:
+    /dumpittocrumpit command to directly teleport you to the main lobby.
+    /tutorialworld to be warped back up to the top so you can access the tutorial checks checks.
+    NOTE 2: Commands are currently unused, funny enough.
+    To warp to the computer room, press and hold start, L1, and R1 at the same time.
+    To warp to the top, press and hold start, L2, and R2 at the same time.
     """
 
     display_name = "Randomize Moves"
