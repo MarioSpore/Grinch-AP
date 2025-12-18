@@ -1,8 +1,8 @@
 {
-    "version": 7,
-    "compatible_version": 7,
-    "minimum_ap_version": "0.6.5",
+    "game": "The Grinch",
+    "authors": ["MarioSpore", "SomeJakeGuy" ,"Artamiss"],
     "world_version": "1.4.0",
-    "authors": ["MarioSpore"],
-    "game": "The Grinch"
+    "minimum_ap_version": "0.6.5",
+    "version": 7,
+    "compatible_version": 7
 }
