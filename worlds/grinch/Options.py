@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-
 from Options import (
     FreeText,
     NumericOption,
@@ -14,7 +13,7 @@ from Options import (
     OptionSet,
     OptionCounter,
     StartInventoryPool, OptionGroup,
-    # DeathLinkMixin
+    # DeathLinkMixin,
 )
 
 
@@ -233,12 +232,34 @@ class TrapWeight(OptionCounter):
         "Depletion Trap": 34,
     }
 
-grinch_option_groups = [
+@dataclass
+class GrinchOptions(PerGameCommonOptions):  # DeathLinkMixin
+    progressive_vacuum: ProgressiveVacuum
+    starting_area: StartingArea
+    missionsanity: Missionsanity
+    exclude_environment: ExcludeEnvironment
+    giftsanity: Gifts
+    supadow_minigames: Supadow
+    progressive_gadget: ProgressiveGadget
+    gadget_rando: Gadgetrando
+    gadgets_to_randomize: Gadgetrandolist
+    move_rando: Moverando
+    moves_to_randomize: Moverandolist
+    unlimited_eggs: UnlimitedEggs
+    filler_weight: FillerWeight
+    trap_percentage: TrapPercentage
+    trap_weight: TrapWeight
+    ring_link: RingLinkOption
+    trap_link: TrapLinkOption
+    advanced_logic: AdvancedLogic
+    start_inventory_from_pool: StartInventoryPool
+
+grinch_option_groups: list[OptionGroup] = [
     OptionGroup("Filler/Trap Settings", [
         FillerWeight,
-        RingLinkOption,
         TrapPercentage,
         TrapWeight,
+        RingLinkOption,
         TrapLinkOption,
     ]),
     OptionGroup("Location Settings", [
@@ -251,8 +272,8 @@ grinch_option_groups = [
         UnlimitedEggs,
     ]),
     OptionGroup("Item Pool", [
-        StartingArea,
         ProgressiveVacuum,
+        StartingArea,
         ProgressiveGadget,
         Gadgetrando,
         Gadgetrandolist,
@@ -263,25 +284,3 @@ grinch_option_groups = [
         AdvancedLogic,
     ]),
 ]
-
-@dataclass
-class GrinchOptions(PerGameCommonOptions):  # DeathLinkMixin
-    starting_area: StartingArea
-    progressive_vacuum: ProgressiveVacuum
-    missionsanity: Missionsanity
-    exclude_environment: ExcludeEnvironment
-    progressive_gadget: ProgressiveGadget
-    supadow_minigames: Supadow
-    giftsanity: Gifts
-    gadget_rando: Gadgetrando
-    gadgets_to_randomize: Gadgetrandolist
-    move_rando: Moverando
-    moves_to_randomize: Moverandolist
-    unlimited_eggs: UnlimitedEggs
-    ring_link: RingLinkOption
-    trap_link: TrapLinkOption
-    filler_weight: FillerWeight
-    trap_percentage: TrapPercentage
-    trap_weight: TrapWeight
-    start_inventory_from_pool: StartInventoryPool
-    advanced_logic: AdvancedLogic
