@@ -36,8 +36,6 @@ class StartingArea(Choice):
 class ProgressiveVacuum(Toggle):  # DefaultOnToggle
     """
     Determines whether you get access to main areas progressively.
-
-
     Enabled: Whoville > Who Forest > Who Dump > Who Lake
     """
 
@@ -48,7 +46,6 @@ class Missionsanity(Choice):
     """
     How mission checks are randomized in the pool.
     Currently, enabling completion or both enables the mission completion. Any other setting only removes them.
-
     None: Does not add mission checks
     Completion: Only completing the mission gives you a check
     Individual: Individual tasks for one mission, such as individual snowmen squashed, are checks.
@@ -75,9 +72,7 @@ class ExcludeEnvironment(OptionSet):
     """
     Allows entire environments to be entirely removed to ensure you are not logically required to enter the environment
     along with any and all checks that are in that environment too.
-
     WARNING: Removing too many environments may cause generation to fail.
-
     Valid keys: "Mount Crumpit, "Whoville", "Who Forest", "Who Dump", "Who Lake", "Post Office", "Clock Tower",
                 "City Hall", "Ski Resort", "Civic Center", "Minefield", "Power Plant", "Generator Building",
                 "Scout's Hut", "North Shore", "Mayor's Villa", "Sleigh Ride"
@@ -155,7 +150,6 @@ class Gadgetrandolist(OptionSet):
 class Moverando(Toggle):
     """
     Determines whether the Grinch's moves will be randomized or not.
-
     NOTE: Tutorial section would be logical linearly and vacuum tubes would still be logical. To access them, you can use
     /dumpittocrumpit command to directly teleport you to the main lobby. And to teleport back to the top, type
     /tutorialworld to be warped back up so you can access their checks.
