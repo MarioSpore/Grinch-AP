@@ -21,7 +21,7 @@ class StartingArea(Choice):
     """
     Here, you can select which area you'll start the game with.
     Whichever one you pick is the region you'll have access to at the start of the Multiworld.
-    If progressive_vacuum is enabled, this is not considered and you will always start in Whoville.
+    If "progressive_vacuums" is enabled, this is not considered and you will always start in Whoville.
     """
 
     option_whoville = 0
@@ -32,7 +32,7 @@ class StartingArea(Choice):
     display_name = "Starting Area"
 
 
-class ProgressiveVacuum(Toggle):  # DefaultOnToggle
+class ProgressiveVacuums(Toggle):  # DefaultOnToggle
     """
     Determines whether you get access to main areas progressively.
     If enabled, you will receive Whoville, Who Forest, Who Dump, and Who Lake in that order.
@@ -67,7 +67,7 @@ class AdvancedLogic(Toggle):
     """
     display_name = "Advanced Logic"
 
-class ExcludeEnvironment(OptionSet):
+class ExcludeEnvironments(OptionSet):
     """
     Allows entire environments to be entirely removed to ensure you are not logically required to enter the environment
     along with any and all checks that are in that environment too.
@@ -100,7 +100,7 @@ class ExcludeEnvironment(OptionSet):
     }
 
 
-class ProgressiveGadget(Toggle):  # DefaultOnToggle
+class ProgressiveGadgets(Toggle):  # DefaultOnToggle
     """
     Determines whether you get access to a gadget as the individual blueprint count. [NOT IMPLEMENTED]
     """
@@ -133,7 +133,7 @@ class Gadgetrando(DefaultOnToggle):
 
 class Gadgetrandolist(OptionSet):
     """
-    If "Randomize Gadgets" is enabled, gadgets that you add to the dictionary will be randomized.
+    If "gadget_rando" is enabled, gadgets that you add to the dictionary will be randomized.
     """
 
     display_name = "Gadgets Randomized"
@@ -160,7 +160,7 @@ class Moverando(Toggle):
 
 class Moverandolist(OptionSet):
     """
-    If "Randomize Moves" is enabled, the Grinch's moves that you add to the dictionary will be randomized.
+    If "move_rando" is enabled, the Grinch's moves that you add to the dictionary will be randomized.
     """
 
     display_name = "Moves Randomized"
@@ -234,13 +234,13 @@ class TrapWeight(OptionCounter):
 
 @dataclass
 class GrinchOptions(PerGameCommonOptions):  # DeathLinkMixin
-    progressive_vacuum: ProgressiveVacuum
+    progressive_vacuums: ProgressiveVacuums
     starting_area: StartingArea
     missionsanity: Missionsanity
-    exclude_environment: ExcludeEnvironment
+    exclude_environments: ExcludeEnvironments
     giftsanity: Gifts
     supadow_minigames: Supadow
-    progressive_gadget: ProgressiveGadget
+    progressive_gadgets: ProgressiveGadgets
     gadget_rando: Gadgetrando
     gadgets_to_randomize: Gadgetrandolist
     move_rando: Moverando

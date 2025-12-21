@@ -58,9 +58,9 @@ class GrinchWorld(World):
                 print(slot_data)
                 self.options.unlimited_eggs.value = slot_data["give_unlimited_eggs"]
                 self.options.starting_area.value = slot_data["starting_area"]
-                self.options.exclude_environment.value = ["exclude_environment"]
+                self.options.exclude_environments.value = ["exclude_environment"]
                 self.options.giftsanity.value = slot_data["giftsanity"]
-                self.options.progressive_vacuum = slot_data["progressive_vacuum"]
+                self.options.progressive_vacuums = slot_data["progressive_vacuums"]
                 self.options.missionsanity = slot_data["missionsanity"]
                 self.options.supadow_minigames = slot_data["supadow_minigames"]
 
@@ -208,9 +208,9 @@ class GrinchWorld(World):
             "give_unlimited_eggs": self.options.unlimited_eggs.value,
             "ring_link": self.options.ring_link.value,
             "starting_area": self.options.starting_area.value,
-            "exclude_environments": self.options.exclude_environment.value,
+            "exclude_environments": self.options.exclude_environments.value,
             "giftsanity": self.options.giftsanity.value,
-            "progressive_vacuum": self.options.progressive_vacuum.value,
+            "progressive_vacuums": self.options.progressive_vacuums.value,
             "missionsanity": self.options.missionsanity.value,
             "supadow_minigames": self.options.supadow_minigames.value,
         }
