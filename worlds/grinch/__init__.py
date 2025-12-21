@@ -58,7 +58,7 @@ class GrinchWorld(World):
                 print(slot_data)
                 self.options.unlimited_eggs.value = slot_data["give_unlimited_eggs"]
                 self.options.starting_area.value = slot_data["starting_area"]
-                self.options.exclude_environments.value = ["exclude_environment"]
+                self.options.exclude_environments.value = ["exclude_environments"]
                 self.options.giftsanity.value = slot_data["giftsanity"]
                 self.options.progressive_vacuums = slot_data["progressive_vacuums"]
                 self.options.missionsanity = slot_data["missionsanity"]
@@ -86,7 +86,7 @@ class GrinchWorld(World):
 
             # If the region is in the list to be ignored, DON'T create the location and just continue.
             # Ex if Mount Crumpit is in the exclude env list, no locations should exist in Mount Crumpit.
-            if region.name in self.options.exclude_environment.value:
+            if region.name in self.options.exclude_environments.value:
                 if region.name == "Mount Crumpit":
                     logger.warning(f"Player {self.player_name} has excluded Mount Crumpit, which is where a large number of Sphere 1 locations usually exist.")
                 continue
@@ -142,7 +142,7 @@ class GrinchWorld(World):
             else:
                 self.multiworld.push_precollected(self.create_item(gadgets_added))
 
-        if not self.options.progressive_vacuum:
+        if not self.options.progressive_vacuums:
         # When the starting area is chosen, add the key to the starting inventory.
             if self.options.starting_area.value == 0:
                 self.multiworld.push_precollected(self.create_item("Whoville Vacuum Tube"))
@@ -160,7 +160,7 @@ class GrinchWorld(World):
         # From here, we get an AP item list. But, we only care about the name. So we get a list of strings as a result.
         player_starting_inventory: list[str] = [item.name for item in self.multiworld.precollected_items[self.player]]
 
-        if not self.options.progressive_vacuum:
+        if not self.options.progressive_vacuums:
             for vacuums_added in KEYS_TABLE.keys():
                 if vacuums_added == "Progressive Vacuum Tube":
                     continue
