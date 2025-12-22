@@ -81,7 +81,7 @@ class GrinchWorld(World):
             if "Giftsanity" in (data.location_group or []) and not self.options.giftsanity.value:
                 continue
 
-            if "Missions" in (data.location_group or []) and self.options.missionsanity.value == (0, 2):
+            if "Missions" in (data.location_group or []) and self.options.missionsanity == (0, 2):
                 continue
 
             # If the region is in the list to be ignored, DON'T create the location and just continue.
@@ -120,7 +120,7 @@ class GrinchWorld(World):
         }
 
         for mission_items_added in MISSION_ITEMS_TABLE:
-            if self.options.missionsanity.value in (0, 2):
+            if self.options.missionsanity in (0, 2):
                 if mission_items_added in SUBAREA_ITEMS:
                     self_itempool.append(self.create_item(mission_items_added))
                 else:
