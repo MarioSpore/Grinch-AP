@@ -1336,7 +1336,7 @@ grinch_locations = {
         ["Mount Crumpit"],
         1409,
         [
-            GrinchRamData(0x0101FE, binary_bit_pos=2),
+            GrinchRamData(0x0101FE, binary_bit_pos=1),
         ],
     ),
     "MC - Collect Max Door Key": GrinchLocationData(
