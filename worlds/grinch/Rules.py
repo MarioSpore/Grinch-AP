@@ -360,6 +360,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.gadgets.SLIME_SHOOTER,
             grinch_items.moves.BAD_BREATH,
+            grinch_items.moves.PANCAKE,
         ],
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
@@ -367,6 +368,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SNEAK,
             grinch_items.moves.BAD_BREATH,
+            grinch_items.moves.PANCAKE,
         ]
     ],
     "WF - Squashing All Gifts": [
