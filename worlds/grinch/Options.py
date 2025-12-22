@@ -264,7 +264,7 @@ grinch_option_groups: list[OptionGroup] = [
     ]),
     OptionGroup("Location Settings", [
         Missionsanity,
-        ExcludeEnvironment,
+        ExcludeEnvironments,
         Gifts,
         Supadow,
     ]),
@@ -272,9 +272,9 @@ grinch_option_groups: list[OptionGroup] = [
         UnlimitedEggs,
     ]),
     OptionGroup("Item Pool", [
-        ProgressiveVacuum,
+        ProgressiveVacuums,
         StartingArea,
-        ProgressiveGadget,
+        ProgressiveGadgets,
         Gadgetrando,
         Gadgetrandolist,
         Moverando,
