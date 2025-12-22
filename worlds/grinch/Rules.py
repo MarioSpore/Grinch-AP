@@ -236,6 +236,9 @@ rules_dict: dict[str, list[list[str]]] = {
         [
             grinch_items.level_items.WV_WHO_CLOAK,
         ],
+        [
+            grinch_items.gadgets.SLIME_SHOOTER,
+        ],
     ],
     "WF - First Visit": [[]],
     "WF - Ski Resort - First Visit": [[]],
