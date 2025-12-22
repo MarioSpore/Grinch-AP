@@ -378,15 +378,6 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.BAD_BREATH,
             grinch_items.moves.PANCAKE,
         ],
-        [
-            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
-            grinch_items.gadgets.ROCKET_SPRING,
-            grinch_items.level_items.WF_CABLE_CAR_ACCESS_CARD,
-            grinch_items.gadgets.SLIME_SHOOTER,
-            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-            grinch_items.moves.BAD_BREATH,
-            grinch_items.moves.PANCAKE,
-        ],
     ],
     # Who Dump Missions
     "WD - Stealing Food From Birds": [
