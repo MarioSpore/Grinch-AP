@@ -12,7 +12,7 @@ from Options import (
     PerGameCommonOptions,
     OptionSet,
     OptionCounter,
-    StartInventoryPool, OptionGroup,
+    StartInventoryPool, OptionGroup, Visibility,
     # DeathLinkMixin,
 )
 
@@ -63,9 +63,10 @@ class AdvancedLogic(Toggle):
     """
     Enables logic to allow skips, damage boosts, glitches, game restarts, excessive egg usage, and various other
     unintentional ways that beginners wouldn't grasp on their first playthrough if this is enabled to be considered
-    logical. [NOT IMPLEMENTED]
+    logical.
     """
     display_name = "Advanced Logic"
+    visibility = Visibility.none
 
 class ExcludeEnvironments(OptionSet):
     """
@@ -94,18 +95,20 @@ class ExcludeEnvironments(OptionSet):
 
 class ProgressiveGadgets(Toggle):  # DefaultOnToggle
     """
-    Determines whether you get access to a gadget as the individual blueprint count. [NOT IMPLEMENTED]
+    Determines whether you get access to a gadget as the individual blueprint count.
     """
 
     display_name = "Progressive Gadgets"
+    visibility = Visibility.none
 
 
 class Supadow(Toggle):
     """
-    Enables completing minigames through the Supadows in Mount Crumpit as checks. [NOT IMPLEMENTED]
+    Enables completing minigames through the Supadows in Mount Crumpit as checks.
     """
 
     display_name = "Supadow Minigames"
+    visibility = Visibility.none
 
 
 class Gifts(Toggle):
@@ -192,10 +195,11 @@ class RingLinkOption(Toggle):
 
 class TrapLinkOption(Toggle):
     """
-    If a trap is sent from Grinch, traps that are compatible with other games are triggered as well. [NOT IMPLEMENTED]
+    If a trap is sent from Grinch, traps that are compatible with other games are triggered as well.
     """
 
     display_name = "Trap Link"
+    visibility = Visibility.none
 
 class FillerWeight(OptionCounter):
     """
