@@ -71,20 +71,13 @@ class ExcludeEnvironments(OptionSet):
     """
     Allows entire environments to be entirely removed to ensure you are not logically required to enter the environment
     along with any and all checks that are in that environment too.
-    WARNING: Removing too many environments may cause generation to fail.
 
-    Valid keys: "Mount Crumpit, "Whoville", "Who Forest", "Who Dump", "Who Lake", "Post Office", "Clock Tower",
-                "City Hall", "Ski Resort", "Civic Center", "Minefield", "Power Plant", "Generator Building",
-                "Scout's Hut", "North Shore", "Mayor's Villa", "Sleigh Ride"
+    Valid keys: "Post Office", "Clock Tower", "City Hall", "Ski Resort", "Civic Center", "Minefield", "Power Plant",
+                "Generator Building", "Scout's Hut", "North Shore", "Mayor's Villa"
     """
 
     display_name = "Exclude Environments"
     valid_keys = {
-        "Mount Crumpit"
-        "Whoville",
-        "Who Forest",
-        "Who Dump",
-        "Who Lake",
         "Post Office",
         "Clock Tower",
         "City Hall",
@@ -96,7 +89,6 @@ class ExcludeEnvironments(OptionSet):
         "Scout's Hut",
         "North Shore",
         "Mayor's Villa",
-        "Sleigh Ride",
     }
 
 
