@@ -139,6 +139,13 @@ class Gadgetrandolist(OptionSet):
         "Grinch Copter",
     ]
 
+class ExcludeGC(Toggle):
+    """
+    Tired of getting Grinch Copter? This option ensures Grinch Copter is entirely taken out from the multiworld.
+    """
+
+    display_name = "Remove Grinch Copter"
+
 class Moverando(Toggle):
     """
     Determines whether the Grinch's moves will be randomized or not.
@@ -235,6 +242,7 @@ class GrinchOptions(PerGameCommonOptions):  # DeathLinkMixin
     progressive_gadgets: ProgressiveGadgets
     gadget_rando: Gadgetrando
     gadgets_to_randomize: Gadgetrandolist
+    exclude_gc: ExcludeGC
     move_rando: Moverando
     moves_to_randomize: Moverandolist
     unlimited_eggs: UnlimitedEggs
@@ -269,6 +277,7 @@ grinch_option_groups: list[OptionGroup] = [
         ProgressiveGadgets,
         Gadgetrando,
         Gadgetrandolist,
+        ExcludeGC,
         Moverando,
         Moverandolist
     ]),

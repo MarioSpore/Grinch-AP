@@ -63,6 +63,12 @@ class GrinchWorld(World):
                 self.options.progressive_vacuums = slot_data["progressive_vacuums"]
                 self.options.missionsanity = slot_data["missionsanity"]
                 self.options.supadow_minigames = slot_data["supadow_minigames"]
+                self.options.move_rando = slot_data["move_rando"]
+                self.options.moves_to_randomize = slot_data["moves_to_randomize"]
+                self.options.gadget_rando = slot_data["gadget_rando"]
+                self.options.gadgets_to_randomize = slot_data["gadgets_to_randomize"]
+                self.options.exclude_gc = slot_data["exclude_gc"]
+                self.options.progressive_gadgets = slot_data["progressive_gadgets"]
 
 
     def create_regions(self):  # Generates all regions for the multiworld
@@ -137,6 +143,8 @@ class GrinchWorld(World):
 
         # Adds gadgets
         for gadgets_added in GADGETS_TABLE:
+            if gadgets_added == "Grinch Copter" and self.options.exclude_gc:
+                continue
             if self.options.gadget_rando and gadgets_added in self.options.gadgets_to_randomize:
                 self_itempool.append(self.create_item(gadgets_added))
             else:
@@ -213,6 +221,13 @@ class GrinchWorld(World):
             "progressive_vacuums": self.options.progressive_vacuums.value,
             "missionsanity": self.options.missionsanity.value,
             "supadow_minigames": self.options.supadow_minigames.value,
+            "move_rando": self.options.move_rando.value,
+            "moves_to_randomize": self.options.moves_to_randomize.value,
+            "gadget_rando": self.options.gadget_rando.value,
+            "gadgets_to_randomize": self.options.gadgets_to_randomize.value,
+            "exclude_gc": self.options.exclude_gc.value,
+            "progressive_gadgets": self.options.progressive_gadgets.value,
+
         }
 
     def generate_output(self, output_directory: str) -> None:
