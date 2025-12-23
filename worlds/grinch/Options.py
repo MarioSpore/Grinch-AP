@@ -145,6 +145,7 @@ class Gadgetrandolist(OptionSet):
 class ExcludeGC(Toggle):
     """
     Tired of getting Grinch Copter? This option ensures Grinch Copter is entirely taken out from the multiworld.
+    Note that locations that hard require Grinch Copter will also be removed.
     """
 
     display_name = "Remove Grinch Copter"
