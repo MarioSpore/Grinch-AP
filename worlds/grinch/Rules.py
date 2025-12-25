@@ -1,6 +1,6 @@
+from types import MappingProxyType
 from typing import Callable
 
-import Utils
 from BaseClasses import CollectionState
 from worlds.AutoWorld import World
 from worlds.generic.Rules import add_rule
@@ -29,15 +29,23 @@ def interpret_rule(
         return []
 
     # Otherwise, if a region/location DOES have items required, make the section(s) return list of logic.
-
     access_list: list[Callable[[CollectionState], bool]] = []
+
     for item_set in rule_set:
-        access_list.append(lambda state, items=tuple(item_set): state.has_all(items, player))
+        item_names_and_count: dict[str, int] = {}
+        for item_name in item_set:
+            if ":" in item_name:
+                item_count: int = int(item_name.split(":")[0])
+                req_item_name: str = str(item_name.split(":")[1])
+                item_names_and_count[req_item_name] = item_count
+            else:
+                item_names_and_count[item_name] = 1
+        access_list.append(
+            lambda state, items=MappingProxyType(item_names_and_count): state.has_all_counts(items, player))
 
     return access_list
 
-    # Each item in the list is a separate list of rules. Each separate list is just an "OR" condition.
-
+# Each item in the list is a separate list of rules. Each separate list is just an "OR" condition.
 # NOTE: Locations will never be in logic if any of these are true ingame:
 # - You can get softlocked in an area and would require restarting
 # - You have a chance to get teleported back to the start by doing this
@@ -53,6 +61,9 @@ access_rules_dict: dict[str, list[list[str]]] = {
     "Whoville": [
         [
             grinch_items.keys.WHOVILLE,
+        ],
+        [
+            "1:"+grinch_items.keys.PROGRESSIVE_VACUUM_TUBE
         ],
     ],
     "Post Office": [
@@ -74,6 +85,9 @@ access_rules_dict: dict[str, list[list[str]]] = {
         [
             grinch_items.keys.WHO_FOREST,
         ],
+        [
+            "2:" + grinch_items.keys.PROGRESSIVE_VACUUM_TUBE
+        ],
     ],
     "Ski Resort": [
         [
@@ -91,6 +105,9 @@ access_rules_dict: dict[str, list[list[str]]] = {
     "Who Dump": [
         [
             grinch_items.keys.WHO_DUMP,
+        ],
+        [
+            "3:" + grinch_items.keys.PROGRESSIVE_VACUUM_TUBE
         ],
     ],
     "Minefield": [
@@ -132,7 +149,6 @@ access_rules_dict: dict[str, list[list[str]]] = {
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
-            grinch_items.gadgets.SLIME_SHOOTER,
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.MAX,
             grinch_items.moves.BAD_BREATH,
@@ -141,6 +157,9 @@ access_rules_dict: dict[str, list[list[str]]] = {
     "Who Lake": [
         [
             grinch_items.keys.WHO_LAKE,
+        ],
+        [
+            "4:" + grinch_items.keys.PROGRESSIVE_VACUUM_TUBE
         ],
     ],
     "Scout's Hut": [
@@ -174,8 +193,31 @@ access_rules_dict: dict[str, list[list[str]]] = {
             grinch_items.keys.SLEIGH_ROOM_KEY,
         ]
     ],
+    "Sleigh Ride": [
+        [
+        grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        grinch_items.keys.WHOVILLE,
+        grinch_items.keys.WHO_FOREST,
+        grinch_items.keys.WHO_DUMP,
+        grinch_items.keys.WHO_LAKE,
+        grinch_items.gadgets.ROCKET_SPRING,
+        grinch_items.gadgets.MARINE_MOBILE,
+        grinch_items.moves.MAX,
+        grinch_items.moves.SEIZE,
+        grinch_items.moves.PANCAKE,
+        ],
+        [
+        grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        "4:"+grinch_items.keys.PROGRESSIVE_VACUUM_TUBE,
+        grinch_items.gadgets.ROCKET_SPRING,
+        grinch_items.gadgets.MARINE_MOBILE,
+        grinch_items.moves.MAX,
+        grinch_items.moves.SEIZE,
+        grinch_items.moves.PANCAKE,
+        ]
+    ],
     "Spin N' Win": [[]],
-    "Dankamania": [],
+    "Dankamania": [[]],
     "The Copter Race Contest": [[]],
     "Bike Race": [[]],
 }
@@ -187,7 +229,17 @@ rules_dict: dict[str, list[list[str]]] = {
     "WV - First Visit": [[]],
     "WV - Post Office - First Visit": [[]],
     "WV - City Hall - First Visit": [[]],
-    "WV - Clock Tower - First Visit": [[]],
+    "WV - Clock Tower - First Visit": [
+        [
+            grinch_items.moves.SNEAK,
+        ],
+        [
+            grinch_items.level_items.WV_WHO_CLOAK,
+        ],
+        [
+            grinch_items.gadgets.SLIME_SHOOTER,
+        ],
+    ],
     "WF - First Visit": [[]],
     "WF - Ski Resort - First Visit": [[]],
     "WF - Civic Center - First Visit": [[]],
@@ -235,7 +287,6 @@ rules_dict: dict[str, list[list[str]]] = {
         [
             grinch_items.level_items.WV_SCULPTING_TOOLS,
             grinch_items.gadgets.GRINCH_COPTER,
-            grinch_items.moves.BAD_BREATH,
         ]
     ],
     "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock": [
@@ -324,15 +375,6 @@ rules_dict: dict[str, list[list[str]]] = {
     "WF - Squashing All Gifts": [
         [
             grinch_items.gadgets.GRINCH_COPTER,
-            grinch_items.level_items.WF_CABLE_CAR_ACCESS_CARD,
-            grinch_items.gadgets.SLIME_SHOOTER,
-            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-            grinch_items.moves.BAD_BREATH,
-            grinch_items.moves.PANCAKE,
-        ],
-        [
-            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
-            grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.level_items.WF_CABLE_CAR_ACCESS_CARD,
             grinch_items.gadgets.SLIME_SHOOTER,
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
@@ -1028,12 +1070,10 @@ rules_dict: dict[str, list[list[str]]] = {
     ],
     "WL - North Shore - MM BP inside Drill House": [
         [
-            grinch_items.moves.PANCAKE,
         ],
     ],
     "WL - North Shore - MM BP on Crow Platform near Drill House": [
         [
-            grinch_items.moves.PANCAKE,
         ],
     ],
     "WL - Submarine World - GC BP Just Below Water Surface": [[]],
@@ -1096,31 +1136,11 @@ rules_dict: dict[str, list[list[str]]] = {
     "MC - Sleigh Ride - Stealing All Gifts": [
         # ["Exhaust Pipes", "Tires", "Skis", "Twin-End Tuba"]
         [
-            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-            grinch_items.keys.WHOVILLE,
-            grinch_items.keys.WHO_FOREST,
-            grinch_items.keys.WHO_DUMP,
-            grinch_items.keys.WHO_LAKE,
-            grinch_items.gadgets.ROCKET_SPRING,
-            grinch_items.gadgets.MARINE_MOBILE,
-            grinch_items.moves.MAX,
-            grinch_items.moves.SEIZE,
-            grinch_items.moves.PANCAKE,
         ],
     ],
     "MC - Sleigh Ride - Neutralizing Santa": [
         # ["Exhaust Pipes", "Tires", "Skis", "Twin-End Tuba"]
         [
-            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-            grinch_items.keys.WHOVILLE,
-            grinch_items.keys.WHO_FOREST,
-            grinch_items.keys.WHO_DUMP,
-            grinch_items.keys.WHO_LAKE,
-            grinch_items.gadgets.ROCKET_SPRING,
-            grinch_items.gadgets.MARINE_MOBILE,
-            grinch_items.moves.MAX,
-            grinch_items.moves.SEIZE,
-            grinch_items.moves.PANCAKE,
         ],
     ],
     # Hearts of Stone

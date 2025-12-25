@@ -14,7 +14,7 @@ from .Items import (
     GADGETS_TABLE,
     KEYS_TABLE,
     GrinchItemData,
-    SLEIGH_TABLE,
+    SLEIGH_TABLE, grinch_items, GrinchItem,
 )
 import worlds._bizhawk as bizhawk
 from worlds._bizhawk.client import BizHawkClient
@@ -329,12 +329,18 @@ class GrinchClient(BizHawkClient):
                     addr_to_update.byte_size,
                 ]
 
+                if local_item == grinch_items.keys.PROGRESSIVE_VACUUM_TUBE:
+                    current_vac_count: int = get_item_count_by_id(ctx, item_received.item)
+                    if grinch_item_ram_data.update_ram_addr.index(addr_to_update) +1 >= current_vac_count:
+                        break
+
             self.last_received_index += 1
 
         # Update the latest received item index to ram as well.
         ram_addr_dict[RECV_ITEM_ADDR] = [self.last_received_index, RECV_ITEM_BITSIZE]
 
         await bizhawk.write(ctx.bizhawk_ctx, self.convert_dict_to_ram_list(ram_addr_dict))
+
 
     async def goal_checker(self, ctx: "BizHawkClientContext"):
         if not ctx.finished_game:
@@ -448,6 +454,11 @@ class GrinchClient(BizHawkClient):
                             0,
                             addr_to_update.byte_size,
                         ]
+
+                if item_name == grinch_items.keys.PROGRESSIVE_VACUUM_TUBE:
+                    current_vac_count: int = get_item_count_by_id(ctx, GrinchItem.get_apid(item_data.id))
+                    if item_data.update_ram_addr.index(addr_to_update) +1 >= current_vac_count:
+                        break
 
         await bizhawk.write(ctx.bizhawk_ctx, self.convert_dict_to_ram_list(ram_addr_dict))
 
@@ -584,7 +595,7 @@ class GrinchClient(BizHawkClient):
 
     async def watch_to_teleport_player(self, ctx: "BizHawkClientContext"):
         while ctx.slot:
-            if not self.ingame_checker(ctx):
+            if not await self.ingame_checker(ctx):
                 await asyncio.sleep(5)
                 continue
 
@@ -678,3 +689,6 @@ def set_binary_position(value_to_check: int, binary_position: int, turn_on: bool
         return value_to_check | 1 << binary_position
     else:
         return value_to_check & ~(1 << binary_position)
+
+def get_item_count_by_id(ctx: "BizHawkClientContext", item_id: int) -> int:
+    return len([netItem for netItem in ctx.items_received if netItem.item == item_id])

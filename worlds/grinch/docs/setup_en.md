@@ -5,7 +5,7 @@
 BizHawk support.
 - Legally obtained NTSC Bin ROM file, probably named something like `Grinch, The (USA) (En,Fr,Es).bin`. 
 The game's CUE file should also work aswell along side the BIN file if you have troubles opening the BIN file.
-- [BizHawk](https://tasvideos.org/BizHawk/ReleaseHistory) Version 2.9.1 is required to play. Any version is NOT compatible and may have unintended behavior in 
+- [BizHawk](https://tasvideos.org/BizHawk/ReleaseHistory) Version 2.11 is required to play. Any version below 2.9.1 compatible may have unintended behavior in 
 the game as well as not being able to connect to the client through the LUA Console.
 - The latest `grinch.apworld` file. You can find this on the [Releases page](https://github.com/MarioSpore/Grinch-AP/releases/latest). Put this in your `Archipelago/custom_worlds` folder.
 - PSX BIOS Firmware bin file, which is required to run the game through Bizhawk. The file you need should be

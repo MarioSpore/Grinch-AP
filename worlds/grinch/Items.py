@@ -393,6 +393,15 @@ KEYS_TABLE: dict[str, GrinchItemData] = {
         IC.progression,
         [GrinchRamData(0x0100AA, binary_bit_pos=4)],
     ),
+    grinch_items.keys.PROGRESSIVE_VACUUM_TUBE: GrinchItemData(
+        [grinch_categories.VACUUM_TUBES],
+        404,
+        IC.progression,
+        [GrinchRamData(0x010200, binary_bit_pos=1),
+        GrinchRamData(0x0100AA, binary_bit_pos=2),
+        GrinchRamData(0x0100AA, binary_bit_pos=3),
+        GrinchRamData(0x0100AA, binary_bit_pos=4)],
+    ),
 }
 
 
@@ -562,6 +571,7 @@ TRAPS_TABLE: dict[str, GrinchItemData] = {
             GrinchRamData(0x0101FF, binary_bit_pos=0),
             GrinchRamData(0x0100B4, value=0),
             GrinchRamData(0x08FB94, value=1),
+            GrinchRamData(0x010111, value=0),
         ],
     ),
     # alias to Spring Trap for traplink
@@ -573,6 +583,7 @@ TRAPS_TABLE: dict[str, GrinchItemData] = {
         IC.trap,
         [
             GrinchRamData(0x08FB94, value=1),
+            GrinchRamData(0x010111, value=0),
         ],
     ),
     # "Cutscene Trap": GrinchItemData(["Traps"], 609, IC.trap, [GrinchRamData()]),

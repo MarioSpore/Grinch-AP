@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-
 from Options import (
     FreeText,
     NumericOption,
@@ -13,8 +12,8 @@ from Options import (
     PerGameCommonOptions,
     OptionSet,
     OptionCounter,
-    StartInventoryPool, OptionGroup,
-    # DeathLinkMixin
+    StartInventoryPool, OptionGroup, Visibility,
+    # DeathLinkMixin,
 )
 
 
@@ -22,6 +21,7 @@ class StartingArea(Choice):
     """
     Here, you can select which area you'll start the game with.
     Whichever one you pick is the region you'll have access to at the start of the Multiworld.
+    If "progressive_vacuums" is enabled, this is not considered and you will always start in Whoville.
     """
 
     option_whoville = 0
@@ -32,11 +32,10 @@ class StartingArea(Choice):
     display_name = "Starting Area"
 
 
-class ProgressiveVacuum(Toggle):  # DefaultOnToggle
+class ProgressiveVacuums(Toggle):  # DefaultOnToggle
     """
-    Determines whether you get access to main areas progressively [NOT IMPLEMENTED]
-
-    Enabled: Whoville > Who Forest > Who Dump > Who Lake
+    Determines whether you get access to main areas progressively.
+    If enabled, you will receive Whoville, Who Forest, Who Dump, and Who Lake in that order.
     """
 
     display_name = "Progressive Vacuum Tubes"
@@ -44,12 +43,12 @@ class ProgressiveVacuum(Toggle):  # DefaultOnToggle
 
 class Missionsanity(Choice):
     """
-    How mission checks are randomized in the pool [NOT IMPLEMENTED]
-
-    None: Does not add mission checks
-    Completion: Only completing the mission gives you a check
-    Individual: Individual tasks for one mission, such as individual snowmen squashed, are checks.
-    Both: Both individual tasks and mission completion are randomized.
+    How mission checks are randomized in the pool.
+    Currently, enabling completion or both enables the mission completion. Any other setting only removes them.
+    - none: Does not add mission checks
+    - completion: Only completing the mission gives you a check
+    - individual: Individual tasks for one mission, such as individual snowmen squashed, are checks.
+    - both: Both individual tasks and mission completion are randomized.
     """
 
     display_name = "Mission Locations"
@@ -64,29 +63,22 @@ class AdvancedLogic(Toggle):
     """
     Enables logic to allow skips, damage boosts, glitches, game restarts, excessive egg usage, and various other
     unintentional ways that beginners wouldn't grasp on their first playthrough if this is enabled to be considered
-    logical. [NOT IMPLEMENTED]
+    logical.
     """
     display_name = "Advanced Logic"
+    visibility = Visibility.none
 
 class ExcludeEnvironments(OptionSet):
     """
     Allows entire environments to be entirely removed to ensure you are not logically required to enter the environment
-    along with any and all checks that are in that environment too. [NOT IMPLEMENTED]
+    along with any and all checks that are in that environment too.
 
-    WARNING: Removing too many environments may cause generation to fail.
-
-    Valid keys: "Mount Crumpit, "Whoville", "Who Forest", "Who Dump", "Who Lake", "Post Office", "Clock Tower",
-                "City Hall", "Ski Resort", "Civic Center", "Minefield", "Power Plant", "Generator Building",
-                "Scout's Hut", "North Shore", "Mayor's Villa", "Sleigh Ride"
+    Valid keys: "Post Office", "Clock Tower", "City Hall", "Ski Resort", "Civic Center", "Minefield", "Power Plant",
+                "Generator Building", "Scout's Hut", "North Shore", "Mayor's Villa"
     """
 
     display_name = "Exclude Environments"
     valid_keys = {
-        "Mount Crumpit"
-        "Whoville",
-        "Who Forest",
-        "Who Dump",
-        "Who Lake",
         "Post Office",
         "Clock Tower",
         "City Hall",
@@ -98,36 +90,34 @@ class ExcludeEnvironments(OptionSet):
         "Scout's Hut",
         "North Shore",
         "Mayor's Villa",
-        "Sleigh Ride",
     }
 
 
-class ProgressiveGadget(Toggle):  # DefaultOnToggle
+class ProgressiveGadgets(Toggle):  # DefaultOnToggle
     """
-    Determines whether you get access to a gadget as individual blueprint count. [NOT IMPLEMENTED]
+    Determines whether you get access to a gadget as the individual blueprint count.
     """
 
     display_name = "Progressive Gadgets"
+    visibility = Visibility.none
 
 
 class Supadow(Toggle):
     """
-    Enables completing minigames through the Supadows in Mount Crumpit as checks. [NOT IMPLEMENTED]
+    Enables completing minigames through the Supadows in Mount Crumpit as checks.
     """
 
     display_name = "Supadow Minigames"
+    visibility = Visibility.none
 
 
-class Gifts(Range):
+class Gifts(Toggle):
     """
-    Considers how many gifts must be squashed per check.
-    Enabling this will also enable squashing all gifts in a region mission alongside this. [NOT IMPLEMENTED]
+    Determines whether or not individual gifts are checks
+    NOTE: This currently only disables the missions relating to squashing all gifts for an entire region.
     """
 
-    display_name = "Gifts Squashed per Check"
-    range_start = 0
-    range_end = 300
-    default = 0
+    display_name = "Giftsanity"
 
 class Gadgetrando(DefaultOnToggle):
     """
@@ -138,7 +128,7 @@ class Gadgetrando(DefaultOnToggle):
 
 class Gadgetrandolist(OptionSet):
     """
-    If "Randomize Gadgets" is enabled, gadgets that you add to the dictionary will be randomized.
+    If "gadget_rando" is enabled, gadgets that you add to the dictionary will be randomized.
     """
 
     display_name = "Gadgets Randomized"
@@ -152,20 +142,28 @@ class Gadgetrandolist(OptionSet):
         "Grinch Copter",
     ]
 
+class ExcludeGC(Toggle):
+    """
+    Tired of getting Grinch Copter? This option ensures Grinch Copter is entirely taken out from the multiworld.
+    Note that locations that hard require Grinch Copter will also be removed.
+    """
+
+    display_name = "Remove Grinch Copter"
+
 class Moverando(Toggle):
     """
     Determines whether the Grinch's moves will be randomized or not.
-
     NOTE: Tutorial section would be logical linearly and vacuum tubes would still be logical. To access them, you can use
-    /dumpittocrumpit command to directly teleport you to the main lobby. And to teleport back to the top, type
-    /tutorialworld to be warped back up so you can access their checks.
+    certain controller combinations to warp to their respective areas in Mount Crumpit at any time.
+    To warp to the computer room, press and hold start, L1, and R1 at the same time.
+    To warp to the top, press and hold start, L2, and R2 at the same time.
     """
 
     display_name = "Randomize Moves"
 
 class Moverandolist(OptionSet):
     """
-    If "Randomize Moves" is enabled, the Grinch's moves that you add to the dictionary will be randomized.
+    If "move_rando" is enabled, the Grinch's moves that you add to the dictionary will be randomized.
     """
 
     display_name = "Moves Randomized"
@@ -181,6 +179,7 @@ class Moverandolist(OptionSet):
 class UnlimitedEggs(Toggle):
     """
     Determine whether or not you run out of rotten eggs when you utilize your gadgets.
+    NOTE: Attempting to enable this with ringlink will force generation to stop until either option is enabled.
     """
 
     display_name = "Unlimited Rotten Eggs"
@@ -189,6 +188,7 @@ class UnlimitedEggs(Toggle):
 class RingLinkOption(Toggle):
     """
     Whenever this is toggled, your ammo is linked with other ringlink-compatible games that also have this enabled.
+    NOTE: Attempting to enable this with unlimited_eggs will force generation to stop until either option is enabled.
     """
 
     display_name = "Ring Link"
@@ -196,10 +196,11 @@ class RingLinkOption(Toggle):
 
 class TrapLinkOption(Toggle):
     """
-    If a trap is sent from Grinch, traps that are compatible with other games are triggered as well. [NOT IMPLEMENTED]
+    If a trap is sent from Grinch, traps that are compatible with other games are triggered as well.
     """
 
     display_name = "Trap Link"
+    visibility = Visibility.none
 
 class FillerWeight(OptionCounter):
     """
@@ -235,12 +236,35 @@ class TrapWeight(OptionCounter):
         "Depletion Trap": 34,
     }
 
-grinch_option_groups = [
+@dataclass
+class GrinchOptions(PerGameCommonOptions):  # DeathLinkMixin
+    progressive_vacuums: ProgressiveVacuums
+    starting_area: StartingArea
+    missionsanity: Missionsanity
+    exclude_environments: ExcludeEnvironments
+    giftsanity: Gifts
+    supadow_minigames: Supadow
+    progressive_gadgets: ProgressiveGadgets
+    gadget_rando: Gadgetrando
+    gadgets_to_randomize: Gadgetrandolist
+    exclude_gc: ExcludeGC
+    move_rando: Moverando
+    moves_to_randomize: Moverandolist
+    unlimited_eggs: UnlimitedEggs
+    filler_weight: FillerWeight
+    trap_percentage: TrapPercentage
+    trap_weight: TrapWeight
+    ring_link: RingLinkOption
+    trap_link: TrapLinkOption
+    advanced_logic: AdvancedLogic
+    start_inventory_from_pool: StartInventoryPool
+
+grinch_option_groups: list[OptionGroup] = [
     OptionGroup("Filler/Trap Settings", [
         FillerWeight,
-        RingLinkOption,
         TrapPercentage,
         TrapWeight,
+        RingLinkOption,
         TrapLinkOption,
     ]),
     OptionGroup("Location Settings", [
@@ -253,11 +277,12 @@ grinch_option_groups = [
         UnlimitedEggs,
     ]),
     OptionGroup("Item Pool", [
+        ProgressiveVacuums,
         StartingArea,
-        ProgressiveVacuum,
-        ProgressiveGadget,
+        ProgressiveGadgets,
         Gadgetrando,
         Gadgetrandolist,
+        ExcludeGC,
         Moverando,
         Moverandolist
     ]),
@@ -265,25 +290,3 @@ grinch_option_groups = [
         AdvancedLogic,
     ]),
 ]
-
-@dataclass
-class GrinchOptions(PerGameCommonOptions):  # DeathLinkMixin
-    starting_area: StartingArea
-    progressive_vacuum: ProgressiveVacuum
-    missionsanity: Missionsanity
-    exclude_environments: ExcludeEnvironments
-    progressive_gadget: ProgressiveGadget
-    supadow_minigames: Supadow
-    giftsanity: Gifts
-    gadget_rando: Gadgetrando
-    gadgets_to_randomize: Gadgetrandolist
-    move_rando: Moverando
-    moves_to_randomize: Moverandolist
-    unlimited_eggs: UnlimitedEggs
-    ring_link: RingLinkOption
-    trap_link: TrapLinkOption
-    filler_weight: FillerWeight
-    trap_percentage: TrapPercentage
-    trap_weight: TrapWeight
-    start_inventory_from_pool: StartInventoryPool
-    advanced_logic: AdvancedLogic

@@ -1170,13 +1170,13 @@ grinch_locations = {
     ),
     # Sleigh Room Locations
     "MC - Sleigh Ride - Stealing All Gifts": GrinchLocationData(
-        "Sleigh Room",
+        "Sleigh Ride",
         ["Sleigh Ride"],
         1300,
         [GrinchRamData(0x0100BF, binary_bit_pos=6)],
     ),
     "MC - Sleigh Ride - Neutralizing Santa": GrinchLocationData(
-        "Sleigh Room",
+        "Sleigh Ride",
         ["Sleigh Ride"],
         1301,
         [GrinchRamData(0x010000, value=0x3E)],# [GrinchRamData(0x0100BF, binary_bit_pos=7)],
@@ -1336,7 +1336,7 @@ grinch_locations = {
         ["Mount Crumpit"],
         1409,
         [
-            GrinchRamData(0x0101FE, binary_bit_pos=3),
+            GrinchRamData(0x0101FE, binary_bit_pos=1),
         ],
     ),
     "MC - Collect Max Door Key": GrinchLocationData(
@@ -1361,7 +1361,8 @@ grinch_locations = {
         1500,
         [
             GrinchRamData(0x010000, value=0x13),
-            GrinchRamData(0x095349, binary_bit_pos=0),
+            # GrinchRamData(0x095349, binary_bit_pos=0),
+            GrinchRamData(0x0100BB, binary_bit_pos=0),
         ],
     ),
     "WL - Scout's Hut - Steal Scout's Shirt": GrinchLocationData(
@@ -1370,7 +1371,9 @@ grinch_locations = {
         1501,
         [
             GrinchRamData(0x010000, value=0x13),
-            GrinchRamData(0x095349, binary_bit_pos=1),
+            # GrinchRamData(0x095349, binary_bit_pos=1),
+            GrinchRamData(0x0100BB, binary_bit_pos=0),
+            GrinchRamData(0x0100BB, binary_bit_pos=1),
         ],
     ),
     "WL - Scout's Hut - Steal Scout's Shorts": GrinchLocationData(
@@ -1379,7 +1382,9 @@ grinch_locations = {
         1502,
         [
             GrinchRamData(0x010000, value=0x13),
-            GrinchRamData(0x095349, binary_bit_pos=2),
+            # GrinchRamData(0x095349, binary_bit_pos=2),
+            GrinchRamData(0x0100BB, binary_bit_pos=0),
+            GrinchRamData(0x0100BB, binary_bit_pos=1),
         ],
     ),
 }

@@ -1,7 +1,7 @@
 import math
 
 from BaseClasses import Region, Item, ItemClassification, Location
-from .Locations import grinch_locations_to_id, grinch_locations, GrinchLocation, get_location_names_per_category
+from .Locations import grinch_locations_to_id, grinch_locations, GrinchLocation, get_location_names_per_category, GrinchLocationData
 from .Items import (grinch_items_to_id, GrinchItem, ALL_ITEMS_TABLE, MISC_ITEMS_TABLE, get_item_names_per_category,
     TRAPS_TABLE, MOVES_TABLE, USEFUL_ITEMS_TABLE)
 from .Regions import connect_regions
@@ -60,6 +60,15 @@ class GrinchWorld(World):
                 self.options.starting_area.value = slot_data["starting_area"]
                 self.options.exclude_environments.value = ["exclude_environments"]
                 self.options.giftsanity.value = slot_data["giftsanity"]
+                self.options.progressive_vacuums = slot_data["progressive_vacuums"]
+                self.options.missionsanity = slot_data["missionsanity"]
+                self.options.supadow_minigames = slot_data["supadow_minigames"]
+                self.options.move_rando = slot_data["move_rando"]
+                self.options.moves_to_randomize = slot_data["moves_to_randomize"]
+                self.options.gadget_rando = slot_data["gadget_rando"]
+                self.options.gadgets_to_randomize = slot_data["gadgets_to_randomize"]
+                self.options.exclude_gc = slot_data["exclude_gc"]
+                self.options.progressive_gadgets = slot_data["progressive_gadgets"]
 
 
     def create_regions(self):  # Generates all regions for the multiworld
@@ -73,6 +82,19 @@ class GrinchWorld(World):
 
             if location == "MC - Sleigh Ride - Neutralizing Santa":
                 region.add_event(location, "Goal", None, Location, Item)
+                continue
+
+            if "Giftsanity" in (data.location_group or []) and (not self.options.giftsanity.value or self.options.exclude_gc.value):
+                continue
+
+            if "Missions" in (data.location_group or []) and self.options.missionsanity == 0 or self.options.missionsanity == 2:
+                continue
+
+            # If the region is in the list to be ignored, DON'T create the location and just continue.
+            # Ex if Mount Crumpit is in the exclude env list, no locations should exist in Mount Crumpit.
+            if region.name in self.options.exclude_environments.value:
+                if region.name == "Mount Crumpit":
+                    logger.warning(f"Player {self.player_name} has excluded Mount Crumpit, which is where a large number of Sphere 1 locations usually exist.")
                 continue
 
             entry = GrinchLocation(self.player, location, region, data)
@@ -89,13 +111,28 @@ class GrinchWorld(World):
     def create_items(self):  # Generates all items for the multiworld
         self_itempool: list[GrinchItem] = []
 
-        for item, data in {**MISSION_ITEMS_TABLE, **SLEIGH_TABLE}.items():
+        for item, data in {**SLEIGH_TABLE}.items():
             self_itempool.append(self.create_item(item))
 
         for hearts_added in USEFUL_ITEMS_TABLE:
             if hearts_added == "Heart of Stone":
                 for _ in range(4):
                     self_itempool.append(self.create_item(hearts_added))
+
+        SUBAREA_ITEMS = {
+            "Who Cloak",
+            "Scout Clothes",
+            "Cable Car Access Card",
+        }
+
+        for mission_items_added in MISSION_ITEMS_TABLE:
+            if self.options.missionsanity in (0, 2):
+                if mission_items_added in SUBAREA_ITEMS:
+                    self_itempool.append(self.create_item(mission_items_added))
+                else:
+                    self.multiworld.push_precollected(self.create_item(mission_items_added))
+            else:
+                self_itempool.append(self.create_item(mission_items_added))
 
         # Add moves
         for moves_added in MOVES_TABLE:
@@ -106,28 +143,42 @@ class GrinchWorld(World):
 
         # Adds gadgets
         for gadgets_added in GADGETS_TABLE:
+            if gadgets_added == "Grinch Copter" and self.options.exclude_gc:
+                continue
             if self.options.gadget_rando and gadgets_added in self.options.gadgets_to_randomize:
                 self_itempool.append(self.create_item(gadgets_added))
             else:
                 self.multiworld.push_precollected(self.create_item(gadgets_added))
 
+        if not self.options.progressive_vacuums:
         # When the starting area is chosen, add the key to the starting inventory.
-        if self.options.starting_area.value == 0:
-            self.multiworld.push_precollected(self.create_item("Whoville Vacuum Tube"))
-        elif self.options.starting_area.value == 1:
-            self.multiworld.push_precollected(self.create_item("Who Forest Vacuum Tube"))
-        elif self.options.starting_area.value == 2:
-            self.multiworld.push_precollected(self.create_item("Who Dump Vacuum Tube"))
-        elif self.options.starting_area.value == 3:
-            self.multiworld.push_precollected((self.create_item("Who Lake Vacuum Tube")))
+            if self.options.starting_area.value == 0:
+                self.multiworld.push_precollected(self.create_item("Whoville Vacuum Tube"))
+            elif self.options.starting_area.value == 1:
+                self.multiworld.push_precollected(self.create_item("Who Forest Vacuum Tube"))
+            elif self.options.starting_area.value == 2:
+                self.multiworld.push_precollected(self.create_item("Who Dump Vacuum Tube"))
+            elif self.options.starting_area.value == 3:
+                self.multiworld.push_precollected((self.create_item("Who Lake Vacuum Tube")))
+        else:
+            self.multiworld.push_precollected((self.create_item("Progressive Vacuum Tube")))
+
 
         # Precollected items is stored per player. First, we must get the current player's starting inventory.
         # From here, we get an AP item list. But, we only care about the name. So we get a list of strings as a result.
         player_starting_inventory: list[str] = [item.name for item in self.multiworld.precollected_items[self.player]]
 
-        for vacuums_added in KEYS_TABLE.keys():
-            if vacuums_added not in player_starting_inventory:
-                self_itempool.append(self.create_item(vacuums_added))
+        if not self.options.progressive_vacuums:
+            for vacuums_added in KEYS_TABLE.keys():
+                if vacuums_added == "Progressive Vacuum Tube":
+                    continue
+                if vacuums_added not in player_starting_inventory:
+                    self_itempool.append(self.create_item(vacuums_added))
+        else:
+            progress_vac_count: int = min(player_starting_inventory.count("Progressive Vacuum Tube"),4)
+            for _ in range(4 - progress_vac_count):
+                self_itempool.append(self.create_item("Progressive Vacuum Tube"))
+
 
         # Get number of current unfilled locations
         unfilled_locations: int = len(self.multiworld.get_unfilled_locations(self.player)) - len(self_itempool)
@@ -167,6 +218,16 @@ class GrinchWorld(World):
             "starting_area": self.options.starting_area.value,
             "exclude_environments": self.options.exclude_environments.value,
             "giftsanity": self.options.giftsanity.value,
+            "progressive_vacuums": self.options.progressive_vacuums.value,
+            "missionsanity": self.options.missionsanity.value,
+            "supadow_minigames": self.options.supadow_minigames.value,
+            "move_rando": self.options.move_rando.value,
+            "moves_to_randomize": self.options.moves_to_randomize.value,
+            "gadget_rando": self.options.gadget_rando.value,
+            "gadgets_to_randomize": self.options.gadgets_to_randomize.value,
+            "exclude_gc": self.options.exclude_gc.value,
+            "progressive_gadgets": self.options.progressive_gadgets.value,
+
         }
 
     def generate_output(self, output_directory: str) -> None:
