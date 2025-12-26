@@ -110,11 +110,11 @@ class GrinchWorld(World):
 
     def create_items(self):  # Generates all items for the multiworld
         self_itempool: list[GrinchItem] = []
-        sub_area_items = [
-            "Who Cloak",
-            "Scout Clothes",
-            "Cable Car Access Card",
-        ]
+        sub_area_items: dict[str, list[str]] = {
+            "Who Cloak": ["Post Office"],
+            "Scout Clothes": ["Mayor's Villa", "North Shore"],
+            "Cable Car Access Card": ["Ski Resort"],
+        }
 
         # Precollected items is stored per player. First, we must get the current player's starting inventory.
         # From here, we get an AP item list. But, we only care about the name. So we get a list of strings as a result.
@@ -132,21 +132,31 @@ class GrinchWorld(World):
                 for _ in range(4 - heart_stone_count):
                     self_itempool.append(self.create_item(hearts_added))
 
-        for mission_items_added in MISSION_ITEMS_TABLE:
+        for mission_item in MISSION_ITEMS_TABLE:
             # Only create the item if it doesn't already exist in the player's start inventory.
-            if mission_items_added in player_start_inv:
+            if mission_item in player_start_inv:
                 continue
 
-            if self.options.missionsanity in [0, 2]:
-                if mission_items_added in sub_area_items:
-                    self_itempool.append(self.create_item(mission_items_added))
-                else:
-                    self.multiworld.push_precollected(self.create_item(mission_items_added))
-                    player_start_inv.append(mission_items_added)
-            else:
-                self_itempool.append(self.create_item(mission_items_added))
+            # Checks to see if there are any locations in the Sub-area list.
+            sub_area_has_no_locations: bool = False
+            if mission_item in sub_area_items.keys():
+                for grinch_reg in sub_area_items[mission_item]:
+                    if len(self.get_region(grinch_reg).get_locations()) == 0:
+                        sub_area_has_no_locations = True
 
-        # Add moves
+            # If the item is a sub_area_item and it has 0 locations, add it to start inventory
+            if sub_area_has_no_locations:
+                self.multiworld.push_precollected(self.create_item(mission_item))
+                player_start_inv.append(mission_item)
+            # Else if the player disables missionsanity, add the item into start inventory
+            elif self.options.missionsanity.value == 0:
+                self.multiworld.push_precollected(self.create_item(mission_item))
+                player_start_inv.append(mission_item)
+            # Else, let the multiworld create the item normally.
+            else:
+                self_itempool.append(self.create_item(mission_item))
+
+        # Add various moves that the user requested.
         for moves_added in MOVES_TABLE:
             # Only create the item if it doesn't already exist in the player's start inventory.
             if moves_added in player_start_inv:
