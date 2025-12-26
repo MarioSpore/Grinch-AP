@@ -72,6 +72,8 @@ class ExcludeEnvironments(OptionSet):
     """
     Allows entire environments to be entirely removed to ensure you are not logically required to enter the environment
     along with any and all checks that are in that environment too.
+    Note: You may have a chance to encounter FillError issues if you removing too many areas. This setting is designed
+    for areas you are absolutely annoyed in doing due to the layout of the level among other things within it.
 
     Valid keys: "Post Office", "Clock Tower", "City Hall", "Ski Resort", "Civic Center", "Minefield", "Power Plant",
                 "Generator Building", "Scout's Hut", "North Shore", "Mayor's Villa"

@@ -84,10 +84,10 @@ class GrinchWorld(World):
                 region.add_event(location, "Goal", None, Location, Item)
                 continue
 
-            if "Giftsanity" in (data.location_group or []) and (not self.options.giftsanity.value or self.options.exclude_gc.value):
+            if "Giftsanity" in data.location_group and (not self.options.giftsanity.value or self.options.exclude_gc.value):
                 continue
 
-            if "Missions" in (data.location_group or []) and self.options.missionsanity == 0 or self.options.missionsanity == 2:
+            if "Missions" in data.location_group and self.options.missionsanity.value in [0,2]:
                 continue
 
             # If the region is in the list to be ignored, DON'T create the location and just continue.
@@ -110,75 +110,108 @@ class GrinchWorld(World):
 
     def create_items(self):  # Generates all items for the multiworld
         self_itempool: list[GrinchItem] = []
-
-        for item, data in {**SLEIGH_TABLE}.items():
-            self_itempool.append(self.create_item(item))
-
-        for hearts_added in USEFUL_ITEMS_TABLE:
-            if hearts_added == "Heart of Stone":
-                for _ in range(4):
-                    self_itempool.append(self.create_item(hearts_added))
-
-        SUBAREA_ITEMS = {
-            "Who Cloak",
-            "Scout Clothes",
-            "Cable Car Access Card",
+        sub_area_items: dict[str, list[str]] = {
+            "Who Cloak": ["Post Office"],
+            "Scout Clothes": ["Mayor's Villa", "North Shore"],
+            "Cable Car Access Card": ["Ski Resort"],
         }
 
-        for mission_items_added in MISSION_ITEMS_TABLE:
-            if self.options.missionsanity in (0, 2):
-                if mission_items_added in SUBAREA_ITEMS:
-                    self_itempool.append(self.create_item(mission_items_added))
-                else:
-                    self.multiworld.push_precollected(self.create_item(mission_items_added))
-            else:
-                self_itempool.append(self.create_item(mission_items_added))
+        # Precollected items is stored per player. First, we must get the current player's starting inventory.
+        # From here, we get an AP item list. But, we only care about the name. So we get a list of strings as a result.
+        player_start_inv: list[str] = [item.name for item in self.multiworld.precollected_items[self.player]]
 
-        # Add moves
+        for item, data in {**SLEIGH_TABLE}.items():
+            # Only create the item if it doesn't already exist in the player's start inventory.
+            if not item in player_start_inv:
+                self_itempool.append(self.create_item(item))
+
+        for hearts_added in USEFUL_ITEMS_TABLE:
+            if hearts_added == grinch_items.useful_items.HEART_OF_STONE:
+                # Get the count of already created Heart of Stone items, but capped to 4
+                heart_stone_count: int = min(player_start_inv.count(grinch_items.useful_items.HEART_OF_STONE), 4)
+                for _ in range(4 - heart_stone_count):
+                    self_itempool.append(self.create_item(hearts_added))
+
+        for mission_item in MISSION_ITEMS_TABLE:
+            # Only create the item if it doesn't already exist in the player's start inventory.
+            if mission_item in player_start_inv:
+                continue
+
+            # Checks to see if there are any locations in the Sub-area list.
+            sub_area_has_no_locations: bool = False
+            if mission_item in sub_area_items.keys():
+                for grinch_reg in sub_area_items[mission_item]:
+                    if len(self.get_region(grinch_reg).get_locations()) == 0:
+                        sub_area_has_no_locations = True
+
+            # If the item is a sub_area_item and it has 0 locations, add it to start inventory
+            if sub_area_has_no_locations:
+                self.multiworld.push_precollected(self.create_item(mission_item))
+                player_start_inv.append(mission_item)
+            # Else if the player disables missionsanity, add the item into start inventory
+            elif self.options.missionsanity.value == 0:
+                self.multiworld.push_precollected(self.create_item(mission_item))
+                player_start_inv.append(mission_item)
+            # Else, let the multiworld create the item normally.
+            else:
+                self_itempool.append(self.create_item(mission_item))
+
+        # Add various moves that the user requested.
         for moves_added in MOVES_TABLE:
+            # Only create the item if it doesn't already exist in the player's start inventory.
+            if moves_added in player_start_inv:
+                continue
+
             if self.options.move_rando and moves_added in self.options.moves_to_randomize:
                 self_itempool.append(self.create_item(moves_added))
             else:
                 self.multiworld.push_precollected(self.create_item(moves_added))
+                player_start_inv.append(moves_added)
 
         # Adds gadgets
         for gadgets_added in GADGETS_TABLE:
             if gadgets_added == "Grinch Copter" and self.options.exclude_gc:
                 continue
+
+            # Only create the item if it doesn't already exist in the player's start inventory.
+            elif gadgets_added in player_start_inv:
+                continue
+
             if self.options.gadget_rando and gadgets_added in self.options.gadgets_to_randomize:
                 self_itempool.append(self.create_item(gadgets_added))
             else:
                 self.multiworld.push_precollected(self.create_item(gadgets_added))
+                player_start_inv.append(gadgets_added)
 
         if not self.options.progressive_vacuums:
         # When the starting area is chosen, add the key to the starting inventory.
             if self.options.starting_area.value == 0:
                 self.multiworld.push_precollected(self.create_item("Whoville Vacuum Tube"))
+                player_start_inv.append("Whoville Vacuum Tube")
             elif self.options.starting_area.value == 1:
                 self.multiworld.push_precollected(self.create_item("Who Forest Vacuum Tube"))
+                player_start_inv.append("Who Forest Vacuum Tube")
             elif self.options.starting_area.value == 2:
                 self.multiworld.push_precollected(self.create_item("Who Dump Vacuum Tube"))
+                player_start_inv.append("Who Dump Vacuum Tube")
             elif self.options.starting_area.value == 3:
                 self.multiworld.push_precollected((self.create_item("Who Lake Vacuum Tube")))
+                player_start_inv.append("Who Lake Vacuum Tube")
         else:
             self.multiworld.push_precollected((self.create_item("Progressive Vacuum Tube")))
-
-
-        # Precollected items is stored per player. First, we must get the current player's starting inventory.
-        # From here, we get an AP item list. But, we only care about the name. So we get a list of strings as a result.
-        player_starting_inventory: list[str] = [item.name for item in self.multiworld.precollected_items[self.player]]
+            player_start_inv.append("Progressive Vacuum Tube")
 
         if not self.options.progressive_vacuums:
             for vacuums_added in KEYS_TABLE.keys():
                 if vacuums_added == "Progressive Vacuum Tube":
                     continue
-                if vacuums_added not in player_starting_inventory:
+
+                if vacuums_added not in player_start_inv:
                     self_itempool.append(self.create_item(vacuums_added))
         else:
-            progress_vac_count: int = min(player_starting_inventory.count("Progressive Vacuum Tube"),4)
+            progress_vac_count: int = min(player_start_inv.count("Progressive Vacuum Tube"),4)
             for _ in range(4 - progress_vac_count):
                 self_itempool.append(self.create_item("Progressive Vacuum Tube"))
-
 
         # Get number of current unfilled locations
         unfilled_locations: int = len(self.multiworld.get_unfilled_locations(self.player)) - len(self_itempool)
