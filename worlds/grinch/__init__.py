@@ -85,7 +85,7 @@ class GrinchWorld(World):
                 continue
 
             # No .value after self.options.giftsanity because UT no likey
-            if "Giftsanity" in data.location_group and (not self.options.giftsanity or self.options.exclude_gc.value):
+            if "Giftsanity" in data.location_group and (not self.options.giftsanity or self.options.exclude_gc):
                 continue
 
             # No .value after self.options.missionsanity because UT no likey
