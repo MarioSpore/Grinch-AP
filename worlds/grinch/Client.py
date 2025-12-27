@@ -394,7 +394,23 @@ class GrinchClient(BizHawkClient):
             **GADGETS_TABLE,
             **MOVES_TABLE,
         }
-        heart_count = len(list(item_id for item_id in list_recv_itemids if item_id == 42570))
+
+        heart_count = len(
+            list(
+                item_id
+                for item_id in list_recv_itemids
+                if item_id == 42069 + ALL_ITEMS_TABLE[grinch_items.useful_items.HEART_OF_STONE].id
+            )
+        )
+        has_whoville_vacuum_tube = bool(
+            len(
+                list(
+                    item_id
+                    for item_id in list_recv_itemids
+                    if item_id == 42069 + ALL_ITEMS_TABLE[grinch_items.keys.WHOVILLE].id
+                )
+            )
+        )
         heart_item_data = ALL_ITEMS_TABLE["Heart of Stone"]
         ram_addr_dict[heart_item_data.update_ram_addr[0].ram_address] = [
             min(heart_count, 4),
@@ -407,6 +423,9 @@ class GrinchClient(BizHawkClient):
         for item_name, item_data in items_to_check.items():
             # If item is an event or already been received, ignore.
             if item_data.id is None:  # or GrinchLocation.get_apid(item_data.id) in list_recv_itemids:
+                continue
+
+            if item_name == grinch_items.keys.PROGRESSIVE_VACUUM_TUBE and has_whoville_vacuum_tube:
                 continue
 
             # This will either constantly update the item to ensure you still have it or take it away if you don't deserve it
@@ -457,7 +476,7 @@ class GrinchClient(BizHawkClient):
 
                 if item_name == grinch_items.keys.PROGRESSIVE_VACUUM_TUBE:
                     current_vac_count: int = get_item_count_by_id(ctx, GrinchItem.get_apid(item_data.id))
-                    if item_data.update_ram_addr.index(addr_to_update) +1 >= current_vac_count:
+                    if item_data.update_ram_addr.index(addr_to_update) + 1 >= current_vac_count:
                         break
 
         await bizhawk.write(ctx.bizhawk_ctx, self.convert_dict_to_ram_list(ram_addr_dict))
