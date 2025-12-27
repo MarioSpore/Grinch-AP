@@ -87,7 +87,8 @@ class GrinchWorld(World):
             if "Giftsanity" in data.location_group and (not self.options.giftsanity.value or self.options.exclude_gc.value):
                 continue
 
-            if "Missions" in data.location_group and self.options.missionsanity.value in [0,2]:
+            # No .value after self.options.missionsanity because UT no likey
+            if "Missions" in data.location_group and self.options.missionsanity in [0,2]:
                 continue
 
             # If the region is in the list to be ignored, DON'T create the location and just continue.
@@ -149,7 +150,8 @@ class GrinchWorld(World):
                 self.multiworld.push_precollected(self.create_item(mission_item))
                 player_start_inv.append(mission_item)
             # Else if the player disables missionsanity, add the item into start inventory
-            elif self.options.missionsanity.value == 0:
+            # No .value after self.options.missionsanity because UT no likey
+            elif self.options.missionsanity == 0:
                 self.multiworld.push_precollected(self.create_item(mission_item))
                 player_start_inv.append(mission_item)
             # Else, let the multiworld create the item normally.
