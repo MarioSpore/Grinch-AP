@@ -1387,6 +1387,288 @@ grinch_locations = {
             GrinchRamData(0x0100BB, binary_bit_pos=1),
         ],
     ),
+    "WV - Squashing Snowmen - Next to Vacuum Tube": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1600,
+        [
+            GrinchRamData(0x01020C, binary_bit_pos=0),
+        ],
+    ),
+    "WV - Squashing Snowmen - Left Side of Post Office": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1601,
+        [
+            GrinchRamData(0x01020C, binary_bit_pos=1),
+        ],
+    ),
+    "WV - Squashing Snowmen - Right Side of Clock Tower": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1602,
+        [
+            GrinchRamData(0x01020C, binary_bit_pos=2),
+        ],
+    ),
+    "WV - Squashing Snowmen - Left Side of Clock Tower": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1603,
+        [
+            GrinchRamData(0x01020C, binary_bit_pos=3),
+        ],
+    ),
+    "WV - Squashing Snowmen - Between Christmas Tree and Orange Round Building": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1604,
+        [
+            GrinchRamData(0x01020C, binary_bit_pos=4),
+        ],
+    ),
+    "WV - Squashing Snowmen - East of Christmas Tree on Platform": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1605,
+        [
+            GrinchRamData(0x01020C, binary_bit_pos=5),
+        ],
+    ),
+    "WV - Squashing Snowmen - Near Vacuum Tube on Blue Platform near Orange Bridge": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1606,
+        [
+            GrinchRamData(0x01020C, binary_bit_pos=6),
+        ],
+    ),
+    "WV - Squashing Snowmen - Left side of City Hall": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1607,
+        [
+            GrinchRamData(0x01020C, binary_bit_pos=7),
+        ],
+    ),
+    "WV - Squashing Snowmen - South of Christmas Tree": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1608,
+        [
+            GrinchRamData(0x01020B, binary_bit_pos=6),
+        ],
+    ),
+    "WV - Squashing Snowmen - Right side of City Hall around the back": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1610,
+        [
+            GrinchRamData(0x01020B, binary_bit_pos=7),
+        ],
+    ),
+    "WV - Launching Eggs Into Houses - On Gray Building right side of City Hall": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1611,
+        [
+            GrinchRamData(0x01020E, binary_bit_pos=2),
+        ],
+    ),
+    "WV - Launching Eggs Into Houses - On Orange Round Building facing Christmas Tree": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1612,
+        [
+            GrinchRamData(0x01020E, binary_bit_pos=3),
+        ],
+    ),
+    "WV - Launching Eggs Into Houses - Left side of Snow Wall on Gray Building": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1613,
+        [
+            GrinchRamData(0x01020E, binary_bit_pos=4),
+        ],
+    ),
+    "WV - Launching Eggs Into Houses - Above Vacuum Tube": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1614,
+        [
+            GrinchRamData(0x01020E, binary_bit_pos=5),
+        ],
+    ),
+    "WV - Launching Eggs Into Houses - Above Child near right side of Post Office": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1615,
+        [
+            GrinchRamData(0x01020E, binary_bit_pos=6),
+        ],
+    ),
+    "WV - Launching Eggs Into Houses - On Orange Building right side of City Hall": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1616,
+        [
+            GrinchRamData(0x01020E, binary_bit_pos=7),
+        ],
+    ),
+    "WV - Launching Eggs Into Houses - Greenish Building facing Christmas Tree above Child": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1617,
+        [
+            GrinchRamData(0x01020F, binary_bit_pos=0),
+        ],
+    ),
+    "WV - Launching Eggs Into Houses - Above Post Office": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1618,
+        [
+            GrinchRamData(0x01020F, binary_bit_pos=1),
+        ],
+    ),
+    "WV - Launching Eggs Into Houses - On Skinny Building right side of Clock Tower": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1619,
+        [
+            GrinchRamData(0x01020F, binary_bit_pos=2),
+        ],
+    ),
+    "WV - Launching Eggs Into Houses - Orange Building facing away from Vacuum Tube": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1620,
+        [
+            GrinchRamData(0x01020F, binary_bit_pos=3),
+        ],
+    ),
+    "WV - Painting The Mayor's Posters - Near Vacuum Tube on right side on Platform": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1621,
+        [
+            GrinchRamData(0x01020D, binary_bit_pos=0),
+        ],
+    ),
+    "WV - Painting The Mayor's Posters - Left side of City Hall on Red Building": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1622,
+        [
+            GrinchRamData(0x01020D, binary_bit_pos=1),
+        ],
+    ),
+    "WV - Painting The Mayor's Posters - Orange Building in front of Post Office upper level": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1623,
+        [
+            GrinchRamData(0x01020D, binary_bit_pos=2),
+        ],
+    ),
+    "WV - Painting The Mayor's Posters - Left side of Post Office on Orange Building left side wall": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1624,
+        [
+            GrinchRamData(0x01020D, binary_bit_pos=3),
+        ],
+    ),
+    "WV - Painting The Mayor's Posters - Right side of City Hall on Gray Building Platform": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1625,
+        [
+            GrinchRamData(0x01020D, binary_bit_pos=4),
+        ],
+    ),
+    "WV - Painting The Mayor's Posters - Next to Vacuum Tube on left side": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1626,
+        [
+            GrinchRamData(0x01020D, binary_bit_pos=5),
+        ],
+    ),
+    "WV - Painting The Mayor's Posters - Right side of Clock Tower on Swinging Platform": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1627,
+        [
+            GrinchRamData(0x01020D, binary_bit_pos=6),
+        ],
+    ),
+    "WV - Painting The Mayor's Posters - Orange Building in front of Post Office lower level": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1628,
+        [
+            GrinchRamData(0x01020D, binary_bit_pos=7),
+        ],
+    ),
+    "WV - Painting The Mayor's Posters - Left Side of City Hall on Gray Building Platform": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1629,
+        [
+            GrinchRamData(0x01020E, binary_bit_pos=0),
+        ],
+    ),
+    "WV - Painting The Mayor's Posters - Right Side of City Hall on Orange Building": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1630,
+        [
+            GrinchRamData(0x01020E, binary_bit_pos=1),
+        ],
+    ),
+    "WV - Shuffling The Mail - Pink Room (Room 1)": GrinchLocationData(
+        "Post Office",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1631,
+        [
+            GrinchRamData(0x010219, binary_bit_pos=0),
+            GrinchRamData(0x010219, binary_bit_pos=5),
+        ],
+    ),
+    "WV - Shuffling The Mail - Orange Room (Room 2)": GrinchLocationData(
+        "Post Office",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1632,
+        [
+            GrinchRamData(0x010219, binary_bit_pos=1),
+            GrinchRamData(0x010219, binary_bit_pos=6),
+        ],
+    ),
+    "WV - Shuffling The Mail - Blue Room (Room 3)": GrinchLocationData(
+        "Post Office",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1633,
+        [
+            GrinchRamData(0x010219, binary_bit_pos=7),
+        ],
+    ),
+    "WV - Shuffling The Mail - Yellow Room (Room 4)": GrinchLocationData(
+        "Post Office",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1634,
+        [
+            GrinchRamData(0x010219, binary_bit_pos=3),
+        ],
+    ),
+    "WV - Shuffling The Mail - Gray Room (Room 5)": GrinchLocationData(
+        "Post Office",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1635,
+        [
+            GrinchRamData(0x01021A, binary_bit_pos=1),
+        ],
+    ),
 }
 
 

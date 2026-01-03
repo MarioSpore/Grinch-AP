@@ -1225,6 +1225,181 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.BAD_BREATH,
         ],
     ],
+    "WV - Squashing Snowmen - Next to Vacuum Tube": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WV - Squashing Snowmen - Left Side of Post Office": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WV - Squashing Snowmen - Right Side of Clock Tower": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WV - Squashing Snowmen - Left Side of Clock Tower": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WV - Squashing Snowmen - Between Christmas Tree and Orange Round Building": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WV - Squashing Snowmen - East of Christmas Tree on Platform": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WV - Squashing Snowmen - Near Vacuum Tube on Blue Platform near Orange Bridge": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WV - Squashing Snowmen - Left side of City Hall": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WV - Squashing Snowmen - South of Christmas Tree": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WV - Squashing Snowmen - Right side of City Hall around the back": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WV - Launching Eggs Into Houses - On Gray Building right side of City Hall": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WV - Launching Eggs Into Houses - On Orange Round Building facing Christmas Tree": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WV - Launching Eggs Into Houses - Left side of Snow Wall on Gray Building": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WV - Launching Eggs Into Houses - Above Vacuum Tube": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WV - Launching Eggs Into Houses - Above Child near right side of Post Office": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WV - Launching Eggs Into Houses - On Orange Building right side of City Hall": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WV - Launching Eggs Into Houses - Greenish Building facing Christmas Tree above Child": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WV - Launching Eggs Into Houses - Above Post Office": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WV - Launching Eggs Into Houses - On Skinny Building right side of Clock Tower": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WV - Launching Eggs Into Houses - Orange Building facing away from Vacuum Tube": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WV - Painting The Mayor's Posters - Near Vacuum Tube on right side on Platform": [
+        [
+            grinch_items.level_items.WV_PAINT_BUCKET,
+        ],
+    ],
+    "WV - Painting The Mayor's Posters - Left side of City Hall on Red Building": [
+        [
+            grinch_items.level_items.WV_PAINT_BUCKET,
+        ],
+    ],
+    "WV - Painting The Mayor's Posters - Orange Building in front of Post Office upper level": [
+        [
+            grinch_items.level_items.WV_PAINT_BUCKET,
+        ],
+    ],
+    "WV - Painting The Mayor's Posters - Left side of Post Office on Orange Building left side wall": [
+        [
+            grinch_items.level_items.WV_PAINT_BUCKET,
+        ],
+    ],
+    "WV - Painting The Mayor's Posters - Right side of City Hall on Gray Building Platform": [
+        [
+            grinch_items.level_items.WV_PAINT_BUCKET,
+        ],
+    ],
+    "WV - Painting The Mayor's Posters - Next to Vacuum Tube on left side": [
+        [
+            grinch_items.level_items.WV_PAINT_BUCKET,
+        ],
+    ],
+    "WV - Painting The Mayor's Posters - Right side of Clock Tower on Swinging Platform": [
+        [
+            grinch_items.level_items.WV_PAINT_BUCKET,
+        ],
+    ],
+    "WV - Painting The Mayor's Posters - Orange Building in front of Post Office lower level": [
+        [
+            grinch_items.level_items.WV_PAINT_BUCKET,
+        ],
+    ],
+    "WV - Painting The Mayor's Posters - Left Side of City Hall on Gray Building Platform": [
+        [
+            grinch_items.level_items.WV_PAINT_BUCKET,
+        ],
+    ],
+    "WV - Painting The Mayor's Posters - Right Side of City Hall on Orange Building": [
+        [
+            grinch_items.level_items.WV_PAINT_BUCKET,
+        ],
+    ],
+    "WV - Shuffling The Mail - Pink Room (Room 1)": [
+        [
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "WV - Shuffling The Mail - Orange Room (Room 2)": [
+        [
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "WV - Shuffling The Mail - Blue Room (Room 3)": [
+        [
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "WV - Shuffling The Mail - Yellow Room (Room 4)": [
+        [
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "WV - Shuffling The Mail - Gray Room (Room 5)": [
+        [
+            grinch_items.moves.MAX,
+        ],
+    ],
     # "Green Present": [
     #     []
     # ],

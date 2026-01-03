@@ -92,6 +92,10 @@ class GrinchWorld(World):
             if "Missions" in data.location_group and self.options.missionsanity in [0,2]:
                 continue
 
+            # No .value after self.options.missionsanity because UT no likey
+            if "Missionsanity" in data.location_group and self.options.missionsanity in [0,1]:
+                continue
+
             # If the region is in the list to be ignored, DON'T create the location and just continue.
             # Ex if Mount Crumpit is in the exclude env list, no locations should exist in Mount Crumpit.
             if region.name in self.options.exclude_environments.value:

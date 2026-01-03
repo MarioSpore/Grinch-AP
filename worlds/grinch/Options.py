@@ -44,7 +44,6 @@ class ProgressiveVacuums(Toggle):  # DefaultOnToggle
 class Missionsanity(Choice):
     """
     How mission checks are randomized in the pool.
-    Currently, enabling completion or both enables the mission completion. Any other setting only removes them.
     - none: Does not add mission checks
     - completion: Only completing the mission gives you a check
     - individual: Individual tasks for one mission, such as individual snowmen squashed, are checks.
