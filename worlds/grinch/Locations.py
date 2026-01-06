@@ -1681,7 +1681,7 @@ grinch_locations = {
     ),
     "WV - Shuffling The Mail - Pink Room (Room 1)": GrinchLocationData(
         "Post Office",
-        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        ["Whoville's Missions", "Missionsanity", "Whoville", "Post Office"],
         1931,
         [
             GrinchRamData(0x010219, binary_bit_pos=0),
@@ -1690,7 +1690,7 @@ grinch_locations = {
     ),
     "WV - Shuffling The Mail - Orange Room (Room 2)": GrinchLocationData(
         "Post Office",
-        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        ["Whoville's Missions", "Missionsanity", "Whoville", "Post Office"],
         1932,
         [
             GrinchRamData(0x010219, binary_bit_pos=1),
@@ -1699,7 +1699,7 @@ grinch_locations = {
     ),
     "WV - Shuffling The Mail - Blue Room (Room 3)": GrinchLocationData(
         "Post Office",
-        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        ["Whoville's Missions", "Missionsanity", "Whoville", "Post Office"],
         1933,
         [
             GrinchRamData(0x010219, binary_bit_pos=7),
@@ -1707,7 +1707,7 @@ grinch_locations = {
     ),
     "WV - Shuffling The Mail - Yellow Room (Room 4)": GrinchLocationData(
         "Post Office",
-        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        ["Whoville's Missions", "Missionsanity", "Whoville", "Post Office"],
         1934,
         [
             GrinchRamData(0x010219, binary_bit_pos=3),
@@ -1715,7 +1715,7 @@ grinch_locations = {
     ),
     "WV - Shuffling The Mail - Gray Room (Room 5)": GrinchLocationData(
         "Post Office",
-        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        ["Whoville's Missions", "Missionsanity", "Whoville", "Post Office"],
         1935,
         [
             GrinchRamData(0x01021A, binary_bit_pos=1),
