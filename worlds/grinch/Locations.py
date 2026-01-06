@@ -1721,6 +1721,246 @@ grinch_locations = {
             GrinchRamData(0x01021A, binary_bit_pos=1),
         ],
     ),
+    "WF - Making Xmas Trees Droop - Swinging platform farthest to Glue Cannon": GrinchLocationData(
+        "Who Forest",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest"],
+        2000,
+        [
+            GrinchRamData(0x010240, binary_bit_pos=7),
+        ],
+    ),
+    "WF - Making Xmas Trees Droop - 2nd closest to Civic Center cave": GrinchLocationData(
+        "Who Forest",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest"],
+        2001,
+        [
+            GrinchRamData(0x010242, binary_bit_pos=0),
+        ],
+    ),
+    "WF - Making Xmas Trees Droop - Swinging platform closest to Glue Cannon": GrinchLocationData(
+        "Who Forest",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest"],
+        2002,
+        [
+            GrinchRamData(0x010241, binary_bit_pos=0),
+        ],
+    ),
+    "WF - Making Xmas Trees Droop - Next to Tree house": GrinchLocationData(
+        "Who Forest",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest"],
+        2003,
+        [
+            GrinchRamData(0x010241, binary_bit_pos=1),
+        ],
+    ),
+    "WF - Making Xmas Trees Droop - Closest to Civic Center cave": GrinchLocationData(
+        "Who Forest",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest"],
+        2004,
+        [
+            GrinchRamData(0x010241, binary_bit_pos=2),
+        ],
+    ),
+    "WF - Making Xmas Trees Droop - Tree 3rd closest to vacuum tube": GrinchLocationData(
+        "Who Forest",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest"],
+        2005,
+        [
+            GrinchRamData(0x010241, binary_bit_pos=3),
+        ],
+    ),
+    "WF - Making Xmas Trees Droop - Tree 2nd closest to vacuum tube": GrinchLocationData(
+        "Who Forest",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest"],
+        2006,
+        [
+            GrinchRamData(0x010241, binary_bit_pos=4),
+        ],
+    ),
+    "WF - Making Xmas Trees Droop - Tree closest to vacuum tube": GrinchLocationData(
+        "Who Forest",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest"],
+        2007,
+        [
+            GrinchRamData(0x010241, binary_bit_pos=5),
+        ],
+    ),
+    "WF - Making Xmas Trees Droop - Tree 4th closest to vacuum tube": GrinchLocationData(
+        "Who Forest",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest"],
+        2008,
+        [
+            GrinchRamData(0x010241, binary_bit_pos=6),
+        ],
+    ),
+    "WF - Making Xmas Trees Droop - Left of cable car": GrinchLocationData(
+        "Who Forest",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest"],
+        2009,
+        [
+            GrinchRamData(0x010241, binary_bit_pos=7),
+        ],
+    ),
+    "WF - Putting Beehives In Cabins - Closest to Vacuum Tube": GrinchLocationData(
+        "Who Forest",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest"],
+        2010,
+        [
+            GrinchRamData(0x010245, binary_bit_pos=1),
+        ],
+    ),
+    "WF - Putting Beehives In Cabins - Red house on glue cannon platform": GrinchLocationData(
+        "Who Forest",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest"],
+        2011,
+        [
+            GrinchRamData(0x010245, binary_bit_pos=2),
+        ],
+    ),
+    "WF - Putting Beehives In Cabins - Green house on glue cannon platform": GrinchLocationData(
+        "Who Forest",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest"],
+        2012,
+        [
+            GrinchRamData(0x010245, binary_bit_pos=3),
+        ],
+    ),
+    "WF - Putting Beehives In Cabins - 2nd closest to vacuum tube": GrinchLocationData(
+        "Who Forest",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest"],
+        2013,
+        [
+            GrinchRamData(0x010245, binary_bit_pos=4),
+        ],
+    ),
+    "WF - Putting Beehives In Cabins - Yellow house across from Tree House": GrinchLocationData(
+        "Who Forest",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest"],
+        2014,
+        [
+            GrinchRamData(0x010245, binary_bit_pos=5),
+        ],
+    ),
+    "WF - Putting Beehives In Cabins - Red house next to Tree House": GrinchLocationData(
+        "Who Forest",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest"],
+        2015,
+        [
+            GrinchRamData(0x010245, binary_bit_pos=6),
+        ],
+    ),
+    "WF - Putting Beehives In Cabins - Tree house": GrinchLocationData(
+        "Who Forest",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest"],
+        2016,
+        [
+            GrinchRamData(0x010245, binary_bit_pos=7),
+        ],
+    ),
+    "WF - Putting Beehives In Cabins - Red house near Cable car": GrinchLocationData(
+        "Who Forest",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest"],
+        2017,
+        [
+            GrinchRamData(0x010246, binary_bit_pos=0),
+        ],
+    ),
+    "WF - Putting Beehives In Cabins - Blue house in front of civic center cave": GrinchLocationData(
+        "Who Forest",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest"],
+        2018,
+        [
+            GrinchRamData(0x010246, binary_bit_pos=1),
+        ],
+    ),
+    "WF - Putting Beehives In Cabins - Green house left side of Cable car": GrinchLocationData(
+        "Who Forest",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest"],
+        2019,
+        [
+            GrinchRamData(0x010246, binary_bit_pos=2),
+        ],
+    ),
+    "WF - Replacing The Candles On The Cake With Fireworks - Front side of Civic Center building": GrinchLocationData(
+        "Civic Center",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest", "Civic Center"],
+        2020,
+        [
+            GrinchRamData(0x01022C, binary_bit_pos=6),
+        ],
+    ),
+    "WF - Replacing The Candles On The Cake With Fireworks - Left side of Civic Center building": GrinchLocationData(
+        "Civic Center",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest", "Civic Center"],
+        2021,
+        [
+            GrinchRamData(0x01022C, binary_bit_pos=7),
+        ],
+    ),
+    "WF - Replacing The Candles On The Cake With Fireworks - Across tree branch swinging platform": GrinchLocationData(
+        "Civic Center",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest", "Civic Center"],
+        2022,
+        [
+            GrinchRamData(0x01022D, binary_bit_pos=0),
+        ],
+    ),
+    "WF - Replacing The Candles On The Cake With Fireworks - Middle platform of super toy parkour": GrinchLocationData(
+        "Civic Center",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest", "Civic Center"],
+        2023,
+        [
+            GrinchRamData(0x01022D, binary_bit_pos=1),
+        ],
+    ),
+    "WF - Replacing The Candles On The Cake With Fireworks - Front of Bat Cave entrance": GrinchLocationData(
+        "Civic Center",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest", "Civic Center"],
+        2024,
+        [
+            GrinchRamData(0x01022D, binary_bit_pos=2),
+        ],
+    ),
+    "WF - Replacing The Candles On The Cake With Fireworks - Guarded by who below super toy platforms": GrinchLocationData(
+        "Civic Center",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest", "Civic Center"],
+        2025,
+        [
+            GrinchRamData(0x01022D, binary_bit_pos=3),
+        ],
+    ),
+    "WF - Replacing The Candles On The Cake With Fireworks - Furthest platform of super toy parkour": GrinchLocationData(
+        "Civic Center",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest", "Civic Center"],
+        2026,
+        [
+            GrinchRamData(0x01022D, binary_bit_pos=4),
+        ],
+    ),
+    "WF - Replacing The Candles On The Cake With Fireworks - Across snow boulders": GrinchLocationData(
+        "Civic Center",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest", "Civic Center"],
+        2027,
+        [
+            GrinchRamData(0x01022D, binary_bit_pos=5),
+        ],
+    ),
+    "WF - Replacing The Candles On The Cake With Fireworks - After ice wall near entrance left side": GrinchLocationData(
+        "Civic Center",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest", "Civic Center"],
+        2028,
+        [
+            GrinchRamData(0x01022D, binary_bit_pos=6),
+        ],
+    ),
+    "WF - Replacing The Candles On The Cake With Fireworks - Across bridge near entrance": GrinchLocationData(
+        "Civic Center",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest", "Civic Center"],
+        2029,
+        [
+            GrinchRamData(0x01022D, binary_bit_pos=7),
+        ],
+    ),
 }
 
 

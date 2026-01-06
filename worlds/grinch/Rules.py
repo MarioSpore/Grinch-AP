@@ -1400,6 +1400,321 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.MAX,
         ],
     ],
+    "WF - Making Xmas Trees Droop - Swinging platform farthest to Glue Cannon": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Making Xmas Trees Droop - 2nd closest to Civic Center cave": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Making Xmas Trees Droop - Swinging platform closest to Glue Cannon": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Making Xmas Trees Droop - Next to Tree house": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Making Xmas Trees Droop - Closest to Civic Center cave": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Making Xmas Trees Droop - Tree 3rd closest to vacuum tube": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Making Xmas Trees Droop - Tree 2nd closest to vacuum tube": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Making Xmas Trees Droop - Tree closest to vacuum tube": [
+        [
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Making Xmas Trees Droop - Tree 4th closest to vacuum tube": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Making Xmas Trees Droop - Left of cable car": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Putting Beehives In Cabins - Closest to Vacuum Tube": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WF - Putting Beehives In Cabins - Red house on glue cannon platform": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Putting Beehives In Cabins - Green house on glue cannon platform": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Putting Beehives In Cabins - 2nd closest to vacuum tube": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+        ],
+    ],
+    "WF - Putting Beehives In Cabins - Yellow house across from Tree House": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Putting Beehives In Cabins - Red house next to Tree House": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Putting Beehives In Cabins - Tree house": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Putting Beehives In Cabins - Red house near Cable car": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Putting Beehives In Cabins - Blue house in front of civic center cave": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Putting Beehives In Cabins - Green house left side of Cable car": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Replacing The Candles On The Cake With Fireworks - Front side of Civic Center building": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER
+        ],
+    ],
+    "WF - Replacing The Candles On The Cake With Fireworks - Left side of Civic Center building": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER
+        ],
+    ],
+    "WF - Replacing The Candles On The Cake With Fireworks - Across tree branch swinging platform": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Replacing The Candles On The Cake With Fireworks - Middle platform of super toy parkour": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Replacing The Candles On The Cake With Fireworks - Front of Bat Cave entrance": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.gadgets.ROCKET_SPRING,
+        ],
+    ],
+    "WF - Replacing The Candles On The Cake With Fireworks - Guarded by who below super toy platforms": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Replacing The Candles On The Cake With Fireworks - Furthest platform of super toy parkour": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Replacing The Candles On The Cake With Fireworks - Across snow boulders": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+        ],
+    ],
+    "WF - Replacing The Candles On The Cake With Fireworks - After ice wall near entrance left side": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+        ],
+    ],
+    "WF - Replacing The Candles On The Cake With Fireworks - Across bridge near entrance": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+        ],
+    ],
     # "Green Present": [
     #     []
     # ],
