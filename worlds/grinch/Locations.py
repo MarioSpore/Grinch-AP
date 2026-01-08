@@ -2037,6 +2037,359 @@ grinch_locations = {
             GrinchRamData(0x01022D, binary_bit_pos=7),
         ],
     ),
+    "WD - Feeding The Computer With Robot Parts - Left side of center area": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2101,
+        [
+            GrinchRamData(0x010255, binary_bit_pos=2),
+        ],
+    ),
+    "WD - Feeding The Computer With Robot Parts - Center area between pipes": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2102,
+        [
+            GrinchRamData(0x010255, binary_bit_pos=3),
+        ],
+    ),
+    "WD - Feeding The Computer With Robot Parts - Right side of center area": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2103,
+        [
+            GrinchRamData(0x010255, binary_bit_pos=4),
+        ],
+    ),
+    "WD - Feeding The Computer With Robot Parts - Who Bris Shack Area": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2104,
+        [
+            GrinchRamData(0x010255, binary_bit_pos=5),
+        ],
+    ),
+    "WD - Feeding The Computer With Robot Parts - Right area near robot parts vacuum": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2105,
+        [
+            GrinchRamData(0x010255, binary_bit_pos=6),
+        ],
+    ),
+    "WD - Feeding The Computer With Robot Parts - Right area near entrance to center area": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2106,
+        [
+            GrinchRamData(0x010255, binary_bit_pos=7),
+        ],
+    ),
+    "WD - Feeding The Computer With Robot Parts - Right area near shooting pipe": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2107,
+        [
+            GrinchRamData(0x010256, binary_bit_pos=0),
+        ],
+    ),
+    "WD - Feeding The Computer With Robot Parts - Near inward pipe in left area": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2108,
+        [
+            GrinchRamData(0x010256, binary_bit_pos=1),
+        ],
+    ),
+    "WD - Feeding The Computer With Robot Parts - Left area on right electric fence": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2109,
+        [
+            GrinchRamData(0x010256, binary_bit_pos=2),
+        ],
+    ),
+    "WD - Feeding The Computer With Robot Parts - Left area on left electric fence": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2110,
+        [
+            GrinchRamData(0x010256, binary_bit_pos=3),
+        ],
+    ),
+    "WD - Conducting The Stinky Gas To Who-Bris' Shack - Swinging pipe in right side of center area": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2111,
+        [
+            GrinchRamData(0x010257, binary_bit_pos=4),
+        ],
+    ),
+    "WD - Conducting The Stinky Gas To Who-Bris' Shack - Swinging pipe in left side of center area": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2112,
+        [
+            GrinchRamData(0x010257, binary_bit_pos=5),
+        ],
+    ),
+    "WD - Conducting The Stinky Gas To Who-Bris' Shack - Shooting pipe in left area": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2113,
+        [
+            GrinchRamData(0x010257, binary_bit_pos=6),
+        ],
+    ),
+    "WD - Conducting The Stinky Gas To Who-Bris' Shack - Swinging pipe in left area": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2114,
+        [
+            GrinchRamData(0x010257, binary_bit_pos=7),
+        ],
+    ),
+    "WD - Conducting The Stinky Gas To Who-Bris' Shack - Shooting pipe in right side": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2115,
+        [
+            GrinchRamData(0x010258, binary_bit_pos=1),
+        ],
+    ),
+    "WD - Conducting The Stinky Gas To Who-Bris' Shack - Seizing pipe in rat area": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2116,
+        [
+            GrinchRamData(0x010258, binary_bit_pos=2),
+        ],
+    ),
+    "WD - Conducting The Stinky Gas To Who-Bris' Shack - Shooting pipe in right side inside pipe": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2117,
+        [
+            GrinchRamData(0x010258, binary_bit_pos=3),
+        ],
+    ),
+    "WD - Conducting The Stinky Gas To Who-Bris' Shack - Swinging pipe in center area pipe": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2118,
+        [
+            GrinchRamData(0x010258, binary_bit_pos=4),
+        ],
+    ),
+    "WD - Conducting The Stinky Gas To Who-Bris' Shack - Swinging pipe in left area pipe": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2119,
+        [
+            GrinchRamData(0x010258, binary_bit_pos=5),
+        ],
+    ),
+    "WD - Conducting The Stinky Gas To Who-Bris' Shack - Final pipe screw in Who Bris' Shack area": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2120,
+        [
+            GrinchRamData(0x010258, binary_bit_pos=0),
+            GrinchRamData(0x010258, binary_bit_pos=6),
+        ],
+    ),
+    "WD - Infesting The Mayor's House With Rats - 1st Rat Lured": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2121,
+        [
+            GrinchRamData(0x0100FE, value=1),
+        ],
+    ),
+    "WD - Infesting The Mayor's House With Rats - 2nd Rat Lured": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2122,
+        [
+            GrinchRamData(0x0100FE, value=2),
+        ],
+    ),
+    "WD - Infesting The Mayor's House With Rats - 3rd Rat Lured": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2123,
+        [
+            GrinchRamData(0x0100FE, value=3),
+        ],
+    ),
+    "WD - Infesting The Mayor's House With Rats - 4th Rat Lured": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2124,
+        [
+            GrinchRamData(0x0100FE, value=4),
+        ],
+    ),
+    "WD - Infesting The Mayor's House With Rats - 5th Rat Lured": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2125,
+        [
+            GrinchRamData(0x0100FE, value=5),
+        ],
+    ),
+    "WD - Infesting The Mayor's House With Rats - 6th Rat Lured": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2126,
+        [
+            GrinchRamData(0x0100FE, value=6),
+        ],
+    ),
+    "WD - Infesting The Mayor's House With Rats - 7th Rat Lured": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2127,
+        [
+            GrinchRamData(0x0100FE, value=7),
+        ],
+    ),
+    "WD - Infesting The Mayor's House With Rats - 8th Rat Lured": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2128,
+        [
+            GrinchRamData(0x0100FE, value=8),
+        ],
+    ),
+    "WD - Infesting The Mayor's House With Rats - 9th Rat Lured": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2129,
+        [
+            GrinchRamData(0x0100FE, value=9),
+        ],
+    ),
+    "WD - Infesting The Mayor's House With Rats - 10th Rat Lured": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2130,
+        [
+            GrinchRamData(0x0100FE, value=10),
+        ],
+    ),
+    "WD - Stealing Food From Birds - Left area on right electric fence": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2131,
+        [
+            GrinchRamData(0x010253, binary_bit_pos=0),
+        ],
+    ),
+    "WD - Stealing Food From Birds - Right area near Minefield entrance": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2132,
+        [
+            GrinchRamData(0x010253, binary_bit_pos=1),
+        ],
+    ),
+    "WD - Stealing Food From Birds - Who Bris Shack Area": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2133,
+        [
+            GrinchRamData(0x010253, binary_bit_pos=2),
+        ],
+    ),
+    "WD - Stealing Food From Birds - Shooting pipe near right area": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2134,
+        [
+            GrinchRamData(0x010253, binary_bit_pos=3),
+        ],
+    ),
+    "WD - Stealing Food From Birds - Right area in rat section": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2135,
+        [
+            GrinchRamData(0x010253, binary_bit_pos=4),
+        ],
+    ),
+    "WD - Stealing Food From Birds - Left area near inward pipe": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2136,
+        [
+            GrinchRamData(0x010253, binary_bit_pos=5),
+        ],
+    ),
+    "WD - Stealing Food From Birds - Left area on left electric fence": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2137,
+        [
+            GrinchRamData(0x010253, binary_bit_pos=6),
+        ],
+    ),
+    "WD - Stealing Food From Birds - Left area below spinning pipe near blue tube": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2138,
+        [
+            GrinchRamData(0x010253, binary_bit_pos=7),
+        ],
+    ),
+    "WD - Stealing Food From Birds - Near blue tube in center area": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2139,
+        [
+            GrinchRamData(0x010252, binary_bit_pos=6),
+        ],
+    ),
+    "WD - Stealing Food From Birds - TV Platform": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2140,
+        [
+            GrinchRamData(0x010252, binary_bit_pos=7),
+        ],
+    ),
+    "WD - Generator Building - Short-Circuiting Power-Plant - Yellow Generator (1st)": GrinchLocationData(
+        "Generator Building",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2141,
+        [
+            GrinchRamData(0x0100DF, binary_bit_pos=3),
+        ],
+    ),
+    "WD - Generator Building - Short-Circuiting Power-Plant - Orange Generator (2nd)": GrinchLocationData(
+        "Generator Building",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2142,
+        [
+            GrinchRamData(0x0100DF, binary_bit_pos=2),
+        ],
+    ),
+    "WD - Generator Building - Short-Circuiting Power-Plant - Pink Generator (3rd)": GrinchLocationData(
+        "Generator Building",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2143,
+        [
+            GrinchRamData(0x0100DF, binary_bit_pos=1),
+        ],
+    ),
+    "WD - Generator Building - Short-Circuiting Power-Plant - Blue Generator (4th)": GrinchLocationData(
+        "Generator Building",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2144,
+        [
+            GrinchRamData(0x0100DF, binary_bit_pos=0),
+        ],
+    ),
 }
 
 
