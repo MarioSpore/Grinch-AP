@@ -71,7 +71,6 @@ class GrinchWorld(World):
                 self.options.progressive_gadgets = slot_data["progressive_gadgets"]
                 self.options.killsanity = slot_data["killsanity"]
 
-
     def create_regions(self):  # Generates all regions for the multiworld
         for region_name in access_rules_dict.keys():
             self.multiworld.regions.append(Region(region_name, self.player, self.multiworld))
@@ -268,7 +267,7 @@ class GrinchWorld(World):
             "gadgets_to_randomize": self.options.gadgets_to_randomize.value,
             "exclude_gc": self.options.exclude_gc.value,
             "progressive_gadgets": self.options.progressive_gadgets.value,
-            "killsanity": self.options.killsanity,
+            "killsanity": self.options.killsanity.value,
 
         }
 
