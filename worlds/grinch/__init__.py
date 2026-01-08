@@ -21,7 +21,7 @@ class GrinchWorld(World):
     game: ClassVar[str] = "The Grinch"
     options_dataclass = GrinchOptions
     options: GrinchOptions
-    topology_present = True  # not an open world game, very linear
+    topology_present = True # not an open world game, very linear, allows "Paths" in spoiler log
     item_name_to_id: ClassVar[dict[str, int]] = grinch_items_to_id()
     location_name_to_id: ClassVar[dict[str, int]] = grinch_locations_to_id()
     required_client_version = (0, 6, 3)
