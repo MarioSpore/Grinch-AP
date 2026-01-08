@@ -1679,7 +1679,7 @@ grinch_locations = {
             GrinchRamData(0x01020E, binary_bit_pos=1),
         ],
     ),
-    "WV - Shuffling The Mail - Pink Room (Room 1)": GrinchLocationData(
+    "WV - Post Office - Shuffling The Mail - Pink Room (Room 1)": GrinchLocationData(
         "Post Office",
         ["Whoville's Missions", "Missionsanity", "Whoville", "Post Office"],
         1931,
@@ -1688,7 +1688,7 @@ grinch_locations = {
             GrinchRamData(0x010219, binary_bit_pos=5),
         ],
     ),
-    "WV - Shuffling The Mail - Orange Room (Room 2)": GrinchLocationData(
+    "WV - Post Office - Shuffling The Mail - Orange Room (Room 2)": GrinchLocationData(
         "Post Office",
         ["Whoville's Missions", "Missionsanity", "Whoville", "Post Office"],
         1932,
@@ -1697,7 +1697,7 @@ grinch_locations = {
             GrinchRamData(0x010219, binary_bit_pos=6),
         ],
     ),
-    "WV - Shuffling The Mail - Blue Room (Room 3)": GrinchLocationData(
+    "WV - Post Office - Shuffling The Mail - Blue Room (Room 3)": GrinchLocationData(
         "Post Office",
         ["Whoville's Missions", "Missionsanity", "Whoville", "Post Office"],
         1933,
@@ -1705,7 +1705,7 @@ grinch_locations = {
             GrinchRamData(0x010219, binary_bit_pos=7),
         ],
     ),
-    "WV - Shuffling The Mail - Yellow Room (Room 4)": GrinchLocationData(
+    "WV - Post Office - Shuffling The Mail - Yellow Room (Room 4)": GrinchLocationData(
         "Post Office",
         ["Whoville's Missions", "Missionsanity", "Whoville", "Post Office"],
         1934,
@@ -1713,7 +1713,7 @@ grinch_locations = {
             GrinchRamData(0x010219, binary_bit_pos=3),
         ],
     ),
-    "WV - Shuffling The Mail - Gray Room (Room 5)": GrinchLocationData(
+    "WV - Post Office - Shuffling The Mail - Gray Room (Room 5)": GrinchLocationData(
         "Post Office",
         ["Whoville's Missions", "Missionsanity", "Whoville", "Post Office"],
         1935,
@@ -1721,7 +1721,7 @@ grinch_locations = {
             GrinchRamData(0x01021A, binary_bit_pos=1),
         ],
     ),
-    "WV - Advancing The Countdown-To-Xmas Clock - Open Hatch to Floor 2": GrinchLocationData(
+    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Open Hatch to Floor 2": GrinchLocationData(
         "Clock Tower",
         ["Whoville's Missions", "Missionsanity", "Whoville", "Clock Tower"],
         1936,
@@ -1730,7 +1730,7 @@ grinch_locations = {
             GrinchRamData(0x0100DA, binary_bit_pos=1),
         ],
     ),
-    "WV - Advancing The Countdown-To-Xmas Clock - Open Hatch to Floor 3": GrinchLocationData(
+    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Open Hatch to Floor 3": GrinchLocationData(
         "Clock Tower",
         ["Whoville's Missions", "Missionsanity", "Whoville", "Clock Tower"],
         1937,
@@ -1739,7 +1739,7 @@ grinch_locations = {
             GrinchRamData(0x0100DA, binary_bit_pos=2),
         ],
     ),
-    "WV - Advancing The Countdown-To-Xmas Clock - Open Hatch to Floor 4": GrinchLocationData(
+    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Open Hatch to Floor 4": GrinchLocationData(
         "Clock Tower",
         ["Whoville's Missions", "Missionsanity", "Whoville", "Clock Tower"],
         1938,
@@ -1748,7 +1748,7 @@ grinch_locations = {
             GrinchRamData(0x0100DA, binary_bit_pos=3),
         ],
     ),
-    "WV - Advancing The Countdown-To-Xmas Clock - Open Hatch to Floor 5": GrinchLocationData(
+    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Open Hatch to Floor 5": GrinchLocationData(
         "Clock Tower",
         ["Whoville's Missions", "Missionsanity", "Whoville", "Clock Tower"],
         1939,
@@ -1757,7 +1757,7 @@ grinch_locations = {
             GrinchRamData(0x0100DA, binary_bit_pos=4),
         ],
     ),
-    "WV - Advancing The Countdown-To-Xmas Clock - Ring 1st Bell": GrinchLocationData(
+    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Ring 1st Bell": GrinchLocationData(
         "Clock Tower",
         ["Whoville's Missions", "Missionsanity", "Whoville", "Clock Tower"],
         1940,
@@ -1765,7 +1765,7 @@ grinch_locations = {
             GrinchRamData(0x09534A, value=2),
         ],
     ),
-    "WV - Advancing The Countdown-To-Xmas Clock - Ring 2nd Bell": GrinchLocationData(
+    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Ring 2nd Bell": GrinchLocationData(
         "Clock Tower",
         ["Whoville's Missions", "Missionsanity", "Whoville", "Clock Tower"],
         1941,
@@ -1773,7 +1773,7 @@ grinch_locations = {
             GrinchRamData(0x09534A, value=3),
         ],
     ),
-    "WV - Advancing The Countdown-To-Xmas Clock - Ring 3rd Bell": GrinchLocationData(
+    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Ring 3rd Bell": GrinchLocationData(
         "Clock Tower",
         ["Whoville's Missions", "Missionsanity", "Whoville", "Clock Tower"],
         1941,
@@ -1781,7 +1781,7 @@ grinch_locations = {
             GrinchRamData(0x09534A, value=4),
         ],
     ),
-    "WV - Advancing The Countdown-To-Xmas Clock - Ring 4th Bell": GrinchLocationData(
+    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Ring 4th Bell": GrinchLocationData(
         "Clock Tower",
         ["Whoville's Missions", "Missionsanity", "Whoville", "Clock Tower"],
         1942,
@@ -1789,7 +1789,7 @@ grinch_locations = {
             GrinchRamData(0x09534A, value=5),
         ],
     ),
-    "WV - Advancing The Countdown-To-Xmas Clock - Ring 5th Bell": GrinchLocationData(
+    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Ring 5th Bell": GrinchLocationData(
         "Clock Tower",
         ["Whoville's Missions", "Missionsanity", "Whoville", "Clock Tower"],
         1943,
@@ -1957,7 +1957,7 @@ grinch_locations = {
             GrinchRamData(0x010246, binary_bit_pos=2),
         ],
     ),
-    "WF - Replacing The Candles On The Cake With Fireworks - Front side of Civic Center building": GrinchLocationData(
+    "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Front side of Civic Center building": GrinchLocationData(
         "Civic Center",
         ["Who Forest's Missions", "Missionsanity", "Who Forest", "Civic Center"],
         2020,
@@ -1965,7 +1965,7 @@ grinch_locations = {
             GrinchRamData(0x01022C, binary_bit_pos=6),
         ],
     ),
-    "WF - Replacing The Candles On The Cake With Fireworks - Left side of Civic Center building": GrinchLocationData(
+    "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Left side of Civic Center building": GrinchLocationData(
         "Civic Center",
         ["Who Forest's Missions", "Missionsanity", "Who Forest", "Civic Center"],
         2021,
@@ -1973,7 +1973,7 @@ grinch_locations = {
             GrinchRamData(0x01022C, binary_bit_pos=7),
         ],
     ),
-    "WF - Replacing The Candles On The Cake With Fireworks - Across tree branch swinging platform": GrinchLocationData(
+    "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Across tree branch swinging platform": GrinchLocationData(
         "Civic Center",
         ["Who Forest's Missions", "Missionsanity", "Who Forest", "Civic Center"],
         2022,
@@ -1981,7 +1981,7 @@ grinch_locations = {
             GrinchRamData(0x01022D, binary_bit_pos=0),
         ],
     ),
-    "WF - Replacing The Candles On The Cake With Fireworks - Middle platform of super toy parkour": GrinchLocationData(
+    "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Middle platform of super toy parkour": GrinchLocationData(
         "Civic Center",
         ["Who Forest's Missions", "Missionsanity", "Who Forest", "Civic Center"],
         2023,
@@ -1989,7 +1989,7 @@ grinch_locations = {
             GrinchRamData(0x01022D, binary_bit_pos=1),
         ],
     ),
-    "WF - Replacing The Candles On The Cake With Fireworks - Front of Bat Cave entrance": GrinchLocationData(
+    "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Front of Bat Cave entrance": GrinchLocationData(
         "Civic Center",
         ["Who Forest's Missions", "Missionsanity", "Who Forest", "Civic Center"],
         2024,
@@ -1997,7 +1997,7 @@ grinch_locations = {
             GrinchRamData(0x01022D, binary_bit_pos=2),
         ],
     ),
-    "WF - Replacing The Candles On The Cake With Fireworks - Guarded by who below super toy platforms": GrinchLocationData(
+    "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Guarded by who below super toy platforms": GrinchLocationData(
         "Civic Center",
         ["Who Forest's Missions", "Missionsanity", "Who Forest", "Civic Center"],
         2025,
@@ -2005,7 +2005,7 @@ grinch_locations = {
             GrinchRamData(0x01022D, binary_bit_pos=3),
         ],
     ),
-    "WF - Replacing The Candles On The Cake With Fireworks - Furthest platform of super toy parkour": GrinchLocationData(
+    "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Furthest platform of super toy parkour": GrinchLocationData(
         "Civic Center",
         ["Who Forest's Missions", "Missionsanity", "Who Forest", "Civic Center"],
         2026,
@@ -2013,7 +2013,7 @@ grinch_locations = {
             GrinchRamData(0x01022D, binary_bit_pos=4),
         ],
     ),
-    "WF - Replacing The Candles On The Cake With Fireworks - Across snow boulders": GrinchLocationData(
+    "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Across snow boulders": GrinchLocationData(
         "Civic Center",
         ["Who Forest's Missions", "Missionsanity", "Who Forest", "Civic Center"],
         2027,
@@ -2021,7 +2021,7 @@ grinch_locations = {
             GrinchRamData(0x01022D, binary_bit_pos=5),
         ],
     ),
-    "WF - Replacing The Candles On The Cake With Fireworks - After ice wall near entrance left side": GrinchLocationData(
+    "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - After ice wall near entrance left side": GrinchLocationData(
         "Civic Center",
         ["Who Forest's Missions", "Missionsanity", "Who Forest", "Civic Center"],
         2028,
@@ -2029,7 +2029,7 @@ grinch_locations = {
             GrinchRamData(0x01022D, binary_bit_pos=6),
         ],
     ),
-    "WF - Replacing The Candles On The Cake With Fireworks - Across bridge near entrance": GrinchLocationData(
+    "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Across bridge near entrance": GrinchLocationData(
         "Civic Center",
         ["Who Forest's Missions", "Missionsanity", "Who Forest", "Civic Center"],
         2029,
