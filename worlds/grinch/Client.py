@@ -1,4 +1,5 @@
 import time
+import re
 from typing import TYPE_CHECKING, Sequence
 import asyncio
 import NetUtils
@@ -52,6 +53,8 @@ TRIGGER_ADDR_SIZE: int = 1
 MOUNT_CRUMPIT_MAP_ID: int = 0x05
 DISGUISE_OFF_ADDR: int = 0x0100B4
 
+# Address related to the ingame timer
+TIMER_ADDR: int = 0x0100B3
 
 class GrinchClient(BizHawkClient):
     game = "The Grinch"
@@ -147,6 +150,13 @@ class GrinchClient(BizHawkClient):
                             ctx.send_msgs([{"cmd": "ConnectUpdate", "tags": ctx.tags}]),
                             "Update RingLink Tags",
                         )
+
+            case "PrintJSON":
+                if args.get("type", "") == "Countdown" and len(list(args.get("data", []))) > 0 and \
+                    "starting countdown of " in args["data"][0]["text"].lower():
+
+                    countdown_timer: int = int(re.match(r"\d+", args["data"][0]["text"]).group())
+                    update_countdown(ctx, countdown_timer)
 
             case "Bounced":
                 if "tags" not in args:
@@ -711,3 +721,12 @@ def set_binary_position(value_to_check: int, binary_position: int, turn_on: bool
 
 def get_item_count_by_id(ctx: "BizHawkClientContext", item_id: int) -> int:
     return len([netItem for netItem in ctx.items_received if netItem.item == item_id])
+
+async def update_countdown(ctx: "BizHawkClientContext", countdown: int):
+    if countdown >= 255 or countdown < 1:
+        return
+    else:
+        await bizhawk.write(
+            ctx.bizhawk_ctx,
+            [(TIMER_ADDR, [countdown], "MainRAM")],
+        )
