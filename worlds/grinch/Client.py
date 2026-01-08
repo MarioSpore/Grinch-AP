@@ -155,7 +155,7 @@ class GrinchClient(BizHawkClient):
                 if args.get("type", "") == "Countdown" and len(list(args.get("data", []))) > 0 and \
                     "starting countdown of " in args["data"][0]["text"].lower():
 
-                    countdown_timer: int = int(re.match(r"\d+", args["data"][0]["text"]).group())
+                    countdown_timer: int = int(re.search(r"\d+", args["data"][0]["text"]).group())
                     update_countdown(ctx, countdown_timer)
 
             case "Bounced":
