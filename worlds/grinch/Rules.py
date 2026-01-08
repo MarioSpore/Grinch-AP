@@ -1375,82 +1375,82 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.level_items.WV_PAINT_BUCKET,
         ],
     ],
-    "WV - Shuffling The Mail - Pink Room (Room 1)": [
+    "WV - Post Office - Shuffling The Mail - Pink Room (Room 1)": [
         [
             grinch_items.moves.MAX,
         ],
     ],
-    "WV - Shuffling The Mail - Orange Room (Room 2)": [
+    "WV - Post Office - Shuffling The Mail - Orange Room (Room 2)": [
         [
             grinch_items.moves.MAX,
         ],
     ],
-    "WV - Shuffling The Mail - Blue Room (Room 3)": [
+    "WV - Post Office - Shuffling The Mail - Blue Room (Room 3)": [
         [
             grinch_items.moves.MAX,
         ],
     ],
-    "WV - Shuffling The Mail - Yellow Room (Room 4)": [
+    "WV - Post Office - Shuffling The Mail - Yellow Room (Room 4)": [
         [
             grinch_items.moves.MAX,
         ],
     ],
-    "WV - Shuffling The Mail - Gray Room (Room 5)": [
+    "WV - Post Office - Shuffling The Mail - Gray Room (Room 5)": [
         [
             grinch_items.moves.MAX,
         ],
     ],
-    "WV - Advancing The Countdown-To-Xmas Clock - Open Hatch to Floor 2": [
+    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Open Hatch to Floor 2": [
         [
             grinch_items.gadgets.ROCKET_SPRING,
         ],
     ],
-    "WV - Advancing The Countdown-To-Xmas Clock - Open Hatch to Floor 3": [
+    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Open Hatch to Floor 3": [
         [
             grinch_items.gadgets.ROCKET_SPRING,
         ],
     ],
-    "WV - Advancing The Countdown-To-Xmas Clock - Open Hatch to Floor 4": [
-        [
-            grinch_items.gadgets.ROCKET_SPRING,
-            grinch_items.moves.SEIZE,
-        ],
-    ],
-    "WV - Advancing The Countdown-To-Xmas Clock - Open Hatch to Floor 5": [
+    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Open Hatch to Floor 4": [
         [
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SEIZE,
         ],
     ],
-    "WV - Advancing The Countdown-To-Xmas Clock - Ring 1st Bell": [
+    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Open Hatch to Floor 5": [
         [
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SEIZE,
-            grinch_items.moves.MAX,
         ],
     ],
-    "WV - Advancing The Countdown-To-Xmas Clock - Ring 2nd Bell": [
+    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Ring 1st Bell": [
         [
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SEIZE,
             grinch_items.moves.MAX,
         ],
     ],
-    "WV - Advancing The Countdown-To-Xmas Clock - Ring 3rd Bell": [
+    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Ring 2nd Bell": [
         [
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SEIZE,
             grinch_items.moves.MAX,
         ],
     ],
-    "WV - Advancing The Countdown-To-Xmas Clock - Ring 4th Bell": [
+    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Ring 3rd Bell": [
         [
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SEIZE,
             grinch_items.moves.MAX,
         ],
     ],
-    "WV - Advancing The Countdown-To-Xmas Clock - Ring 5th Bell": [
+    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Ring 4th Bell": [
+        [
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SEIZE,
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Ring 5th Bell": [
         [
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SEIZE,
@@ -1621,7 +1621,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.BAD_BREATH,
         ],
     ],
-    "WF - Replacing The Candles On The Cake With Fireworks - Front side of Civic Center building": [
+    "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Front side of Civic Center building": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
@@ -1631,7 +1631,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.GRINCH_COPTER
         ],
     ],
-    "WF - Replacing The Candles On The Cake With Fireworks - Left side of Civic Center building": [
+    "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Left side of Civic Center building": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
@@ -1641,7 +1641,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.GRINCH_COPTER
         ],
     ],
-    "WF - Replacing The Candles On The Cake With Fireworks - Across tree branch swinging platform": [
+    "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Across tree branch swinging platform": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.GRINCH_COPTER,
@@ -1661,60 +1661,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.BAD_BREATH,
         ],
     ],
-    "WF - Replacing The Candles On The Cake With Fireworks - Middle platform of super toy parkour": [
-        [
-            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-            grinch_items.gadgets.GRINCH_COPTER,
-            grinch_items.gadgets.SLIME_SHOOTER,
-            grinch_items.moves.BAD_BREATH,
-        ],
-        [
-            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-            grinch_items.gadgets.GRINCH_COPTER,
-            grinch_items.moves.SNEAK,
-            grinch_items.moves.BAD_BREATH,
-        ],
-        [
-            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
-            grinch_items.gadgets.ROCKET_SPRING,
-            grinch_items.gadgets.SLIME_SHOOTER,
-            grinch_items.moves.BAD_BREATH,
-        ],
-        [
-            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
-            grinch_items.gadgets.ROCKET_SPRING,
-            grinch_items.moves.SNEAK,
-            grinch_items.moves.BAD_BREATH,
-        ],
-    ],
-    "WF - Replacing The Candles On The Cake With Fireworks - Front of Bat Cave entrance": [
-        [
-            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-            grinch_items.gadgets.GRINCH_COPTER,
-        ],
-        [
-            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
-            grinch_items.gadgets.ROCKET_SPRING,
-        ],
-    ],
-    "WF - Replacing The Candles On The Cake With Fireworks - Guarded by who below super toy platforms": [
-        [
-            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-            grinch_items.gadgets.GRINCH_COPTER,
-            grinch_items.gadgets.SLIME_SHOOTER,
-            grinch_items.moves.BAD_BREATH,
-        ],
-        [
-            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
-            grinch_items.gadgets.SLIME_SHOOTER,
-            grinch_items.moves.BAD_BREATH,
-        ],
-    ],
-    "WF - Replacing The Candles On The Cake With Fireworks - Furthest platform of super toy parkour": [
+    "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Middle platform of super toy parkour": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.GRINCH_COPTER,
@@ -1742,7 +1689,60 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.BAD_BREATH,
         ],
     ],
-    "WF - Replacing The Candles On The Cake With Fireworks - Across snow boulders": [
+    "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Front of Bat Cave entrance": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.gadgets.ROCKET_SPRING,
+        ],
+    ],
+    "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Guarded by who below super toy platforms": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Furthest platform of super toy parkour": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Across snow boulders": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
@@ -1752,7 +1752,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.GRINCH_COPTER,
         ],
     ],
-    "WF - Replacing The Candles On The Cake With Fireworks - After ice wall near entrance left side": [
+    "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - After ice wall near entrance left side": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
@@ -1762,7 +1762,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.GRINCH_COPTER,
         ],
     ],
-    "WF - Replacing The Candles On The Cake With Fireworks - Across bridge near entrance": [
+    "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Across bridge near entrance": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
