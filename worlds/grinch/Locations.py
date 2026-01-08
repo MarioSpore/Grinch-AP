@@ -2358,7 +2358,7 @@ grinch_locations = {
             GrinchRamData(0x010252, binary_bit_pos=7),
         ],
     ),
-    "WD - Generator Building - Short-Circuiting Power-Plant - Yellow Generator (1st)": GrinchLocationData(
+    "WD - Generator Building - Short-Circuiting Power-Plant - Yellow Generator (4th)": GrinchLocationData(
         "Generator Building",
         ["Who Dump's Missions", "Missionsanity", "Who Dump"],
         2141,
@@ -2366,7 +2366,7 @@ grinch_locations = {
             GrinchRamData(0x0100DF, binary_bit_pos=3),
         ],
     ),
-    "WD - Generator Building - Short-Circuiting Power-Plant - Orange Generator (2nd)": GrinchLocationData(
+    "WD - Generator Building - Short-Circuiting Power-Plant - Orange Generator (3rd)": GrinchLocationData(
         "Generator Building",
         ["Who Dump's Missions", "Missionsanity", "Who Dump"],
         2142,
@@ -2374,7 +2374,7 @@ grinch_locations = {
             GrinchRamData(0x0100DF, binary_bit_pos=2),
         ],
     ),
-    "WD - Generator Building - Short-Circuiting Power-Plant - Pink Generator (3rd)": GrinchLocationData(
+    "WD - Generator Building - Short-Circuiting Power-Plant - Pink Generator (2nd)": GrinchLocationData(
         "Generator Building",
         ["Who Dump's Missions", "Missionsanity", "Who Dump"],
         2143,
@@ -2382,7 +2382,7 @@ grinch_locations = {
             GrinchRamData(0x0100DF, binary_bit_pos=1),
         ],
     ),
-    "WD - Generator Building - Short-Circuiting Power-Plant - Blue Generator (4th)": GrinchLocationData(
+    "WD - Generator Building - Short-Circuiting Power-Plant - Blue Generator (1st)": GrinchLocationData(
         "Generator Building",
         ["Who Dump's Missions", "Missionsanity", "Who Dump"],
         2144,
