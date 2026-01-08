@@ -69,6 +69,7 @@ class GrinchWorld(World):
                 self.options.gadgets_to_randomize = slot_data["gadgets_to_randomize"]
                 self.options.exclude_gc = slot_data["exclude_gc"]
                 self.options.progressive_gadgets = slot_data["progressive_gadgets"]
+                self.options.killsanity = slot_data["killsanity"]
 
 
     def create_regions(self):  # Generates all regions for the multiworld
@@ -267,6 +268,7 @@ class GrinchWorld(World):
             "gadgets_to_randomize": self.options.gadgets_to_randomize.value,
             "exclude_gc": self.options.exclude_gc.value,
             "progressive_gadgets": self.options.progressive_gadgets.value,
+            "killsanity": self.options.killsanity,
 
         }
 

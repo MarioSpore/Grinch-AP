@@ -118,6 +118,20 @@ class Gifts(Toggle):
 
     display_name = "Giftsanity"
 
+
+class Killsanity(OptionSet):
+    """
+    Determines whether you consider killing/destroying certain enemies throughout the games are checks.
+
+    "Whos" are considereed as people such as guards, children, other humanoid related figures.
+    "Animals" are considered as non human species such as Summer beasts, porcupines, moose, and mosquitoes.
+    "Robots" are considered mechanical beings that electrocute the player, specifically the robots you find in Who Dump.
+    """
+
+    display_name = "Killsanity"
+    visibility = Visibility.none
+    valid_keys = {"Whos", "Animals", "Robots"}
+
 class Gadgetrando(DefaultOnToggle):
     """
     Determines whether the Grinch's gadgets will be randomized or not.
@@ -249,6 +263,7 @@ class GrinchOptions(PerGameCommonOptions):  # DeathLinkMixin
     exclude_environments: ExcludeEnvironments
     giftsanity: Gifts
     supadow_minigames: Supadow
+    killsanity: Killsanity
     progressive_gadgets: ProgressiveGadgets
     gadget_rando: Gadgetrando
     gadgets_to_randomize: Gadgetrandolist
@@ -277,6 +292,7 @@ grinch_option_groups: list[OptionGroup] = [
         ExcludeEnvironments,
         Gifts,
         Supadow,
+        Killsanity,
     ]),
     OptionGroup("Quality of Life", [
         UnlimitedEggs,
