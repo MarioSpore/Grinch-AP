@@ -1400,6 +1400,63 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.MAX,
         ],
     ],
+    "WV - Advancing The Countdown-To-Xmas Clock - Open Hatch to Floor 2": [
+        [
+            grinch_items.gadgets.ROCKET_SPRING,
+        ],
+    ],
+    "WV - Advancing The Countdown-To-Xmas Clock - Open Hatch to Floor 3": [
+        [
+            grinch_items.gadgets.ROCKET_SPRING,
+        ],
+    ],
+    "WV - Advancing The Countdown-To-Xmas Clock - Open Hatch to Floor 4": [
+        [
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SEIZE,
+        ],
+    ],
+    "WV - Advancing The Countdown-To-Xmas Clock - Open Hatch to Floor 5": [
+        [
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SEIZE,
+        ],
+    ],
+    "WV - Advancing The Countdown-To-Xmas Clock - Ring 1st Bell": [
+        [
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SEIZE,
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "WV - Advancing The Countdown-To-Xmas Clock - Ring 2nd Bell": [
+        [
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SEIZE,
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "WV - Advancing The Countdown-To-Xmas Clock - Ring 3rd Bell": [
+        [
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SEIZE,
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "WV - Advancing The Countdown-To-Xmas Clock - Ring 4th Bell": [
+        [
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SEIZE,
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "WV - Advancing The Countdown-To-Xmas Clock - Ring 5th Bell": [
+        [
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SEIZE,
+            grinch_items.moves.MAX,
+        ],
+    ],
     "WF - Making Xmas Trees Droop - Swinging platform farthest to Glue Cannon": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,

@@ -1721,6 +1721,82 @@ grinch_locations = {
             GrinchRamData(0x01021A, binary_bit_pos=1),
         ],
     ),
+    "WV - Advancing The Countdown-To-Xmas Clock - Open Hatch to Floor 2": GrinchLocationData(
+        "Clock Tower",
+        ["Whoville's Missions", "Missionsanity", "Whoville", "Clock Tower"],
+        1936,
+        [
+            GrinchRamData(0x0100D9, binary_bit_pos=1),
+            GrinchRamData(0x0100DA, binary_bit_pos=1),
+        ],
+    ),
+    "WV - Advancing The Countdown-To-Xmas Clock - Open Hatch to Floor 3": GrinchLocationData(
+        "Clock Tower",
+        ["Whoville's Missions", "Missionsanity", "Whoville", "Clock Tower"],
+        1937,
+        [
+            GrinchRamData(0x0100D9, binary_bit_pos=2),
+            GrinchRamData(0x0100DA, binary_bit_pos=2),
+        ],
+    ),
+    "WV - Advancing The Countdown-To-Xmas Clock - Open Hatch to Floor 4": GrinchLocationData(
+        "Clock Tower",
+        ["Whoville's Missions", "Missionsanity", "Whoville", "Clock Tower"],
+        1938,
+        [
+            GrinchRamData(0x0100D9, binary_bit_pos=3),
+            GrinchRamData(0x0100DA, binary_bit_pos=3),
+        ],
+    ),
+    "WV - Advancing The Countdown-To-Xmas Clock - Open Hatch to Floor 5": GrinchLocationData(
+        "Clock Tower",
+        ["Whoville's Missions", "Missionsanity", "Whoville", "Clock Tower"],
+        1939,
+        [
+            GrinchRamData(0x0100D9, binary_bit_pos=4),
+            GrinchRamData(0x0100DA, binary_bit_pos=4),
+        ],
+    ),
+    "WV - Advancing The Countdown-To-Xmas Clock - Ring 1st Bell": GrinchLocationData(
+        "Clock Tower",
+        ["Whoville's Missions", "Missionsanity", "Whoville", "Clock Tower"],
+        1940,
+        [
+            GrinchRamData(0x09534A, value=2),
+        ],
+    ),
+    "WV - Advancing The Countdown-To-Xmas Clock - Ring 2nd Bell": GrinchLocationData(
+        "Clock Tower",
+        ["Whoville's Missions", "Missionsanity", "Whoville", "Clock Tower"],
+        1941,
+        [
+            GrinchRamData(0x09534A, value=3),
+        ],
+    ),
+    "WV - Advancing The Countdown-To-Xmas Clock - Ring 3rd Bell": GrinchLocationData(
+        "Clock Tower",
+        ["Whoville's Missions", "Missionsanity", "Whoville", "Clock Tower"],
+        1941,
+        [
+            GrinchRamData(0x09534A, value=4),
+        ],
+    ),
+    "WV - Advancing The Countdown-To-Xmas Clock - Ring 4th Bell": GrinchLocationData(
+        "Clock Tower",
+        ["Whoville's Missions", "Missionsanity", "Whoville", "Clock Tower"],
+        1942,
+        [
+            GrinchRamData(0x09534A, value=5),
+        ],
+    ),
+    "WV - Advancing The Countdown-To-Xmas Clock - Ring 5th Bell": GrinchLocationData(
+        "Clock Tower",
+        ["Whoville's Missions", "Missionsanity", "Whoville", "Clock Tower"],
+        1943,
+        [
+            GrinchRamData(0x09534A, value=7),
+        ],
+    ),
     "WF - Making Xmas Trees Droop - Swinging platform farthest to Glue Cannon": GrinchLocationData(
         "Who Forest",
         ["Who Forest's Missions", "Missionsanity", "Who Forest"],
