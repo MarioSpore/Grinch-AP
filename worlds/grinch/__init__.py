@@ -1,6 +1,6 @@
 import math
 
-from BaseClasses import Region, Item, ItemClassification, Location
+from BaseClasses import Region, Item, Location
 from .Locations import grinch_locations_to_id, grinch_locations, GrinchLocation, get_location_names_per_category, GrinchLocationData
 from .Items import (grinch_items_to_id, GrinchItem, ALL_ITEMS_TABLE, MISC_ITEMS_TABLE, get_item_names_per_category,
     TRAPS_TABLE, MOVES_TABLE, USEFUL_ITEMS_TABLE)
@@ -13,14 +13,14 @@ from typing import ClassVar
 from worlds.AutoWorld import World
 from Options import OptionError
 
-from .Options import GrinchOptions
+from .GrinchOptions import GrinchOptions
 from .Rules import access_rules_dict
 
 
 class GrinchWorld(World):
     game: ClassVar[str] = "The Grinch"
-    options_dataclass = Options.GrinchOptions
-    options: Options.GrinchOptions
+    options_dataclass = GrinchOptions
+    options: GrinchOptions
     topology_present = True  # not an open world game, very linear
     item_name_to_id: ClassVar[dict[str, int]] = grinch_items_to_id()
     location_name_to_id: ClassVar[dict[str, int]] = grinch_locations_to_id()
