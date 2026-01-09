@@ -83,7 +83,7 @@ grinch_locations = {
         100,
         [
             GrinchRamData(0x010000, value=0x07),
-            GrinchRamData(0x010282, binary_bit_pos=4),
+            GrinchRamData(0x010212, binary_bit_pos=0),
         ],
 
     ),
