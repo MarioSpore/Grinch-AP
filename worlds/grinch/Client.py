@@ -156,7 +156,7 @@ class GrinchClient(BizHawkClient):
                     "starting countdown of " in args["data"][0]["text"].lower():
 
                     countdown_timer: int = int(re.search(r"\d+", args["data"][0]["text"]).group())
-                    update_countdown(ctx, countdown_timer)
+                    Utils.async_start(update_countdown(ctx, countdown_timer), name=f"Update Grinch - Countdown")
 
             case "Bounced":
                 if "tags" not in args:
