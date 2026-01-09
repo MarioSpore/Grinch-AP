@@ -124,6 +124,7 @@ class GrinchClient(BizHawkClient):
 
         match cmd:
             case "Connected":  # On Connect
+                self.ingame_log = False
                 self.loc_unlimited_eggs = bool(ctx.slot_data["give_unlimited_eggs"])
                 self.unique_client_id = self._get_uuid()
                 logger.info(
@@ -152,9 +153,8 @@ class GrinchClient(BizHawkClient):
             case "PrintJSON":
                 if args.get("type", "") == "Countdown" and len(list(args.get("data", []))) > 0 and \
                     "starting countdown of " in args["data"][0]["text"].lower():
-                    if asyncio.run(self.ingame_checker(ctx)):
-                        countdown_timer: int = int(re.search(r"\d+", args["data"][0]["text"]).group())
-                        Utils.async_start(update_countdown(ctx, countdown_timer), name=f"Update Grinch - Countdown")
+                    countdown_timer: int = int(re.search(r"\d+", args["data"][0]["text"]).group())
+                    Utils.async_start(self.update_countdown(ctx, countdown_timer), name=f"Update Grinch - Countdown")
 
             case "Bounced":
                 if "tags" not in args:
@@ -165,8 +165,7 @@ class GrinchClient(BizHawkClient):
                     and "RingLink" in args["tags"]
                     and args["data"]["source"] != self.unique_client_id
                 ):
-                    if asyncio.run(self.ingame_checker(ctx)) and not self.last_map_location in [0x18, 0x19, 0x1A, 0x1B, 0x1C]:
-                        Utils.async_start(self.ring_link_input(args["data"]["amount"], ctx), "Grinch - SyncEggs")
+                    Utils.async_start(self.ring_link_input(args["data"]["amount"], ctx), "Grinch - SyncEggs")
 
     async def set_auth(self, ctx: "BizHawkClientContext") -> None:
         await ctx.get_username()
@@ -593,6 +592,8 @@ class GrinchClient(BizHawkClient):
 
     async def ring_link_input(self, egg_amount: int, ctx: "BizHawkClientContext"):
         from CommonClient import logger
+        if not (await self.ingame_checker(ctx) and not self.last_map_location in [0x18, 0x19, 0x1A, 0x1B, 0x1C]):
+            return
 
         game_egg_count = int.from_bytes(
             (await bizhawk.read(ctx.bizhawk_ctx, [(EGG_COUNT_ADDR, EGG_ADDR_BYTESIZE, "MainRAM")]))[0],
@@ -672,6 +673,17 @@ class GrinchClient(BizHawkClient):
             await asyncio.sleep(1)
             continue
 
+    async def update_countdown(self, ctx: "BizHawkClientContext", countdown: int):
+        if not await self.ingame_checker(ctx): # If we are not in game, don't try and update the counter in_game.
+            return
+        elif countdown >= 255 or countdown < 1:
+            return
+        else:
+            await bizhawk.write(
+                ctx.bizhawk_ctx,
+                [(TIMER_ADDR, [countdown], "MainRAM")],
+            )
+
 def _cmd_ringlink(self):
     """Toggle ringling from client. Overrides default setting."""
     if not self.ctx.slot:
@@ -715,12 +727,3 @@ def set_binary_position(value_to_check: int, binary_position: int, turn_on: bool
 
 def get_item_count_by_id(ctx: "BizHawkClientContext", item_id: int) -> int:
     return len([netItem for netItem in ctx.items_received if netItem.item == item_id])
-
-async def update_countdown(ctx: "BizHawkClientContext", countdown: int):
-    if countdown >= 255 or countdown < 1:
-        return
-    else:
-        await bizhawk.write(
-            ctx.bizhawk_ctx,
-            [(TIMER_ADDR, [countdown], "MainRAM")],
-        )
