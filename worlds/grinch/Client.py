@@ -616,6 +616,17 @@ class GrinchClient(BizHawkClient):
         self.previous_egg_count = current_egg_count
         # logger.info(f"RingLink: You received {str(egg_amount)} rotten eggs.")
 
+    async def update_countdown(self, ctx: "BizHawkClientContext", countdown: int):
+        if not await self.ingame_checker(ctx): # If we are not in game, don't try and update the counter in_game.
+            return
+        elif countdown >= 255 or countdown < 1:
+            return
+        else:
+            await bizhawk.write(
+                ctx.bizhawk_ctx,
+                [(TIMER_ADDR, [countdown], "MainRAM")],
+            )
+
     def _get_uuid(self) -> int:
         string_id = str(uuid.uuid4())
         uid: int = 0
@@ -716,12 +727,3 @@ def set_binary_position(value_to_check: int, binary_position: int, turn_on: bool
 
 def get_item_count_by_id(ctx: "BizHawkClientContext", item_id: int) -> int:
     return len([netItem for netItem in ctx.items_received if netItem.item == item_id])
-
-async def update_countdown(ctx: "BizHawkClientContext", countdown: int):
-    if countdown >= 255 or countdown < 1:
-        return
-    else:
-        await bizhawk.write(
-            ctx.bizhawk_ctx,
-            [(TIMER_ADDR, [countdown], "MainRAM")],
-        )
