@@ -2434,6 +2434,12 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
         ],
     ],
+    "WL - South Shore - Putting Thistles In Shorts - Right of rack near entrance": [
+        [
+            grinch_items.moves.SNEAK,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
     "WL - South Shore - Putting Thistles In Shorts - Left of rack on wall platform": [
         [
             grinch_items.moves.SNEAK,
@@ -2446,7 +2452,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.GRINCH_COPTER,
         ],
     ],
-    "WL - South Shore - Putting Thistles In Shorts - Right of rack near entrance": [
+    "WL - South Shore - Putting Thistles In Shorts - Right of rack on wall platform": [
         [
             grinch_items.moves.SNEAK,
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
