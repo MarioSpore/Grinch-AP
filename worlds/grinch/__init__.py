@@ -15,6 +15,7 @@ from Options import OptionError
 
 from .GrinchOptions import GrinchOptions
 from .Rules import access_rules_dict
+from .Web import GrinchWeb
 
 
 class GrinchWorld(World):
@@ -27,6 +28,7 @@ class GrinchWorld(World):
     required_client_version = (0, 6, 5) # Unused atm, replaced by ap.json
     item_name_groups = get_item_names_per_category()
     location_name_groups = get_location_names_per_category()
+    web = GrinchWeb()
 
     ut_can_gen_without_yaml = True  # class var that tells it to ignore the player yaml
 
