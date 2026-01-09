@@ -123,6 +123,10 @@ class GrinchWorld(World):
             "Scout Clothes": ["Mayor's Villa", "North Shore"],
             "Cable Car Access Card": ["Ski Resort"],
         }
+        missionsanity_items: list[str] = [
+            "Painting Bucket",
+            "Drill",
+        ]
 
         # Precollected items is stored per player. First, we must get the current player's starting inventory.
         # From here, we get an AP item list. But, we only care about the name. So we get a list of strings as a result.
