@@ -81,7 +81,11 @@ grinch_locations = {
         "Whoville",
         ["Visitsanity", "Whoville"],
         100,
-        [GrinchRamData(0x010000, value=0x07)],
+        [
+            GrinchRamData(0x010000, value=0x07),
+            GrinchRamData(0x010282, binary_bit_pos=4),
+        ],
+
     ),
     "WV - Post Office - First Visit": GrinchLocationData(
         "Post Office",
@@ -105,7 +109,10 @@ grinch_locations = {
         "Who Forest",
         ["Visitsanity", "Who Forest"],
         104,
-        [GrinchRamData(0x010000, value=0x0B)],
+        [
+            GrinchRamData(0x010000, value=0x0B),
+            GrinchRamData(0x01024A, binary_bit_pos=1),
+         ],
     ),
     "WF - Ski Resort - First Visit": GrinchLocationData(
         "Ski Resort",
@@ -123,7 +130,10 @@ grinch_locations = {
         "Who Dump",
         ["Visitsanity", "Who Dump"],
         107,
-        [GrinchRamData(0x010000, value=0x0E)],
+        [
+            GrinchRamData(0x010000, value=0x0E),
+            GrinchRamData(0x01025C, binary_bit_pos=1),
+        ],
     ),
     "WD - Minefield - First Visit": GrinchLocationData(
         "Minefield",
@@ -147,7 +157,10 @@ grinch_locations = {
         "Who Lake",
         ["Visitsanity", "Who Lake", "South Shore"],
         111,
-        [GrinchRamData(0x010000, value=0x12)],
+        [
+            GrinchRamData(0x010000, value=0x12),
+            GrinchRamData(0x010282, binary_bit_pos=4),
+        ],
     ),
     "WL - Submarine World - First Visit": GrinchLocationData(
         "Submarine World",
