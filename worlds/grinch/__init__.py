@@ -1,6 +1,6 @@
 import math
 
-from BaseClasses import Region, Item, ItemClassification, Location
+from BaseClasses import Region, Item, Location
 from .Locations import grinch_locations_to_id, grinch_locations, GrinchLocation, get_location_names_per_category, GrinchLocationData
 from .Items import (grinch_items_to_id, GrinchItem, ALL_ITEMS_TABLE, MISC_ITEMS_TABLE, get_item_names_per_category,
     TRAPS_TABLE, MOVES_TABLE, USEFUL_ITEMS_TABLE)
@@ -13,20 +13,22 @@ from typing import ClassVar
 from worlds.AutoWorld import World
 from Options import OptionError
 
-from .Options import GrinchOptions
+from .GrinchOptions import GrinchOptions
 from .Rules import access_rules_dict
+from .Web import GrinchWeb
 
 
 class GrinchWorld(World):
     game: ClassVar[str] = "The Grinch"
-    options_dataclass = Options.GrinchOptions
-    options: Options.GrinchOptions
-    topology_present = True  # not an open world game, very linear
+    options_dataclass = GrinchOptions
+    options: GrinchOptions
+    topology_present = True # not an open world game, very linear, allows "Paths" in spoiler log
     item_name_to_id: ClassVar[dict[str, int]] = grinch_items_to_id()
     location_name_to_id: ClassVar[dict[str, int]] = grinch_locations_to_id()
-    required_client_version = (0, 6, 3)
+    required_client_version = (0, 6, 5) # Unused atm, replaced by ap.json
     item_name_groups = get_item_names_per_category()
     location_name_groups = get_location_names_per_category()
+    web = GrinchWeb()
 
     ut_can_gen_without_yaml = True  # class var that tells it to ignore the player yaml
 
@@ -69,7 +71,7 @@ class GrinchWorld(World):
                 self.options.gadgets_to_randomize = slot_data["gadgets_to_randomize"]
                 self.options.exclude_gc = slot_data["exclude_gc"]
                 self.options.progressive_gadgets = slot_data["progressive_gadgets"]
-
+                self.options.killsanity = slot_data["killsanity"]
 
     def create_regions(self):  # Generates all regions for the multiworld
         for region_name in access_rules_dict.keys():
@@ -90,6 +92,10 @@ class GrinchWorld(World):
 
             # No .value after self.options.missionsanity because UT no likey
             if "Missions" in data.location_group and self.options.missionsanity in [0,2]:
+                continue
+
+            # No .value after self.options.missionsanity because UT no likey
+            if "Missionsanity" in data.location_group and self.options.missionsanity in [0,1]:
                 continue
 
             # If the region is in the list to be ignored, DON'T create the location and just continue.
@@ -263,6 +269,7 @@ class GrinchWorld(World):
             "gadgets_to_randomize": self.options.gadgets_to_randomize.value,
             "exclude_gc": self.options.exclude_gc.value,
             "progressive_gadgets": self.options.progressive_gadgets.value,
+            "killsanity": self.options.killsanity.value,
 
         }
 

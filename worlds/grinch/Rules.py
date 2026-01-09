@@ -1015,13 +1015,11 @@ rules_dict: dict[str, list[list[str]]] = {
         [
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.SNEAK,
-            grinch_items.moves.PANCAKE,
         ],
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
             grinch_items.moves.SNEAK,
-            grinch_items.moves.PANCAKE,
         ],
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
@@ -1225,6 +1223,1331 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.BAD_BREATH,
         ],
     ],
+    "WV - Squashing Snowmen - Next to Vacuum Tube": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WV - Squashing Snowmen - Left Side of Post Office": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WV - Squashing Snowmen - Right Side of Clock Tower": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WV - Squashing Snowmen - Left Side of Clock Tower": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WV - Squashing Snowmen - Between Christmas Tree and Orange Round Building": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WV - Squashing Snowmen - East of Christmas Tree on Platform": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WV - Squashing Snowmen - Near Vacuum Tube on Blue Platform near Orange Bridge": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WV - Squashing Snowmen - Left side of City Hall": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WV - Squashing Snowmen - South of Christmas Tree": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WV - Squashing Snowmen - Right side of City Hall around the back": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WV - Launching Eggs Into Houses - On Gray Building right side of City Hall": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WV - Launching Eggs Into Houses - On Orange Round Building facing Christmas Tree": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WV - Launching Eggs Into Houses - Left side of Snow Wall on Gray Building": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WV - Launching Eggs Into Houses - Above Vacuum Tube": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WV - Launching Eggs Into Houses - Above Child near right side of Post Office": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WV - Launching Eggs Into Houses - On Orange Building right side of City Hall": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WV - Launching Eggs Into Houses - Greenish Building facing Christmas Tree above Child": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WV - Launching Eggs Into Houses - Above Post Office": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WV - Launching Eggs Into Houses - On Skinny Building right side of Clock Tower": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WV - Launching Eggs Into Houses - Orange Building facing away from Vacuum Tube": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WV - Painting The Mayor's Posters - Near Vacuum Tube on right side on Platform": [
+        [
+            grinch_items.level_items.WV_PAINT_BUCKET,
+        ],
+    ],
+    "WV - Painting The Mayor's Posters - Left side of City Hall on Red Building": [
+        [
+            grinch_items.level_items.WV_PAINT_BUCKET,
+        ],
+    ],
+    "WV - Painting The Mayor's Posters - Orange Building in front of Post Office upper level": [
+        [
+            grinch_items.level_items.WV_PAINT_BUCKET,
+        ],
+    ],
+    "WV - Painting The Mayor's Posters - Left side of Post Office on Orange Building left side wall": [
+        [
+            grinch_items.level_items.WV_PAINT_BUCKET,
+        ],
+    ],
+    "WV - Painting The Mayor's Posters - Right side of City Hall on Gray Building Platform": [
+        [
+            grinch_items.level_items.WV_PAINT_BUCKET,
+        ],
+    ],
+    "WV - Painting The Mayor's Posters - Next to Vacuum Tube on left side": [
+        [
+            grinch_items.level_items.WV_PAINT_BUCKET,
+        ],
+    ],
+    "WV - Painting The Mayor's Posters - Right side of Clock Tower on Swinging Platform": [
+        [
+            grinch_items.level_items.WV_PAINT_BUCKET,
+        ],
+    ],
+    "WV - Painting The Mayor's Posters - Orange Building in front of Post Office lower level": [
+        [
+            grinch_items.level_items.WV_PAINT_BUCKET,
+        ],
+    ],
+    "WV - Painting The Mayor's Posters - Left Side of City Hall on Gray Building Platform": [
+        [
+            grinch_items.level_items.WV_PAINT_BUCKET,
+        ],
+    ],
+    "WV - Painting The Mayor's Posters - Right Side of City Hall on Orange Building": [
+        [
+            grinch_items.level_items.WV_PAINT_BUCKET,
+        ],
+    ],
+    "WV - Post Office - Shuffling The Mail - Pink Room (Room 1)": [
+        [
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "WV - Post Office - Shuffling The Mail - Orange Room (Room 2)": [
+        [
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "WV - Post Office - Shuffling The Mail - Blue Room (Room 3)": [
+        [
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "WV - Post Office - Shuffling The Mail - Yellow Room (Room 4)": [
+        [
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "WV - Post Office - Shuffling The Mail - Gray Room (Room 5)": [
+        [
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Open Hatch to Floor 2": [
+        [
+            grinch_items.gadgets.ROCKET_SPRING,
+        ],
+    ],
+    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Open Hatch to Floor 3": [
+        [
+            grinch_items.gadgets.ROCKET_SPRING,
+        ],
+    ],
+    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Open Hatch to Floor 4": [
+        [
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SEIZE,
+        ],
+    ],
+    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Open Hatch to Floor 5": [
+        [
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SEIZE,
+        ],
+    ],
+    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Ring 1st Bell": [
+        [
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SEIZE,
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Ring 2nd Bell": [
+        [
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SEIZE,
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Ring 3rd Bell": [
+        [
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SEIZE,
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Ring 4th Bell": [
+        [
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SEIZE,
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Ring 5th Bell": [
+        [
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SEIZE,
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "WF - Making Xmas Trees Droop - Swinging platform farthest to Glue Cannon": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Making Xmas Trees Droop - 2nd closest to Civic Center cave": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Making Xmas Trees Droop - Swinging platform closest to Glue Cannon": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Making Xmas Trees Droop - Next to Tree house": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Making Xmas Trees Droop - Closest to Civic Center cave": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Making Xmas Trees Droop - Tree 3rd closest to vacuum tube": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Making Xmas Trees Droop - Tree 2nd closest to vacuum tube": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Making Xmas Trees Droop - Tree closest to vacuum tube": [
+        [
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Making Xmas Trees Droop - Tree 4th closest to vacuum tube": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Making Xmas Trees Droop - Left of cable car": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Putting Beehives In Cabins - Closest to Vacuum Tube": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WF - Putting Beehives In Cabins - Red house on glue cannon platform": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Putting Beehives In Cabins - Green house on glue cannon platform": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Putting Beehives In Cabins - 2nd closest to vacuum tube": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+        ],
+    ],
+    "WF - Putting Beehives In Cabins - Yellow house across from Tree House": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Putting Beehives In Cabins - Red house next to Tree House": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Putting Beehives In Cabins - Tree house": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Putting Beehives In Cabins - Red house near Cable car": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Putting Beehives In Cabins - Blue house in front of civic center cave": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Putting Beehives In Cabins - Green house left side of Cable car": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Front side of Civic Center building": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER
+        ],
+    ],
+    "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Left side of Civic Center building": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER
+        ],
+    ],
+    "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Across tree branch swinging platform": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Middle platform of super toy parkour": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Front of Bat Cave entrance": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.gadgets.ROCKET_SPRING,
+        ],
+    ],
+    "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Guarded by who below super toy platforms": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Furthest platform of super toy parkour": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Across snow boulders": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+        ],
+    ],
+    "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - After ice wall near entrance left side": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+        ],
+    ],
+    "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Across bridge near entrance": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+        ],
+    ],
+    "WD - Feeding The Computer With Robot Parts - Left side of center area": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WD - Feeding The Computer With Robot Parts - Center area between pipes": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WD - Feeding The Computer With Robot Parts - Right side of center area": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WD - Feeding The Computer With Robot Parts - Who Bris Shack Area": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WD - Feeding The Computer With Robot Parts - Right area near robot parts vacuum": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WD - Feeding The Computer With Robot Parts - Right area near entrance to center area": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WD - Feeding The Computer With Robot Parts - Right area near shooting pipe": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WD - Feeding The Computer With Robot Parts - Near inward pipe in left area": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WD - Feeding The Computer With Robot Parts - Left area on right electric fence": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WD - Feeding The Computer With Robot Parts - Left area on left electric fence": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WD - Conducting The Stinky Gas To Who-Bris' Shack - Swinging pipe in right side of center area": [[]],
+    "WD - Conducting The Stinky Gas To Who-Bris' Shack - Swinging pipe in left side of center area": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+        ],
+        [
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.gadgets.ROCKET_SPRING,
+        ],
+    ],
+    "WD - Conducting The Stinky Gas To Who-Bris' Shack - Shooting pipe in left area": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+
+        ],
+        [
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+
+        ],
+        [
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WD - Conducting The Stinky Gas To Who-Bris' Shack - Swinging pipe in left area": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+
+        ],
+        [
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WD - Conducting The Stinky Gas To Who-Bris' Shack - Shooting pipe in right side": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+
+        ],
+    ],
+    "WD - Conducting The Stinky Gas To Who-Bris' Shack - Seizing pipe in rat area": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.SEIZE,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.SEIZE,
+
+        ],
+    ],
+    "WD - Conducting The Stinky Gas To Who-Bris' Shack - Shooting pipe in right side inside pipe": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WD - Conducting The Stinky Gas To Who-Bris' Shack - Swinging pipe in center area pipe": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+
+        ],
+        [
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+
+        ],
+        [
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WD - Conducting The Stinky Gas To Who-Bris' Shack - Swinging pipe in left area pipe": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+
+        ],
+        [
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WD - Conducting The Stinky Gas To Who-Bris' Shack - Final pipe screw in Who Bris' Shack area": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.SEIZE,
+        ],
+    ],
+    "WD - Infesting The Mayor's House With Rats - 1st Rat Lured": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.MAX,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "WD - Infesting The Mayor's House With Rats - 2nd Rat Lured": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.MAX,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "WD - Infesting The Mayor's House With Rats - 3rd Rat Lured": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.MAX,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "WD - Infesting The Mayor's House With Rats - 4th Rat Lured": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.MAX,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "WD - Infesting The Mayor's House With Rats - 5th Rat Lured": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.MAX,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "WD - Infesting The Mayor's House With Rats - 6th Rat Lured": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.MAX,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "WD - Infesting The Mayor's House With Rats - 7th Rat Lured": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.MAX,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "WD - Infesting The Mayor's House With Rats - 8th Rat Lured": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.MAX,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "WD - Infesting The Mayor's House With Rats - 9th Rat Lured": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.MAX,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "WD - Infesting The Mayor's House With Rats - 10th Rat Lured": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.MAX,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "WD - Stealing Food From Birds - Left area on right electric fence": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WD - Stealing Food From Birds - Right area near Minefield entrance": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WD - Stealing Food From Birds - Who Bris Shack Area": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.SEIZE,
+        ],
+    ],
+    "WD - Stealing Food From Birds - Shooting pipe near right area": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WD - Stealing Food From Birds - Right area in rat section": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WD - Stealing Food From Birds - Left area near inward pipe": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WD - Stealing Food From Birds - Left area on left electric fence": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WD - Stealing Food From Birds - Left area below spinning pipe near blue tube": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WD - Stealing Food From Birds - Near blue tube in center area": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+        [
+            grinch_items.gadgets.SLIME_SHOOTER,
+        ],
+    ],
+    "WD - Stealing Food From Birds - TV Platform": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+        [
+            grinch_items.gadgets.SLIME_SHOOTER,
+        ],
+    ],
+    "WD - Generator Building - Short-Circuiting Power-Plant - Yellow Generator (4th)": [
+        [
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+        [
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WD - Generator Building - Short-Circuiting Power-Plant - Orange Generator (3rd)": [
+        [
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+        [
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WD - Generator Building - Short-Circuiting Power-Plant - Pink Generator (2nd)": [
+        [
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+        [
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WD - Generator Building - Short-Circuiting Power-Plant - Blue Generator (1st)": [
+        [
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+        [
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WL - South Shore - Sabotaging The Tents - Right side of bridge to Scout Hut": [
+        [
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.SNEAK,
+        ],
+    ],
+    "WL - South Shore - Sabotaging The Tents - Left side of summer beast": [
+        [
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WL - South Shore - Sabotaging The Tents - Across from boulder": [
+        [
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WL - South Shore - Sabotaging The Tents - Grass platform": [
+        [
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SEIZE,
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WL - South Shore - Sabotaging The Tents - Left side of bridge right of rope wall": [
+        [
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WL - South Shore - Sabotaging The Tents - Right side of summer beast": [
+        [
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WL - South Shore - Sabotaging The Tents - Across from clothes line": [
+        [
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WL - South Shore - Sabotaging The Tents - Across swinging line": [
+        [
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WL - South Shore - Sabotaging The Tents - Across from clothes line near North Shore bridge": [
+        [
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WL - South Shore - Sabotaging The Tents - Left of North Shore bridge": [
+        [
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WL - South Shore - Putting Thistles In Shorts - Left of rack guarded by child": [
+        [
+            grinch_items.moves.SNEAK,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WL - South Shore - Putting Thistles In Shorts - Left of rack near entrance": [
+        [
+            grinch_items.moves.SNEAK,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WL - South Shore - Putting Thistles In Shorts - Middle of rack near entrance": [
+        [
+            grinch_items.moves.SNEAK,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WL - South Shore - Putting Thistles In Shorts - Right of rack near entrance": [
+        [
+            grinch_items.moves.SNEAK,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WL - South Shore - Putting Thistles In Shorts - Left of rack on wall platform": [
+        [
+            grinch_items.moves.SNEAK,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+        ],
+        [
+            grinch_items.moves.SNEAK,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+        ],
+    ],
+    "WL - South Shore - Putting Thistles In Shorts - Right of rack on wall platform": [
+        [
+            grinch_items.moves.SNEAK,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+        ],
+        [
+            grinch_items.moves.SNEAK,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+        ],
+    ],
+    "WL - South Shore - Putting Thistles In Shorts - Right of rack near North Shore Bridge": [
+        [
+            grinch_items.moves.SNEAK,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WL - South Shore - Putting Thistles In Shorts - Left of rack near North Shore Bridge": [
+        [
+            grinch_items.moves.SNEAK,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WL - South Shore - Putting Thistles In Shorts - Right of rack guarded by child": [
+        [
+            grinch_items.moves.SNEAK,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WL - South Shore - Putting Thistles In Shorts - Middle of rack guarded by child": [
+        [
+            grinch_items.moves.SNEAK,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WL - North Shore - Drilling Holes In Canoes - Right side adjacent to fence area": [
+        [
+            grinch_items.level_items.WL_DRILL,
+        ],
+    ],
+    "WL - North Shore - Drilling Holes In Canoes - Left side adjacent to fence area": [
+        [
+            grinch_items.level_items.WL_DRILL,
+        ],
+    ],
+    "WL - North Shore - Drilling Holes In Canoes - Left side in fence area": [
+        [
+            grinch_items.level_items.WL_DRILL,
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "WL - North Shore - Drilling Holes In Canoes - Right side in fence area": [
+        [
+            grinch_items.level_items.WL_DRILL,
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "WL - North Shore - Drilling Holes In Canoes - On beach left side below max house": [
+        [
+            grinch_items.level_items.WL_DRILL,
+        ],
+    ],
+    "WL - North Shore - Drilling Holes In Canoes - On beach right side below max house": [
+        [
+            grinch_items.level_items.WL_DRILL,
+        ],
+    ],
+    "WL - North Shore - Drilling Holes In Canoes - Middle side in fence area": [
+        [
+            grinch_items.level_items.WL_DRILL,
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "WL - North Shore - Drilling Holes In Canoes - Behind max house": [
+        [
+            grinch_items.level_items.WL_DRILL,
+        ],
+    ],
+    "WL - North Shore - Drilling Holes In Canoes - Right side on top of car": [
+        [
+            grinch_items.level_items.WL_DRILL,
+            grinch_items.moves.SEIZE,
+        ],
+    ],
+    "WL - North Shore - Drilling Holes In Canoes - Left side on top of car": [
+        [
+            grinch_items.level_items.WL_DRILL,
+            grinch_items.moves.SEIZE,
+        ],
+    ],
+    "WL - Submarine World - Modifying The Marine Mobile - Outer Fast-moving Fish": [[]],
+    "WL - Submarine World - Modifying The Marine Mobile - Inner Slow-moving Fish": [[]],
+    "WL - Submarine World - Modifying The Marine Mobile - Pirate Ship in Cave": [[]],
+    "WL - Submarine World - Modifying The Marine Mobile - Sea Cow Leaves": [[]],
+    "WL - Submarine World - Modifying The Marine Mobile - Timed Cage": [[]],
     # "Green Present": [
     #     []
     # ],

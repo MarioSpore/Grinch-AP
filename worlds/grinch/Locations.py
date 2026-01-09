@@ -81,7 +81,11 @@ grinch_locations = {
         "Whoville",
         ["Visitsanity", "Whoville"],
         100,
-        [GrinchRamData(0x010000, value=0x07)],
+        [
+            GrinchRamData(0x010000, value=0x07),
+            GrinchRamData(0x010212, binary_bit_pos=0),
+        ],
+
     ),
     "WV - Post Office - First Visit": GrinchLocationData(
         "Post Office",
@@ -105,7 +109,10 @@ grinch_locations = {
         "Who Forest",
         ["Visitsanity", "Who Forest"],
         104,
-        [GrinchRamData(0x010000, value=0x0B)],
+        [
+            GrinchRamData(0x010000, value=0x0B),
+            GrinchRamData(0x01024A, binary_bit_pos=1),
+         ],
     ),
     "WF - Ski Resort - First Visit": GrinchLocationData(
         "Ski Resort",
@@ -123,7 +130,10 @@ grinch_locations = {
         "Who Dump",
         ["Visitsanity", "Who Dump"],
         107,
-        [GrinchRamData(0x010000, value=0x0E)],
+        [
+            GrinchRamData(0x010000, value=0x0E),
+            GrinchRamData(0x01025C, binary_bit_pos=1),
+        ],
     ),
     "WD - Minefield - First Visit": GrinchLocationData(
         "Minefield",
@@ -147,7 +157,10 @@ grinch_locations = {
         "Who Lake",
         ["Visitsanity", "Who Lake", "South Shore"],
         111,
-        [GrinchRamData(0x010000, value=0x12)],
+        [
+            GrinchRamData(0x010000, value=0x12),
+            GrinchRamData(0x010282, binary_bit_pos=4),
+        ],
     ),
     "WL - Submarine World - First Visit": GrinchLocationData(
         "Submarine World",
@@ -1207,24 +1220,76 @@ grinch_locations = {
         [GrinchRamData(0x0101FB, binary_bit_pos=1)],
     ),
     # Supadow Minigames
-    # "Spin N' Win - Easy": GrinchLocationData("Spin N' Win", ["Supadow Minigames", "Spin N' Win"], 1500, [GrinchRamData()]),
-    # "Spin N' Win - Hard": GrinchLocationData("Spin N' Win", ["Supadow Minigames", "Spin N' Win"], 1501, [GrinchRamData()]),
-    # "Spin N' Win - Real Tough": GrinchLocationData("Spin N' Win", ["Supadow Minigames", "Spin N' Win"], 1502, [GrinchRamData()]),
-    # "Dankamania - Easy - 15 Points": GrinchLocationData("Dankamania", ["Supadow Minigames", "Dankamania"], 1503, [GrinchRamData()]),
-    # "Dankamania - Hard - 15 Points": GrinchLocationData("Dankamania", ["Supadow Minigames", "Dankamania"], 1504, [GrinchRamData()]),
-    # "Dankamania - Real Tough - 15 Points": GrinchLocationData("Dankamania", ["Supadow Minigames", "Dankamania"], 1505, [GrinchRamData()]),
-    # "The Copter Race Contest - Easy": GrinchLocationData("The Copter Race Contest", ["Supadow Minigames", "The Copter Race Contest"], 1506, [GrinchRamData()]),
-    # "The Copter Race Contest - Hard": GrinchLocationData("The Copter Race Contest", ["Supadow Minigames", "The Copter Race Contest"], 1507, [GrinchRamData()]),
-    # "The Copter Race Contest - Real Tough": GrinchLocationData("The Copter Race Contest", ["Supadow Minigames", "The Copter Race Contest"], 1508, [GrinchRamData()]),
-    # "Bike Race - 1st Place":  GrinchLocationData("Bike Race", ["Supadow Minigames", "Bike Race"], 1509, [GrinchRamData()]),
-    # "Bike Race - Top 2": GrinchLocationData("Bike Race", ["Supadow Minigames", "Bike Race"], 1510, [GrinchRamData()]),
-    # "Bike Race - Top 3": GrinchLocationData("Bike Race", ["Supadow Minigames", "Bike Race"], 1511, [GrinchRamData()]),
+    # "Spin N' Win - Easy": GrinchLocationData(
+    #     "Spin N' Win",
+    #     ["Supadow Minigames", "Spin N' Win"],
+    #     1500,
+    #     [GrinchRamData(0x0100FD, min_count=1, max_count=59)]),
+    # "Spin N' Win - Hard": GrinchLocationData(
+    #     "Spin N' Win",
+    #     ["Supadow Minigames", "Spin N' Win"],
+    #     1501,
+    #     [GrinchRamData(0x0100FD, min_count=1, max_count=44)]),
+    # "Spin N' Win - Real Tough": GrinchLocationData(
+    #     "Spin N' Win",
+    #     ["Supadow Minigames", "Spin N' Win"],
+    #     1502,
+    #     [GrinchRamData(0x0100FD, min_count=1, max_count=29)]),
+    # "Dankamania - 12 Points": GrinchLocationData(
+    #     "Dankamania",
+    #     ["Supadow Minigames", "Dankamania"],
+    #     1503,
+    #     [GrinchRamData(0x0100FB, min_count=12)]),
+    # "The Copter Race Contest - Easy": GrinchLocationData(
+    #     "The Copter Race Contest",
+    #     ["Supadow Minigames", "The Copter Race Contest"],
+    #     1504,
+    #     [GrinchRamData(0x0100FC, min_count=1, max_count=44)]),
+    # "The Copter Race Contest - Hard": GrinchLocationData(
+    #     "The Copter Race Contest",
+    #     ["Supadow Minigames", "The Copter Race Contest"],
+    #     1505,
+    #     [GrinchRamData(0x0100FC, min_count=1, max_count=34)]),
+    # "The Copter Race Contest - Real Tough": GrinchLocationData(
+    #     "The Copter Race Contest",
+    #     ["Supadow Minigames", "The Copter Race Contest"],
+    #     1506,
+    #     [GrinchRamData(0x0100FC, min_count=1, max_count=29)]),
+    # "Bike Race - 1st Place":  GrinchLocationData(
+    #     "Bike Race",
+    #     ["Supadow Minigames", "Bike Race"],
+    #     1509,
+    #     [
+    #         GrinchRamData(0x010000, value=0x18),
+    #         GrinchRamData(0x134CA5, value=1)]),
+    # "Bike Race - Top 2": GrinchLocationData(
+    #     "Bike Race",
+    #     ["Supadow Minigames", "Bike Race"],
+    #     1510,
+    #     [
+    #         GrinchRamData(0x010000, value=0x18),
+    #         GrinchRamData(0x134CA5, min_count=1, max_count=2)]),
+    # "Bike Race - Top 3": GrinchLocationData(
+    #     "Bike Race",
+    #     ["Supadow Minigames", "Bike Race"],
+    #     1511,
+    #     [
+    #         GrinchRamData(0x010000, value=0x18),
+    #         GrinchRamData(0x134CA5, min_count=1, max_count=3)]),
+    # "Bike Race - Top 4": GrinchLocationData(
+    #     "Bike Race",
+    #     ["Supadow Minigames", "Bike Race"],
+    #     1512,
+    #     [
+    #         GrinchRamData(0x010000, value=0x18),
+    #         GrinchRamData(0x134CA5, min_count=1, max_count=4)]),
     # Sleigh Part Locations
     "WV - Exhaust Pipes": GrinchLocationData(
         "Whoville",
         ["Sleigh Ride", "Whoville"],
         1600,
-        [GrinchRamData(0x0101FB, binary_bit_pos=2)],
+        [
+            GrinchRamData(0x0101FB, binary_bit_pos=2)],
     ),
     "WF - Skis": GrinchLocationData(
         "Who Forest",
@@ -1299,7 +1364,7 @@ grinch_locations = {
     "MC - Interact with the Telescope": GrinchLocationData(
         "Mount Crumpit",
         ["Mount Crumpit"],
-        1405,
+        1705,
         [
             GrinchRamData(0x010111, value=1),
         ],
@@ -1307,7 +1372,7 @@ grinch_locations = {
     "MC - I hate Whos!": GrinchLocationData(
         "Mount Crumpit",
         ["Mount Crumpit"],
-        1406,
+        1706,
         [
             GrinchRamData(0x010111, value=1),
             GrinchRamData(0x0F84E4, value=0x48),
@@ -1316,7 +1381,7 @@ grinch_locations = {
     "MC - I hate Christmas!": GrinchLocationData(
         "Mount Crumpit",
         ["Mount Crumpit"],
-        1407,
+        1707,
         [
             GrinchRamData(0x010111, value=1),
             GrinchRamData(0x0F84E4, value=0x38),
@@ -1325,7 +1390,7 @@ grinch_locations = {
     "MC - My heart is like a pea!": GrinchLocationData(
         "Mount Crumpit",
         ["Mount Crumpit"],
-        1408,
+        1708,
         [
             GrinchRamData(0x010111, value=1),
             GrinchRamData(0x0F84E4, value=0x58),
@@ -1334,7 +1399,7 @@ grinch_locations = {
     "MC - Move Boulder": GrinchLocationData(
         "Mount Crumpit",
         ["Mount Crumpit"],
-        1409,
+        1709,
         [
             GrinchRamData(0x0101FE, binary_bit_pos=1),
         ],
@@ -1342,7 +1407,7 @@ grinch_locations = {
     "MC - Collect Max Door Key": GrinchLocationData(
         "Mount Crumpit",
         ["Mount Crumpit"],
-        1410,
+        1710,
         [
             GrinchRamData(0x0101FE, binary_bit_pos=4),
         ],
@@ -1350,7 +1415,7 @@ grinch_locations = {
     "MC - Open Door with Breath Analyzer": GrinchLocationData(
         "Mount Crumpit",
         ["Mount Crumpit"],
-        1411,
+        1711,
         [
             GrinchRamData(0x0101FE, binary_bit_pos=5),
         ],
@@ -1358,7 +1423,7 @@ grinch_locations = {
     "WL - Scout's Hut - Steal Scout's Hat": GrinchLocationData(
         "Scout's Hut",
         ["Scout's Hut", "Who Lake"],
-        1500,
+        1800,
         [
             GrinchRamData(0x010000, value=0x13),
             # GrinchRamData(0x095349, binary_bit_pos=0),
@@ -1368,7 +1433,7 @@ grinch_locations = {
     "WL - Scout's Hut - Steal Scout's Shirt": GrinchLocationData(
         "Scout's Hut",
         ["Scout's Hut", "Who Lake"],
-        1501,
+        1801,
         [
             GrinchRamData(0x010000, value=0x13),
             # GrinchRamData(0x095349, binary_bit_pos=1),
@@ -1379,12 +1444,1453 @@ grinch_locations = {
     "WL - Scout's Hut - Steal Scout's Shorts": GrinchLocationData(
         "Scout's Hut",
         ["Scout's Hut", "Who Lake"],
-        1502,
+        1802,
         [
             GrinchRamData(0x010000, value=0x13),
             # GrinchRamData(0x095349, binary_bit_pos=2),
             GrinchRamData(0x0100BB, binary_bit_pos=0),
             GrinchRamData(0x0100BB, binary_bit_pos=1),
+        ],
+    ),
+    "WV - Squashing Snowmen - Next to Vacuum Tube": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1900,
+        [
+            GrinchRamData(0x01020C, binary_bit_pos=0),
+        ],
+    ),
+    "WV - Squashing Snowmen - Left Side of Post Office": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1901,
+        [
+            GrinchRamData(0x01020C, binary_bit_pos=1),
+        ],
+    ),
+    "WV - Squashing Snowmen - Right Side of Clock Tower": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1902,
+        [
+            GrinchRamData(0x01020C, binary_bit_pos=2),
+        ],
+    ),
+    "WV - Squashing Snowmen - Left Side of Clock Tower": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1903,
+        [
+            GrinchRamData(0x01020C, binary_bit_pos=3),
+        ],
+    ),
+    "WV - Squashing Snowmen - Between Christmas Tree and Orange Round Building": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1904,
+        [
+            GrinchRamData(0x01020C, binary_bit_pos=4),
+        ],
+    ),
+    "WV - Squashing Snowmen - East of Christmas Tree on Platform": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1905,
+        [
+            GrinchRamData(0x01020C, binary_bit_pos=5),
+        ],
+    ),
+    "WV - Squashing Snowmen - Near Vacuum Tube on Blue Platform near Orange Bridge": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1906,
+        [
+            GrinchRamData(0x01020C, binary_bit_pos=6),
+        ],
+    ),
+    "WV - Squashing Snowmen - Left side of City Hall": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1907,
+        [
+            GrinchRamData(0x01020C, binary_bit_pos=7),
+        ],
+    ),
+    "WV - Squashing Snowmen - South of Christmas Tree": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1908,
+        [
+            GrinchRamData(0x01020B, binary_bit_pos=6),
+        ],
+    ),
+    "WV - Squashing Snowmen - Right side of City Hall around the back": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1910,
+        [
+            GrinchRamData(0x01020B, binary_bit_pos=7),
+        ],
+    ),
+    "WV - Launching Eggs Into Houses - On Gray Building right side of City Hall": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1911,
+        [
+            GrinchRamData(0x01020E, binary_bit_pos=2),
+        ],
+    ),
+    "WV - Launching Eggs Into Houses - On Orange Round Building facing Christmas Tree": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1912,
+        [
+            GrinchRamData(0x01020E, binary_bit_pos=3),
+        ],
+    ),
+    "WV - Launching Eggs Into Houses - Left side of Snow Wall on Gray Building": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1913,
+        [
+            GrinchRamData(0x01020E, binary_bit_pos=4),
+        ],
+    ),
+    "WV - Launching Eggs Into Houses - Above Vacuum Tube": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1914,
+        [
+            GrinchRamData(0x01020E, binary_bit_pos=5),
+        ],
+    ),
+    "WV - Launching Eggs Into Houses - Above Child near right side of Post Office": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1915,
+        [
+            GrinchRamData(0x01020E, binary_bit_pos=6),
+        ],
+    ),
+    "WV - Launching Eggs Into Houses - On Orange Building right side of City Hall": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1916,
+        [
+            GrinchRamData(0x01020E, binary_bit_pos=7),
+        ],
+    ),
+    "WV - Launching Eggs Into Houses - Greenish Building facing Christmas Tree above Child": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1917,
+        [
+            GrinchRamData(0x01020F, binary_bit_pos=0),
+        ],
+    ),
+    "WV - Launching Eggs Into Houses - Above Post Office": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1918,
+        [
+            GrinchRamData(0x01020F, binary_bit_pos=1),
+        ],
+    ),
+    "WV - Launching Eggs Into Houses - On Skinny Building right side of Clock Tower": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1919,
+        [
+            GrinchRamData(0x01020F, binary_bit_pos=2),
+        ],
+    ),
+    "WV - Launching Eggs Into Houses - Orange Building facing away from Vacuum Tube": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1920,
+        [
+            GrinchRamData(0x01020F, binary_bit_pos=3),
+        ],
+    ),
+    "WV - Painting The Mayor's Posters - Near Vacuum Tube on right side on Platform": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1921,
+        [
+            GrinchRamData(0x01020D, binary_bit_pos=0),
+        ],
+    ),
+    "WV - Painting The Mayor's Posters - Left side of City Hall on Red Building": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1922,
+        [
+            GrinchRamData(0x01020D, binary_bit_pos=1),
+        ],
+    ),
+    "WV - Painting The Mayor's Posters - Orange Building in front of Post Office upper level": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1923,
+        [
+            GrinchRamData(0x01020D, binary_bit_pos=2),
+        ],
+    ),
+    "WV - Painting The Mayor's Posters - Left side of Post Office on Orange Building left side wall": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1924,
+        [
+            GrinchRamData(0x01020D, binary_bit_pos=3),
+        ],
+    ),
+    "WV - Painting The Mayor's Posters - Right side of City Hall on Gray Building Platform": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1925,
+        [
+            GrinchRamData(0x01020D, binary_bit_pos=4),
+        ],
+    ),
+    "WV - Painting The Mayor's Posters - Next to Vacuum Tube on left side": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1926,
+        [
+            GrinchRamData(0x01020D, binary_bit_pos=5),
+        ],
+    ),
+    "WV - Painting The Mayor's Posters - Right side of Clock Tower on Swinging Platform": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1927,
+        [
+            GrinchRamData(0x01020D, binary_bit_pos=6),
+        ],
+    ),
+    "WV - Painting The Mayor's Posters - Orange Building in front of Post Office lower level": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1928,
+        [
+            GrinchRamData(0x01020D, binary_bit_pos=7),
+        ],
+    ),
+    "WV - Painting The Mayor's Posters - Left Side of City Hall on Gray Building Platform": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1929,
+        [
+            GrinchRamData(0x01020E, binary_bit_pos=0),
+        ],
+    ),
+    "WV - Painting The Mayor's Posters - Right Side of City Hall on Orange Building": GrinchLocationData(
+        "Whoville",
+        ["Whoville's Missions", "Missionsanity", "Whoville"],
+        1930,
+        [
+            GrinchRamData(0x01020E, binary_bit_pos=1),
+        ],
+    ),
+    "WV - Post Office - Shuffling The Mail - Pink Room (Room 1)": GrinchLocationData(
+        "Post Office",
+        ["Whoville's Missions", "Missionsanity", "Whoville", "Post Office"],
+        1931,
+        [
+            GrinchRamData(0x010219, binary_bit_pos=0),
+            GrinchRamData(0x010219, binary_bit_pos=5),
+        ],
+    ),
+    "WV - Post Office - Shuffling The Mail - Orange Room (Room 2)": GrinchLocationData(
+        "Post Office",
+        ["Whoville's Missions", "Missionsanity", "Whoville", "Post Office"],
+        1932,
+        [
+            GrinchRamData(0x010219, binary_bit_pos=1),
+            GrinchRamData(0x010219, binary_bit_pos=6),
+        ],
+    ),
+    "WV - Post Office - Shuffling The Mail - Blue Room (Room 3)": GrinchLocationData(
+        "Post Office",
+        ["Whoville's Missions", "Missionsanity", "Whoville", "Post Office"],
+        1933,
+        [
+            GrinchRamData(0x010219, binary_bit_pos=7),
+        ],
+    ),
+    "WV - Post Office - Shuffling The Mail - Yellow Room (Room 4)": GrinchLocationData(
+        "Post Office",
+        ["Whoville's Missions", "Missionsanity", "Whoville", "Post Office"],
+        1934,
+        [
+            GrinchRamData(0x010219, binary_bit_pos=3),
+        ],
+    ),
+    "WV - Post Office - Shuffling The Mail - Gray Room (Room 5)": GrinchLocationData(
+        "Post Office",
+        ["Whoville's Missions", "Missionsanity", "Whoville", "Post Office"],
+        1935,
+        [
+            GrinchRamData(0x01021A, binary_bit_pos=1),
+        ],
+    ),
+    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Open Hatch to Floor 2": GrinchLocationData(
+        "Clock Tower",
+        ["Whoville's Missions", "Missionsanity", "Whoville", "Clock Tower"],
+        1936,
+        [
+            GrinchRamData(0x0100D9, binary_bit_pos=1),
+            GrinchRamData(0x0100DA, binary_bit_pos=1),
+        ],
+    ),
+    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Open Hatch to Floor 3": GrinchLocationData(
+        "Clock Tower",
+        ["Whoville's Missions", "Missionsanity", "Whoville", "Clock Tower"],
+        1937,
+        [
+            GrinchRamData(0x0100D9, binary_bit_pos=2),
+            GrinchRamData(0x0100DA, binary_bit_pos=2),
+        ],
+    ),
+    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Open Hatch to Floor 4": GrinchLocationData(
+        "Clock Tower",
+        ["Whoville's Missions", "Missionsanity", "Whoville", "Clock Tower"],
+        1938,
+        [
+            GrinchRamData(0x0100D9, binary_bit_pos=3),
+            GrinchRamData(0x0100DA, binary_bit_pos=3),
+        ],
+    ),
+    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Open Hatch to Floor 5": GrinchLocationData(
+        "Clock Tower",
+        ["Whoville's Missions", "Missionsanity", "Whoville", "Clock Tower"],
+        1939,
+        [
+            GrinchRamData(0x0100D9, binary_bit_pos=4),
+            GrinchRamData(0x0100DA, binary_bit_pos=4),
+        ],
+    ),
+    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Ring 1st Bell": GrinchLocationData(
+        "Clock Tower",
+        ["Whoville's Missions", "Missionsanity", "Whoville", "Clock Tower"],
+        1940,
+        [
+            GrinchRamData(0x09534A, value=2),
+        ],
+    ),
+    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Ring 2nd Bell": GrinchLocationData(
+        "Clock Tower",
+        ["Whoville's Missions", "Missionsanity", "Whoville", "Clock Tower"],
+        1941,
+        [
+            GrinchRamData(0x09534A, value=3),
+        ],
+    ),
+    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Ring 3rd Bell": GrinchLocationData(
+        "Clock Tower",
+        ["Whoville's Missions", "Missionsanity", "Whoville", "Clock Tower"],
+        1942,
+        [
+            GrinchRamData(0x09534A, value=4),
+        ],
+    ),
+    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Ring 4th Bell": GrinchLocationData(
+        "Clock Tower",
+        ["Whoville's Missions", "Missionsanity", "Whoville", "Clock Tower"],
+        1943,
+        [
+            GrinchRamData(0x09534A, value=5),
+        ],
+    ),
+    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Ring 5th Bell": GrinchLocationData(
+        "Clock Tower",
+        ["Whoville's Missions", "Missionsanity", "Whoville", "Clock Tower"],
+        1944,
+        [
+            GrinchRamData(0x09534A, value=7),
+        ],
+    ),
+    "WF - Making Xmas Trees Droop - Swinging platform farthest to Glue Cannon": GrinchLocationData(
+        "Who Forest",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest"],
+        2000,
+        [
+            GrinchRamData(0x010240, binary_bit_pos=7),
+        ],
+    ),
+    "WF - Making Xmas Trees Droop - 2nd closest to Civic Center cave": GrinchLocationData(
+        "Who Forest",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest"],
+        2001,
+        [
+            GrinchRamData(0x010242, binary_bit_pos=0),
+        ],
+    ),
+    "WF - Making Xmas Trees Droop - Swinging platform closest to Glue Cannon": GrinchLocationData(
+        "Who Forest",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest"],
+        2002,
+        [
+            GrinchRamData(0x010241, binary_bit_pos=0),
+        ],
+    ),
+    "WF - Making Xmas Trees Droop - Next to Tree house": GrinchLocationData(
+        "Who Forest",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest"],
+        2003,
+        [
+            GrinchRamData(0x010241, binary_bit_pos=1),
+        ],
+    ),
+    "WF - Making Xmas Trees Droop - Closest to Civic Center cave": GrinchLocationData(
+        "Who Forest",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest"],
+        2004,
+        [
+            GrinchRamData(0x010241, binary_bit_pos=2),
+        ],
+    ),
+    "WF - Making Xmas Trees Droop - Tree 3rd closest to vacuum tube": GrinchLocationData(
+        "Who Forest",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest"],
+        2005,
+        [
+            GrinchRamData(0x010241, binary_bit_pos=3),
+        ],
+    ),
+    "WF - Making Xmas Trees Droop - Tree 2nd closest to vacuum tube": GrinchLocationData(
+        "Who Forest",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest"],
+        2006,
+        [
+            GrinchRamData(0x010241, binary_bit_pos=4),
+        ],
+    ),
+    "WF - Making Xmas Trees Droop - Tree closest to vacuum tube": GrinchLocationData(
+        "Who Forest",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest"],
+        2007,
+        [
+            GrinchRamData(0x010241, binary_bit_pos=5),
+        ],
+    ),
+    "WF - Making Xmas Trees Droop - Tree 4th closest to vacuum tube": GrinchLocationData(
+        "Who Forest",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest"],
+        2008,
+        [
+            GrinchRamData(0x010241, binary_bit_pos=6),
+        ],
+    ),
+    "WF - Making Xmas Trees Droop - Left of cable car": GrinchLocationData(
+        "Who Forest",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest"],
+        2009,
+        [
+            GrinchRamData(0x010241, binary_bit_pos=7),
+        ],
+    ),
+    "WF - Putting Beehives In Cabins - Closest to Vacuum Tube": GrinchLocationData(
+        "Who Forest",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest"],
+        2010,
+        [
+            GrinchRamData(0x010245, binary_bit_pos=1),
+        ],
+    ),
+    "WF - Putting Beehives In Cabins - Red house on glue cannon platform": GrinchLocationData(
+        "Who Forest",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest"],
+        2011,
+        [
+            GrinchRamData(0x010245, binary_bit_pos=2),
+        ],
+    ),
+    "WF - Putting Beehives In Cabins - Green house on glue cannon platform": GrinchLocationData(
+        "Who Forest",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest"],
+        2012,
+        [
+            GrinchRamData(0x010245, binary_bit_pos=3),
+        ],
+    ),
+    "WF - Putting Beehives In Cabins - 2nd closest to vacuum tube": GrinchLocationData(
+        "Who Forest",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest"],
+        2013,
+        [
+            GrinchRamData(0x010245, binary_bit_pos=4),
+        ],
+    ),
+    "WF - Putting Beehives In Cabins - Yellow house across from Tree House": GrinchLocationData(
+        "Who Forest",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest"],
+        2014,
+        [
+            GrinchRamData(0x010245, binary_bit_pos=5),
+        ],
+    ),
+    "WF - Putting Beehives In Cabins - Red house next to Tree House": GrinchLocationData(
+        "Who Forest",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest"],
+        2015,
+        [
+            GrinchRamData(0x010245, binary_bit_pos=6),
+        ],
+    ),
+    "WF - Putting Beehives In Cabins - Tree house": GrinchLocationData(
+        "Who Forest",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest"],
+        2016,
+        [
+            GrinchRamData(0x010245, binary_bit_pos=7),
+        ],
+    ),
+    "WF - Putting Beehives In Cabins - Red house near Cable car": GrinchLocationData(
+        "Who Forest",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest"],
+        2017,
+        [
+            GrinchRamData(0x010246, binary_bit_pos=0),
+        ],
+    ),
+    "WF - Putting Beehives In Cabins - Blue house in front of civic center cave": GrinchLocationData(
+        "Who Forest",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest"],
+        2018,
+        [
+            GrinchRamData(0x010246, binary_bit_pos=1),
+        ],
+    ),
+    "WF - Putting Beehives In Cabins - Green house left side of Cable car": GrinchLocationData(
+        "Who Forest",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest"],
+        2019,
+        [
+            GrinchRamData(0x010246, binary_bit_pos=2),
+        ],
+    ),
+    "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Front side of Civic Center building": GrinchLocationData(
+        "Civic Center",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest", "Civic Center"],
+        2020,
+        [
+            GrinchRamData(0x01022C, binary_bit_pos=6),
+        ],
+    ),
+    "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Left side of Civic Center building": GrinchLocationData(
+        "Civic Center",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest", "Civic Center"],
+        2021,
+        [
+            GrinchRamData(0x01022C, binary_bit_pos=7),
+        ],
+    ),
+    "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Across tree branch swinging platform": GrinchLocationData(
+        "Civic Center",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest", "Civic Center"],
+        2022,
+        [
+            GrinchRamData(0x01022D, binary_bit_pos=0),
+        ],
+    ),
+    "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Middle platform of super toy parkour": GrinchLocationData(
+        "Civic Center",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest", "Civic Center"],
+        2023,
+        [
+            GrinchRamData(0x01022D, binary_bit_pos=1),
+        ],
+    ),
+    "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Front of Bat Cave entrance": GrinchLocationData(
+        "Civic Center",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest", "Civic Center"],
+        2024,
+        [
+            GrinchRamData(0x01022D, binary_bit_pos=2),
+        ],
+    ),
+    "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Guarded by who below super toy platforms": GrinchLocationData(
+        "Civic Center",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest", "Civic Center"],
+        2025,
+        [
+            GrinchRamData(0x01022D, binary_bit_pos=3),
+        ],
+    ),
+    "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Furthest platform of super toy parkour": GrinchLocationData(
+        "Civic Center",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest", "Civic Center"],
+        2026,
+        [
+            GrinchRamData(0x01022D, binary_bit_pos=4),
+        ],
+    ),
+    "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Across snow boulders": GrinchLocationData(
+        "Civic Center",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest", "Civic Center"],
+        2027,
+        [
+            GrinchRamData(0x01022D, binary_bit_pos=5),
+        ],
+    ),
+    "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - After ice wall near entrance left side": GrinchLocationData(
+        "Civic Center",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest", "Civic Center"],
+        2028,
+        [
+            GrinchRamData(0x01022D, binary_bit_pos=6),
+        ],
+    ),
+    "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Across bridge near entrance": GrinchLocationData(
+        "Civic Center",
+        ["Who Forest's Missions", "Missionsanity", "Who Forest", "Civic Center"],
+        2029,
+        [
+            GrinchRamData(0x01022D, binary_bit_pos=7),
+        ],
+    ),
+    "WD - Feeding The Computer With Robot Parts - Left side of center area": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2101,
+        [
+            GrinchRamData(0x010255, binary_bit_pos=2),
+        ],
+    ),
+    "WD - Feeding The Computer With Robot Parts - Center area between pipes": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2102,
+        [
+            GrinchRamData(0x010255, binary_bit_pos=3),
+        ],
+    ),
+    "WD - Feeding The Computer With Robot Parts - Right side of center area": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2103,
+        [
+            GrinchRamData(0x010255, binary_bit_pos=4),
+        ],
+    ),
+    "WD - Feeding The Computer With Robot Parts - Who Bris Shack Area": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2104,
+        [
+            GrinchRamData(0x010255, binary_bit_pos=5),
+        ],
+    ),
+    "WD - Feeding The Computer With Robot Parts - Right area near robot parts vacuum": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2105,
+        [
+            GrinchRamData(0x010255, binary_bit_pos=6),
+        ],
+    ),
+    "WD - Feeding The Computer With Robot Parts - Right area near entrance to center area": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2106,
+        [
+            GrinchRamData(0x010255, binary_bit_pos=7),
+        ],
+    ),
+    "WD - Feeding The Computer With Robot Parts - Right area near shooting pipe": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2107,
+        [
+            GrinchRamData(0x010256, binary_bit_pos=0),
+        ],
+    ),
+    "WD - Feeding The Computer With Robot Parts - Near inward pipe in left area": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2108,
+        [
+            GrinchRamData(0x010256, binary_bit_pos=1),
+        ],
+    ),
+    "WD - Feeding The Computer With Robot Parts - Left area on right electric fence": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2109,
+        [
+            GrinchRamData(0x010256, binary_bit_pos=2),
+        ],
+    ),
+    "WD - Feeding The Computer With Robot Parts - Left area on left electric fence": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2110,
+        [
+            GrinchRamData(0x010256, binary_bit_pos=3),
+        ],
+    ),
+    "WD - Conducting The Stinky Gas To Who-Bris' Shack - Swinging pipe in right side of center area": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2111,
+        [
+            GrinchRamData(0x010257, binary_bit_pos=4),
+        ],
+    ),
+    "WD - Conducting The Stinky Gas To Who-Bris' Shack - Swinging pipe in left side of center area": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2112,
+        [
+            GrinchRamData(0x010257, binary_bit_pos=5),
+        ],
+    ),
+    "WD - Conducting The Stinky Gas To Who-Bris' Shack - Shooting pipe in left area": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2113,
+        [
+            GrinchRamData(0x010257, binary_bit_pos=6),
+        ],
+    ),
+    "WD - Conducting The Stinky Gas To Who-Bris' Shack - Swinging pipe in left area": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2114,
+        [
+            GrinchRamData(0x010257, binary_bit_pos=7),
+        ],
+    ),
+    "WD - Conducting The Stinky Gas To Who-Bris' Shack - Shooting pipe in right side": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2115,
+        [
+            GrinchRamData(0x010258, binary_bit_pos=1),
+        ],
+    ),
+    "WD - Conducting The Stinky Gas To Who-Bris' Shack - Seizing pipe in rat area": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2116,
+        [
+            GrinchRamData(0x010258, binary_bit_pos=2),
+        ],
+    ),
+    "WD - Conducting The Stinky Gas To Who-Bris' Shack - Shooting pipe in right side inside pipe": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2117,
+        [
+            GrinchRamData(0x010258, binary_bit_pos=3),
+        ],
+    ),
+    "WD - Conducting The Stinky Gas To Who-Bris' Shack - Swinging pipe in center area pipe": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2118,
+        [
+            GrinchRamData(0x010258, binary_bit_pos=4),
+        ],
+    ),
+    "WD - Conducting The Stinky Gas To Who-Bris' Shack - Swinging pipe in left area pipe": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2119,
+        [
+            GrinchRamData(0x010258, binary_bit_pos=5),
+        ],
+    ),
+    "WD - Conducting The Stinky Gas To Who-Bris' Shack - Final pipe screw in Who Bris' Shack area": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2120,
+        [
+            GrinchRamData(0x010258, binary_bit_pos=0),
+            GrinchRamData(0x010258, binary_bit_pos=6),
+        ],
+    ),
+    "WD - Infesting The Mayor's House With Rats - 1st Rat Lured": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2121,
+        [
+            GrinchRamData(0x0100FE, value=1),
+        ],
+    ),
+    "WD - Infesting The Mayor's House With Rats - 2nd Rat Lured": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2122,
+        [
+            GrinchRamData(0x0100FE, value=2),
+        ],
+    ),
+    "WD - Infesting The Mayor's House With Rats - 3rd Rat Lured": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2123,
+        [
+            GrinchRamData(0x0100FE, value=3),
+        ],
+    ),
+    "WD - Infesting The Mayor's House With Rats - 4th Rat Lured": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2124,
+        [
+            GrinchRamData(0x0100FE, value=4),
+        ],
+    ),
+    "WD - Infesting The Mayor's House With Rats - 5th Rat Lured": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2125,
+        [
+            GrinchRamData(0x0100FE, value=5),
+        ],
+    ),
+    "WD - Infesting The Mayor's House With Rats - 6th Rat Lured": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2126,
+        [
+            GrinchRamData(0x0100FE, value=6),
+        ],
+    ),
+    "WD - Infesting The Mayor's House With Rats - 7th Rat Lured": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2127,
+        [
+            GrinchRamData(0x0100FE, value=7),
+        ],
+    ),
+    "WD - Infesting The Mayor's House With Rats - 8th Rat Lured": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2128,
+        [
+            GrinchRamData(0x0100FE, value=8),
+        ],
+    ),
+    "WD - Infesting The Mayor's House With Rats - 9th Rat Lured": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2129,
+        [
+            GrinchRamData(0x0100FE, value=9),
+        ],
+    ),
+    "WD - Infesting The Mayor's House With Rats - 10th Rat Lured": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2130,
+        [
+            GrinchRamData(0x0100FE, value=10),
+        ],
+    ),
+    "WD - Stealing Food From Birds - Left area on right electric fence": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2131,
+        [
+            GrinchRamData(0x010253, binary_bit_pos=0),
+        ],
+    ),
+    "WD - Stealing Food From Birds - Right area near Minefield entrance": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2132,
+        [
+            GrinchRamData(0x010253, binary_bit_pos=1),
+        ],
+    ),
+    "WD - Stealing Food From Birds - Who Bris Shack Area": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2133,
+        [
+            GrinchRamData(0x010253, binary_bit_pos=2),
+        ],
+    ),
+    "WD - Stealing Food From Birds - Shooting pipe near right area": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2134,
+        [
+            GrinchRamData(0x010253, binary_bit_pos=3),
+        ],
+    ),
+    "WD - Stealing Food From Birds - Right area in rat section": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2135,
+        [
+            GrinchRamData(0x010253, binary_bit_pos=4),
+        ],
+    ),
+    "WD - Stealing Food From Birds - Left area near inward pipe": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2136,
+        [
+            GrinchRamData(0x010253, binary_bit_pos=5),
+        ],
+    ),
+    "WD - Stealing Food From Birds - Left area on left electric fence": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2137,
+        [
+            GrinchRamData(0x010253, binary_bit_pos=6),
+        ],
+    ),
+    "WD - Stealing Food From Birds - Left area below spinning pipe near blue tube": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2138,
+        [
+            GrinchRamData(0x010253, binary_bit_pos=7),
+        ],
+    ),
+    "WD - Stealing Food From Birds - Near blue tube in center area": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2139,
+        [
+            GrinchRamData(0x010252, binary_bit_pos=6),
+        ],
+    ),
+    "WD - Stealing Food From Birds - TV Platform": GrinchLocationData(
+        "Who Dump",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2140,
+        [
+            GrinchRamData(0x010252, binary_bit_pos=7),
+        ],
+    ),
+    "WD - Generator Building - Short-Circuiting Power-Plant - Yellow Generator (4th)": GrinchLocationData(
+        "Generator Building",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2141,
+        [
+            GrinchRamData(0x0100DF, binary_bit_pos=3),
+        ],
+    ),
+    "WD - Generator Building - Short-Circuiting Power-Plant - Orange Generator (3rd)": GrinchLocationData(
+        "Generator Building",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2142,
+        [
+            GrinchRamData(0x0100DF, binary_bit_pos=2),
+        ],
+    ),
+    "WD - Generator Building - Short-Circuiting Power-Plant - Pink Generator (2nd)": GrinchLocationData(
+        "Generator Building",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2143,
+        [
+            GrinchRamData(0x0100DF, binary_bit_pos=1),
+        ],
+    ),
+    "WD - Generator Building - Short-Circuiting Power-Plant - Blue Generator (1st)": GrinchLocationData(
+        "Generator Building",
+        ["Who Dump's Missions", "Missionsanity", "Who Dump"],
+        2144,
+        [
+            GrinchRamData(0x0100DF, binary_bit_pos=0),
+        ],
+    ),
+    "WL - South Shore - Sabotaging The Tents - Right side of bridge to Scout Hut": GrinchLocationData(
+        "Who Lake",
+        [
+        "Who Lake Missions",
+        "Missionsanity",
+        "Who Lake",
+        "South Shore",
+        "South Shore Missions",
+        ],
+        2200,
+        [
+            GrinchRamData(0x010280, binary_bit_pos=0),
+        ],
+    ),
+    "WL - South Shore - Sabotaging The Tents - Left side of summer beast": GrinchLocationData(
+        "Who Lake",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "South Shore",
+            "South Shore Missions",
+        ],
+        2201,
+        [
+            GrinchRamData(0x010280, binary_bit_pos=1),
+        ],
+    ),
+    "WL - South Shore - Sabotaging The Tents - Across from boulder": GrinchLocationData(
+        "Who Lake",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "South Shore",
+            "South Shore Missions",
+        ],
+        2202,
+        [
+            GrinchRamData(0x010280, binary_bit_pos=2),
+        ],
+    ),
+    "WL - South Shore - Sabotaging The Tents - Grass platform": GrinchLocationData(
+        "Who Lake",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "South Shore",
+            "South Shore Missions",
+        ],
+        2203,
+        [
+            GrinchRamData(0x010280, binary_bit_pos=3),
+        ],
+    ),
+    "WL - South Shore - Sabotaging The Tents - Left side of bridge right of rope wall": GrinchLocationData(
+        "Who Lake",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "South Shore",
+            "South Shore Missionsanity",
+        ],
+        2204,
+        [
+            GrinchRamData(0x010280, binary_bit_pos=4),
+        ],
+    ),
+    "WL - South Shore - Sabotaging The Tents - Right side of summer beast": GrinchLocationData(
+        "Who Lake",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "South Shore",
+            "South Shore Missions",
+        ],
+        2205,
+        [
+            GrinchRamData(0x010280, binary_bit_pos=5),
+        ],
+    ),
+    "WL - South Shore - Sabotaging The Tents - Across from clothes line": GrinchLocationData(
+        "Who Lake",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "South Shore",
+            "South Shore Missions",
+        ],
+        2206,
+        [
+            GrinchRamData(0x010280, binary_bit_pos=6),
+        ],
+    ),
+    "WL - South Shore - Sabotaging The Tents - Across swinging line": GrinchLocationData(
+        "Who Lake",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "South Shore",
+            "South Shore Missions",
+        ],
+        2207,
+        [
+            GrinchRamData(0x010280, binary_bit_pos=7),
+        ],
+    ),
+    "WL - South Shore - Sabotaging The Tents - Across from clothes line near North Shore bridge": GrinchLocationData(
+        "Who Lake",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "South Shore",
+            "South Shore Missions",
+        ],
+        2208,
+        [
+            GrinchRamData(0x010281, binary_bit_pos=0),
+        ],
+    ),
+    "WL - South Shore - Sabotaging The Tents - Left of North Shore bridge": GrinchLocationData(
+        "Who Lake",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "South Shore",
+            "South Shore Missions",
+        ],
+        2209,
+        [
+            GrinchRamData(0x010281, binary_bit_pos=1),
+        ],
+    ),
+    "WL - South Shore - Putting Thistles In Shorts - Left of rack guarded by child": GrinchLocationData(
+        "Who Lake",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "South Shore",
+            "South Shore Missions",
+        ],
+        2210,
+        [
+            GrinchRamData(0x01027F, binary_bit_pos=0),
+        ],
+    ),
+    "WL - South Shore - Putting Thistles In Shorts - Left of rack near entrance": GrinchLocationData(
+        "Who Lake",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "South Shore",
+            "South Shore Missions",
+        ],
+        2211,
+        [
+            GrinchRamData(0x01027F, binary_bit_pos=1),
+        ],
+    ),
+    "WL - South Shore - Putting Thistles In Shorts - Middle of rack near entrance": GrinchLocationData(
+        "Who Lake",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "South Shore",
+            "South Shore Missions",
+        ],
+        2212,
+        [
+            GrinchRamData(0x01027F, binary_bit_pos=2),
+        ],
+    ),
+    "WL - South Shore - Putting Thistles In Shorts - Right of rack near entrance": GrinchLocationData(
+        "Who Lake",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "South Shore",
+            "South Shore Missions",
+        ],
+        2213,
+        [
+            GrinchRamData(0x01027F, binary_bit_pos=3),
+        ],
+    ),
+    "WL - South Shore - Putting Thistles In Shorts - Left of rack on wall platform": GrinchLocationData(
+        "Who Lake",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "South Shore",
+            "South Shore Missions",
+        ],
+        2214,
+        [
+            GrinchRamData(0x01027F, binary_bit_pos=4),
+        ],
+    ),
+    "WL - South Shore - Putting Thistles In Shorts - Right of rack on wall platform": GrinchLocationData(
+        "Who Lake",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "South Shore",
+            "South Shore Missions",
+        ],
+        2215,
+        [
+            GrinchRamData(0x01027F, binary_bit_pos=5),
+        ],
+    ),
+    "WL - South Shore - Putting Thistles In Shorts - Right of rack near North Shore Bridge": GrinchLocationData(
+        "Who Lake",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "South Shore",
+            "South Shore Missions",
+        ],
+        2216,
+        [
+            GrinchRamData(0x01027F, binary_bit_pos=6),
+        ],
+    ),
+    "WL - South Shore - Putting Thistles In Shorts - Left of rack near North Shore Bridge": GrinchLocationData(
+        "Who Lake",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "South Shore",
+            "South Shore Missions",
+        ],
+        2217,
+        [
+            GrinchRamData(0x01027F, binary_bit_pos=7),
+        ],
+    ),
+    "WL - South Shore - Putting Thistles In Shorts - Right of rack guarded by child": GrinchLocationData(
+        "Who Lake",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "South Shore",
+            "South Shore Missions",
+        ],
+        2218,
+        [
+            GrinchRamData(0x01027E, binary_bit_pos=6),
+        ],
+    ),
+    "WL - South Shore - Putting Thistles In Shorts - Middle of rack guarded by child": GrinchLocationData(
+        "Who Lake",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "South Shore",
+            "South Shore Missions",
+        ],
+        2219,
+        [
+            GrinchRamData(0x01027E, binary_bit_pos=7),
+        ],
+    ),
+    "WL - North Shore - Drilling Holes In Canoes - Right side adjacent to fence area": GrinchLocationData(
+        "North Shore",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "North Shore",
+            "North Shore Missions",
+        ],
+        2220,
+        [
+            GrinchRamData(0x010294, binary_bit_pos=0),
+        ],
+    ),
+    "WL - North Shore - Drilling Holes In Canoes - Left side adjacent to fence area": GrinchLocationData(
+        "North Shore",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "North Shore",
+            "North Shore Missions",
+        ],
+        2221,
+        [
+            GrinchRamData(0x010294, binary_bit_pos=1),
+        ],
+    ),
+    "WL - North Shore - Drilling Holes In Canoes - Left side in fence area": GrinchLocationData(
+        "North Shore",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "North Shore",
+            "North Shore Missions",
+        ],
+        2222,
+        [
+            GrinchRamData(0x010294, binary_bit_pos=2),
+        ],
+    ),
+    "WL - North Shore - Drilling Holes In Canoes - Right side in fence area": GrinchLocationData(
+        "North Shore",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "North Shore",
+            "North Shore Missions",
+        ],
+        2223,
+        [
+            GrinchRamData(0x010294, binary_bit_pos=3),
+        ],
+    ),
+    "WL - North Shore - Drilling Holes In Canoes - On beach left side below max house": GrinchLocationData(
+        "North Shore",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "North Shore",
+            "North Shore Missions",
+        ],
+        2224,
+        [
+            GrinchRamData(0x010294, binary_bit_pos=4),
+        ],
+    ),
+    "WL - North Shore - Drilling Holes In Canoes - On beach right side below max house": GrinchLocationData(
+        "North Shore",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "North Shore",
+            "North Shore Missions",
+        ],
+        2225,
+        [
+            GrinchRamData(0x010294, binary_bit_pos=5),
+        ],
+    ),
+    "WL - North Shore - Drilling Holes In Canoes - Middle side in fence area": GrinchLocationData(
+        "North Shore",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "North Shore",
+            "North Shore Missions",
+        ],
+        2226,
+        [
+            GrinchRamData(0x010294, binary_bit_pos=6),
+        ],
+    ),
+    "WL - North Shore - Drilling Holes In Canoes - Behind max house": GrinchLocationData(
+        "North Shore",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "North Shore",
+            "North Shore Missions",
+        ],
+        2227,
+        [
+            GrinchRamData(0x010293, binary_bit_pos=5),
+        ],
+    ),
+    "WL - North Shore - Drilling Holes In Canoes - Right side on top of car": GrinchLocationData(
+        "North Shore",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "North Shore",
+            "North Shore Missions",
+        ],
+        2228,
+        [
+            GrinchRamData(0x010293, binary_bit_pos=6),
+        ],
+    ),
+    "WL - North Shore - Drilling Holes In Canoes - Left side on top of car": GrinchLocationData(
+        "North Shore",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "North Shore",
+            "North Shore Missions",
+        ],
+        2229,
+        [
+            GrinchRamData(0x010293, binary_bit_pos=7),
+        ],
+    ),
+    "WL - Submarine World - Modifying The Marine Mobile - Outer Fast-moving Fish": GrinchLocationData(
+        "Submarine World",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "Submarine World",
+            "Submarine World Missions",
+        ],
+        2230,
+        [
+            GrinchRamData(0x010289, binary_bit_pos=6),
+        ],
+    ),
+    "WL - Submarine World - Modifying The Marine Mobile - Inner Slow-moving Fish": GrinchLocationData(
+        "Submarine World",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "Submarine World",
+            "Submarine World Missions",
+        ],
+        2231,
+        [
+            GrinchRamData(0x010289, binary_bit_pos=5),
+        ],
+    ),
+    "WL - Submarine World - Modifying The Marine Mobile - Pirate Ship in Cave": GrinchLocationData(
+        "Submarine World",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "Submarine World",
+            "Submarine World Missions",
+        ],
+        2232,
+        [
+            GrinchRamData(0x010289, binary_bit_pos=7),
+        ],
+    ),
+    "WL - Submarine World - Modifying The Marine Mobile - Sea Cow Leaves": GrinchLocationData(
+        "Submarine World",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "Submarine World",
+            "Submarine World Missions",
+        ],
+        2233,
+        [
+            GrinchRamData(0x01028A, binary_bit_pos=0),
+        ],
+    ),
+    "WL - Submarine World - Modifying The Marine Mobile - Timed Cage": GrinchLocationData(
+        "Submarine World",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "Submarine World",
+            "Submarine World Missions",
+        ],
+        2234,
+        [
+            GrinchRamData(0x01028A, binary_bit_pos=3),
         ],
     ),
 }

@@ -44,7 +44,6 @@ class ProgressiveVacuums(Toggle):  # DefaultOnToggle
 class Missionsanity(Choice):
     """
     How mission checks are randomized in the pool.
-    Currently, enabling completion or both enables the mission completion. Any other setting only removes them.
     - none: Does not add mission checks
     - completion: Only completing the mission gives you a check
     - individual: Individual tasks for one mission, such as individual snowmen squashed, are checks.
@@ -118,6 +117,20 @@ class Gifts(Toggle):
     """
 
     display_name = "Giftsanity"
+
+
+class Killsanity(OptionSet):
+    """
+    Determines whether you consider killing/destroying certain enemies throughout the games are checks.
+
+    "Whos" are considereed as people such as guards, children, other humanoid related figures.
+    "Animals" are considered as non human species such as Summer beasts, porcupines, moose, and mosquitoes.
+    "Robots" are considered mechanical beings that electrocute the player, specifically the robots you find in Who Dump.
+    """
+
+    display_name = "Killsanity"
+    visibility = Visibility.none
+    valid_keys = {"Whos", "Animals", "Robots"}
 
 class Gadgetrando(DefaultOnToggle):
     """
@@ -205,9 +218,12 @@ class TrapLinkOption(Toggle):
 class FillerWeight(OptionCounter):
     """
     Determines which filler is added to the pool.
+    Must be between 0 and 100
     """
 
     display_name = "Filler Weights"
+    min = 0
+    max = 100
     default = {
         "5 Rotten Eggs": 50,
         "10 Rotten Eggs": 25,
@@ -227,9 +243,12 @@ class TrapPercentage(Range):
 class TrapWeight(OptionCounter):
     """
     Determines which traps are replaced with filler in the pool.
+    Must be between 0 and 100
     """
 
     display_name = "Trap Weights"
+    min = 0
+    max = 100
     default = {
         "Dump it to Crumpit": 33,
         "Who sent me back?": 33,
@@ -244,6 +263,7 @@ class GrinchOptions(PerGameCommonOptions):  # DeathLinkMixin
     exclude_environments: ExcludeEnvironments
     giftsanity: Gifts
     supadow_minigames: Supadow
+    killsanity: Killsanity
     progressive_gadgets: ProgressiveGadgets
     gadget_rando: Gadgetrando
     gadgets_to_randomize: Gadgetrandolist
@@ -260,22 +280,6 @@ class GrinchOptions(PerGameCommonOptions):  # DeathLinkMixin
     start_inventory_from_pool: StartInventoryPool
 
 grinch_option_groups: list[OptionGroup] = [
-    OptionGroup("Filler/Trap Settings", [
-        FillerWeight,
-        TrapPercentage,
-        TrapWeight,
-        RingLinkOption,
-        TrapLinkOption,
-    ]),
-    OptionGroup("Location Settings", [
-        Missionsanity,
-        ExcludeEnvironments,
-        Gifts,
-        Supadow,
-    ]),
-    OptionGroup("Quality of Life", [
-        UnlimitedEggs,
-    ]),
     OptionGroup("Item Pool", [
         ProgressiveVacuums,
         StartingArea,
@@ -286,7 +290,24 @@ grinch_option_groups: list[OptionGroup] = [
         Moverando,
         Moverandolist
     ]),
-    OptionGroup("Logic Settings", [
-        AdvancedLogic,
+    OptionGroup("Location Settings", [
+        Missionsanity,
+        ExcludeEnvironments,
+        Gifts,
+        Supadow,
+        Killsanity,
+    ]),
+    # OptionGroup("Logic Settings", [
+    #     AdvancedLogic,
+    # ]),
+    OptionGroup("Quality of Life", [
+        UnlimitedEggs,
+    ]),
+    OptionGroup("Filler/Trap Settings", [
+        FillerWeight,
+        TrapPercentage,
+        TrapWeight,
+        RingLinkOption,
+        TrapLinkOption,
     ]),
 ]

@@ -1,4 +1,5 @@
 import time
+import re
 from typing import TYPE_CHECKING, Sequence
 import asyncio
 import NetUtils
@@ -52,6 +53,8 @@ TRIGGER_ADDR_SIZE: int = 1
 MOUNT_CRUMPIT_MAP_ID: int = 0x05
 DISGUISE_OFF_ADDR: int = 0x0100B4
 
+# Address related to the ingame timer
+TIMER_ADDR: int = 0x0100B3
 
 class GrinchClient(BizHawkClient):
     game = "The Grinch"
@@ -65,7 +68,7 @@ class GrinchClient(BizHawkClient):
     send_ring_link: bool = False
     unique_client_id: int = 0
     ring_link_enabled = False
-
+    #yes
     def __init__(self):
         super().__init__()
         self.last_received_index = 0
@@ -102,8 +105,6 @@ class GrinchClient(BizHawkClient):
                 raise Exception("Invalid rom detected. You are not playing Grinch USA Version.")
 
             ctx.command_processor.commands["ringlink"] = _cmd_ringlink
-            ctx.command_processor.commands["dumpittocrumpit"] = _cmd_dumpittocrumpit
-            ctx.command_processor.commands["tutorialland"] = _cmd_tutorialland
 
         except Exception:
             return False
@@ -123,6 +124,7 @@ class GrinchClient(BizHawkClient):
 
         match cmd:
             case "Connected":  # On Connect
+                self.ingame_log = False
                 self.loc_unlimited_eggs = bool(ctx.slot_data["give_unlimited_eggs"])
                 self.unique_client_id = self._get_uuid()
                 logger.info(
@@ -147,6 +149,12 @@ class GrinchClient(BizHawkClient):
                             ctx.send_msgs([{"cmd": "ConnectUpdate", "tags": ctx.tags}]),
                             "Update RingLink Tags",
                         )
+
+            case "PrintJSON":
+                if args.get("type", "") == "Countdown" and len(list(args.get("data", []))) > 0 and \
+                    "starting countdown of " in args["data"][0]["text"].lower():
+                    countdown_timer: int = int(re.search(r"\d+", args["data"][0]["text"]).group())
+                    Utils.async_start(self.update_countdown(ctx, countdown_timer), name=f"Update Grinch - Countdown")
 
             case "Bounced":
                 if "tags" not in args:
@@ -545,6 +553,8 @@ class GrinchClient(BizHawkClient):
         from CommonClient import logger
 
         while self.send_ring_link and ctx.slot:
+            if not asyncio.run(self.ingame_checker(ctx)):
+                await asyncio.sleep(0.5)
             try:
                 current_egg_count = int.from_bytes(
                     (
@@ -582,6 +592,8 @@ class GrinchClient(BizHawkClient):
 
     async def ring_link_input(self, egg_amount: int, ctx: "BizHawkClientContext"):
         from CommonClient import logger
+        if not (await self.ingame_checker(ctx) and not self.last_map_location in [0x18, 0x19, 0x1A, 0x1B, 0x1C]):
+            return
 
         game_egg_count = int.from_bytes(
             (await bizhawk.read(ctx.bizhawk_ctx, [(EGG_COUNT_ADDR, EGG_ADDR_BYTESIZE, "MainRAM")]))[0],
@@ -603,6 +615,17 @@ class GrinchClient(BizHawkClient):
 
         self.previous_egg_count = current_egg_count
         # logger.info(f"RingLink: You received {str(egg_amount)} rotten eggs.")
+
+    async def update_countdown(self, ctx: "BizHawkClientContext", countdown: int):
+        if not await self.ingame_checker(ctx): # If we are not in game, don't try and update the counter in_game.
+            return
+        elif countdown >= 255 or countdown < 1:
+            return
+        else:
+            await bizhawk.write(
+                ctx.bizhawk_ctx,
+                [(TIMER_ADDR, [countdown], "MainRAM")],
+            )
 
     def _get_uuid(self) -> int:
         string_id = str(uuid.uuid4())
@@ -660,13 +683,6 @@ class GrinchClient(BizHawkClient):
 
             await asyncio.sleep(1)
             continue
-
-def _cmd_dumpittocrumpit(self, ctx: "BizHawkClientContext"):
-    """Sends Grinch directly to the computer room"""
-    bizhawk.write()
-def _cmd_tutorialland(self, ctx: "BizHawkClientContext"):
-    """Sends Grinch directly to the telescope where the tutorial starts"""
-    bizhawk.write()
 
 def _cmd_ringlink(self):
     """Toggle ringling from client. Overrides default setting."""
