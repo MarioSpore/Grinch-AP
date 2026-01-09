@@ -152,9 +152,9 @@ class GrinchClient(BizHawkClient):
             case "PrintJSON":
                 if args.get("type", "") == "Countdown" and len(list(args.get("data", []))) > 0 and \
                     "starting countdown of " in args["data"][0]["text"].lower():
-
-                    countdown_timer: int = int(re.search(r"\d+", args["data"][0]["text"]).group())
-                    Utils.async_start(update_countdown(ctx, countdown_timer), name=f"Update Grinch - Countdown")
+                    if asyncio.run(self.ingame_checker(ctx)):
+                        countdown_timer: int = int(re.search(r"\d+", args["data"][0]["text"]).group())
+                        Utils.async_start(update_countdown(ctx, countdown_timer), name=f"Update Grinch - Countdown")
 
             case "Bounced":
                 if "tags" not in args:
@@ -165,7 +165,8 @@ class GrinchClient(BizHawkClient):
                     and "RingLink" in args["tags"]
                     and args["data"]["source"] != self.unique_client_id
                 ):
-                    Utils.async_start(self.ring_link_input(args["data"]["amount"], ctx), "Grinch - SyncEggs")
+                    if asyncio.run(self.ingame_checker(ctx)):
+                        Utils.async_start(self.ring_link_input(args["data"]["amount"], ctx), "Grinch - SyncEggs")
 
     async def set_auth(self, ctx: "BizHawkClientContext") -> None:
         await ctx.get_username()
@@ -553,6 +554,8 @@ class GrinchClient(BizHawkClient):
         from CommonClient import logger
 
         while self.send_ring_link and ctx.slot:
+            if not asyncio.run(self.ingame_checker(ctx)):
+                await asyncio.sleep(0.5)
             try:
                 current_egg_count = int.from_bytes(
                     (
