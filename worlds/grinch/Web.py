@@ -7,23 +7,6 @@ from Options import OptionGroup
 class GrinchWeb(WebWorld):
     theme = "ice"
     option_groups = [
-        OptionGroup("Filler/Trap Settings", [
-            FillerWeight,
-            TrapPercentage,
-            TrapWeight,
-            RingLinkOption,
-            TrapLinkOption,
-        ]),
-        OptionGroup("Location Settings", [
-            Missionsanity,
-            ExcludeEnvironments,
-            Gifts,
-            Supadow,
-            Killsanity,
-        ]),
-        OptionGroup("Quality of Life", [
-            UnlimitedEggs,
-        ]),
         OptionGroup("Item Pool", [
             ProgressiveVacuums,
             StartingArea,
@@ -34,8 +17,25 @@ class GrinchWeb(WebWorld):
             Moverando,
             Moverandolist
         ]),
-        OptionGroup("Logic Settings", [
-            AdvancedLogic,
+        OptionGroup("Location Settings", [
+            Missionsanity,
+            ExcludeEnvironments,
+            Gifts,
+            Supadow,
+            Killsanity,
+        ]),
+        # OptionGroup("Logic Settings", [
+        #     AdvancedLogic,
+        # ]),
+        OptionGroup("Quality of Life", [
+            UnlimitedEggs,
+        ]),
+        OptionGroup("Filler/Trap Settings", [
+            FillerWeight,
+            TrapPercentage,
+            TrapWeight,
+            RingLinkOption,
+            TrapLinkOption,
         ]),
     ]
 

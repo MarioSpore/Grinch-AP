@@ -280,23 +280,6 @@ class GrinchOptions(PerGameCommonOptions):  # DeathLinkMixin
     start_inventory_from_pool: StartInventoryPool
 
 grinch_option_groups: list[OptionGroup] = [
-    OptionGroup("Filler/Trap Settings", [
-        FillerWeight,
-        TrapPercentage,
-        TrapWeight,
-        RingLinkOption,
-        TrapLinkOption,
-    ]),
-    OptionGroup("Location Settings", [
-        Missionsanity,
-        ExcludeEnvironments,
-        Gifts,
-        Supadow,
-        Killsanity,
-    ]),
-    OptionGroup("Quality of Life", [
-        UnlimitedEggs,
-    ]),
     OptionGroup("Item Pool", [
         ProgressiveVacuums,
         StartingArea,
@@ -307,7 +290,24 @@ grinch_option_groups: list[OptionGroup] = [
         Moverando,
         Moverandolist
     ]),
-    OptionGroup("Logic Settings", [
-        AdvancedLogic,
+    OptionGroup("Location Settings", [
+        Missionsanity,
+        ExcludeEnvironments,
+        Gifts,
+        Supadow,
+        Killsanity,
+    ]),
+    # OptionGroup("Logic Settings", [
+    #     AdvancedLogic,
+    # ]),
+    OptionGroup("Quality of Life", [
+        UnlimitedEggs,
+    ]),
+    OptionGroup("Filler/Trap Settings", [
+        FillerWeight,
+        TrapPercentage,
+        TrapWeight,
+        RingLinkOption,
+        TrapLinkOption,
     ]),
 ]
