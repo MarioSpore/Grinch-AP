@@ -2390,6 +2390,496 @@ grinch_locations = {
             GrinchRamData(0x0100DF, binary_bit_pos=0),
         ],
     ),
+    "WL - South Shore - Sabotaging The Tents - Right side of bridge to Scout Hut": GrinchLocationData(
+        "Who Lake",
+        [
+        "Who Lake Missions",
+        "Missionsanity",
+        "Who Lake",
+        "South Shore",
+        "South Shore Missions",
+        ],
+        2200,
+        [
+            GrinchRamData(0x010280, binary_bit_pos=0),
+        ],
+    ),
+    "WL - South Shore - Sabotaging The Tents - Left side of summer beast": GrinchLocationData(
+        "Who Lake",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "South Shore",
+            "South Shore Missions",
+        ],
+        2201,
+        [
+            GrinchRamData(0x010280, binary_bit_pos=1),
+        ],
+    ),
+    "WL - South Shore - Sabotaging The Tents - Across from boulder": GrinchLocationData(
+        "Who Lake",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "South Shore",
+            "South Shore Missions",
+        ],
+        2202,
+        [
+            GrinchRamData(0x010280, binary_bit_pos=2),
+        ],
+    ),
+    "WL - South Shore - Sabotaging The Tents - Grass platform": GrinchLocationData(
+        "Who Lake",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "South Shore",
+            "South Shore Missions",
+        ],
+        2203,
+        [
+            GrinchRamData(0x010280, binary_bit_pos=3),
+        ],
+    ),
+    "WL - South Shore - Sabotaging The Tents - Left side of bridge right of rope wall": GrinchLocationData(
+        "Who Lake",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "South Shore",
+            "South Shore Missionsanity",
+        ],
+        2204,
+        [
+            GrinchRamData(0x010280, binary_bit_pos=4),
+        ],
+    ),
+    "WL - South Shore - Sabotaging The Tents - Right side of summer beast": GrinchLocationData(
+        "Who Lake",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "South Shore",
+            "South Shore Missions",
+        ],
+        2205,
+        [
+            GrinchRamData(0x010280, binary_bit_pos=5),
+        ],
+    ),
+    "WL - South Shore - Sabotaging The Tents - Across from clothes line": GrinchLocationData(
+        "Who Lake",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "South Shore",
+            "South Shore Missions",
+        ],
+        2206,
+        [
+            GrinchRamData(0x010280, binary_bit_pos=6),
+        ],
+    ),
+    "WL - South Shore - Sabotaging The Tents - Across swinging line": GrinchLocationData(
+        "Who Lake",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "South Shore",
+            "South Shore Missions",
+        ],
+        2207,
+        [
+            GrinchRamData(0x010280, binary_bit_pos=7),
+        ],
+    ),
+    "WL - South Shore - Sabotaging The Tents - Across from clothes line near North Shore bridge": GrinchLocationData(
+        "Who Lake",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "South Shore",
+            "South Shore Missions",
+        ],
+        2208,
+        [
+            GrinchRamData(0x010281, binary_bit_pos=0),
+        ],
+    ),
+    "WL - South Shore - Sabotaging The Tents - Left of North Shore bridge": GrinchLocationData(
+        "Who Lake",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "South Shore",
+            "South Shore Missions",
+        ],
+        2209,
+        [
+            GrinchRamData(0x010281, binary_bit_pos=1),
+        ],
+    ),
+    "WL - South Shore - Putting Thistles In Shorts - Left of rack guarded by child": GrinchLocationData(
+        "Who Lake",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "South Shore",
+            "South Shore Missions",
+        ],
+        2210,
+        [
+            GrinchRamData(0x01027F, binary_bit_pos=0),
+        ],
+    ),
+    "WL - South Shore - Putting Thistles In Shorts - Left of rack near entrance": GrinchLocationData(
+        "Who Lake",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "South Shore",
+            "South Shore Missions",
+        ],
+        2211,
+        [
+            GrinchRamData(0x01027F, binary_bit_pos=1),
+        ],
+    ),
+    "WL - South Shore - Putting Thistles In Shorts - Middle of rack near entrance": GrinchLocationData(
+        "Who Lake",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "South Shore",
+            "South Shore Missions",
+        ],
+        2212,
+        [
+            GrinchRamData(0x01027F, binary_bit_pos=2),
+        ],
+    ),
+    "WL - South Shore - Putting Thistles In Shorts - Right of rack near entrance": GrinchLocationData(
+        "Who Lake",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "South Shore",
+            "South Shore Missions",
+        ],
+        2213,
+        [
+            GrinchRamData(0x01027F, binary_bit_pos=3),
+        ],
+    ),
+    "WL - South Shore - Putting Thistles In Shorts - Left of rack on wall platform": GrinchLocationData(
+        "Who Lake",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "South Shore",
+            "South Shore Missions",
+        ],
+        2214,
+        [
+            GrinchRamData(0x01027F, binary_bit_pos=4),
+        ],
+    ),
+    "WL - South Shore - Putting Thistles In Shorts - Right of rack on wall platform": GrinchLocationData(
+        "Who Lake",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "South Shore",
+            "South Shore Missions",
+        ],
+        2215,
+        [
+            GrinchRamData(0x01027F, binary_bit_pos=5),
+        ],
+    ),
+    "WL - South Shore - Putting Thistles In Shorts - Right of rack near North Shore Bridge": GrinchLocationData(
+        "Who Lake",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "South Shore",
+            "South Shore Missions",
+        ],
+        2216,
+        [
+            GrinchRamData(0x01027F, binary_bit_pos=6),
+        ],
+    ),
+    "WL - South Shore - Putting Thistles In Shorts - Left of rack near North Shore Bridge": GrinchLocationData(
+        "Who Lake",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "South Shore",
+            "South Shore Missions",
+        ],
+        2217,
+        [
+            GrinchRamData(0x01027F, binary_bit_pos=7),
+        ],
+    ),
+    "WL - South Shore - Putting Thistles In Shorts - Right of rack guarded by child": GrinchLocationData(
+        "Who Lake",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "South Shore",
+            "South Shore Missions",
+        ],
+        2218,
+        [
+            GrinchRamData(0x01027E, binary_bit_pos=6),
+        ],
+    ),
+    "WL - South Shore - Putting Thistles In Shorts - Middle of rack guarded by child": GrinchLocationData(
+        "Who Lake",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "South Shore",
+            "South Shore Missions",
+        ],
+        2219,
+        [
+            GrinchRamData(0x01027E, binary_bit_pos=7),
+        ],
+    ),
+    "WL - North Shore - Drilling Holes In Canoes - Right side adjacent to fence area": GrinchLocationData(
+        "North Shore",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "North Shore",
+            "North Shore Missions",
+        ],
+        2220,
+        [
+            GrinchRamData(0x010294, binary_bit_pos=0),
+        ],
+    ),
+    "WL - North Shore - Drilling Holes In Canoes - Left side adjacent to fence area": GrinchLocationData(
+        "North Shore",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "North Shore",
+            "North Shore Missions",
+        ],
+        2221,
+        [
+            GrinchRamData(0x010294, binary_bit_pos=1),
+        ],
+    ),
+    "WL - North Shore - Drilling Holes In Canoes - Left side in fence area": GrinchLocationData(
+        "North Shore",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "North Shore",
+            "North Shore Missions",
+        ],
+        2222,
+        [
+            GrinchRamData(0x010294, binary_bit_pos=2),
+        ],
+    ),
+    "WL - North Shore - Drilling Holes In Canoes - Right side in fence area": GrinchLocationData(
+        "North Shore",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "North Shore",
+            "North Shore Missions",
+        ],
+        2223,
+        [
+            GrinchRamData(0x010294, binary_bit_pos=3),
+        ],
+    ),
+    "WL - North Shore - Drilling Holes In Canoes - On beach left side below max house": GrinchLocationData(
+        "North Shore",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "North Shore",
+            "North Shore Missions",
+        ],
+        2224,
+        [
+            GrinchRamData(0x010294, binary_bit_pos=4),
+        ],
+    ),
+    "WL - North Shore - Drilling Holes In Canoes - On beach right side below max house": GrinchLocationData(
+        "North Shore",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "North Shore",
+            "North Shore Missions",
+        ],
+        2225,
+        [
+            GrinchRamData(0x010294, binary_bit_pos=5),
+        ],
+    ),
+    "WL - North Shore - Drilling Holes In Canoes - Middle side in fence area": GrinchLocationData(
+        "North Shore",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "North Shore",
+            "North Shore Missions",
+        ],
+        2226,
+        [
+            GrinchRamData(0x010294, binary_bit_pos=6),
+        ],
+    ),
+    "WL - North Shore - Drilling Holes In Canoes - Behind max house": GrinchLocationData(
+        "North Shore",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "North Shore",
+            "North Shore Missions",
+        ],
+        2227,
+        [
+            GrinchRamData(0x010293, binary_bit_pos=5),
+        ],
+    ),
+    "WL - North Shore - Drilling Holes In Canoes - Right side on top of car": GrinchLocationData(
+        "North Shore",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "North Shore",
+            "North Shore Missions",
+        ],
+        2228,
+        [
+            GrinchRamData(0x010293, binary_bit_pos=6),
+        ],
+    ),
+    "WL - North Shore - Drilling Holes In Canoes - Left side on top of car": GrinchLocationData(
+        "North Shore",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "North Shore",
+            "North Shore Missions",
+        ],
+        2229,
+        [
+            GrinchRamData(0x010293, binary_bit_pos=7),
+        ],
+    ),
+    "WL - Submarine World - Modifying The Marine Mobile - Outer Fast-moving Fish": GrinchLocationData(
+        "Submarine World",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "Submarine World",
+            "Submarine World Missions",
+        ],
+        2230,
+        [
+            GrinchRamData(0x010289, binary_bit_pos=6),
+        ],
+    ),
+    "WL - Submarine World - Modifying The Marine Mobile - Inner Slow-moving Fish": GrinchLocationData(
+        "Submarine World",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "Submarine World",
+            "Submarine World Missions",
+        ],
+        2231,
+        [
+            GrinchRamData(0x010289, binary_bit_pos=5),
+        ],
+    ),
+    "WL - Submarine World - Modifying The Marine Mobile - Pirate Ship in Cave": GrinchLocationData(
+        "Submarine World",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "Submarine World",
+            "Submarine World Missions",
+        ],
+        2232,
+        [
+            GrinchRamData(0x010289, binary_bit_pos=7),
+        ],
+    ),
+    "WL - Submarine World - Modifying The Marine Mobile - Sea Cow Leaves": GrinchLocationData(
+        "Submarine World",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "Submarine World",
+            "Submarine World Missions",
+        ],
+        2233,
+        [
+            GrinchRamData(0x01028A, binary_bit_pos=0),
+        ],
+    ),
+    "WL - Submarine World - Modifying The Marine Mobile - Timed Cage": GrinchLocationData(
+        "Submarine World",
+        [
+            "Who Lake Missions",
+            "Missionsanity",
+            "Who Lake",
+            "Submarine World",
+            "Submarine World Missions",
+        ],
+        2234,
+        [
+            GrinchRamData(0x01028A, binary_bit_pos=3),
+        ],
+    ),
 }
 
 

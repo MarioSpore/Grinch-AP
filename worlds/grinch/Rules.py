@@ -1015,13 +1015,11 @@ rules_dict: dict[str, list[list[str]]] = {
         [
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.SNEAK,
-            grinch_items.moves.PANCAKE,
         ],
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
             grinch_items.moves.SNEAK,
-            grinch_items.moves.PANCAKE,
         ],
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
@@ -1866,10 +1864,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.PANCAKE,
         ],
     ],
-    "WD - Conducting The Stinky Gas To Who-Bris' Shack - Swinging pipe in right side of center area": [
-        [
-        ],
-    ],
+    "WD - Conducting The Stinky Gas To Who-Bris' Shack - Swinging pipe in right side of center area": [[]],
     "WD - Conducting The Stinky Gas To Who-Bris' Shack - Swinging pipe in left side of center area": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
@@ -2335,6 +2330,218 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
         ],
     ],
+    "WL - South Shore - Sabotaging The Tents - Right side of bridge to Scout Hut": [
+        [
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.SNEAK,
+        ],
+    ],
+    "WL - South Shore - Sabotaging The Tents - Left side of summer beast": [
+        [
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WL - South Shore - Sabotaging The Tents - Across from boulder": [
+        [
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WL - South Shore - Sabotaging The Tents - Grass platform": [
+        [
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SEIZE,
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WL - South Shore - Sabotaging The Tents - Left side of bridge right of rope wall": [
+        [
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WL - South Shore - Sabotaging The Tents - Right side of summer beast": [
+        [
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WL - South Shore - Sabotaging The Tents - Across from clothes line": [
+        [
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WL - South Shore - Sabotaging The Tents - Across swinging line": [
+        [
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WL - South Shore - Sabotaging The Tents - Across from clothes line near North Shore bridge": [
+        [
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WL - South Shore - Sabotaging The Tents - Left of North Shore bridge": [
+        [
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WL - South Shore - Putting Thistles In Shorts - Left of rack guarded by child": [
+        [
+            grinch_items.moves.SNEAK,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WL - South Shore - Putting Thistles In Shorts - Left of rack near entrance": [
+        [
+            grinch_items.moves.SNEAK,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WL - South Shore - Putting Thistles In Shorts - Middle of rack near entrance": [
+        [
+            grinch_items.moves.SNEAK,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WL - South Shore - Putting Thistles In Shorts - Left of rack on wall platform": [
+        [
+            grinch_items.moves.SNEAK,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+        ],
+        [
+            grinch_items.moves.SNEAK,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+        ],
+    ],
+    "WL - South Shore - Putting Thistles In Shorts - Right of rack near entrance": [
+        [
+            grinch_items.moves.SNEAK,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+        ],
+        [
+            grinch_items.moves.SNEAK,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+        ],
+    ],
+    "WL - South Shore - Putting Thistles In Shorts - Right of rack near North Shore Bridge": [
+        [
+            grinch_items.moves.SNEAK,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WL - South Shore - Putting Thistles In Shorts - Left of rack near North Shore Bridge": [
+        [
+            grinch_items.moves.SNEAK,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WL - South Shore - Putting Thistles In Shorts - Right of rack guarded by child": [
+        [
+            grinch_items.moves.SNEAK,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WL - South Shore - Putting Thistles In Shorts - Middle of rack guarded by child": [
+        [
+            grinch_items.moves.SNEAK,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WL - North Shore - Drilling Holes In Canoes - Right side adjacent to fence area": [
+        [
+            grinch_items.level_items.WL_DRILL,
+        ],
+    ],
+    "WL - North Shore - Drilling Holes In Canoes - Left side adjacent to fence area": [
+        [
+            grinch_items.level_items.WL_DRILL,
+        ],
+    ],
+    "WL - North Shore - Drilling Holes In Canoes - Left side in fence area": [
+        [
+            grinch_items.level_items.WL_DRILL,
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "WL - North Shore - Drilling Holes In Canoes - Right side in fence area": [
+        [
+            grinch_items.level_items.WL_DRILL,
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "WL - North Shore - Drilling Holes In Canoes - On beach left side below max house": [
+        [
+            grinch_items.level_items.WL_DRILL,
+        ],
+    ],
+    "WL - North Shore - Drilling Holes In Canoes - On beach right side below max house": [
+        [
+            grinch_items.level_items.WL_DRILL,
+        ],
+    ],
+    "WL - North Shore - Drilling Holes In Canoes - Middle side in fence area": [
+        [
+            grinch_items.level_items.WL_DRILL,
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "WL - North Shore - Drilling Holes In Canoes - Behind max house": [
+        [
+            grinch_items.level_items.WL_DRILL,
+        ],
+    ],
+    "WL - North Shore - Drilling Holes In Canoes - Right side on top of car": [
+        [
+            grinch_items.level_items.WL_DRILL,
+            grinch_items.moves.SEIZE,
+        ],
+    ],
+    "WL - North Shore - Drilling Holes In Canoes - Left side on top of car": [
+        [
+            grinch_items.level_items.WL_DRILL,
+            grinch_items.moves.SEIZE,
+        ],
+    ],
+    "WL - Submarine World - Modifying The Marine Mobile - Outer Fast-moving Fish": [[]],
+    "WL - Submarine World - Modifying The Marine Mobile - Inner Slow-moving Fish": [[]],
+    "WL - Submarine World - Modifying The Marine Mobile - Pirate Ship in Cave": [[]],
+    "WL - Submarine World - Modifying The Marine Mobile - Sea Cow Leaves": [[]],
+    "WL - Submarine World - Modifying The Marine Mobile - Timed Cage": [[]],
     # "Green Present": [
     #     []
     # ],
