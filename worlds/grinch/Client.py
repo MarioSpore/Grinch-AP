@@ -165,7 +165,7 @@ class GrinchClient(BizHawkClient):
                     and "RingLink" in args["tags"]
                     and args["data"]["source"] != self.unique_client_id
                 ):
-                    if asyncio.run(self.ingame_checker(ctx)):
+                    if asyncio.run(self.ingame_checker(ctx)) and not self.last_map_location in [0x18, 0x19, 0x1A, 0x1B, 0x1C]:
                         Utils.async_start(self.ring_link_input(args["data"]["amount"], ctx), "Grinch - SyncEggs")
 
     async def set_auth(self, ctx: "BizHawkClientContext") -> None:
