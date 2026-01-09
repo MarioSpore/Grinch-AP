@@ -68,7 +68,7 @@ class GrinchClient(BizHawkClient):
     send_ring_link: bool = False
     unique_client_id: int = 0
     ring_link_enabled = False
-
+    #yes
     def __init__(self):
         super().__init__()
         self.last_received_index = 0
@@ -673,17 +673,6 @@ class GrinchClient(BizHawkClient):
             await asyncio.sleep(1)
             continue
 
-    async def update_countdown(self, ctx: "BizHawkClientContext", countdown: int):
-        if not await self.ingame_checker(ctx): # If we are not in game, don't try and update the counter in_game.
-            return
-        elif countdown >= 255 or countdown < 1:
-            return
-        else:
-            await bizhawk.write(
-                ctx.bizhawk_ctx,
-                [(TIMER_ADDR, [countdown], "MainRAM")],
-            )
-
 def _cmd_ringlink(self):
     """Toggle ringling from client. Overrides default setting."""
     if not self.ctx.slot:
@@ -727,3 +716,12 @@ def set_binary_position(value_to_check: int, binary_position: int, turn_on: bool
 
 def get_item_count_by_id(ctx: "BizHawkClientContext", item_id: int) -> int:
     return len([netItem for netItem in ctx.items_received if netItem.item == item_id])
+
+async def update_countdown(ctx: "BizHawkClientContext", countdown: int):
+    if countdown >= 255 or countdown < 1:
+        return
+    else:
+        await bizhawk.write(
+            ctx.bizhawk_ctx,
+            [(TIMER_ADDR, [countdown], "MainRAM")],
+        )
