@@ -2890,7 +2890,7 @@ grinch_locations = {
         ],
         2234,
         [
-            GrinchRamData(0x01028A, binary_bit_pos=3),
+            GrinchRamData(0x01028A, binary_bit_pos=1),
         ],
     ),
 }
