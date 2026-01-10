@@ -80,6 +80,9 @@ access_rules_dict: dict[str, list[list[str]]] = {
         [
             grinch_items.moves.SNEAK,
         ],
+        [
+            grinch_items.gadgets.SLIME_SHOOTER,
+        ]
     ],
     "Who Forest": [
         [
