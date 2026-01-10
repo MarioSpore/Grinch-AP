@@ -123,10 +123,12 @@ class GrinchWorld(World):
             "Scout Clothes": ["Mayor's Villa", "North Shore"],
             "Cable Car Access Card": ["Ski Resort"],
         }
-        missionsanity_items: list[str] = [
-            "Painting Bucket",
-            "Drill",
-        ]
+        missionsanity_items: dict[str, list[str]] = {
+            "Who Cloak": ["Post Office"],
+            "Scout Clothes": ["Mayor's Villa", "North Shore"],
+            "Drill": ["North Shore"],
+            "Painting Bucket": ["Whoville"],
+        }
 
         # Precollected items is stored per player. First, we must get the current player's starting inventory.
         # From here, we get an AP item list. But, we only care about the name. So we get a list of strings as a result.
@@ -166,9 +168,11 @@ class GrinchWorld(World):
                 self.multiworld.push_precollected(self.create_item(mission_item))
                 player_start_inv.append(mission_item)
             elif self.options.missionsanity == 2:
-                self.multiworld.push_precollected(self.create_item(mission_item))
-                player_start_inv.append(mission_item)
-                self_itempool.append(self.create_item(missionsanity_items[0]))
+                if mission_item in missionsanity_items:
+                    self_itempool.append(self.create_item(mission_item))
+                else:
+                    self.multiworld.push_precollected(self.create_item(mission_item))
+                    player_start_inv.append(mission_item)
             # Else, let the multiworld create the item normally.
             else:
                 self_itempool.append(self.create_item(mission_item))
