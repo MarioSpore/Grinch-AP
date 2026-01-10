@@ -165,6 +165,10 @@ class GrinchWorld(World):
             elif self.options.missionsanity == 0:
                 self.multiworld.push_precollected(self.create_item(mission_item))
                 player_start_inv.append(mission_item)
+            elif self.options.missionsanity == 2:
+                self.multiworld.push_precollected(self.create_item(mission_item))
+                player_start_inv.append(mission_item)
+                self_itempool.append(self.create_item(missionsanity_items[0]))
             # Else, let the multiworld create the item normally.
             else:
                 self_itempool.append(self.create_item(mission_item))
