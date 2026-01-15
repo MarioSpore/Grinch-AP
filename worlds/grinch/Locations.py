@@ -1775,6 +1775,7 @@ grinch_locations = {
         ["Whoville's Missions", "Missionsanity", "Whoville", "Clock Tower"],
         1940,
         [
+            GrinchRamData(0x010000, value=0x09),
             GrinchRamData(0x09534A, value=2),
         ],
     ),
@@ -1783,6 +1784,7 @@ grinch_locations = {
         ["Whoville's Missions", "Missionsanity", "Whoville", "Clock Tower"],
         1941,
         [
+            GrinchRamData(0x010000, value=0x09),
             GrinchRamData(0x09534A, value=3),
         ],
     ),
@@ -1791,6 +1793,7 @@ grinch_locations = {
         ["Whoville's Missions", "Missionsanity", "Whoville", "Clock Tower"],
         1942,
         [
+            GrinchRamData(0x010000, value=0x09),
             GrinchRamData(0x09534A, value=4),
         ],
     ),
@@ -1799,6 +1802,7 @@ grinch_locations = {
         ["Whoville's Missions", "Missionsanity", "Whoville", "Clock Tower"],
         1943,
         [
+            GrinchRamData(0x010000, value=0x09),
             GrinchRamData(0x09534A, value=5),
         ],
     ),
@@ -1807,6 +1811,7 @@ grinch_locations = {
         ["Whoville's Missions", "Missionsanity", "Whoville", "Clock Tower"],
         1944,
         [
+            GrinchRamData(0x010000, value=0x09),
             GrinchRamData(0x09534A, value=7),
         ],
     ),
