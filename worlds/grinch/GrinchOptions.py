@@ -255,6 +255,13 @@ class TrapWeight(OptionCounter):
         "Depletion Trap": 34,
     }
 
+class MiscLocations(Toggle):
+    """
+    Adds locations that aren't specifically categorized and are more either just random events or
+    just unnecessairly added locations that don't mean anything.
+    """
+    display_name =  "Miscellaneous Locations"
+
 @dataclass
 class GrinchOptions(PerGameCommonOptions):  # DeathLinkMixin
     progressive_vacuums: ProgressiveVacuums
@@ -278,6 +285,7 @@ class GrinchOptions(PerGameCommonOptions):  # DeathLinkMixin
     trap_link: TrapLinkOption
     advanced_logic: AdvancedLogic
     start_inventory_from_pool: StartInventoryPool
+    misc_checks: MiscLocations
 
 grinch_option_groups: list[OptionGroup] = [
     OptionGroup("Item Pool", [
@@ -296,6 +304,7 @@ grinch_option_groups: list[OptionGroup] = [
         Gifts,
         Supadow,
         Killsanity,
+        MiscLocations,
     ]),
     # OptionGroup("Logic Settings", [
     #     AdvancedLogic,

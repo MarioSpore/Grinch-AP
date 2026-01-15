@@ -72,6 +72,7 @@ class GrinchWorld(World):
                 self.options.exclude_gc = slot_data["exclude_gc"]
                 self.options.progressive_gadgets = slot_data["progressive_gadgets"]
                 self.options.killsanity = slot_data["killsanity"]
+                self.options.misc_checks = slot_data["misc_checks"]
 
     def create_regions(self):  # Generates all regions for the multiworld
         for region_name in access_rules_dict.keys():
@@ -96,6 +97,9 @@ class GrinchWorld(World):
 
             # No .value after self.options.missionsanity because UT no likey
             if "Missionsanity" in data.location_group and self.options.missionsanity in [0,1]:
+                continue
+
+            if "Miscellaneous" in data.location_group and self.options.misc_checks:
                 continue
 
             # If the region is in the list to be ignored, DON'T create the location and just continue.
@@ -282,6 +286,7 @@ class GrinchWorld(World):
             "exclude_gc": self.options.exclude_gc.value,
             "progressive_gadgets": self.options.progressive_gadgets.value,
             "killsanity": self.options.killsanity.value,
+            "misc_checks": self.options.misc_checks.value,
 
         }
 

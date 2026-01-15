@@ -23,6 +23,7 @@ class GrinchWeb(WebWorld):
             Gifts,
             Supadow,
             Killsanity,
+            MiscLocations,
         ]),
         # OptionGroup("Logic Settings", [
         #     AdvancedLogic,
