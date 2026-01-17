@@ -13,7 +13,7 @@ from Options import (
     OptionSet,
     OptionCounter,
     StartInventoryPool, OptionGroup, Visibility,
-    # DeathLinkMixin,
+    DeathLinkMixin,
 )
 
 
@@ -263,7 +263,7 @@ class MiscLocations(Toggle):
     display_name =  "Miscellaneous Locations"
 
 @dataclass
-class GrinchOptions(PerGameCommonOptions):  # DeathLinkMixin
+class GrinchOptions(DeathLinkMixin, PerGameCommonOptions):
     progressive_vacuums: ProgressiveVacuums
     starting_area: StartingArea
     missionsanity: Missionsanity
