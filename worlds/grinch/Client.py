@@ -56,6 +56,9 @@ DISGUISE_OFF_ADDR: int = 0x0100B4
 # Address related to the ingame timer
 TIMER_ADDR: int = 0x0100B3
 
+# Address related to Mount Crumpit Elevator's position
+MC_ELEVATOR_ADDR: int = 0x01010D
+
 class GrinchClient(BizHawkClient):
     game = "The Grinch"
     system = "PSX"
@@ -669,7 +672,8 @@ class GrinchClient(BizHawkClient):
                     TRIGGER_ADDR_SIZE, "MainRAM")]))[0],"little")
                 lobby_val = set_binary_position(lobby_val, 0, False)
                 await bizhawk.write(ctx.bizhawk_ctx,
-                    [(LOBBY_TRIGGER_ADDR, lobby_val.to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM")])
+                    [(LOBBY_TRIGGER_ADDR, lobby_val.to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM"),
+                            (MC_ELEVATOR_ADDR, int(3).to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM"),])
                 await _teleport_player(ctx, MOUNT_CRUMPIT_MAP_ID)
 
             # If RB and LB are both held + start, sending player to grinch computer room / lobby.
@@ -678,7 +682,8 @@ class GrinchClient(BizHawkClient):
                     TRIGGER_ADDR_SIZE, "MainRAM")]))[0], "little")
                 lobby_val = set_binary_position(lobby_val, 0, True)
                 await bizhawk.write(ctx.bizhawk_ctx,
-                    [(LOBBY_TRIGGER_ADDR, lobby_val.to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM")])
+                    [(LOBBY_TRIGGER_ADDR, lobby_val.to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM"),
+                            (MC_ELEVATOR_ADDR, int(1).to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM")])
                 await _teleport_player(ctx, MOUNT_CRUMPIT_MAP_ID)
 
             await asyncio.sleep(1)

@@ -572,6 +572,7 @@ TRAPS_TABLE: dict[str, GrinchItemData] = {
             GrinchRamData(0x0100B4, value=0),
             GrinchRamData(0x08FB94, value=1),
             GrinchRamData(0x010111, value=0),
+            GrinchRamData(0x01010D, value=1),
         ],
     ),
     # alias to Spring Trap for traplink
