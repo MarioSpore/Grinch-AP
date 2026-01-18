@@ -74,6 +74,7 @@ def get_location_names_per_category() -> dict[str, set[str]]:
     return categories
 
 
+
 grinch_locations = {
     # Going to use current map id as indicator whether or not you visited a location
     # Visitsanity
@@ -2925,8 +2926,43 @@ grinch_locations = {
         2303,
         [GrinchRamData(0x010000, value=0x16)],
     ),
+    "MC - Unlock the Rotten Egg Launcher": GrinchLocationData(
+        "Mount Crumpit",
+        ["Mount Crumpit", "Puzzlesanity", "Miscellaneous"],
+        2400,
+        [GrinchRamData(0x0100BC, binary_bit_pos=1)],
+    ),
+    "MC - Unlock the Rocket Spring": GrinchLocationData(
+        "Mount Crumpit",
+        ["Mount Crumpit", "Puzzlesanity", "Miscellaneous"],
+        2401,
+        [GrinchRamData(0x0100BC, binary_bit_pos=2)],
+    ),
+    "MC - Unlock the Slime Shooter": GrinchLocationData(
+        "Mount Crumpit",
+        ["Mount Crumpit", "Puzzlesanity", "Miscellaneous"],
+        2400,
+        [GrinchRamData(0x0100BC, binary_bit_pos=3)],
+    ),
+    "MC - Unlock the Octopus Climbing Device": GrinchLocationData(
+        "Mount Crumpit",
+        ["Mount Crumpit", "Puzzlesanity", "Miscellaneous"],
+        2400,
+        [GrinchRamData(0x0100BC, binary_bit_pos=4)],
+    ),
+    "MC - Unlock the Marine Mobile": GrinchLocationData(
+        "Mount Crumpit",
+        ["Mount Crumpit", "Puzzlesanity", "Miscellaneous"],
+        2400,
+        [GrinchRamData(0x0100BC, binary_bit_pos=5)],
+    ),
+    "MC - Unlock the Grinch Copter": GrinchLocationData(
+        "Mount Crumpit",
+        ["Mount Crumpit", "Puzzlesanity", "Miscellaneous"],
+        2400,
+        [GrinchRamData(0x0100BC, binary_bit_pos=6)],
+    ),
 }
-
 def grinch_locations_to_id() -> dict[str, int]:
     location_mappings: dict[str, int] = {}
     for LocationName, LocationData in grinch_locations.items():

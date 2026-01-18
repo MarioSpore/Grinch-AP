@@ -2558,6 +2558,36 @@ rules_dict: dict[str, list[list[str]]] = {
     "WL - South Shore - Touch Grass": [[]],
     "WL - North Shore - Touch Grass": [[]],
     "WL - Mayor's Villa - Touch Grass": [[]],
+    "MC - Unlock the Rotten Egg Launcher": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "MC - Unlock the Rocket Spring": [
+        [
+            grinch_items.gadgets.ROCKET_SPRING,
+        ],
+    ],
+    "MC - Unlock the Slime Shooter": [
+        [
+            grinch_items.gadgets.SLIME_SHOOTER,
+        ],
+    ],
+    "MC - Unlock the Octopus Climbing Device": [
+        [
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+        ],
+    ],
+    "MC - Unlock the Marine Mobile": [
+        [
+            grinch_items.gadgets.MARINE_MOBILE,
+        ],
+    ],
+    "MC - Unlock the Grinch Copter": [
+        [
+            grinch_items.gadgets.GRINCH_COPTER,
+        ],
+    ],
     # "Green Present": [
     #     []
     # ],
