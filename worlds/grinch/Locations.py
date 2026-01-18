@@ -2898,8 +2898,34 @@ grinch_locations = {
             GrinchRamData(0x01028A, binary_bit_pos=1),
         ],
     ),
+    "WD - Power Plant - Touch Grass": GrinchLocationData(
+        "Power Plant",
+        ["Who Dump", "Power Plant", "Grasssanity", "Miscellaneous"],
+        2300,
+        [GrinchRamData(0x010000, value=0x10)],
+    ),
+    "WL - South Shore - Touch Grass": GrinchLocationData(
+        "Who Lake",
+        ["Who Lake", "South Shore", "Grasssanity", "Miscellaneous"],
+        2301,
+        [
+            GrinchRamData(0x010000, value=0x12),
+            GrinchRamData(0x010282, binary_bit_pos=4),
+        ],
+    ),
+    "WL - North Shore - Touch Grass": GrinchLocationData(
+        "North Shore",
+        ["Who Lake", "North Shore", "Grasssanity", "Miscellaneous"],
+        2302,
+        [GrinchRamData(0x010000, value=0x14)],
+    ),
+    "WL - Mayor's Villa - Touch Grass": GrinchLocationData(
+        "Mayor's Villa",
+        ["Who Lake", "Mayor's Villa", "Grasssanity", "Miscellaneous"],
+        2303,
+        [GrinchRamData(0x010000, value=0x16)],
+    ),
 }
-
 
 def grinch_locations_to_id() -> dict[str, int]:
     location_mappings: dict[str, int] = {}

@@ -2554,6 +2554,10 @@ rules_dict: dict[str, list[list[str]]] = {
     "WL - Submarine World - Modifying The Marine Mobile - Pirate Ship in Cave": [[]],
     "WL - Submarine World - Modifying The Marine Mobile - Sea Cow Leaves": [[]],
     "WL - Submarine World - Modifying The Marine Mobile - Timed Cage": [[]],
+    "WD - Power Plant - Touch Grass": [[]],
+    "WL - South Shore - Touch Grass": [[]],
+    "WL - North Shore - Touch Grass": [[]],
+    "WL - Mayor's Villa - Touch Grass": [[]],
     # "Green Present": [
     #     []
     # ],
