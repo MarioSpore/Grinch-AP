@@ -99,7 +99,7 @@ class GrinchWorld(World):
             if "Missionsanity" in data.location_group and self.options.missionsanity in [0,1]:
                 continue
 
-            if "Miscellaneous" in data.location_group and self.options.misc_checks:
+            if "Miscellaneous" in data.location_group and self.options.misc_checks == False:
                 continue
 
             # If the region is in the list to be ignored, DON'T create the location and just continue.
