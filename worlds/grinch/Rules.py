@@ -1402,57 +1402,57 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.MAX,
         ],
     ],
-    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Open Hatch to Floor 2": [
+    "WV - Clock Tower - Open Hatch to Floor 2": [
         [
             grinch_items.gadgets.ROCKET_SPRING,
         ],
     ],
-    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Open Hatch to Floor 3": [
+    "WV - Clock Tower - Open Hatch to Floor 3": [
         [
             grinch_items.gadgets.ROCKET_SPRING,
         ],
     ],
-    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Open Hatch to Floor 4": [
-        [
-            grinch_items.gadgets.ROCKET_SPRING,
-            grinch_items.moves.SEIZE,
-        ],
-    ],
-    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Open Hatch to Floor 5": [
+    "WV - Clock Tower - Open Hatch to Floor 4": [
         [
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SEIZE,
         ],
     ],
-    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Ring 1st Bell": [
+    "WV - Clock Tower - Open Hatch to Floor 5": [
         [
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SEIZE,
-            grinch_items.moves.MAX,
         ],
     ],
-    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Ring 2nd Bell": [
+    "WV - Clock Tower - Ring 1st Bell": [
         [
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SEIZE,
             grinch_items.moves.MAX,
         ],
     ],
-    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Ring 3rd Bell": [
+    "WV - Clock Tower - Ring 2nd Bell": [
         [
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SEIZE,
             grinch_items.moves.MAX,
         ],
     ],
-    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Ring 4th Bell": [
+    "WV - Clock Tower - Ring 3rd Bell": [
         [
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SEIZE,
             grinch_items.moves.MAX,
         ],
     ],
-    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Ring 5th Bell": [
+    "WV - Clock Tower - Ring 4th Bell": [
+        [
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SEIZE,
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "WV - Clock Tower - Ring 5th Bell": [
         [
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SEIZE,
