@@ -25,7 +25,7 @@ def interpret_rule(
     player: int,
 ):
     # If a region/location does not have any items required, make the section(s) return no logic.
-    if len(rule_set) < 1:
+    if rule_set is None or len(rule_set) < 1:
         return []
 
     # Otherwise, if a region/location DOES have items required, make the section(s) return list of logic.
@@ -310,6 +310,10 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.PANCAKE,
             grinch_items.moves.MAX,
             grinch_items.moves.SEIZE,
+        ],
+        [
+            "advanced_logic"
+
         ]
     ],
     # Who Forest Missions

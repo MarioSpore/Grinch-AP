@@ -1,3 +1,4 @@
+import math
 import time
 import re
 from typing import TYPE_CHECKING, Sequence
@@ -19,6 +20,7 @@ from .Items import (
 )
 import worlds._bizhawk as bizhawk
 from worlds._bizhawk.client import BizHawkClient
+from .Regions import ALL_REGIONS_INFO
 
 if TYPE_CHECKING:
     from worlds._bizhawk.context import BizHawkClientContext
@@ -71,7 +73,9 @@ class GrinchClient(BizHawkClient):
     send_ring_link: bool = False
     unique_client_id: int = 0
     ring_link_enabled = False
+    is_grinch_dead = bool = False
     #yes
+
     def __init__(self):
         super().__init__()
         self.last_received_index = 0
@@ -108,6 +112,7 @@ class GrinchClient(BizHawkClient):
                 raise Exception("Invalid rom detected. You are not playing Grinch USA Version.")
 
             ctx.command_processor.commands["ringlink"] = _cmd_ringlink
+            ctx.command_processor.commands["deathlink"] = _cmd_deathlink
 
         except Exception:
             return False
@@ -138,6 +143,7 @@ class GrinchClient(BizHawkClient):
                 if not self.loc_unlimited_eggs:
 
                     self.ring_link_enabled = bool(ctx.slot_data["ring_link"])
+                    death_link_enabled = bool(ctx.slot_data["death_link"])
 
                     tags = copy.deepcopy(ctx.tags)
 
@@ -147,10 +153,16 @@ class GrinchClient(BizHawkClient):
                     else:
                         ctx.tags -= {"RingLink"}
 
+                    if death_link_enabled:
+                        ctx.tags.add("DeathLink")
+
+                    else:
+                        ctx.tags -= {"DeathLink"}
+
                     if tags != ctx.tags:
                         Utils.async_start(
                             ctx.send_msgs([{"cmd": "ConnectUpdate", "tags": ctx.tags}]),
-                            "Update RingLink Tags",
+                            "Grinch - Update Link Tags",
                         )
 
             case "PrintJSON":
@@ -162,6 +174,12 @@ class GrinchClient(BizHawkClient):
             case "Bounced":
                 if "tags" not in args:
                     return
+
+                tags = args.get("tags", [])
+                # we can skip checking "DeathLink" in ctx.tags, as otherwise we wouldn't have been send this
+                if ("DeathLink" in tags and ctx.last_death_link != args["data"]["time"] and
+                    not args["data"]["source"] == ctx.player_names[ctx.slot]):
+                    self.on_deathlink(args["data"], ctx)
 
                 if (
                     "RingLink" in ctx.tags
@@ -492,13 +510,16 @@ class GrinchClient(BizHawkClient):
 
         await bizhawk.write(ctx.bizhawk_ctx, self.convert_dict_to_ram_list(ram_addr_dict))
 
-    async def ingame_checker(self, ctx: "BizHawkClientContext"):
-        from CommonClient import logger
-
-        ingame_map_id = int.from_bytes(
+    async def get_current_map_id(self, ctx: "BizHawkClientContext"):
+        return int.from_bytes(
             (await bizhawk.read(ctx.bizhawk_ctx, [(0x010000, 1, "MainRAM")]))[0],
             "little",
         )
+
+    async def ingame_checker(self, ctx: "BizHawkClientContext"):
+        from CommonClient import logger
+
+        ingame_map_id = await self.get_current_map_id(ctx)
         initial_cutscene_checker = int.from_bytes(
             (await bizhawk.read(ctx.bizhawk_ctx, [(0x010094, 1, "MainRAM")]))[0],
             "little",
@@ -689,6 +710,67 @@ class GrinchClient(BizHawkClient):
             await asyncio.sleep(1)
             continue
 
+    async def check_grinch_alive(self, ctx: "BizHawkClientContext"):
+        ingame_map_id = await self.get_current_map_id(ctx)
+        for grinch_data in ALL_REGIONS_INFO.values():
+            # We only care about a region/map that is the same as the grinch
+            if not ingame_map_id == grinch_data.map_id:
+                continue
+
+            # IF the region does not allow deathlink
+            if not grinch_data.allow_deathlink:
+                continue
+
+            # Get the current amount of Heart of Stones (HOS)
+            hos_count = get_item_count_by_id(ctx, 42570)
+            hp_amount = math.ceil(42 - (10.5 * hos_count))
+
+            curr_health: int = int.from_bytes(
+                (await bizhawk.read(ctx.bizhawk_ctx, [(grinch_data.health_addr, 1, "MainRAM")]))[0],
+                "little")
+
+            if curr_health <= hp_amount:
+                await self.kill_grinch(ctx)
+
+    async def kill_grinch(self, ctx: "BizHawkClientContext"):
+        if self.is_grinch_dead or not self.ingame_checker(ctx):
+            return
+
+        ingame_map_id = await self.get_current_map_id(ctx)
+        for grinch_data in ALL_REGIONS_INFO.values():
+            # We only care about a region/map that is the same as the grinch
+            if not ingame_map_id == grinch_data.map_id:
+                continue
+
+            # IF the region does not allow deathlink
+            if not grinch_data.allow_deathlink:
+                continue
+
+            # Get the current amount of Heart of Stones (HOS)
+            hos_count = get_item_count_by_id(ctx, 42570)
+            hp_amount = math.ceil(42 - (10.5 * hos_count))
+            death_link_trigger: int = 0x40
+
+            # Update the Health Address to X amount and DeathLink Trigger to 0
+            await bizhawk.write(
+                ctx.bizhawk_ctx,
+                [(grinch_data.health_addr, hp_amount.to_bytes(1, "little"), "MainRAM"),
+                 (grinch_data.death_trigger_addr, death_link_trigger.to_bytes(1, "little"), "MainRAM"),],
+            )
+
+            self.is_grinch_dead = True
+
+    def on_deathlink(self, data: dict, ctx: "BizHawkClientContext"):
+        """Gets dispatched when a new DeathLink is triggered by another linked player."""
+        ctx.last_death_link = max(data["time"], ctx.last_death_link)
+        text = data.get("cause", "")
+        if text:
+            logger.info(f"DeathLink: {text}")
+        else:
+            logger.info(f"DeathLink: Received from {data['source']}")
+
+        self.kill_grinch(ctx)
+
 def _cmd_ringlink(self):
     """Toggle ringling from client. Overrides default setting."""
     if not self.ctx.slot:
@@ -699,6 +781,11 @@ def _cmd_ringlink(self):
         name="Update RingLink",
     )
 
+def _cmd_deathlink(self):
+    """Toggle deathlink from client. Overrides default setting."""
+    from worlds._bizhawk.context import BizHawkClientContext
+    if isinstance(self.ctx, BizHawkClientContext):
+        Utils.async_start(self.ctx.update_death_link(not "DeathLink" in self.ctx.tags), name="Grinch - Update Deathlink")
 
 async def _update_ring_link(ctx: "BizHawkClientContext", ring_link: bool):
     """Helper function to set Ring Link connection tag on/off and update the connection if already connected."""

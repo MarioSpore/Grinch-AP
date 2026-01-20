@@ -14,7 +14,6 @@ from worlds.AutoWorld import World
 from Options import OptionError
 
 from .GrinchOptions import GrinchOptions
-from .Rules import access_rules_dict
 from .Web import GrinchWeb
 
 
@@ -75,10 +74,7 @@ class GrinchWorld(World):
                 self.options.misc_checks = slot_data["misc_checks"]
 
     def create_regions(self):  # Generates all regions for the multiworld
-        for region_name in access_rules_dict.keys():
-            self.multiworld.regions.append(Region(region_name, self.player, self.multiworld))
-
-        self.multiworld.regions.append(Region("Mount Crumpit", self.player, self.multiworld))
+        connect_regions(self, self.multiworld)
 
         for location, data in grinch_locations.items():
             region = self.get_region(data.region)
@@ -111,8 +107,6 @@ class GrinchWorld(World):
 
             entry = GrinchLocation(self.player, location, region, data)
             region.locations.append(entry)
-
-        connect_regions(self)
 
     def create_item(self, item: str) -> GrinchItem:  # Creates specific items on demand
         if item in ALL_ITEMS_TABLE.keys():
@@ -287,7 +281,7 @@ class GrinchWorld(World):
             "progressive_gadgets": self.options.progressive_gadgets.value,
             "killsanity": self.options.killsanity.value,
             "misc_checks": self.options.misc_checks.value,
-
+            "death_link": self.options.death_link.value,
         }
 
     def generate_output(self, output_directory: str) -> None:

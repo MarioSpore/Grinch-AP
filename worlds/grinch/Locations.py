@@ -10,6 +10,8 @@ class GrinchLocationData:
     id: Optional[int]
     update_ram_addr: list[GrinchRamData]
     reset_addr: Optional[list[GrinchRamData]] = None  # Addresses to update once we find the item
+    basic_logic: list[list[str]]
+    advanced_logic: Optional[list[list[str]]]
 
     def __init__(
         self,

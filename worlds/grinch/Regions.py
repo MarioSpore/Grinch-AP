@@ -1,12 +1,12 @@
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, NamedTuple, Optional
 
-from BaseClasses import Region
-from .Rules import access_rules_dict, interpret_rule
+from BaseClasses import Region, MultiWorld, Entrance
+from .Rules import interpret_rule
+from .Items import grinch_items
 
 from ..generic.Rules import add_rule
 
 if TYPE_CHECKING:
-
     from . import GrinchWorld
 
 mainareas_list = [
@@ -41,6 +41,58 @@ supadow_list = [
     "Bike Race",
 ]
 
+class GrinchRegionInfo(NamedTuple):
+    map_id: int
+    parent_region: str
+    allow_deathlink: bool = False
+    health_addr: Optional[int] = None
+    death_trigger_addr: Optional[int] = None
+    map_table_addr: Optional[int] = None
+    region_access: Optional[list[list[str]]] = None
+    advanced_region_access: Optional[list[list[str]]] = None
+
+class GrinchRegion(Region):
+    region_data: GrinchRegionInfo
+
+    def __init__(self, region_name: str, region_data: GrinchRegionInfo, player: int, multiworld: MultiWorld):
+        super().__init__(region_name, player, multiworld)
+        self.region_data = region_data
+
+ALL_REGIONS_INFO: dict[str, GrinchRegionInfo] = {
+    "Mount Crumpit": GrinchRegionInfo(0x05, "", False, 0x800FAAF0, 0x800FAADB, 0x800FAAB4),
+
+    "Whoville": GrinchRegionInfo(0x07, "Mount Crumpit", True, 0x800E8FDC, 0x800E8FC7, 0x800E8FA0,
+        region_access=[
+            [grinch_items.keys.WHOVILLE],
+            ["1:" + grinch_items.keys.PROGRESSIVE_VACUUM_TUBE]
+        ],),
+
+    "Who Forest": GrinchRegionInfo(0x0B, "Mount Crumpit", True, 0x800E1C90, 0x800E1C7B, 0x800E1C54,
+        region_access=[
+            [grinch_items.keys.WHO_FOREST],
+            ["2:" + grinch_items.keys.PROGRESSIVE_VACUUM_TUBE],
+        ],),
+
+    "Who Dump": GrinchRegionInfo(),
+    "Who Lake": GrinchRegionInfo(),
+    "Sleigh Room": GrinchRegionInfo(),
+    "Spin N' Win": GrinchRegionInfo(),
+    "Dankamania": GrinchRegionInfo(),
+    "The Copter Race Contest": GrinchRegionInfo(),
+    "Post Office": GrinchRegionInfo(),
+    "Clock Tower": GrinchRegionInfo(),
+    "Ski Resort": GrinchRegionInfo(),
+    "Civic Center": GrinchRegionInfo(),
+    "Minefield": GrinchRegionInfo(),
+    "Power Plant": GrinchRegionInfo(),
+    "Generator Building": GrinchRegionInfo(),
+    "Submarine World": GrinchRegionInfo(),
+    "Scout's Hut": GrinchRegionInfo(),
+    "North Shore": GrinchRegionInfo(),
+    "Mayor's Villa": GrinchRegionInfo(),
+    "Bike Race": GrinchRegionInfo(),
+    "Sleigh Ride": GrinchRegionInfo(),
+}
 
 def create_regions(world: "GrinchWorld"):
     for area in [*mainareas_list, *subareas_list, *supadow_list]:
@@ -53,61 +105,36 @@ def grinchconnect(
     world: "GrinchWorld",
     current_region_name: str,
     connected_region_name: str,
+    access_rules: list[list[str]]
 ):
     current_region = world.get_region(current_region_name)
     connected_region = world.get_region(connected_region_name)
-    required_items: list[list[str]] = access_rules_dict[connected_region.name]
-    rule_list = interpret_rule(required_items, world.player)
+    rule_list = interpret_rule(access_rules, world.player)
     # Goes from current to connected
-    current_region.connect(connected_region)
+    curr_entr: Entrance = current_region.connect(connected_region)
     # Goes from connected to current
-    connected_region.connect(current_region)
+    connect_entr: Entrance = connected_region.connect(current_region)
 
     for access_rule in rule_list:
-        for region_entrance in current_region.entrances:
-            if (
-                region_entrance.connected_region.name == current_region_name
-                and region_entrance.parent_region.name == connected_region_name
-            ):
-                if rule_list.index(access_rule) == 0:
-                    add_rule(region_entrance, access_rule)
+        if rule_list.index(access_rule) == 0:
+            add_rule(curr_entr, access_rule)
 
-                else:
-                    add_rule(region_entrance, access_rule, combine="or")
+        else:
+            add_rule(curr_entr, access_rule, combine="or")
 
-        for region_entrance in connected_region.entrances:
-            if (
-                region_entrance.connected_region.name == connected_region_name
-                and region_entrance.parent_region.name == current_region_name
-            ):
-                if rule_list.index(access_rule) == 0:
-                    add_rule(region_entrance, access_rule)
 
-                else:
-                    add_rule(region_entrance, access_rule, combine="or")
+        if rule_list.index(access_rule) == 0:
+            add_rule(connect_entr, access_rule)
+
+        else:
+            add_rule(connect_entr, access_rule, combine="or")
 
 
 # What regions are connected to each other
-def connect_regions(world: "GrinchWorld"):
-    grinchconnect(world, "Mount Crumpit", "Whoville")
-    grinchconnect(world, "Mount Crumpit", "Who Forest")
-    grinchconnect(world, "Mount Crumpit", "Who Dump")
-    grinchconnect(world, "Mount Crumpit", "Who Lake")
-    grinchconnect(world, "Mount Crumpit", "Sleigh Room")
-    grinchconnect(world, "Mount Crumpit", "Spin N' Win")
-    grinchconnect(world, "Mount Crumpit", "Dankamania")
-    grinchconnect(world, "Mount Crumpit", "The Copter Race Contest")
-    grinchconnect(world, "Whoville", "Post Office")
-    grinchconnect(world, "Whoville", "City Hall")
-    grinchconnect(world, "Whoville", "Clock Tower")
-    grinchconnect(world, "Who Forest", "Ski Resort")
-    grinchconnect(world, "Who Forest", "Civic Center")
-    grinchconnect(world, "Who Dump", "Minefield")
-    grinchconnect(world, "Who Dump", "Power Plant")
-    grinchconnect(world, "Power Plant", "Generator Building")
-    grinchconnect(world, "Who Lake", "Submarine World")
-    grinchconnect(world, "Who Lake", "Scout's Hut")
-    grinchconnect(world, "Who Lake", "North Shore")
-    grinchconnect(world, "North Shore", "Mayor's Villa")
-    grinchconnect(world, "Sleigh Room", "Bike Race")
-    grinchconnect(world, "Sleigh Room", "Sleigh Ride")
+def connect_regions(world: "GrinchWorld", multiworld: MultiWorld):
+    for grinch_region, grinch_data in ALL_REGIONS_INFO.items():
+        multiworld.regions.append(GrinchRegion(grinch_region, grinch_data, world.player, multiworld))
+
+        if grinch_region == "Mount Crumpit":
+            continue
+        grinchconnect(world, grinch_region, grinch_data.parent_region)
