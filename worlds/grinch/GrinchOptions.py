@@ -262,6 +262,24 @@ class MiscLocations(Toggle):
     """
     display_name =  "Miscellaneous Locations"
 
+class DamageRate(Range):
+    """
+    How much damage can the Grinch tolerate before death
+    0 = Invincible
+    1 = Base game damage rate
+    78 = Instant death without any Hearts of Stone
+    88 = Instant death with one Heart of Stone
+    99 = Instant death with two Hearts of Stone
+    110 = Instant death with three Hearts of Stone
+    120 = Instant death
+
+    """
+    display_name = "Damage Rate"
+    range_start = 0
+    range_end = 120
+    default = 1
+    visibility = Visibility.none
+
 @dataclass
 class GrinchOptions(DeathLinkMixin, PerGameCommonOptions):
     progressive_vacuums: ProgressiveVacuums
@@ -286,6 +304,7 @@ class GrinchOptions(DeathLinkMixin, PerGameCommonOptions):
     advanced_logic: AdvancedLogic
     start_inventory_from_pool: StartInventoryPool
     misc_checks: MiscLocations
+    damage_rate: DamageRate
 
 grinch_option_groups: list[OptionGroup] = [
     OptionGroup("Item Pool", [
@@ -311,6 +330,7 @@ grinch_option_groups: list[OptionGroup] = [
     # ]),
     OptionGroup("Quality of Life", [
         UnlimitedEggs,
+        DamageRate,
     ]),
     OptionGroup("Filler/Trap Settings", [
         FillerWeight,

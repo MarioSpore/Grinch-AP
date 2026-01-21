@@ -30,6 +30,7 @@ class GrinchWeb(WebWorld):
         # ]),
         OptionGroup("Quality of Life", [
             UnlimitedEggs,
+            DamageRate,
         ]),
         OptionGroup("Filler/Trap Settings", [
             FillerWeight,
