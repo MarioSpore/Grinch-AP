@@ -112,7 +112,7 @@ class Supadow(Toggle):
 
 class Gifts(Toggle):
     """
-    Determines whether or not individual gifts are checks
+    Determines if individual gifts are checks
     NOTE: This currently only disables the missions relating to squashing all gifts for an entire region.
     """
 
@@ -191,7 +191,7 @@ class Moverandolist(OptionSet):
 
 class UnlimitedEggs(Toggle):
     """
-    Determine whether or not you run out of rotten eggs when you utilize your gadgets.
+    Determine if you run out of rotten eggs when you utilize your gadgets.
     NOTE: Attempting to enable this with ringlink will force generation to stop until either option is enabled.
     """
 
@@ -258,7 +258,7 @@ class TrapWeight(OptionCounter):
 class MiscLocations(Toggle):
     """
     Adds locations that aren't specifically categorized and are more either just random events or
-    just unnecessairly added locations that don't mean anything.
+    just unnecessarily added locations that don't mean anything.
     """
     display_name =  "Miscellaneous Locations"
 
