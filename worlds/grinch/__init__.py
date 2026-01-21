@@ -243,14 +243,14 @@ class GrinchWorld(World):
             self_itempool.append(self.create_item(self.get_weighted_filler_item
                 (list(self.options.trap_weight.keys()), list(self.options.trap_weight.values()))))
 
-        # total_fillerweights = sum(self.options.filler_weight[filler] for filler in self.options.filler_weight.keys())
+        total_fillerweights = sum(self.options.filler_weight[filler] for filler in self.options.filler_weight.keys())
         for _ in range(filler_locations):
-            # if total_fillerweights > 0:
+            if total_fillerweights > 0:
                 # Keys are the individual items, values are the weights based on the option being set
                 self_itempool.append(self.create_item(self.get_weighted_filler_item(
                     list(self.options.filler_weight.keys()), list(self.options.filler_weight.values()))))
-            # else:
-                # self_itempool.append(self.create_item("5 Rotten Eggs"))
+            else:
+                self_itempool.append(self.create_item("Present"))
 
         self.multiworld.itempool += self_itempool
 

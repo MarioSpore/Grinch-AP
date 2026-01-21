@@ -218,12 +218,10 @@ class TrapLinkOption(Toggle):
 class FillerWeight(OptionCounter):
     """
     Determines which filler is added to the pool.
-    Must be between 0 and 100
+    Setting them to 0 will use "Present" as a filler item, which does nothing
     """
 
     display_name = "Filler Weights"
-    min = 0
-    max = 100
     default = {
         "5 Rotten Eggs": 50,
         "10 Rotten Eggs": 25,
@@ -247,8 +245,6 @@ class TrapWeight(OptionCounter):
     """
 
     display_name = "Trap Weights"
-    min = 0
-    max = 100
     default = {
         "Dump it to Crumpit": 33,
         "Who sent me back?": 33,
