@@ -245,6 +245,8 @@ class TrapWeight(OptionCounter):
     """
 
     display_name = "Trap Weights"
+    range_start = 0
+    range_end = 100
     default = {
         "Dump it to Crumpit": 33,
         "Who sent me back?": 33,
