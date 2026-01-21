@@ -244,4 +244,4 @@ def connect_regions(world: "GrinchWorld", multiworld: MultiWorld):
 
         if grinch_region == "Mount Crumpit":
             continue
-        grinchconnect(world, grinch_region, grinch_data.parent_region)
+        grinchconnect(world, grinch_region, grinch_data.parent_region, grinch_data.region_access)
