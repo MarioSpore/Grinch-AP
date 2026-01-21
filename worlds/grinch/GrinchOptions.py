@@ -272,7 +272,6 @@ class DamageRate(Range):
     99 = Instant death with two Hearts of Stone
     110 = Instant death with three Hearts of Stone
     120 = Instant death
-
     """
     display_name = "Damage Rate"
     range_start = 0
