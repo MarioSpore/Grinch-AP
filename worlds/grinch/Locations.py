@@ -1739,7 +1739,7 @@ grinch_locations = {
     ),
     "WV - Clock Tower - Open Hatch to Floor 2": GrinchLocationData(
         "Clock Tower",
-        ["Whoville", "Clock Tower", "Miscellaneous"],
+        ["Whoville", "Clock Tower", "Doorsanity", "Miscellaneous"],
         1936,
         [
             GrinchRamData(0x0100D9, binary_bit_pos=1),
@@ -1748,7 +1748,7 @@ grinch_locations = {
     ),
     "WV - Clock Tower - Open Hatch to Floor 3": GrinchLocationData(
         "Clock Tower",
-        ["Whoville", "Clock Tower", "Miscellaneous"],
+        ["Whoville", "Clock Tower", "Doorsanity", "Miscellaneous"],
         1937,
         [
             GrinchRamData(0x0100D9, binary_bit_pos=2),
@@ -1757,7 +1757,7 @@ grinch_locations = {
     ),
     "WV - Clock Tower - Open Hatch to Floor 4": GrinchLocationData(
         "Clock Tower",
-        ["Whoville", "Clock Tower", "Miscellaneous"],
+        ["Whoville", "Clock Tower", "Doorsanity", "Miscellaneous"],
         1938,
         [
             GrinchRamData(0x0100D9, binary_bit_pos=3),
@@ -1766,7 +1766,7 @@ grinch_locations = {
     ),
     "WV - Clock Tower - Open Hatch to Floor 5": GrinchLocationData(
         "Clock Tower",
-        ["Whoville", "Clock Tower", "Miscellaneous"],
+        ["Whoville", "Clock Tower", "Doorsanity", "Miscellaneous"],
         1939,
         [
             GrinchRamData(0x0100D9, binary_bit_pos=4),
@@ -1775,7 +1775,7 @@ grinch_locations = {
     ),
     "WV - Clock Tower - Ring 1st Bell": GrinchLocationData(
         "Clock Tower",
-        ["Whoville", "Clock Tower", "Miscellaneous"],
+        ["Whoville", "Clock Tower", "Bellsanity", "Miscellaneous"],
         1940,
         [
             GrinchRamData(0x010000, value=0x09),
@@ -1784,7 +1784,7 @@ grinch_locations = {
     ),
     "WV - Clock Tower - Ring 2nd Bell": GrinchLocationData(
         "Clock Tower",
-        ["Whoville", "Clock Tower", "Miscellaneous"],
+        ["Whoville", "Clock Tower", "Bellsanity", "Miscellaneous"],
         1941,
         [
             GrinchRamData(0x010000, value=0x09),
@@ -1793,7 +1793,7 @@ grinch_locations = {
     ),
     "WV - Clock Tower - Ring 3rd Bell": GrinchLocationData(
         "Clock Tower",
-        ["Whoville", "Clock Tower", "Miscellaneous"],
+        ["Whoville", "Clock Tower", "Bellsanity", "Miscellaneous"],
         1942,
         [
             GrinchRamData(0x010000, value=0x09),
@@ -1802,7 +1802,7 @@ grinch_locations = {
     ),
     "WV - Clock Tower - Ring 4th Bell": GrinchLocationData(
         "Clock Tower",
-        ["Whoville", "Clock Tower", "Miscellaneous"],
+        ["Whoville", "Clock Tower", "Bellsanity", "Miscellaneous"],
         1943,
         [
             GrinchRamData(0x010000, value=0x09),
@@ -1811,7 +1811,7 @@ grinch_locations = {
     ),
     "WV - Clock Tower - Ring 5th Bell": GrinchLocationData(
         "Clock Tower",
-        ["Whoville", "Clock Tower", "Miscellaneous"],
+        ["Whoville", "Clock Tower", "Bellsanity", "Miscellaneous"],
         1944,
         [
             GrinchRamData(0x010000, value=0x09),
