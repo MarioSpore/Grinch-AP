@@ -2943,25 +2943,25 @@ grinch_locations = {
     "MC - Unlock the Slime Shooter": GrinchLocationData(
         "Mount Crumpit",
         ["Mount Crumpit", "Puzzlesanity", "Miscellaneous"],
-        2400,
+        2402,
         [GrinchRamData(0x0100BC, binary_bit_pos=3)],
     ),
     "MC - Unlock the Octopus Climbing Device": GrinchLocationData(
         "Mount Crumpit",
         ["Mount Crumpit", "Puzzlesanity", "Miscellaneous"],
-        2400,
+        2403,
         [GrinchRamData(0x0100BC, binary_bit_pos=4)],
     ),
     "MC - Unlock the Marine Mobile": GrinchLocationData(
         "Mount Crumpit",
         ["Mount Crumpit", "Puzzlesanity", "Miscellaneous"],
-        2400,
+        2404,
         [GrinchRamData(0x0100BC, binary_bit_pos=5)],
     ),
     "MC - Unlock the Grinch Copter": GrinchLocationData(
         "Mount Crumpit",
         ["Mount Crumpit", "Puzzlesanity", "Miscellaneous"],
-        2400,
+        2405,
         [GrinchRamData(0x0100BC, binary_bit_pos=6)],
     ),
 }
