@@ -215,6 +215,7 @@ class GrinchClient(BizHawkClient):
             await self.goal_checker(ctx)
             await self.option_handler(ctx)
             await self.constant_address_update(ctx)
+            await self.check_grinch_alive(ctx)
 
         except bizhawk.RequestFailedError as ex:
             # The connector didn't respond. Exit handler and return to main loop to reconnect
