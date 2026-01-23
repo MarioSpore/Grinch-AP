@@ -749,15 +749,17 @@ class GrinchClient(BizHawkClient):
             await ctx.send_death("Could not fight off the Christmas cheer...")
             await self.kill_grinch(ctx)
 
-
     async def kill_grinch(self, ctx: "BizHawkClientContext"):
         reg_name = await self.get_current_region()
         if not (await self.ingame_checker(ctx) and reg_name):
             return
 
-        # Update the Health Address to X amount and DeathLink Trigger to 0
-        self.is_grinch_dead = True
         curr_region_data = ALL_REGIONS_INFO[reg_name]
+        if not curr_region_data.allow_deathlink:
+            return
+
+            # Update the Health Address to X amount and DeathLink Trigger to 0
+        self.is_grinch_dead = True
         await bizhawk.write(
             ctx.bizhawk_ctx,
             [(curr_region_data.map_table_addr + HEALTH_REGION_OFFSET, int(0).to_bytes(1, "little"), "MainRAM"),
