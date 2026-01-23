@@ -61,6 +61,10 @@ TIMER_ADDR: int = 0x0100B3
 # Address related to Mount Crumpit Elevator's position
 MC_ELEVATOR_ADDR: int = 0x01010D
 
+# Offsets from region table used to handle deathlink related things
+HEALTH_REGION_OFFSET: int = 0x3C
+DEALTHLINK_REGION_OFFSET: int = 0x27
+
 class GrinchClient(BizHawkClient):
     game = "The Grinch"
     system = "PSX"
@@ -72,8 +76,10 @@ class GrinchClient(BizHawkClient):
     previous_egg_count: int = 0
     send_ring_link: bool = False
     unique_client_id: int = 0
-    ring_link_enabled = False
-    is_grinch_dead = bool = False
+    ring_link_enabled: bool = False
+    death_link_enabled: bool = False
+    is_grinch_dead: bool = False
+    curr_region: str | None = None
     #yes
 
     def __init__(self):
@@ -143,7 +149,7 @@ class GrinchClient(BizHawkClient):
                 if not self.loc_unlimited_eggs:
 
                     self.ring_link_enabled = bool(ctx.slot_data["ring_link"])
-                    death_link_enabled = bool(ctx.slot_data["death_link"])
+                    self.death_link_enabled = bool(ctx.slot_data["death_link"])
 
                     tags = copy.deepcopy(ctx.tags)
 
@@ -153,7 +159,7 @@ class GrinchClient(BizHawkClient):
                     else:
                         ctx.tags -= {"RingLink"}
 
-                    if death_link_enabled:
+                    if self.death_link_enabled:
                         ctx.tags.add("DeathLink")
 
                     else:
@@ -177,9 +183,9 @@ class GrinchClient(BizHawkClient):
 
                 tags = args.get("tags", [])
                 # we can skip checking "DeathLink" in ctx.tags, as otherwise we wouldn't have been send this
-                if ("DeathLink" in tags and ctx.last_death_link != args["data"]["time"] and
-                    not args["data"]["source"] == ctx.player_names[ctx.slot]):
-                    self.on_deathlink(args["data"], ctx)
+                if ("DeathLink" in tags and args["data"]["source"] != ctx.player_names[ctx.slot] and
+                    not self.is_grinch_dead):
+                    Utils.async_start(self.kill_grinch(ctx), "Grinch - Received DeathLink")
 
                 if (
                     "RingLink" in ctx.tags
@@ -215,7 +221,9 @@ class GrinchClient(BizHawkClient):
             await self.goal_checker(ctx)
             await self.option_handler(ctx)
             await self.constant_address_update(ctx)
-            await self.check_grinch_alive(ctx)
+
+            if self.death_link_enabled:
+                await self.check_grinch_alive(ctx)
 
         except bizhawk.RequestFailedError as ex:
             # The connector didn't respond. Exit handler and return to main loop to reconnect
@@ -565,7 +573,15 @@ class GrinchClient(BizHawkClient):
             logger.info("You can now start sending locations from the Grinch!")
             self.ingame_log = True
 
+        self.curr_region = await self.get_current_region()
         return True
+
+    async def get_current_region(self) -> str | None:
+        for grinch_region, grinch_data in ALL_REGIONS_INFO.items():
+            # We only care about a region/map that is the same as the grinch
+            if self.last_map_location == grinch_data.map_id:
+                return grinch_region
+        return None
 
     async def option_handler(self, ctx: "BizHawkClientContext"):
         if self.loc_unlimited_eggs:
@@ -712,65 +728,55 @@ class GrinchClient(BizHawkClient):
             continue
 
     async def check_grinch_alive(self, ctx: "BizHawkClientContext"):
-        ingame_map_id = await self.get_current_map_id(ctx)
-        for grinch_data in ALL_REGIONS_INFO.values():
-            # We only care about a region/map that is the same as the grinch
-            if not ingame_map_id == grinch_data.map_id:
-                continue
-
-            # IF the region does not allow deathlink
-            if not grinch_data.allow_deathlink:
-                continue
-
-            # Get the current amount of Heart of Stones (HOS)
-            hos_count = get_item_count_by_id(ctx, 42570)
-            hp_amount = math.ceil(42 - (10.5 * hos_count))
-
-            curr_health: int = int.from_bytes(
-                (await bizhawk.read(ctx.bizhawk_ctx, [(grinch_data.health_addr, 1, "MainRAM")]))[0],
-                "little")
-
-            if curr_health <= hp_amount:
-                await self.kill_grinch(ctx)
-
-    async def kill_grinch(self, ctx: "BizHawkClientContext"):
-        if self.is_grinch_dead or not self.ingame_checker(ctx):
+        reg_name = await self.get_current_region()
+        if not reg_name:
+            return
+        elif self.is_grinch_dead:
             return
 
-        ingame_map_id = await self.get_current_map_id(ctx)
-        for grinch_data in ALL_REGIONS_INFO.values():
-            # We only care about a region/map that is the same as the grinch
-            if not ingame_map_id == grinch_data.map_id:
-                continue
+        curr_region_data = ALL_REGIONS_INFO[reg_name]
+        if not curr_region_data.allow_deathlink:
+            return
 
-            # IF the region does not allow deathlink
-            if not grinch_data.allow_deathlink:
-                continue
+        # Get the current amount of Heart of Stones (HOS)
+        hos_count = get_item_count_by_id(ctx, 42570)
+        hp_amount = math.ceil(42 - (10.5 * hos_count))
 
-            # Get the current amount of Heart of Stones (HOS)
-            hos_count = get_item_count_by_id(ctx, 42570)
-            hp_amount = math.ceil(42 - (10.5 * hos_count))
-            death_link_trigger: int = 0x40
+        curr_health: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
+            [(curr_region_data.map_table_addr + HEALTH_REGION_OFFSET, 1, "MainRAM")]))[0], "little")
 
-            # Update the Health Address to X amount and DeathLink Trigger to 0
-            await bizhawk.write(
-                ctx.bizhawk_ctx,
-                [(grinch_data.health_addr, hp_amount.to_bytes(1, "little"), "MainRAM"),
-                 (grinch_data.death_trigger_addr, death_link_trigger.to_bytes(1, "little"), "MainRAM"),],
-            )
+        if curr_health <= hp_amount:
+            await ctx.send_death("Could not fight off the Christmas cheer...")
+            await self.kill_grinch(ctx)
 
-            self.is_grinch_dead = True
 
-    def on_deathlink(self, data: dict, ctx: "BizHawkClientContext"):
-        """Gets dispatched when a new DeathLink is triggered by another linked player."""
-        ctx.last_death_link = max(data["time"], ctx.last_death_link)
-        text = data.get("cause", "")
-        if text:
-            logger.info(f"DeathLink: {text}")
-        else:
-            logger.info(f"DeathLink: Received from {data['source']}")
+    async def kill_grinch(self, ctx: "BizHawkClientContext"):
+        reg_name = await self.get_current_region()
+        if not (await self.ingame_checker(ctx) and reg_name):
+            return
 
-        self.kill_grinch(ctx)
+        # Update the Health Address to X amount and DeathLink Trigger to 0
+        self.is_grinch_dead = True
+        curr_region_data = ALL_REGIONS_INFO[reg_name]
+        await bizhawk.write(
+            ctx.bizhawk_ctx,
+            [(curr_region_data.map_table_addr + HEALTH_REGION_OFFSET, int(0).to_bytes(1, "little"), "MainRAM"),
+             (curr_region_data.map_table_addr + DEALTHLINK_REGION_OFFSET, int(0x40).to_bytes(1, "little"), "MainRAM")],
+        )
+        await self.wait_for_grinch_alive(ctx, curr_region_data.map_table_addr + HEALTH_REGION_OFFSET)
+
+
+    async def wait_for_grinch_alive(self, ctx: "BizHawkClientContext", health_address: int):
+        curr_hp: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
+            [(health_address, 1, "MainRAM")]))[0], "little")
+        expected_hp: int = copy.deepcopy(curr_hp)
+        time_to_wait = time.time() + 30
+
+        while curr_hp <= expected_hp and not (time.time() >= time_to_wait):
+            await asyncio.sleep(3.0)
+            curr_hp = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
+            [(health_address, 1, "MainRAM")]))[0], "little")
+        self.is_grinch_dead = False
 
 def _cmd_ringlink(self):
     """Toggle ringling from client. Overrides default setting."""
