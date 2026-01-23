@@ -594,7 +594,7 @@ class GrinchClient(BizHawkClient):
         from CommonClient import logger
 
         while self.send_ring_link and ctx.slot:
-            if not asyncio.run(self.ingame_checker(ctx)):
+            if not await self.ingame_checker(ctx):
                 await asyncio.sleep(0.5)
             try:
                 current_egg_count = int.from_bytes(
