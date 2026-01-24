@@ -64,6 +64,7 @@ class AdvancedLogic(Toggle):
     unintentional ways that beginners wouldn't grasp on their first playthrough if this is enabled to be considered
     logical.
     """
+
     display_name = "Advanced Logic"
     visibility = Visibility.none
 
@@ -129,8 +130,8 @@ class Killsanity(OptionSet):
     """
 
     display_name = "Killsanity"
-    visibility = Visibility.none
     valid_keys = {"Whos", "Animals", "Robots"}
+    visibility = Visibility.none
 
 class Gadgetrando(DefaultOnToggle):
     """
@@ -219,9 +220,12 @@ class FillerWeight(OptionCounter):
     """
     Determines which filler is added to the pool.
     Setting them to 0 will use "Present" as a filler item, which does nothing
+    Must be between 0 and 100
     """
 
     display_name = "Filler Weights"
+    min = 0
+    max = 100
     default = {
         "5 Rotten Eggs": 50,
         "10 Rotten Eggs": 25,
@@ -245,6 +249,8 @@ class TrapWeight(OptionCounter):
     """
 
     display_name = "Trap Weights"
+    min = 0
+    max = 100
     default = {
         "Dump it to Crumpit": 33,
         "Who sent me back?": 33,
@@ -256,6 +262,7 @@ class MiscLocations(Toggle):
     Adds locations that aren't specifically categorized and are more either just random events or
     just unnecessarily added locations that don't mean anything.
     """
+
     display_name =  "Miscellaneous Locations"
 
 class DamageRate(Range):
@@ -269,6 +276,7 @@ class DamageRate(Range):
     110 = Instant death with three Hearts of Stone
     120 = Instant death
     """
+
     display_name = "Damage Rate"
     range_start = 0
     range_end = 120
