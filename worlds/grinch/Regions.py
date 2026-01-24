@@ -159,7 +159,7 @@ ALL_REGIONS_INFO: dict[str, GrinchRegionInfo] = {
             [grinch_items.gadgets.MARINE_MOBILE],
         ],),
 
-    "Scout's Hut": GrinchRegionInfo(0x16, "Who Lake", True, 0x0D5DFC,
+    "Scout's Hut": GrinchRegionInfo(0x13, "Who Lake", True, 0x0D5DFC,
         region_access=[
             [grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.SNEAK],
