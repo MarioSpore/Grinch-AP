@@ -794,6 +794,7 @@ def _cmd_deathlink(self):
     """Toggle deathlink from client. Overrides default setting."""
     from worlds._bizhawk.context import BizHawkClientContext
     if isinstance(self.ctx, BizHawkClientContext):
+        self.death_link_enabled = not "DeathLink" in self.ctx.tags
         Utils.async_start(self.ctx.update_death_link(not "DeathLink" in self.ctx.tags), name="Grinch - Update Deathlink")
 
 async def _update_ring_link(ctx: "BizHawkClientContext", ring_link: bool):
