@@ -57,7 +57,7 @@ class GrinchRegion(Region):
         self.region_data = region_data
 
 ALL_REGIONS_INFO: dict[str, GrinchRegionInfo] = {
-    "Mount Crumpit": GrinchRegionInfo(0x05, "", False, 0x0FAAB4),
+    "Mount Crumpit": GrinchRegionInfo(0x05, "", True, 0x0FAAB4),
 
     "Whoville": GrinchRegionInfo(0x07, "Mount Crumpit", True, 0x0E8FA0,
         region_access=[
