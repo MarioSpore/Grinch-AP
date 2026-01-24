@@ -77,7 +77,6 @@ class GrinchClient(BizHawkClient):
     send_ring_link: bool = False
     unique_client_id: int = 0
     ring_link_enabled: bool = False
-    death_link_enabled: bool = False
     is_grinch_dead: bool = False
     curr_region: str | None = None
     #yes
@@ -149,7 +148,7 @@ class GrinchClient(BizHawkClient):
                 if not self.loc_unlimited_eggs:
 
                     self.ring_link_enabled = bool(ctx.slot_data["ring_link"])
-                    self.death_link_enabled = bool(ctx.slot_data["death_link"])
+                    death_link_enabled = bool(ctx.slot_data["death_link"])
 
                     tags = copy.deepcopy(ctx.tags)
 
@@ -159,7 +158,7 @@ class GrinchClient(BizHawkClient):
                     else:
                         ctx.tags -= {"RingLink"}
 
-                    if self.death_link_enabled:
+                    if death_link_enabled:
                         ctx.tags.add("DeathLink")
 
                     else:
@@ -222,7 +221,7 @@ class GrinchClient(BizHawkClient):
             await self.option_handler(ctx)
             await self.constant_address_update(ctx)
 
-            if self.death_link_enabled:
+            if "DeathLink" in ctx.tags:
                 await self.check_grinch_alive(ctx)
 
         except bizhawk.RequestFailedError as ex:
@@ -794,7 +793,6 @@ def _cmd_deathlink(self):
     """Toggle deathlink from client. Overrides default setting."""
     from worlds._bizhawk.context import BizHawkClientContext
     if isinstance(self.ctx, BizHawkClientContext):
-        self.death_link_enabled = not "DeathLink" in self.ctx.tags
         Utils.async_start(self.ctx.update_death_link(not "DeathLink" in self.ctx.tags), name="Grinch - Update Deathlink")
 
 async def _update_ring_link(ctx: "BizHawkClientContext", ring_link: bool):
