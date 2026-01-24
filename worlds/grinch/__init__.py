@@ -83,15 +83,19 @@ class GrinchWorld(World):
                 region.add_event(location, "Goal", None, Location, Item)
                 continue
 
-            # No .value after self.options.giftsanity because UT no likey
+            # No .value after self.options because UT no likey
+            if location == "MC - Unlock the Grinch Copter" and self.options.exclude_gc:
+                continue
+
+            # No .value after self.options because UT no likey
             if "Giftsanity" in data.location_group and (not self.options.giftsanity or self.options.exclude_gc):
                 continue
 
-            # No .value after self.options.missionsanity because UT no likey
+            # No .value after self.options because UT no likey
             if "Missions" in data.location_group and self.options.missionsanity in [0,2]:
                 continue
 
-            # No .value after self.options.missionsanity because UT no likey
+            # No .value after self.options because UT no likey
             if "Missionsanity" in data.location_group and self.options.missionsanity in [0,1]:
                 continue
 
