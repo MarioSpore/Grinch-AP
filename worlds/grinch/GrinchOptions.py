@@ -16,6 +16,73 @@ from Options import (
     DeathLinkMixin,
 )
 
+class Goal(Choice):
+    """
+    sleigh_ride: Sleigh parts are placed in their local areas and you must
+    physically collect them to goal.
+    sleigh_ride_with_parts:  Sleigh parts are randomized in the pool and you
+    must find all the required parts and the Sleigh Room Key to goal.
+    missions_completed: You must complete a certain number of missions to
+    goal.
+    missions_completed_with_gifts: You must complete a certain number of missions to
+    goal, which also requires Squashing all Gifts missions.
+    supadows_completed: You are required to win every supadow minigame to
+    goal and obtain access to their minigames to do so.
+    slaughter: You must kill every Who, every animal, and every robot to goal.
+    gifts: You need to obtain a certain amount of gift points in order to goal.
+    """
+
+    display_name = "Goal"
+    option_sleigh_ride = 0
+    option_sleigh_ride_with_parts = 1
+    option_missions_completed = 2
+    option_missions_completed_with_gifts = 3
+    option_supadows_completed = 4
+    option_slaughter = 5
+    option_gift_points = 6
+    default = 0
+    visibility = Visibility.none
+
+
+class MissionsCompleted(Range):
+    """
+    If your goal is missions_completed, set how many missions you want to
+    complete to goal. If your goal is missions_completed_with_gifts, this option
+    will be ignored.
+    """
+
+    display_name = "Mission Goal Count"
+    min = 3
+    max = 22
+    default = 12
+    visibility = Visibility.none
+
+
+class MissionsCompletedWithGifts(Range):
+    """
+    If your goal is missions_completed_with_gifts, set how many missions you
+    want to complete to goal. If your goal is missions_completed, this option
+    will be ignored.
+    """
+    display_name = "Mission Goal Count (with Gifts)"
+    min = 3
+    max = 26
+    default = 12
+    visibility = Visibility.none
+
+
+class GiftGoal(Range):
+    """
+    If your goal is gifts, set how many points total you must hit in order to
+    goal.
+    """
+
+    display_name = "Gift Points Required"
+    min = 100
+    max = 3000
+    default = 500
+    visibility = Visibility.none
+
 
 class StartingArea(Choice):
     """
@@ -265,6 +332,7 @@ class MiscLocations(Toggle):
 
     display_name =  "Miscellaneous Locations"
 
+
 class DamageRate(Range):
     """
     How much damage can the Grinch tolerate before death
@@ -310,6 +378,12 @@ class GrinchOptions(DeathLinkMixin, PerGameCommonOptions):
     damage_rate: DamageRate
 
 grinch_option_groups: list[OptionGroup] = [
+    # OptionGroup("Goal", [
+    #     Goal,
+    #     MissionsCompleted,
+    #     MissionsCompletedWithGifts,
+    #     GiftGoal,
+    # ]),
     OptionGroup("Item Pool", [
         ProgressiveVacuums,
         StartingArea,
@@ -331,7 +405,7 @@ grinch_option_groups: list[OptionGroup] = [
     # OptionGroup("Logic Settings", [
     #     AdvancedLogic,
     # ]),
-    OptionGroup("Quality of Life", [
+    OptionGroup("In-Game Tweaks", [
         UnlimitedEggs,
         DamageRate,
     ]),
