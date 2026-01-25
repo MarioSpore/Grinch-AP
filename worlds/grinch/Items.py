@@ -251,7 +251,7 @@ MISSION_ITEMS_TABLE: dict[str, GrinchItemData] = {
             grinch_categories.USEFUL_ITEMS,
         ],
         201,
-        IC.progression_deprioritized,
+        IC.progression,
         [GrinchRamData(0x0101F9, binary_bit_pos=1)],
     ),
     grinch_items.level_items.WD_SCISSORS: GrinchItemData(
@@ -290,7 +290,7 @@ MISSION_ITEMS_TABLE: dict[str, GrinchItemData] = {
             grinch_categories.USEFUL_ITEMS,
         ],
         205,
-        IC.progression_deprioritized,
+        IC.progression,
         [GrinchRamData(0x0101FA, binary_bit_pos=2)],
     ),
     grinch_items.level_items.WL_ROPE: GrinchItemData(
