@@ -200,12 +200,14 @@ class Killsanity(OptionSet):
     valid_keys = {"Whos", "Animals", "Robots"}
     visibility = Visibility.none
 
+
 class Gadgetrando(DefaultOnToggle):
     """
     Determines whether the Grinch's gadgets will be randomized or not.
     """
 
     display_name = "Randomize Gadgets"
+
 
 class Gadgetrandolist(OptionSet):
     """
@@ -223,6 +225,7 @@ class Gadgetrandolist(OptionSet):
         "Grinch Copter",
     ]
 
+
 class ExcludeGC(Toggle):
     """
     Tired of getting Grinch Copter? This option ensures Grinch Copter is entirely taken out from the multiworld.
@@ -230,6 +233,7 @@ class ExcludeGC(Toggle):
     """
 
     display_name = "Remove Grinch Copter"
+
 
 class Moverando(Toggle):
     """
@@ -241,6 +245,7 @@ class Moverando(Toggle):
     """
 
     display_name = "Randomize Moves"
+
 
 class Moverandolist(OptionSet):
     """
@@ -283,6 +288,7 @@ class TrapLinkOption(Toggle):
     display_name = "Trap Link"
     visibility = Visibility.none
 
+
 class FillerWeight(OptionCounter):
     """
     Determines which filler is added to the pool.
@@ -299,6 +305,7 @@ class FillerWeight(OptionCounter):
         "20 Rotten Eggs": 25,
     }
 
+
 class TrapPercentage(Range):
     """
     Determines how much filler is replaced with traps.
@@ -308,6 +315,7 @@ class TrapPercentage(Range):
     range_start = 0
     range_end = 100
     default = 10
+
 
 class TrapWeight(OptionCounter):
     """
@@ -351,6 +359,7 @@ class DamageRate(Range):
     default = 1
     visibility = Visibility.none
 
+
 @dataclass
 class GrinchOptions(DeathLinkMixin, PerGameCommonOptions):
     progressive_vacuums: ProgressiveVacuums
@@ -376,6 +385,11 @@ class GrinchOptions(DeathLinkMixin, PerGameCommonOptions):
     start_inventory_from_pool: StartInventoryPool
     misc_checks: MiscLocations
     damage_rate: DamageRate
+    goal: Goal
+    missions_completed: MissionsCompleted
+    missions_completed_with_gifts: MissionsCompletedWithGifts
+    gift_goal_count: GiftGoal
+
 
 grinch_option_groups: list[OptionGroup] = [
     # OptionGroup("Goal", [
