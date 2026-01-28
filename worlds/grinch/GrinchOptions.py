@@ -50,8 +50,8 @@ class MissionsCompleted(Range):
     """
 
     display_name = "Mission Goal Count"
-    min = 3
-    max = 22
+    range_start = 3
+    range_end = 22
     default = 12
     visibility = Visibility.none
 
@@ -63,8 +63,8 @@ class MissionsCompletedWithGifts(Range):
     will be ignored.
     """
     display_name = "Mission Goal Count (with Gifts)"
-    min = 3
-    max = 26
+    range_start = 3
+    range_end = 26
     default = 12
     visibility = Visibility.none
 
