@@ -86,6 +86,7 @@ class GrinchClient(BizHawkClient):
         self.last_received_index = 0
         self.loading_bios_msg = False
         self.loc_unlimited_eggs = False
+        self.unlimited_eggs = False
         self.unique_client_id = 0
 
     async def validate_rom(self, ctx: "BizHawkClientContext") -> bool:
@@ -139,13 +140,14 @@ class GrinchClient(BizHawkClient):
             case "Connected":  # On Connect
                 self.ingame_log = False
                 self.loc_unlimited_eggs = bool(ctx.slot_data["give_unlimited_eggs"])
+                self.unlimited_eggs = bool(ctx.slot_data["unlimited_eggs"])
                 self.unique_client_id = self._get_uuid()
                 logger.info(
                     "You are now connected to the client. "
                     + "There may be a slight delay to check you are not in demo mode before locations start to send."
                 )
 
-                if not self.loc_unlimited_eggs:
+                if not self.unlimited_eggs:
 
                     self.ring_link_enabled = bool(ctx.slot_data["ring_link"])
                     death_link_enabled = bool(ctx.slot_data["death_link"])
@@ -583,7 +585,7 @@ class GrinchClient(BizHawkClient):
         return None
 
     async def option_handler(self, ctx: "BizHawkClientContext"):
-        if self.loc_unlimited_eggs:
+        if self.unlimited_eggs:
             await bizhawk.write(
                 ctx.bizhawk_ctx,
                 [(EGG_COUNT_ADDR, MAX_EGGS.to_bytes(EGG_ADDR_BYTESIZE, "little"), "MainRAM")],
