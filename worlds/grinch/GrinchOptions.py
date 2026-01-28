@@ -29,7 +29,6 @@ class Goal(Choice):
     supadows_completed: You are required to win every supadow minigame to
     goal and obtain access to their minigames to do so.
     slaughter: You must kill every Who, every animal, and every robot to goal.
-    gifts: You need to obtain a certain amount of gift points in order to goal.
     """
 
     display_name = "Goal"
@@ -39,7 +38,6 @@ class Goal(Choice):
     option_missions_completed_with_gifts = 3
     option_supadows_completed = 4
     option_slaughter = 5
-    option_gift_points = 6
     default = 0
     visibility = Visibility.none
 
@@ -68,19 +66,6 @@ class MissionsCompletedWithGifts(Range):
     min = 3
     max = 26
     default = 12
-    visibility = Visibility.none
-
-
-class GiftGoal(Range):
-    """
-    If your goal is gifts, set how many points total you must hit in order to
-    goal.
-    """
-
-    display_name = "Gift Points Required"
-    min = 100
-    max = 3000
-    default = 500
     visibility = Visibility.none
 
 
@@ -357,7 +342,6 @@ class DamageRate(Range):
     range_start = 0
     range_end = 120
     default = 1
-    visibility = Visibility.none
 
 
 @dataclass
@@ -388,7 +372,6 @@ class GrinchOptions(DeathLinkMixin, PerGameCommonOptions):
     goal: Goal
     missions_completed: MissionsCompleted
     missions_completed_with_gifts: MissionsCompletedWithGifts
-    gift_goal_count: GiftGoal
 
 
 grinch_option_groups: list[OptionGroup] = [
@@ -396,7 +379,6 @@ grinch_option_groups: list[OptionGroup] = [
     #     Goal,
     #     MissionsCompleted,
     #     MissionsCompletedWithGifts,
-    #     GiftGoal,
     # ]),
     OptionGroup("Item Pool", [
         ProgressiveVacuums,
