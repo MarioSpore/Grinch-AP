@@ -342,6 +342,7 @@ class DamageRate(Range):
     range_start = 0
     range_end = 120
     default = 1
+    visibility = Visibility.none
 
 
 @dataclass

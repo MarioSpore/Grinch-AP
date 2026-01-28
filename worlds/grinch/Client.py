@@ -224,7 +224,7 @@ class GrinchClient(BizHawkClient):
             await self.goal_checker(ctx)
             await self.option_handler(ctx)
             await self.constant_address_update(ctx)
-            await self.adjust_damage_rate(ctx)
+            #await self.adjust_damage_rate(ctx)
 
             if "DeathLink" in ctx.tags:
                 await self.check_grinch_alive(ctx)
