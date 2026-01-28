@@ -65,6 +65,8 @@ MC_ELEVATOR_ADDR: int = 0x01010D
 HEALTH_REGION_OFFSET: int = 0x3C
 DEALTHLINK_REGION_OFFSET: int = 0x27
 
+DAMAGE_RATE_ADDR: int = 0x0e9006
+
 class GrinchClient(BizHawkClient):
     game = "The Grinch"
     system = "PSX"
@@ -85,8 +87,8 @@ class GrinchClient(BizHawkClient):
         super().__init__()
         self.last_received_index = 0
         self.loading_bios_msg = False
-        self.loc_unlimited_eggs = False
         self.unlimited_eggs = False
+        self.damage_rate = 1
         self.unique_client_id = 0
 
     async def validate_rom(self, ctx: "BizHawkClientContext") -> bool:
@@ -139,8 +141,8 @@ class GrinchClient(BizHawkClient):
         match cmd:
             case "Connected":  # On Connect
                 self.ingame_log = False
-                self.loc_unlimited_eggs = bool(ctx.slot_data["give_unlimited_eggs"])
                 self.unlimited_eggs = bool(ctx.slot_data["unlimited_eggs"])
+                self.damage_rate = int(ctx.slot_data["damage_rate"])
                 self.unique_client_id = self._get_uuid()
                 logger.info(
                     "You are now connected to the client. "
@@ -222,6 +224,7 @@ class GrinchClient(BizHawkClient):
             await self.goal_checker(ctx)
             await self.option_handler(ctx)
             await self.constant_address_update(ctx)
+            await self.adjust_damage_rate(ctx)
 
             if "DeathLink" in ctx.tags:
                 await self.check_grinch_alive(ctx)
@@ -768,6 +771,11 @@ class GrinchClient(BizHawkClient):
         )
         await self.wait_for_grinch_alive(ctx, curr_region_data.map_table_addr + HEALTH_REGION_OFFSET)
 
+    async def adjust_damage_rate(self, ctx: "BizHawkClientContext"):
+        await bizhawk.write(
+            ctx.bizhawk_ctx,
+            [(DAMAGE_RATE_ADDR, self.damage_rate.to_bytes(1, "little"), "MainRAM")]
+        )
 
     async def wait_for_grinch_alive(self, ctx: "BizHawkClientContext", health_address: int):
         curr_hp: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
