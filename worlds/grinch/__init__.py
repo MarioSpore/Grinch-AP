@@ -286,6 +286,7 @@ class GrinchWorld(World):
             "killsanity": self.options.killsanity.value,
             "misc_checks": self.options.misc_checks.value,
             "death_link": self.options.death_link.value,
+            "damage_rate": self.options.damage_rate.value,
         }
 
     def generate_output(self, output_directory: str) -> None:
