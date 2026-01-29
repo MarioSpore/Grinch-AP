@@ -777,16 +777,14 @@ class GrinchClient(BizHawkClient):
             [(DAMAGE_RATE_ADDR, self.damage_rate.to_bytes(1, "little"), "MainRAM")]
         )
 
-    async def wait_for_grinch_alive(self, ctx: "BizHawkClientContext", health_address: int):
-        curr_hp: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
-            [(health_address, 1, "MainRAM")]))[0], "little")
-        expected_hp: int = copy.deepcopy(curr_hp)
-        time_to_wait = time.time() + 30
+    async def wait_for_grinch_alive(self, ctx: "BizHawkClientContext"):
+        is_dying: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
+            [(0x0100A1, 1, "MainRAM")]))[0], "little")
 
-        while curr_hp <= expected_hp and not (time.time() >= time_to_wait):
+        while is_dying > 0:
             await asyncio.sleep(3.0)
-            curr_hp = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
-            [(health_address, 1, "MainRAM")]))[0], "little")
+            is_dying: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
+                [(0x0100A1, 1, "MainRAM")]))[0], "little")
         self.is_grinch_dead = False
 
 def _cmd_ringlink(self):
