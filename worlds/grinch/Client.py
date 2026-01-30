@@ -769,7 +769,7 @@ class GrinchClient(BizHawkClient):
             [(curr_region_data.map_table_addr + HEALTH_REGION_OFFSET, int(0).to_bytes(1, "little"), "MainRAM"),
              (curr_region_data.map_table_addr + DEALTHLINK_REGION_OFFSET, int(0x40).to_bytes(1, "little"), "MainRAM")],
         )
-        await self.wait_for_grinch_alive(ctx, curr_region_data.map_table_addr + HEALTH_REGION_OFFSET)
+        await self.wait_for_grinch_alive(ctx)
 
     async def adjust_damage_rate(self, ctx: "BizHawkClientContext"):
         await bizhawk.write(
