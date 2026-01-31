@@ -103,12 +103,43 @@ class GrinchWorld(World):
             if "Miscellaneous" in data.location_group and self.options.misc_checks == False:
                 continue
 
+            wv_subareas: set[str] = {
+                "Post Office",
+                "Clock Tower",
+                "City Hall",
+            }
+            wf_subareas: set[str] = {
+                "Civic Center",
+                "Ski Resort",
+            }
+            wd_subareas: set[str] = {
+                "Minefield",
+                "Power Plant",
+                "Generator Building",
+            }
+            wl_subareas: set[str] = {
+                "Submarine World"
+                "Scout's Hut",
+                "North Shore",
+                "Mayor's Villa",
+                # "Submarine World",
+            }
+
             # If the region is in the list to be ignored, DON'T create the location and just continue.
             # Ex if Mount Crumpit is in the exclude env list, no locations should exist in Mount Crumpit.
             if region.name in self.options.exclude_environments.value:
+                if region.name in wv_subareas and location == "WV - Squashing All Gifts":
+                        continue
+                if region.name in wf_subareas and location == "WL - Squashing All Gifts":
+                        continue
+                if region.name in wd_subareas and location == "WD - Squashing All Gifts":
+                        continue
+                if region.name in wl_subareas and location == "WL - Squashing All Gifts":
+                        continue
                 if region.name == "Mount Crumpit":
                     logger.warning(f"Player {self.player_name} has excluded Mount Crumpit, which is where a large number of Sphere 1 locations usually exist.")
                 continue
+
 
             entry = GrinchLocation(self.player, location, region, data)
             region.locations.append(entry)
