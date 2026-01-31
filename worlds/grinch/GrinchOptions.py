@@ -18,9 +18,9 @@ from Options import (
 
 class Goal(Choice):
     """
-    sleigh_ride: Sleigh parts are placed in their local areas and you must
+    sleigh_ride: Sleigh parts are placed in their local areas that you must
     physically collect them to goal.
-    sleigh_ride_with_parts:  Sleigh parts are randomized in the pool and you
+    sleigh_ride_with_parts:  Sleigh parts are randomized in the pool that you
     must find all the required parts and the Sleigh Room Key to goal.
     missions_completed: You must complete a certain number of missions to
     goal.
@@ -73,7 +73,7 @@ class StartingArea(Choice):
     """
     Here, you can select which area you'll start the game with.
     Whichever one you pick is the region you'll have access to at the start of the Multiworld.
-    If "progressive_vacuums" is enabled, this is not considered and you will always start in Whoville.
+    If "progressive_vacuums" is enabled, this is not considered and will always start in Whoville.
     """
 
     option_whoville = 0
@@ -177,7 +177,7 @@ class Killsanity(OptionSet):
     Determines whether you consider killing/destroying certain enemies throughout the games are checks.
 
     "Whos" are considereed as people such as guards, children, other humanoid related figures.
-    "Animals" are considered as non human species such as Summer beasts, porcupines, moose, and mosquitoes.
+    "Animals" are considered as non-human species such as Summer beasts, porcupines, moose, and mosquitoes.
     "Robots" are considered mechanical beings that electrocute the player, specifically the robots you find in Who Dump.
     """
 

@@ -29,7 +29,7 @@ class GrinchWorld(World):
     location_name_groups = get_location_names_per_category()
     web = GrinchWeb()
 
-    ut_can_gen_without_yaml = True  # class var that tells it to ignore the player yaml
+    ut_can_gen_without_yaml = True  # class var that tells it to ignore the player YAML
 
     def __init__(self, *args, **kwargs):  # Pulls __init__ function and takes control from there in BaseClasses.py
         self.origin_region_name: str = "Mount Crumpit"
@@ -161,7 +161,7 @@ class GrinchWorld(World):
                     if len(self.get_region(grinch_reg).get_locations()) == 0:
                         sub_area_has_no_locations = True
 
-            # If the item is a sub_area_item and it has 0 locations, add it to start inventory
+            # If the item is a sub_area_item that has 0 locations, add it to start inventory
             if sub_area_has_no_locations:
                 self.multiworld.push_precollected(self.create_item(mission_item))
                 player_start_inv.append(mission_item)

@@ -190,7 +190,7 @@ grinch_locations = {
         [GrinchRamData(0x010000, value=0x16)],
     ),
     # Need to find mission completion address for handful of locations that are not documented.
-    # Missions that have value are those ones we need to find the check for
+    # Missions that have value are the ones we need to find the check for
     # Whoville Missions
     "WV - Post Office - Shuffling The Mail": GrinchLocationData(
         "Post Office",

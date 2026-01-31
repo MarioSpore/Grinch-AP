@@ -185,7 +185,7 @@ class GrinchClient(BizHawkClient):
                     return
 
                 tags = args.get("tags", [])
-                # we can skip checking "DeathLink" in ctx.tags, as otherwise we wouldn't have been send this
+                # we can skip checking "DeathLink" in ctx.tags, as otherwise we wouldn't have been sent this
                 if ("DeathLink" in tags and args["data"]["source"] != ctx.player_names[ctx.slot] and
                     not self.is_grinch_dead):
                     Utils.async_start(self.kill_grinch(ctx), "Grinch - Received DeathLink")
@@ -301,7 +301,7 @@ class GrinchClient(BizHawkClient):
     async def receiving_items_handler(self, ctx: "BizHawkClientContext"):
         from CommonClient import logger
         # Len will give us the size of the items received list & we will track that against how many items we received already
-        # If the list says that we have 3 items and we already received items, we will ignore and continue.
+        # If the list says that we have 3 items that we already received items, we will ignore and continue.
         # Otherwise, we will get the new items and give them to the player.
 
         self.last_received_index = int.from_bytes(
