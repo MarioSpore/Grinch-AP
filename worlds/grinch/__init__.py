@@ -53,6 +53,7 @@ class GrinchWorld(World):
             raise OptionError("Cannot begin generation as no trap options are defined. At least one trap item " +
                 f"must have a weight of at least 1. The following player's YAML needs to be fixed: {self.player_name}")
 
+        # this handles all related logical UT things
         if hasattr(self.multiworld, "re_gen_passthrough"):
             if self.game in self.multiworld.re_gen_passthrough:
                 slot_data = self.multiworld.re_gen_passthrough[self.game]
@@ -267,6 +268,7 @@ class GrinchWorld(World):
         local_dict: dict[str, int] = dict(sorted(dict(zip(other_filler, weights_dict)).items()))
         return self.random.choices(list(local_dict.keys()), list(local_dict.values()))[0]
 
+    # this handles ingame/client related things
     def fill_slot_data(self):
         return {
             "unlimited_eggs": self.options.unlimited_eggs.value,
