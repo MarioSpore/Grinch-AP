@@ -10,8 +10,7 @@ class GrinchWeb(WebWorld):
         # OptionGroup("Goal", [
         #     Goal,
         #     MissionsCompleted,
-        #     MissionsCompletedWithGifts,
-        #     GiftGoal,
+        #     MissionCompletedIncludeGiftSquash,
         # ]),
         OptionGroup("Item Pool", [
             ProgressiveVacuums,

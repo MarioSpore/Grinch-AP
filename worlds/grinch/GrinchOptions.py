@@ -24,8 +24,7 @@ class Goal(Choice):
     must find all the required parts and the Sleigh Room Key to goal.
     missions_completed: You must complete a certain number of missions to
     goal.
-    missions_completed_with_gifts: You must complete a certain number of missions to
-    goal, which also requires Squashing all Gifts missions.
+    squashing_all_gifts: You must squash every gift in the entire game to goal.
     supadows_completed: You are required to win every supadow minigame to
     goal and obtain access to their minigames to do so.
     slaughter: You must kill every Who, every animal, and every robot to goal.
@@ -35,7 +34,7 @@ class Goal(Choice):
     option_sleigh_ride = 0
     option_sleigh_ride_with_parts = 1
     option_missions_completed = 2
-    option_missions_completed_with_gifts = 3
+    option_squashing_all_gifts = 3
     option_supadows_completed = 4
     option_slaughter = 5
     default = 0
@@ -55,17 +54,16 @@ class MissionsCompleted(Range):
     default = 12
     visibility = Visibility.none
 
-
-class MissionsCompletedWithGifts(Range):
+# We will make a list of every mission in the game, excluding squashing gifts.
+# Randomly pick whatever range is chosen via missions_completed to include
+# in the location pool. If they include squashing all gifts, include those in the
+# list.
+class MissionCompletedIncludeGiftSquash(Toggle):
     """
-    If your goal is missions_completed_with_gifts, set how many missions you
-    want to complete to goal. If your goal is missions_completed, this option
-    will be ignored.
+    If your goal is missions_completed, include the squashing all gift missions.
+    Otherwise, if your goal is not missions_completed, this will do nothing.
     """
-    display_name = "Mission Goal Count (with Gifts)"
-    range_start = 3
-    range_end = 26
-    default = 12
+    display_name = "Include Gift Squashing in Missions Completed Goal"
     visibility = Visibility.none
 
 
@@ -372,14 +370,14 @@ class GrinchOptions(DeathLinkMixin, PerGameCommonOptions):
     damage_rate: DamageRate
     goal: Goal
     missions_completed: MissionsCompleted
-    missions_completed_with_gifts: MissionsCompletedWithGifts
+    include_gift_squash: MissionCompletedIncludeGiftSquash
 
 
 grinch_option_groups: list[OptionGroup] = [
     # OptionGroup("Goal", [
     #     Goal,
     #     MissionsCompleted,
-    #     MissionsCompletedWithGifts,
+    #     MissionCompletedIncludeGiftSquash,
     # ]),
     OptionGroup("Item Pool", [
         ProgressiveVacuums,
