@@ -275,7 +275,7 @@ class TrapLinkOption(Toggle):
 class FillerWeight(OptionCounter):
     """
     Determines which filler is added to the pool.
-    Setting them all to 0 will use "Present" as a filler item, which does nothing
+    Setting them all to 0 will add "Present" to the multiworld, which does nothing
     """
 
     display_name = "Filler Weights"

@@ -323,8 +323,9 @@ class GrinchWorld(World):
 
     def get_weighted_filler_item(self, other_filler: list[str], weights_dict: list[int]) -> str:
         # The below does this for deterministic reasons, otherwise if you rolled the same seed, you would get different outcomes.
-        local_dict: dict[str, int] = dict(sorted(dict(zip(other_filler, weights_dict)).items()))
-        return self.random.choices(list(local_dict.keys()), list(local_dict.values()))[0]
+            local_dict: dict[str, int] = dict(zip(other_filler, weights_dict))
+            local_dict["Present"] = 1
+            return self.random.choices(list(local_dict.keys()), list(local_dict.values()))[0]
 
     # this handles ingame/client related things
     def fill_slot_data(self):
