@@ -1719,6 +1719,18 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.SLIME_SHOOTER,
             grinch_items.moves.BAD_BREATH,
         ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.BAD_BREATH,
+        ],
     ],
     "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Furthest platform of super toy parkour": [
         [
