@@ -77,6 +77,27 @@ class GrinchWorld(World):
     def create_regions(self):  # Generates all regions for the multiworld
         connect_regions(self, self.multiworld)
 
+        wv_subareas: set[str] = {
+            "Post Office",
+            "Clock Tower",
+            "City Hall",
+        }
+        wf_subareas: set[str] = {
+            "Civic Center",
+            "Ski Resort",
+        }
+        wd_subareas: set[str] = {
+            "Minefield",
+            "Power Plant",
+            "Generator Building",
+        }
+        wl_subareas: set[str] = {
+            "Scout's Hut",
+            "North Shore",
+            "Mayor's Villa",
+            # "Submarine World",
+        }
+
         for location, data in grinch_locations.items():
             region = self.get_region(data.region)
 
@@ -103,39 +124,45 @@ class GrinchWorld(World):
             if "Miscellaneous" in data.location_group and self.options.misc_checks == False:
                 continue
 
-            wv_subareas: set[str] = {
-                "Post Office",
-                "Clock Tower",
-                "City Hall",
-            }
-            wf_subareas: set[str] = {
-                "Civic Center",
-                "Ski Resort",
-            }
-            wd_subareas: set[str] = {
-                "Minefield",
-                "Power Plant",
-                "Generator Building",
-            }
-            wl_subareas: set[str] = {
-                "Submarine World"
-                "Scout's Hut",
-                "North Shore",
-                "Mayor's Villa",
-                # "Submarine World",
-            }
+            if location == "WV - Squashing All Gifts":
+                exclude_wv_squash: bool = False
+                for wv_sub in wv_subareas:
+                    if wv_sub in self.options.exclude_environments.value:
+                        exclude_wv_squash = True
+
+                if exclude_wv_squash:
+                    continue  # Ignores the creation of WV Squashing all Gifts
+
+            elif location == "WF - Squashing All Gifts":
+                exclude_wf_squash: bool = False
+                for wf_sub in wf_subareas:
+                    if wf_sub in self.options.exclude_environments.value:
+                        exclude_wf_squash = True
+
+                if exclude_wf_squash:
+                    continue  # Ignores the creation of WF Squashing all Gifts
+
+            elif location == "WD - Squashing All Gifts":
+                exclude_wd_squash: bool = False
+                for wd_sub in wd_subareas:
+                    if wd_sub in self.options.exclude_environments.value:
+                        exclude_wd_squash = True
+
+                if exclude_wd_squash:
+                    continue  # Ignores the creation of WD Squashing all Gifts
+
+            elif location == "WL - Squashing All Gifts":
+                exclude_wl_squash: bool = False
+                for wl_sub in wl_subareas:
+                    if wl_sub in self.options.exclude_environments.value:
+                        exclude_wl_squash = True
+
+                if exclude_wl_squash:
+                    continue  # Ignores the creation of WL Squashing all Gifts
 
             # If the region is in the list to be ignored, DON'T create the location and just continue.
             # Ex if Mount Crumpit is in the exclude env list, no locations should exist in Mount Crumpit.
             if region.name in self.options.exclude_environments.value:
-                if region.name in wv_subareas and location == "WV - Squashing All Gifts":
-                        continue
-                if region.name in wf_subareas and location == "WL - Squashing All Gifts":
-                        continue
-                if region.name in wd_subareas and location == "WD - Squashing All Gifts":
-                        continue
-                if region.name in wl_subareas and location == "WL - Squashing All Gifts":
-                        continue
                 if region.name == "Mount Crumpit":
                     logger.warning(f"Player {self.player_name} has excluded Mount Crumpit, which is where a large number of Sphere 1 locations usually exist.")
                 continue
