@@ -2604,6 +2604,116 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.GRINCH_COPTER,
         ],
     ],
+    "WL - North Shore - Squash the Groundhog 1 time": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WL - North Shore - Squash the Groundhog 2 times": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WL - North Shore - Squash the Groundhog 3 times": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WL - North Shore - Squash the Groundhog 4 times": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WL - North Shore - Squash the Groundhog 5 times": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WL - North Shore - Squash the Groundhog 6 times": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WL - North Shore - Squash the Groundhog 7 times": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WL - North Shore - Squash the Groundhog 8 times": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WL - North Shore - Squash the Groundhog 9 times": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WL - North Shore - Squash the Groundhog 10 times": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WD - Shoot Down North West Platform": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WD - Shoot Down South West Platform": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WD - Shoot Down South Platform": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WD - Shoot Down South East Platform": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WD - Shoot Down North East Platform": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
     # "Green Present": [
     #     []
     # ],
