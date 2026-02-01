@@ -747,15 +747,17 @@ class GrinchClient(BizHawkClient):
         hp_amount = math.ceil(42 - (10.5 * hos_count))
 
         curr_health: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
-            [(curr_region_data.map_table_addr + HEALTH_REGION_OFFSET, 1, "MainRAM")]))[0], "little")
+                                                              [(curr_region_data.map_table_addr + HEALTH_REGION_OFFSET,
+                                                                1, "MainRAM")]))[0], "little")
 
-        if curr_health <= hp_amount:
-            await ctx.send_death("Could not fight off the Christmas cheer...")
+        is_game_paused: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
+                                                                 [(0x0952A5, 1, "MainRAM")]))[0], "little")
+
+        if is_game_paused == 0 and curr_health <= hp_amount:
+            await ctx.send_death(ctx.player_names[ctx.slot] + " could not fight off the Christmas cheer...")
             await self.kill_grinch(ctx)
 
     async def kill_grinch(self, ctx: "BizHawkClientContext"):
-        is_game_paused: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
-            [(0x0952A5, 1, "MainRAM")]))[0], "little")
         reg_name = await self.get_current_region()
         if not (await self.ingame_checker(ctx) and reg_name):
             return
@@ -764,9 +766,7 @@ class GrinchClient(BizHawkClient):
         if not curr_region_data.allow_deathlink:
             return
 
-        if is_game_paused > 0:
-            return
-            # Update the Health Address to X amount and DeathLink Trigger to 0
+        # Update the Health Address to X amount and DeathLink Trigger to 0
         self.is_grinch_dead = True
         await bizhawk.write(
             ctx.bizhawk_ctx,
@@ -785,10 +785,15 @@ class GrinchClient(BizHawkClient):
         is_dying: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
             [(0x0100A1, 1, "MainRAM")]))[0], "little")
 
-        while is_dying > 0:
+        is_game_paused: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
+            [(0x0952A5, 1, "MainRAM")]))[0], "little")
+
+        while is_dying > 0 or is_game_paused > 0:
             await asyncio.sleep(3.0)
             is_dying: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
                 [(0x0100A1, 1, "MainRAM")]))[0], "little")
+            is_game_paused: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
+                [(0x0952A5, 1, "MainRAM")]))[0], "little")
         self.is_grinch_dead = False
 
 def _cmd_ringlink(self):
