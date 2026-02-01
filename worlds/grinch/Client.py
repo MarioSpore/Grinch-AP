@@ -753,7 +753,10 @@ class GrinchClient(BizHawkClient):
         is_game_paused: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
                                                                  [(0x0952A5, 1, "MainRAM")]))[0], "little")
 
-        if is_game_paused == 0 and curr_health <= hp_amount:
+        loading_goo: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
+                                                                 [(0x010094, 1, "MainRAM")]))[0], "little")
+
+        if is_game_paused == 0 and curr_health <= hp_amount and loading_goo == 1:
             await ctx.send_death(ctx.player_names[ctx.slot] + " could not fight off the Christmas cheer...")
             await self.kill_grinch(ctx)
 
@@ -788,12 +791,17 @@ class GrinchClient(BizHawkClient):
         is_game_paused: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
             [(0x0952A5, 1, "MainRAM")]))[0], "little")
 
-        while is_dying > 0 or is_game_paused > 0:
+        loading_goo: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
+            [(0x010094, 1, "MainRAM")]))[0], "little")
+
+        while is_dying > 0 or is_game_paused > 0 or loading_goo == 1:
             await asyncio.sleep(3.0)
             is_dying: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
                 [(0x0100A1, 1, "MainRAM")]))[0], "little")
             is_game_paused: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
                 [(0x0952A5, 1, "MainRAM")]))[0], "little")
+            loading_goo: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
+                [(0x010094, 1, "MainRAM")]))[0], "little")
         self.is_grinch_dead = False
 
 def _cmd_ringlink(self):
