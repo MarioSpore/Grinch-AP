@@ -44,9 +44,9 @@ class GrinchWorld(World):
         # If this is 0, it means no filler was provided by the user, which will cause generation errors as there will
         #   be not enough items for all defined locations. Later this can be changed to default item and this get removed.
         total_fillerweights = sum(self.options.filler_weight[filler] for filler in self.options.filler_weight.keys())
-        if total_fillerweights <= 0:
-            raise OptionError("Cannot begin generation as no filler options are defined. At least one filler item " +
-                f"must have a weight of at least 1. The following player's YAML needs to be fixed: {self.player_name}")
+        # if total_fillerweights <= 0:
+        #     raise OptionError("Cannot begin generation as no filler options are defined. At least one filler item " +
+        #         f"must have a weight of at least 1. The following player's YAML needs to be fixed: {self.player_name}")
 
         total_trapweights = sum(self.options.trap_weight[trap] for trap in self.options.trap_weight.keys())
         if total_trapweights <= 0 and self.options.trap_percentage >= 1:

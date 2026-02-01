@@ -11,7 +11,7 @@ class GrinchItemData(NamedTuple):
     item_group: list[str]  # arbituary that can be whatever it can be, basically the field/property for item groups
     id: Optional[int]
     classification: IC
-    update_ram_addr: list[GrinchRamData]
+    update_ram_addr: Optional[list[GrinchRamData]]
 
 
 class GrinchItem(Item):
@@ -475,6 +475,15 @@ MISC_ITEMS_TABLE: dict[str, GrinchItemData] = {
                 max_count=200,
                 byte_size=2,
             )
+        ],
+    ),
+    "Present": GrinchItemData(
+        [
+            grinch_categories.FILLER,
+        ],
+        505,
+        IC.filler,
+        [
         ],
     ),
 }
