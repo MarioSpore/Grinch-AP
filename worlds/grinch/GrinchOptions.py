@@ -96,7 +96,8 @@ class Missionsanity(Choice):
     How mission checks are randomized in the pool.
     - none: Does not add mission checks
     - completion: Only completing the mission gives you a check
-    - individual: Individual tasks for one mission, such as individual snowmen squashed, are checks.
+    - individual: Individual tasks for one mission, such as individual snowmen
+    squashed, are checks.
     - both: Both individual tasks and mission completion are randomized.
     """
 
@@ -110,8 +111,9 @@ class Missionsanity(Choice):
 class AdvancedLogic(Toggle):
 
     """
-    Enables logic to allow skips, damage boosts, glitches, game restarts, excessive egg usage, and various other
-    unintentional ways that beginners wouldn't grasp on their first playthrough if this is enabled to be considered
+    Enables logic to allow skips, damage boosts, glitches, game restarts,
+    excessive egg usage, and various other unintentional ways that beginners
+    wouldn't grasp on their first playthrough if this is enabled to be considered
     logical.
     """
 
@@ -120,11 +122,13 @@ class AdvancedLogic(Toggle):
 
 class ExcludeEnvironments(OptionSet):
     """
-    Allows entire environments to be entirely removed to ensure you are not logically required to enter the environment
-    along with any and all checks that are in that environment too.
+    Allows entire environments to be entirely removed to ensure you are not
+    logically required to enter the environment along with any and all checks
+    that are in that environment too.
 
-    Valid keys: "Post Office", "Clock Tower", "City Hall", "Ski Resort", "Civic Center", "Minefield", "Power Plant",
-                "Generator Building", "Scout's Hut", "North Shore", "Mayor's Villa"
+    Valid keys: "Post Office", "Clock Tower", "City Hall", "Ski Resort",
+    "Civic Center", "Minefield", "Power Plant", "Generator Building",
+    "Scout's Hut", "North Shore", "Mayor's Villa"
     """
 
     display_name = "Exclude Environments"
@@ -164,7 +168,8 @@ class Supadow(Toggle):
 class Gifts(Toggle):
     """
     Determines if individual gifts are checks
-    NOTE: This currently only disables the missions relating to squashing all gifts for an entire region.
+    NOTE: This currently only disables the missions relating to squashing all
+    gifts for an entire region.
     """
 
     display_name = "Giftsanity"
@@ -172,11 +177,15 @@ class Gifts(Toggle):
 
 class Killsanity(OptionSet):
     """
-    Determines whether you consider killing/destroying certain enemies throughout the games are checks.
+    Determines whether you consider killing/destroying certain enemies
+    throughout the games are checks.
 
-    "Whos" are considereed as people such as guards, children, other humanoid related figures.
-    "Animals" are considered as non-human species such as Summer beasts, porcupines, moose, and mosquitoes.
-    "Robots" are considered mechanical beings that electrocute the player, specifically the robots you find in Who Dump.
+    "Whos" are considereed as people such as guards, children, and other
+    humanoid related figures.
+    "Animals" are considered as non-human species such as Summer beasts,
+    porcupines, moose, and mosquitoes.
+    "Robots" are considered mechanical beings that electrocute the player,
+    specifically the robots you find in Who Dump.
     """
 
     display_name = "Killsanity"
@@ -194,7 +203,8 @@ class Gadgetrando(DefaultOnToggle):
 
 class Gadgetrandolist(OptionSet):
     """
-    If "gadget_rando" is enabled, gadgets that you add to the dictionary will be randomized.
+    If "gadget_rando" is enabled, gadgets that you add to the dictionary will
+    be randomized.
     """
 
     display_name = "Gadgets Randomized"
@@ -211,7 +221,8 @@ class Gadgetrandolist(OptionSet):
 
 class ExcludeGC(Toggle):
     """
-    Tired of getting Grinch Copter? This option ensures Grinch Copter is entirely taken out from the multiworld.
+    Tired of getting Grinch Copter? This option ensures Grinch Copter is
+    entirely taken out from the multiworld.
     Note that locations that hard require Grinch Copter will also be removed.
     """
 
@@ -221,8 +232,9 @@ class ExcludeGC(Toggle):
 class Moverando(Toggle):
     """
     Determines whether the Grinch's moves will be randomized or not.
-    NOTE: Tutorial section would be logical linearly and vacuum tubes would still be logical. To access them, you can use
-    certain controller combinations to warp to their respective areas in Mount Crumpit at any time.
+    NOTE: Tutorial section would be logical linearly and vacuum tubes would still
+    be logical. To access them, you can use certain controller combinations to
+    warp to their respective areas in Mount Crumpit at any time.
     To warp to the computer room, press and hold start, L1, and R1 at the same time.
     To warp to the top, press and hold start, L2, and R2 at the same time.
     """
@@ -248,7 +260,8 @@ class Moverandolist(OptionSet):
 class UnlimitedEggs(Toggle):
     """
     Determine if you run out of rotten eggs when you utilize your gadgets.
-    NOTE: Attempting to enable this with ringlink will force generation to stop until either option is enabled.
+    NOTE: Attempting to enable this with ringlink will force generation to stop
+    until either option is enabled.
     """
 
     display_name = "Unlimited Rotten Eggs"
@@ -256,8 +269,10 @@ class UnlimitedEggs(Toggle):
 
 class RingLinkOption(Toggle):
     """
-    Whenever this is toggled, your ammo is linked with other ringlink-compatible games that also have this enabled.
-    NOTE: Attempting to enable this with unlimited_eggs will force generation to stop until either option is enabled.
+    Whenever this is toggled, your ammo is linked with other ringlink-compatible
+    games that also have this enabled.
+    NOTE: Attempting to enable this with unlimited_eggs will force generation
+    to stop until either option is enabled.
     """
 
     display_name = "Ring Link"
@@ -265,7 +280,8 @@ class RingLinkOption(Toggle):
 
 class TrapLinkOption(Toggle):
     """
-    If a trap is sent from Grinch, traps that are compatible with other games are triggered as well.
+    If a trap is sent from Grinch, traps that are compatible with other games
+    are triggered as well.
     """
 
     display_name = "Trap Link"
@@ -315,8 +331,8 @@ class TrapWeight(OptionCounter):
 
 class MiscLocations(Toggle):
     """
-    Adds locations that aren't specifically categorized and are more either just random events or
-    just unnecessarily added locations that don't mean anything.
+    Adds locations that aren't specifically categorized and are either random
+    events or just unnecessarily added locations that don't mean anything.
     """
 
     display_name =  "Miscellaneous Locations"
