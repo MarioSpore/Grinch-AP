@@ -81,9 +81,6 @@ access_rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.SNEAK,
         ],
         [
-            grinch_items.level_items.WV_WHO_CLOAK,
-        ],
-        [
             grinch_items.gadgets.SLIME_SHOOTER,
         ],
     ],
@@ -235,7 +232,17 @@ rules_dict: dict[str, list[list[str]]] = {
     "WV - First Visit": [[]],
     "WV - Post Office - First Visit": [[]],
     "WV - City Hall - First Visit": [[]],
-    "WV - Clock Tower - First Visit": [[]],
+    "WV - Clock Tower - First Visit": [
+        [
+            grinch_items.moves.SNEAK,
+        ],
+        [
+            grinch_items.level_items.WV_WHO_CLOAK,
+        ],
+        [
+            grinch_items.gadgets.SLIME_SHOOTER,
+        ],
+    ],
     "WF - First Visit": [[]],
     "WF - Ski Resort - First Visit": [[]],
     "WF - Civic Center - First Visit": [[]],
