@@ -756,7 +756,10 @@ class GrinchClient(BizHawkClient):
         loading_goo: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
                                                                  [(0x010094, 1, "MainRAM")]))[0], "little")
 
-        if is_game_paused == 0 and curr_health <= hp_amount and loading_goo == 1:
+        in_cutscene: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
+                                                                 [(0x01009E, 1, "MainRAM")]))[0], "little")
+
+        if is_game_paused == 0 and curr_health <= hp_amount and loading_goo == 1 and in_cutscene == 0:
             await ctx.send_death(ctx.player_names[ctx.slot] + " could not fight off the Christmas cheer...")
             await self.kill_grinch(ctx)
 
