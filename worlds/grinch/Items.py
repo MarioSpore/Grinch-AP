@@ -60,6 +60,13 @@ class grinch_items:
         PROGRESSIVE_VACUUM_TUBE: str = "Progressive Vacuum Tube"
         SLEIGH_ROOM_KEY: str = "Sleigh Room Key"
 
+    class sleigh_parts:
+        EXHAUST_PIPES: str = "Exhaust Pipes"
+        SKIS: str = "Skis"
+        TIRES: str = "Tires"
+        GPS: str = "GPS"
+        TWIN_END_TUBA: str = "Twin-End Tuba"
+
     class moves:
         PANCAKE: str = "Pancake"
         BAD_BREATH: str = "Bad Breath"
@@ -352,19 +359,54 @@ SLEIGH_TABLE: dict[str, GrinchItemData] = {
         IC.progression,
         [
             GrinchRamData(0x010200, binary_bit_pos=6),
-            GrinchRamData(0x0100AA, binary_bit_pos=5),
-#     "Exhaust Pipes": GrinchItemData(["Sleigh Parts"], 300, IC.progression_skip_balancing,
-#         [GrinchRamData(0x0101FB, binary_bit_pos=2)]),
-#     "GPS": GrinchItemData(["Sleigh Parts"], 301, IC.useful,
-#         [GrinchRamData(0x0101FB, binary_bit_pos=5)]),
-#     "Tires": GrinchItemData(["Sleigh Parts"], 302, IC.progression_skip_balancing,
-#         [GrinchRamData(0x0101FB, binary_bit_pos=4)]),
-#     "Skis": GrinchItemData(["Sleigh Parts"], 303, IC.progression_skip_balancing,
-#         [GrinchRamData(0x0101FB, binary_bit_pos=3)]),
-#     "Twin-End Tuba": GrinchItemData(["Sleigh Parts"], 304, IC.progression_skip_balancing,
-#         [GrinchRamData(0x0101FB, binary_bit_pos=6)])
-        ],
+            GrinchRamData(0x0100AA, binary_bit_pos=5)],
     ),
+    # grinch_items.sleigh_parts.EXHAUST_PIPES: GrinchItemData(
+    #     [
+    #         grinch_categories.SLEIGH_ROOM,
+    #         grinch_categories.REQUIRED_ITEM,
+    #     ],
+    #     411,
+    #     IC.progression_skip_balancing,
+    #     [
+    #         GrinchRamData(0x0101FB, binary_bit_pos=2)],
+    # ),
+    # grinch_items.sleigh_parts.GPS: GrinchItemData(
+    #     [
+    #         grinch_categories.SLEIGH_ROOM,
+    #     ],
+    #     412,
+    #     IC.filler,
+    #     [
+    #         GrinchRamData(0x0101FB, binary_bit_pos=5)],
+    # ),
+    # grinch_items.sleigh_parts.TIRES: GrinchItemData(
+    #     [
+    #         grinch_categories.SLEIGH_ROOM,
+    #     ],
+    #     413,
+    #     IC.progression_skip_balancing,
+    #     [
+    #         GrinchRamData(0x0101FB, binary_bit_pos=4)],
+    # ),
+    # grinch_items.sleigh_parts.SKIS: GrinchItemData(
+    #     [
+    #         grinch_categories.SLEIGH_ROOM,
+    #     ],
+    #     414,
+    #     IC.progression_skip_balancing,
+    #     [
+    #         GrinchRamData(0x0101FB, binary_bit_pos=3)],
+    # ),
+    # grinch_items.sleigh_parts.TWIN_END_TUBA: GrinchItemData(
+    #     [
+    #         grinch_categories.SLEIGH_ROOM,
+    #     ],
+    #     415,
+    #     IC.progression_skip_balancing,
+    #     [
+    #         GrinchRamData(0x0101FB, binary_bit_pos=6)],
+    # ),
 }
 
 # Access Keys
