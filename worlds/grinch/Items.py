@@ -118,11 +118,7 @@ GADGETS_TABLE: dict[str, GrinchItemData] = {
         100,
         IC.useful,
         [
-            GrinchRamData(0x0102B6, value=0x40),
-            GrinchRamData(0x0102B7, value=0x41),
-            GrinchRamData(0x0102B8, value=0x44),
-            GrinchRamData(0x0102B9, value=0x45),
-            # GrinchRamData(0x0100BC, binary_bit_pos=0)
+            GrinchRamData(0x0100BC, binary_bit_pos=0),
         ],
     ),
     grinch_items.gadgets.ROTTEN_EGG_LAUNCHER: GrinchItemData(
@@ -130,11 +126,7 @@ GADGETS_TABLE: dict[str, GrinchItemData] = {
         101,
         IC.progression,
         [
-            GrinchRamData(0x0102BA, value=0x40),
-            GrinchRamData(0x0102BB, value=0x41),
-            GrinchRamData(0x0102BC, value=0x44),
-            GrinchRamData(0x0102BD, value=0x45),
-            # GrinchRamData(0x0100BC, binary_bit_pos=1)
+            GrinchRamData(0x0100AC, binary_bit_pos=1)
         ],
     ),
     grinch_items.gadgets.ROCKET_SPRING: GrinchItemData(
@@ -142,16 +134,7 @@ GADGETS_TABLE: dict[str, GrinchItemData] = {
         102,
         IC.progression,
         [
-            GrinchRamData(0x0102BE, value=0x40),
-            GrinchRamData(0x0102BF, value=0x41),
-            GrinchRamData(0x0102C0, value=0x42),
-            GrinchRamData(0x0102C1, value=0x44),
-            GrinchRamData(0x0102C2, value=0x45),
-            GrinchRamData(0x0102C3, value=0x46),
-            GrinchRamData(0x0102C4, value=0x48),
-            GrinchRamData(0x0102C5, value=0x49),
-            GrinchRamData(0x0102C6, value=0x4A),
-            # GrinchRamData(0x0100BC, binary_bit_pos=2)
+            GrinchRamData(0x0100AC, binary_bit_pos=2),
         ],
     ),
     grinch_items.gadgets.SLIME_SHOOTER: GrinchItemData(
@@ -162,16 +145,7 @@ GADGETS_TABLE: dict[str, GrinchItemData] = {
         103,
         IC.progression,
         [
-            GrinchRamData(0x0102C7, value=0x40),
-            GrinchRamData(0x0102C8, value=0x41),
-            GrinchRamData(0x0102C9, value=0x42),
-            GrinchRamData(0x0102CA, value=0x44),
-            GrinchRamData(0x0102CB, value=0x45),
-            GrinchRamData(0x0102CC, value=0x46),
-            GrinchRamData(0x0102CD, value=0x48),
-            GrinchRamData(0x0102CE, value=0x49),
-            GrinchRamData(0x0102CF, value=0x4A),
-            # GrinchRamData(0x0100BC, binary_bit_pos=3)
+            GrinchRamData(0x0100AC, binary_bit_pos=0),
         ],
     ),
     grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE: GrinchItemData(
@@ -179,16 +153,7 @@ GADGETS_TABLE: dict[str, GrinchItemData] = {
         104,
         IC.progression,
         [
-            GrinchRamData(0x0102D0, value=0x40),
-            GrinchRamData(0x0102D1, value=0x41),
-            GrinchRamData(0x0102D2, value=0x42),
-            GrinchRamData(0x0102D3, value=0x44),
-            GrinchRamData(0x0102D4, value=0x45),
-            GrinchRamData(0x0102D5, value=0x46),
-            GrinchRamData(0x0102D6, value=0x48),
-            GrinchRamData(0x0102D7, value=0x49),
-            GrinchRamData(0x0102D8, value=0x4A),
-            # GrinchRamData(0x0100BC, binary_bit_pos=4)
+            GrinchRamData(0x0100AC, binary_bit_pos=3),
         ],
     ),
     grinch_items.gadgets.MARINE_MOBILE: GrinchItemData(
@@ -196,23 +161,7 @@ GADGETS_TABLE: dict[str, GrinchItemData] = {
         105,
         IC.progression,
         [
-            GrinchRamData(0x0102D9, value=0x40),
-            GrinchRamData(0x0102DA, value=0x41),
-            GrinchRamData(0x0102DB, value=0x42),
-            GrinchRamData(0x0102DC, value=0x43),
-            GrinchRamData(0x0102DD, value=0x44),
-            GrinchRamData(0x0102DE, value=0x45),
-            GrinchRamData(0x0102DF, value=0x46),
-            GrinchRamData(0x0102E0, value=0x47),
-            GrinchRamData(0x0102E1, value=0x48),
-            GrinchRamData(0x0102E2, value=0x49),
-            GrinchRamData(0x0102E3, value=0x4A),
-            GrinchRamData(0x0102E4, value=0x4B),
-            GrinchRamData(0x0102E5, value=0x4C),
-            GrinchRamData(0x0102E6, value=0x4D),
-            GrinchRamData(0x0102E7, value=0x4E),
-            GrinchRamData(0x0102E8, value=0x4F),
-            # GrinchRamData(0x0100BC, binary_bit_pos=5)
+            GrinchRamData(0x0100BC, binary_bit_pos=5)
         ],
     ),
     grinch_items.gadgets.GRINCH_COPTER: GrinchItemData(
@@ -220,23 +169,7 @@ GADGETS_TABLE: dict[str, GrinchItemData] = {
         106,
         IC.progression,
         [
-            GrinchRamData(0x0102E9, value=0x40),
-            GrinchRamData(0x0102EA, value=0x41),
-            GrinchRamData(0x0102EB, value=0x42),
-            GrinchRamData(0x0102EC, value=0x43),
-            GrinchRamData(0x0102ED, value=0x44),
-            GrinchRamData(0x0102EE, value=0x45),
-            GrinchRamData(0x0102EF, value=0x46),
-            GrinchRamData(0x0102F0, value=0x47),
-            GrinchRamData(0x0102F1, value=0x48),
-            GrinchRamData(0x0102F2, value=0x49),
-            GrinchRamData(0x0102F3, value=0x4A),
-            GrinchRamData(0x0102F4, value=0x4B),
-            GrinchRamData(0x0102F5, value=0x4C),
-            GrinchRamData(0x0102F6, value=0x4D),
-            GrinchRamData(0x0102F7, value=0x4E),
-            GrinchRamData(0x0102F8, value=0x4F),
-            # GrinchRamData(0x0100BC, binary_bit_pos=6)
+            GrinchRamData(0x0100AC, binary_bit_pos=4),
         ],
     ),
 }

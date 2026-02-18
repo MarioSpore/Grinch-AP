@@ -2928,41 +2928,47 @@ grinch_locations = {
         2303,
         [GrinchRamData(0x010000, value=0x16)],
     ),
-    "MC - Unlock the Rotten Egg Launcher": GrinchLocationData(
+    "MC - Solve Puzzle for Rotten Egg Launcher": GrinchLocationData(
         "Mount Crumpit",
         ["Mount Crumpit", "Puzzlesanity", "Miscellaneous"],
         2400,
         [GrinchRamData(0x0100BC, binary_bit_pos=1)],
     ),
-    "MC - Unlock the Rocket Spring": GrinchLocationData(
+    "MC - Solve Puzzle for Rocket Spring": GrinchLocationData(
         "Mount Crumpit",
         ["Mount Crumpit", "Puzzlesanity", "Miscellaneous"],
         2401,
         [GrinchRamData(0x0100BC, binary_bit_pos=2)],
     ),
-    "MC - Unlock the Slime Shooter": GrinchLocationData(
+    "MC - Solve Puzzle for Slime Shooter": GrinchLocationData(
         "Mount Crumpit",
         ["Mount Crumpit", "Puzzlesanity", "Miscellaneous"],
         2402,
         [GrinchRamData(0x0100BC, binary_bit_pos=3)],
     ),
-    "MC - Unlock the Octopus Climbing Device": GrinchLocationData(
+    "MC - Solve Puzzle for Octopus Climbing Device": GrinchLocationData(
         "Mount Crumpit",
         ["Mount Crumpit", "Puzzlesanity", "Miscellaneous"],
         2403,
         [GrinchRamData(0x0100BC, binary_bit_pos=4)],
     ),
-    "MC - Unlock the Marine Mobile": GrinchLocationData(
+    "MC - Solve Puzzle for Marine Mobile": GrinchLocationData(
         "Mount Crumpit",
         ["Mount Crumpit", "Puzzlesanity", "Miscellaneous"],
         2404,
         [GrinchRamData(0x0100BC, binary_bit_pos=5)],
     ),
-    "MC - Unlock the Grinch Copter": GrinchLocationData(
+    "MC - Solve Puzzle for Grinch Copter": GrinchLocationData(
         "Mount Crumpit",
         ["Mount Crumpit", "Puzzlesanity", "Miscellaneous"],
         2405,
         [GrinchRamData(0x0100BC, binary_bit_pos=6)],
+    ),
+        "MC - Solve Puzzle for Binoculars": GrinchLocationData(
+        "Mount Crumpit",
+        ["Mount Crumpit", "Puzzlesanity", "Miscellaneous"],
+        2406,
+        [GrinchRamData(0x0100BC, binary_bit_pos=0)],
     ),
     "WL - North Shore - Squash the Groundhog 1 time": GrinchLocationData(
         "North Shore",

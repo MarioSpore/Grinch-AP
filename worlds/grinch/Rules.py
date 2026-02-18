@@ -2574,34 +2574,98 @@ rules_dict: dict[str, list[list[str]]] = {
     "WL - South Shore - Touch Grass": [[]],
     "WL - North Shore - Touch Grass": [[]],
     "WL - Mayor's Villa - Touch Grass": [[]],
-    "MC - Unlock the Rotten Egg Launcher": [
+    "MC - Solve Puzzle for Rotten Egg Launcher": [
+        [
+            grinch_items.level_items.WV_WHO_CLOAK,
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "MC - Solve Puzzle for Rocket Spring": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
         ],
-    ],
-    "MC - Unlock the Rocket Spring": [
         [
+            grinch_items.gadgets.GRINCH_COPTER,
+        ],
+    ],
+    "MC - Solve Puzzle for Slime Shooter": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "MC - Solve Puzzle for Octopus Climbing Device": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.SEIZE,
+            grinch_items.gadgets.SLIME_SHOOTER,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.SEIZE,
+        ],
+    ],
+    "MC - Solve Puzzle for Marine Mobile": [
+        [
+            grinch_items.level_items.WL_SCOUT_CLOTHES,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.MAX,
+            grinch_items.moves.SNEAK,
+        ],
+        [
+            grinch_items.level_items.WL_SCOUT_CLOTHES,
+            grinch_items.moves.SEIZE,
+            grinch_items.moves.MAX,
+            grinch_items.moves.SNEAK,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
             grinch_items.gadgets.ROCKET_SPRING,
         ],
     ],
-    "MC - Unlock the Slime Shooter": [
+    "MC - Solve Puzzle for Grinch Copter": [
         [
+            grinch_items.level_items.WV_WHO_CLOAK,
+            grinch_items.level_items.WL_SCOUT_CLOTHES,
+            grinch_items.moves.MAX,
+            grinch_items.moves.SEIZE,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.level_items.WF_CABLE_CAR_ACCESS_CARD,
+            grinch_items.gadgets.MARINE_MOBILE,
+            grinch_items.moves.BAD_BREATH,
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.PANCAKE,
             grinch_items.gadgets.SLIME_SHOOTER,
-        ],
-    ],
-    "MC - Unlock the Octopus Climbing Device": [
-        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
         ],
-    ],
-    "MC - Unlock the Marine Mobile": [
         [
+            grinch_items.level_items.WV_WHO_CLOAK,
+            grinch_items.level_items.WL_SCOUT_CLOTHES,
+            grinch_items.moves.MAX,
+            grinch_items.moves.SEIZE,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.level_items.WF_CABLE_CAR_ACCESS_CARD,
             grinch_items.gadgets.MARINE_MOBILE,
-        ],
-    ],
-    "MC - Unlock the Grinch Copter": [
-        [
+            grinch_items.moves.BAD_BREATH,
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.PANCAKE,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.GRINCH_COPTER,
+        ]
+    ],
+    "MC - Solve Puzzle for Binoculars": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.moves.SEIZE,
         ],
     ],
     "WL - North Shore - Squash the Groundhog 1 time": [
