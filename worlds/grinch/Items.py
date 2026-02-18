@@ -452,15 +452,15 @@ MISC_ITEMS_TABLE: dict[str, GrinchItemData] = {
             )
         ],
     ),
-    "Present": GrinchItemData(
-        [
-            grinch_categories.FILLER,
-        ],
-        505,
-        IC.filler,
-        [
-        ],
-    ),
+    # "Present": GrinchItemData(
+    #     [
+    #         grinch_categories.FILLER,
+    #     ],
+    #     505,
+    #     IC.filler,
+    #     [
+    #     ],
+    # ),
 }
 
 USEFUL_ITEMS_TABLE: dict[str, GrinchItemData] = {
