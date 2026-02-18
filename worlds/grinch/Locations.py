@@ -1287,37 +1287,37 @@ grinch_locations = {
     #         GrinchRamData(0x010000, value=0x18),
     #         GrinchRamData(0x134CA5, min_count=1, max_count=4)]),
     # Sleigh Part Locations
-    "WV - Exhaust Pipes": GrinchLocationData(
-        "Whoville",
-        ["Sleigh Ride", "Whoville"],
-        1600,
-        [
-            GrinchRamData(0x0101FB, binary_bit_pos=2)],
-    ),
-    "WF - Skis": GrinchLocationData(
-        "Who Forest",
-        ["Sleigh Ride", "Who Forest"],
-        1601,
-        [GrinchRamData(0x0101FB, binary_bit_pos=3)],
-    ),
-    "WD - Tires": GrinchLocationData(
-        "Who Dump",
-        ["Sleigh Ride", "Who Dump"],
-        1602,
-        [GrinchRamData(0x0101FB, binary_bit_pos=4)],
-    ),
-    "WL - Submarine World - Twin-End Tuba": GrinchLocationData(
-        "Submarine World",
-        ["Sleigh Ride", "Who Lake", "South Shore"],
-        1603,
-        [GrinchRamData(0x0101FB, binary_bit_pos=6)],
-    ),
-    "WL - South Shore - GPS": GrinchLocationData(
-        "Who Lake",
-        ["Sleigh Ride", "Who Lake", "Submarine World"],
-        1604,
-        [GrinchRamData(0x0101FB, binary_bit_pos=5)],
-    ),
+    # "WV - Exhaust Pipes": GrinchLocationData(
+    #     "Whoville",
+    #     ["Sleigh Ride", "Whoville"],
+    #     1600,
+    #     [
+    #         GrinchRamData(0x0101FB, binary_bit_pos=2)],
+    # ),
+    # "WF - Skis": GrinchLocationData(
+    #     "Who Forest",
+    #     ["Sleigh Ride", "Who Forest"],
+    #     1601,
+    #     [GrinchRamData(0x0101FB, binary_bit_pos=3)],
+    # ),
+    # "WD - Tires": GrinchLocationData(
+    #     "Who Dump",
+    #     ["Sleigh Ride", "Who Dump"],
+    #     1602,
+    #     [GrinchRamData(0x0101FB, binary_bit_pos=4)],
+    # ),
+    # "WL - Submarine World - Twin-End Tuba": GrinchLocationData(
+    #     "Submarine World",
+    #     ["Sleigh Ride", "Who Lake", "South Shore"],
+    #     1603,
+    #     [GrinchRamData(0x0101FB, binary_bit_pos=6)],
+    # ),
+    # "WL - South Shore - GPS": GrinchLocationData(
+    #     "Who Lake",
+    #     ["Sleigh Ride", "Who Lake", "Submarine World"],
+    #     1604,
+    #     [GrinchRamData(0x0101FB, binary_bit_pos=5)],
+    # ),
     # Mount Crumpit Locations
     "MC - 1st Crate Squashed": GrinchLocationData(
         "Mount Crumpit",

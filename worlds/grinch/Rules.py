@@ -1105,48 +1105,54 @@ rules_dict: dict[str, list[list[str]]] = {
         ],
     ],
     # Finale
-    "WV - Exhaust Pipes": [
-        [
-            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-            grinch_items.keys.SLEIGH_ROOM_KEY,
-        ],
-    ],
-    "WF - Skis": [
-        [
-            grinch_items.keys.SLEIGH_ROOM_KEY,
-            grinch_items.moves.MAX,
-        ],
-    ],
-    "WD - Tires": [
-        [
-            grinch_items.gadgets.ROCKET_SPRING,
-            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-            grinch_items.keys.SLEIGH_ROOM_KEY,
-            grinch_items.moves.SEIZE,
-            grinch_items.moves.PANCAKE,
-        ],
-    ],
-    "WL - Submarine World - Twin-End Tuba": [
-        [
-            grinch_items.gadgets.MARINE_MOBILE,
-            grinch_items.keys.SLEIGH_ROOM_KEY,
-        ],
-    ],
-    "WL - South Shore - GPS": [
-        [
-            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-            grinch_items.keys.SLEIGH_ROOM_KEY,
-            grinch_items.moves.SNEAK,
-        ],
-    ],
+    # "WV - Exhaust Pipes": [
+    #     [
+    #         grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+    #         grinch_items.keys.SLEIGH_ROOM_KEY,
+    #     ],
+    # ],
+    # "WF - Skis": [
+    #     [
+    #         grinch_items.keys.SLEIGH_ROOM_KEY,
+    #         grinch_items.moves.MAX,
+    #     ],
+    # ],
+    # "WD - Tires": [
+    #     [
+    #         grinch_items.gadgets.ROCKET_SPRING,
+    #         grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+    #         grinch_items.keys.SLEIGH_ROOM_KEY,
+    #         grinch_items.moves.SEIZE,
+    #         grinch_items.moves.PANCAKE,
+    #     ],
+    # ],
+    # "WL - Submarine World - Twin-End Tuba": [
+    #     [
+    #         grinch_items.gadgets.MARINE_MOBILE,
+    #         grinch_items.keys.SLEIGH_ROOM_KEY,
+    #     ],
+    # ],
+    # "WL - South Shore - GPS": [
+    #     [
+    #         grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+    #         grinch_items.keys.SLEIGH_ROOM_KEY,
+    #         grinch_items.moves.SNEAK,
+    #     ],
+    # ],
     "MC - Sleigh Ride - Stealing All Gifts": [
-        # ["Exhaust Pipes", "Tires", "Skis", "Twin-End Tuba"]
         [
+            grinch_items.sleigh_parts.EXHAUST_PIPES,
+            grinch_items.sleigh_parts.TWIN_END_TUBA,
+            grinch_items.sleigh_parts.SKIS,
+            grinch_items.sleigh_parts.TIRES,
         ],
     ],
     "MC - Sleigh Ride - Neutralizing Santa": [
-        # ["Exhaust Pipes", "Tires", "Skis", "Twin-End Tuba"]
         [
+            grinch_items.sleigh_parts.EXHAUST_PIPES,
+            grinch_items.sleigh_parts.TWIN_END_TUBA,
+            grinch_items.sleigh_parts.SKIS,
+            grinch_items.sleigh_parts.TIRES,
         ],
     ],
     # Hearts of Stone
