@@ -342,7 +342,7 @@ SLEIGH_TABLE: dict[str, GrinchItemData] = {
     grinch_items.sleigh_parts.GPS: GrinchItemData(
         [
             grinch_categories.SLEIGH_ROOM,
-            grinch_categories.FILLER_IC,
+            grinch_categories.FILLER,
         ],
         412,
         IC.filler,
