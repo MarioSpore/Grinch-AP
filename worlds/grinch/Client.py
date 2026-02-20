@@ -772,6 +772,18 @@ class GrinchClient(BizHawkClient):
         if not curr_region_data.allow_deathlink:
             return
 
+        is_game_paused: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
+                                                                 [(0x0952A5, 1, "MainRAM")]))[0], "little")
+
+        loading_goo: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
+                                                                 [(0x010094, 1, "MainRAM")]))[0], "little")
+
+        in_cutscene: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
+                                                                 [(0x01009E, 1, "MainRAM")]))[0], "little")
+
+        if is_game_paused == 1 or loading_goo == 0 or in_cutscene > 0:
+            return
+
         # Update the Health Address to X amount and DeathLink Trigger to 0
         self.is_grinch_dead = True
         await bizhawk.write(
