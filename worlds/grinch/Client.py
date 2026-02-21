@@ -781,7 +781,7 @@ class GrinchClient(BizHawkClient):
         in_cutscene: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
                                                                  [(0x01009E, 1, "MainRAM")]))[0], "little")
 
-        if is_game_paused == 1 or loading_goo == 0 or in_cutscene > 0:
+        if is_game_paused > 1 or loading_goo == 0 or in_cutscene > 0:
             return
 
         # Update the Health Address to X amount and DeathLink Trigger to 0
@@ -809,7 +809,10 @@ class GrinchClient(BizHawkClient):
         loading_goo: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
             [(0x010094, 1, "MainRAM")]))[0], "little")
 
-        while is_dying > 0 or is_game_paused > 0 or loading_goo == 1:
+        in_cutscene: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
+            [(0x01009E, 1, "MainRAM")]))[0], "little")
+
+        while is_dying > 0 or is_game_paused > 0 or loading_goo == 0 or in_cutscene > 0:
             await asyncio.sleep(3.0)
             is_dying: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
                 [(0x0100A1, 1, "MainRAM")]))[0], "little")
@@ -817,6 +820,8 @@ class GrinchClient(BizHawkClient):
                 [(0x0952A5, 1, "MainRAM")]))[0], "little")
             loading_goo: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
                 [(0x010094, 1, "MainRAM")]))[0], "little")
+            in_cutscene: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
+                [(0x01009E, 1, "MainRAM")]))[0], "little")
         self.is_grinch_dead = False
 
 def _cmd_ringlink(self):
