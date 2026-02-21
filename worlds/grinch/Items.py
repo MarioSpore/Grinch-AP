@@ -134,7 +134,8 @@ GADGETS_TABLE: dict[str, GrinchItemData] = {
         101,
         IC.progression,
         [
-            GrinchRamData(0x0100AC, binary_bit_pos=1)
+            GrinchRamData(0x0100AC, binary_bit_pos=1),
+            GrinchRamData(0x0100BC, binary_bit_pos=1),
         ],
     ),
     grinch_items.gadgets.ROCKET_SPRING: GrinchItemData(
@@ -146,6 +147,7 @@ GADGETS_TABLE: dict[str, GrinchItemData] = {
         IC.progression,
         [
             GrinchRamData(0x0100AC, binary_bit_pos=2),
+            GrinchRamData(0x0100BC, binary_bit_pos=2),
         ],
     ),
     grinch_items.gadgets.SLIME_SHOOTER: GrinchItemData(
@@ -158,6 +160,7 @@ GADGETS_TABLE: dict[str, GrinchItemData] = {
         IC.progression,
         [
             GrinchRamData(0x0100AC, binary_bit_pos=0),
+            GrinchRamData(0x0100BC, binary_bit_pos=3),
         ],
     ),
     grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE: GrinchItemData(
@@ -169,6 +172,7 @@ GADGETS_TABLE: dict[str, GrinchItemData] = {
         IC.progression,
         [
             GrinchRamData(0x0100AC, binary_bit_pos=3),
+            GrinchRamData(0x0100BC, binary_bit_pos=4),
         ],
     ),
     grinch_items.gadgets.MARINE_MOBILE: GrinchItemData(
@@ -179,7 +183,7 @@ GADGETS_TABLE: dict[str, GrinchItemData] = {
         105,
         IC.progression,
         [
-            GrinchRamData(0x0100BC, binary_bit_pos=5)
+            GrinchRamData(0x0100BC, binary_bit_pos=5),
         ],
     ),
     grinch_items.gadgets.GRINCH_COPTER: GrinchItemData(
@@ -191,6 +195,7 @@ GADGETS_TABLE: dict[str, GrinchItemData] = {
         IC.progression,
         [
             GrinchRamData(0x0100AC, binary_bit_pos=4),
+            GrinchRamData(0x0100BC, binary_bit_pos=6),
         ],
     ),
 }
