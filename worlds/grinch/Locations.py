@@ -2974,61 +2974,91 @@ grinch_locations = {
         "North Shore",
         ["Who Lake", "North Shore", "Killsanity", "Miscellaneous"],
         2500,
-        [GrinchRamData(0x095347, binary_bit_pos=0)],
+        [
+            GrinchRamData(0x095347, binary_bit_pos=0),
+            GrinchRamData(0x010000, value=0x14),
+         ],
     ),
     "WL - North Shore - Squash the Groundhog 2 times": GrinchLocationData(
         "North Shore",
         ["Who Lake", "North Shore", "Killsanity", "Miscellaneous"],
         2501,
-        [GrinchRamData(0x095347, binary_bit_pos=1)],
+        [
+            GrinchRamData(0x095347, binary_bit_pos=1),
+            GrinchRamData(0x010000, value=0x14),
+        ],
     ),
     "WL - North Shore - Squash the Groundhog 3 times": GrinchLocationData(
         "North Shore",
         ["Who Lake", "North Shore", "Killsanity", "Miscellaneous"],
         2502,
-        [GrinchRamData(0x095347, binary_bit_pos=2)],
+        [
+            GrinchRamData(0x095347, binary_bit_pos=2),
+            GrinchRamData(0x010000, value=0x14),
+            ],
     ),
     "WL - North Shore - Squash the Groundhog 4 times": GrinchLocationData(
         "North Shore",
         ["Who Lake", "North Shore", "Killsanity", "Miscellaneous"],
         2503,
-        [GrinchRamData(0x095347, binary_bit_pos=3)],
+        [
+            GrinchRamData(0x095347, binary_bit_pos=3),
+            GrinchRamData(0x010000, value=0x14),
+        ],
     ),
     "WL - North Shore - Squash the Groundhog 5 times": GrinchLocationData(
         "North Shore",
         ["Who Lake", "North Shore", "Killsanity", "Miscellaneous"],
         2504,
-        [GrinchRamData(0x095347, binary_bit_pos=4)],
+        [
+            GrinchRamData(0x095347, binary_bit_pos=4),
+            GrinchRamData(0x010000, value=0x14),
+        ],
     ),
     "WL - North Shore - Squash the Groundhog 6 times": GrinchLocationData(
         "North Shore",
         ["Who Lake", "North Shore", "Killsanity", "Miscellaneous"],
         2505,
-        [GrinchRamData(0x095347, binary_bit_pos=5)],
+        [
+            GrinchRamData(0x095347, binary_bit_pos=5),
+            GrinchRamData(0x010000, value=0x14),
+        ],
     ),
     "WL - North Shore - Squash the Groundhog 7 times": GrinchLocationData(
         "North Shore",
         ["Who Lake", "North Shore", "Killsanity", "Miscellaneous"],
         2506,
-        [GrinchRamData(0x095347, binary_bit_pos=6)],
+        [
+            GrinchRamData(0x095347, binary_bit_pos=6),
+            GrinchRamData(0x010000, value=0x14),
+        ],
     ),
     "WL - North Shore - Squash the Groundhog 8 times": GrinchLocationData(
         "North Shore",
         ["Who Lake", "North Shore", "Killsanity", "Miscellaneous"],
         2507,
-        [GrinchRamData(0x095347, binary_bit_pos=7)],
+        [
+            GrinchRamData(0x095347, binary_bit_pos=7),
+            GrinchRamData(0x010000, value=0x14),
+        ],
     ),
     "WL - North Shore - Squash the Groundhog 9 times": GrinchLocationData(
         "North Shore",
         ["Who Lake", "North Shore", "Killsanity", "Miscellaneous"],
         2508,
-        [GrinchRamData(0x095348, binary_bit_pos=0)],
+        [
+            GrinchRamData(0x095348, binary_bit_pos=0),
+            GrinchRamData(0x010000, value=0x14),
+        ],
     ),
     "WL - North Shore - Squash the Groundhog 10 times": GrinchLocationData(
         "North Shore",
         ["Who Lake", "North Shore", "Killsanity", "Miscellaneous"],
         2509,
-        [GrinchRamData(0x095348, binary_bit_pos=1)],
+        [
+            GrinchRamData(0x095348, binary_bit_pos=1),
+            GrinchRamData(0x010000, value=0x14),
+        ],
     ),
     "WD - Shoot Down North West Platform": GrinchLocationData(
         "Who Dump",
