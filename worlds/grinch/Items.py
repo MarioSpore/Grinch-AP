@@ -331,7 +331,8 @@ SLEIGH_TABLE: dict[str, GrinchItemData] = {
         IC.progression,
         [
             GrinchRamData(0x010200, binary_bit_pos=6),
-            GrinchRamData(0x0100AA, binary_bit_pos=5)],
+            # GrinchRamData(0x0100AA, binary_bit_pos=5), # Minigame trigger commented out due to sleigh parts being randomized
+        ],
     ),
     grinch_items.sleigh_parts.EXHAUST_PIPES: GrinchItemData(
         [
