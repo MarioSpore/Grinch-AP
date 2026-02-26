@@ -261,7 +261,7 @@ class UnlimitedEggs(Toggle):
     """
     Determine if you run out of rotten eggs when you utilize your gadgets.
     NOTE: Attempting to enable this with ringlink will force generation to stop
-    until either option is enabled.
+    until either option is disabled.
     """
 
     display_name = "Unlimited Rotten Eggs"
