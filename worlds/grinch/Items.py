@@ -104,7 +104,7 @@ class grinch_categories:
     MOVES: str = "Moves"
     REQUIRED_ITEM: str = "Required Items"
     ROTTEN_EGG_BUNDLES: str = "Rotten Egg Bundles"
-    SLEIGH_ROOM: str = "Sleigh Room"
+    SLEIGH_ROOM: str = "Sleigh Room Items"
     TRAPS: str = "Traps"
     USEFUL_ITEMS: str = "Useful Items"
     USEFUL_IC: str = "Useful"
