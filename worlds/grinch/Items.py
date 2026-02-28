@@ -328,7 +328,7 @@ SLEIGH_TABLE: dict[str, GrinchItemData] = {
             grinch_categories.PROGRESSION_IC,
         ],
         410,
-        IC.progression,
+        IC.progression_skip_balancing,
         [
             GrinchRamData(0x010200, binary_bit_pos=6),
             GrinchRamData(0x0100AA, binary_bit_pos=5),
