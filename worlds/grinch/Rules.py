@@ -1818,6 +1818,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.PANCAKE,
+            grinch_items.moves.SEIZE,
         ],
     ],
     "WD - Feeding The Computer With Robot Parts - Right area near robot parts vacuum": [
