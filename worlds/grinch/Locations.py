@@ -1455,7 +1455,7 @@ grinch_locations = {
             GrinchRamData(0x0100BB, binary_bit_pos=1),
         ],
     ),
-    "WV - Squashing Snowmen - Next to Vacuum Tube": GrinchLocationData(
+    "WV - Smashing Snowmen - Next to Vacuum Tube": GrinchLocationData(
         "Whoville",
         ["Whoville's Missions", "Missionsanity", "Whoville"],
         1900,
@@ -1463,7 +1463,7 @@ grinch_locations = {
             GrinchRamData(0x01020C, binary_bit_pos=0),
         ],
     ),
-    "WV - Squashing Snowmen - Left Side of Post Office": GrinchLocationData(
+    "WV - Smashing Snowmen - Left Side of Post Office": GrinchLocationData(
         "Whoville",
         ["Whoville's Missions", "Missionsanity", "Whoville"],
         1901,
@@ -1471,7 +1471,7 @@ grinch_locations = {
             GrinchRamData(0x01020C, binary_bit_pos=1),
         ],
     ),
-    "WV - Squashing Snowmen - Right Side of Clock Tower": GrinchLocationData(
+    "WV - Smashing Snowmen - Right Side of Clock Tower": GrinchLocationData(
         "Whoville",
         ["Whoville's Missions", "Missionsanity", "Whoville"],
         1902,
@@ -1479,7 +1479,7 @@ grinch_locations = {
             GrinchRamData(0x01020C, binary_bit_pos=2),
         ],
     ),
-    "WV - Squashing Snowmen - Left Side of Clock Tower": GrinchLocationData(
+    "WV - Smashing Snowmen - Left Side of Clock Tower": GrinchLocationData(
         "Whoville",
         ["Whoville's Missions", "Missionsanity", "Whoville"],
         1903,
@@ -1487,7 +1487,7 @@ grinch_locations = {
             GrinchRamData(0x01020C, binary_bit_pos=3),
         ],
     ),
-    "WV - Squashing Snowmen - Between Christmas Tree and Orange Round Building": GrinchLocationData(
+    "WV - Smashing Snowmen - Between Christmas Tree and Orange Round Building": GrinchLocationData(
         "Whoville",
         ["Whoville's Missions", "Missionsanity", "Whoville"],
         1904,
@@ -1495,7 +1495,7 @@ grinch_locations = {
             GrinchRamData(0x01020C, binary_bit_pos=4),
         ],
     ),
-    "WV - Squashing Snowmen - East of Christmas Tree on Platform": GrinchLocationData(
+    "WV - Smashing Snowmen - East of Christmas Tree on Platform": GrinchLocationData(
         "Whoville",
         ["Whoville's Missions", "Missionsanity", "Whoville"],
         1905,
@@ -1503,7 +1503,7 @@ grinch_locations = {
             GrinchRamData(0x01020C, binary_bit_pos=5),
         ],
     ),
-    "WV - Squashing Snowmen - Near Vacuum Tube on Blue Platform near Orange Bridge": GrinchLocationData(
+    "WV - Smashing Snowmen - Near Vacuum Tube on Blue Platform near Orange Bridge": GrinchLocationData(
         "Whoville",
         ["Whoville's Missions", "Missionsanity", "Whoville"],
         1906,
@@ -1511,7 +1511,7 @@ grinch_locations = {
             GrinchRamData(0x01020C, binary_bit_pos=6),
         ],
     ),
-    "WV - Squashing Snowmen - Left side of City Hall": GrinchLocationData(
+    "WV - Smashing Snowmen - Left side of City Hall": GrinchLocationData(
         "Whoville",
         ["Whoville's Missions", "Missionsanity", "Whoville"],
         1907,
@@ -1519,7 +1519,7 @@ grinch_locations = {
             GrinchRamData(0x01020C, binary_bit_pos=7),
         ],
     ),
-    "WV - Squashing Snowmen - South of Christmas Tree": GrinchLocationData(
+    "WV - Smashing Snowmen - South of Christmas Tree": GrinchLocationData(
         "Whoville",
         ["Whoville's Missions", "Missionsanity", "Whoville"],
         1908,
@@ -1527,7 +1527,7 @@ grinch_locations = {
             GrinchRamData(0x01020B, binary_bit_pos=6),
         ],
     ),
-    "WV - Squashing Snowmen - Right side of City Hall around the back": GrinchLocationData(
+    "WV - Smashing Snowmen - Right side of City Hall around the back": GrinchLocationData(
         "Whoville",
         ["Whoville's Missions", "Missionsanity", "Whoville"],
         1910,
