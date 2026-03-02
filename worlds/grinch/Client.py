@@ -781,7 +781,7 @@ class GrinchClient(BizHawkClient):
         in_cutscene: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
                                                                  [(0x01009E, 1, "MainRAM")]))[0], "little")
 
-        if is_game_paused > 1 or loading_goo == 0 or in_cutscene > 0:
+        if is_game_paused > 0 or loading_goo == 0 or in_cutscene > 0:
             return
 
         # Update the Health Address to X amount and DeathLink Trigger to 0
