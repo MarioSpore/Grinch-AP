@@ -1228,52 +1228,52 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.BAD_BREATH,
         ],
     ],
-    "WV - Squashing Snowmen - Next to Vacuum Tube": [
+    "WV - Smashing Snowmen - Next to Vacuum Tube": [
         [
             grinch_items.moves.PANCAKE,
         ],
     ],
-    "WV - Squashing Snowmen - Left Side of Post Office": [
+    "WV - Smashing Snowmen - Left Side of Post Office": [
         [
             grinch_items.moves.PANCAKE,
         ],
     ],
-    "WV - Squashing Snowmen - Right Side of Clock Tower": [
+    "WV - Smashing Snowmen - Right Side of Clock Tower": [
         [
             grinch_items.moves.PANCAKE,
         ],
     ],
-    "WV - Squashing Snowmen - Left Side of Clock Tower": [
+    "WV - Smashing Snowmen - Left Side of Clock Tower": [
         [
             grinch_items.moves.PANCAKE,
         ],
     ],
-    "WV - Squashing Snowmen - Between Christmas Tree and Orange Round Building": [
+    "WV - Smashing Snowmen - Between Christmas Tree and Orange Round Building": [
         [
             grinch_items.moves.PANCAKE,
         ],
     ],
-    "WV - Squashing Snowmen - East of Christmas Tree on Platform": [
+    "WV - Smashing Snowmen - East of Christmas Tree on Platform": [
         [
             grinch_items.moves.PANCAKE,
         ],
     ],
-    "WV - Squashing Snowmen - Near Vacuum Tube on Blue Platform near Orange Bridge": [
+    "WV - Smashing Snowmen - Near Vacuum Tube on Blue Platform near Orange Bridge": [
         [
             grinch_items.moves.PANCAKE,
         ],
     ],
-    "WV - Squashing Snowmen - Left side of City Hall": [
+    "WV - Smashing Snowmen - Left side of City Hall": [
         [
             grinch_items.moves.PANCAKE,
         ],
     ],
-    "WV - Squashing Snowmen - South of Christmas Tree": [
+    "WV - Smashing Snowmen - South of Christmas Tree": [
         [
             grinch_items.moves.PANCAKE,
         ],
     ],
-    "WV - Squashing Snowmen - Right side of City Hall around the back": [
+    "WV - Smashing Snowmen - Right side of City Hall around the back": [
         [
             grinch_items.moves.PANCAKE,
         ],
