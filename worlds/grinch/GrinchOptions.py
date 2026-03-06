@@ -356,6 +356,13 @@ class DamageRate(Range):
     visibility = Visibility.none
 
 
+class MusicRando(Toggle):
+    """
+    Randomizes all music in the game
+    """
+    display_name = "Music Rando"
+
+
 @dataclass
 class GrinchOptions(DeathLinkMixin, PerGameCommonOptions):
     progressive_vacuums: ProgressiveVacuums
@@ -384,6 +391,7 @@ class GrinchOptions(DeathLinkMixin, PerGameCommonOptions):
     goal: Goal
     missions_completed: MissionsCompleted
     include_gift_squash: MissionCompletedIncludeGiftSquash
+    music_rando: MusicRando
 
 
 grinch_option_groups: list[OptionGroup] = [
@@ -416,6 +424,7 @@ grinch_option_groups: list[OptionGroup] = [
     OptionGroup("In-Game Tweaks", [
         UnlimitedEggs,
         DamageRate,
+        MusicRando,
     ]),
     OptionGroup("Filler/Trap Settings", [
         FillerWeight,
