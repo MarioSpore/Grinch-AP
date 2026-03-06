@@ -93,7 +93,7 @@ class GrinchWorld(World):
             "Scout's Hut",
             "North Shore",
             "Mayor's Villa",
-            # "Submarine World",
+            "Submarine World",
         }
 
         for location, data in grinch_locations.items():
