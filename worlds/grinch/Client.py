@@ -750,16 +750,13 @@ class GrinchClient(BizHawkClient):
                                                               [(curr_region_data.map_table_addr + HEALTH_REGION_OFFSET,
                                                                 1, "MainRAM")]))[0], "little")
 
-        is_game_paused: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
-                                                                 [(0x0952A5, 1, "MainRAM")]))[0], "little")
-
         loading_goo: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
                                                                  [(0x010094, 1, "MainRAM")]))[0], "little")
 
         in_cutscene: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
                                                                  [(0x01009E, 1, "MainRAM")]))[0], "little")
 
-        if is_game_paused == 0 and curr_health <= hp_amount and loading_goo == 1 and in_cutscene < 8:
+        if not await self.paused_state(ctx) and curr_health <= hp_amount and loading_goo == 1 and in_cutscene < 8:
             await ctx.send_death(ctx.player_names[ctx.slot] + " could not fight off the Christmas cheer...")
             await self.kill_grinch(ctx)
 
@@ -772,16 +769,7 @@ class GrinchClient(BizHawkClient):
         if not curr_region_data.allow_deathlink:
             return
 
-        is_game_paused: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
-                                                                 [(0x0952A5, 1, "MainRAM")]))[0], "little")
-
-        loading_goo: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
-                                                                 [(0x010094, 1, "MainRAM")]))[0], "little")
-
-        in_cutscene: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
-                                                                 [(0x01009E, 1, "MainRAM")]))[0], "little")
-
-        if is_game_paused > 0 or loading_goo == 0 or in_cutscene > 0:
+        if await self.paused_state(ctx) or await self.loading_state(ctx):
             return
 
         # Update the Health Address to X amount and DeathLink Trigger to 0
@@ -803,26 +791,27 @@ class GrinchClient(BizHawkClient):
         is_dying: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
             [(0x0100A1, 1, "MainRAM")]))[0], "little")
 
-        is_game_paused: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
-            [(0x0952A5, 1, "MainRAM")]))[0], "little")
-
-        loading_goo: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
-            [(0x010094, 1, "MainRAM")]))[0], "little")
-
-        in_cutscene: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
-            [(0x01009E, 1, "MainRAM")]))[0], "little")
-
-        while is_dying > 0 or is_game_paused > 0 or loading_goo == 0 or in_cutscene > 0:
+        while is_dying > 0 or await self.paused_state(ctx) or await self.loading_state(ctx):
             await asyncio.sleep(3.0)
             is_dying: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
                 [(0x0100A1, 1, "MainRAM")]))[0], "little")
-            is_game_paused: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
-                [(0x0952A5, 1, "MainRAM")]))[0], "little")
-            loading_goo: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
-                [(0x010094, 1, "MainRAM")]))[0], "little")
-            in_cutscene: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
-                [(0x01009E, 1, "MainRAM")]))[0], "little")
+
         self.is_grinch_dead = False
+
+    async def loading_state(self, ctx: "BizHawkClientContext"):
+        loading_goo: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
+                [(0x010094, 1, "MainRAM")]))[0], "little")
+        in_cutscene: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
+                [(0x01009E, 1, "MainRAM")]))[0], "little")
+        # This function returns true if the player currently has the loading goo or is in a cutscene
+        return loading_goo == 0 or in_cutscene > 0
+
+
+    async def paused_state(self, ctx: "BizHawkClientContext"):
+        is_game_paused: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
+                [(0x0952A5, 1, "MainRAM")]))[0], "little")
+        # This function returns true if the player is paused
+        return is_game_paused > 0
 
 def _cmd_ringlink(self):
     """Toggle ringling from client. Overrides default setting."""
