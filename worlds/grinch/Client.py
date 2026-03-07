@@ -826,26 +826,31 @@ class GrinchClient(BizHawkClient):
         return is_game_paused > 0
 
     async def randomize_music(self, ctx: "BizHawkClientContext"):
-
+        from CommonClient import logger
         # While you are connected to AP and the player is not trying to close the client
-        while ctx.slot and not ctx.exit_event.set():
-            if not await self.ingame_checker(ctx) or await self.paused_state(ctx) or await self.loading_state(ctx):
-                await asyncio.sleep(5)
-                continue
+        while ctx.slot:
+            # if not await self.ingame_checker(ctx): #or await self.paused_state(ctx) or await self.loading_state(ctx)):
+            #     await asyncio.sleep(5)
+            #     continue
 
             current_region: str = await self.get_current_region()
             if not current_region or not ALL_REGIONS_INFO[current_region].allow_music_rando:
 
                 await asyncio.sleep(10)
                 continue
+            current_song_id: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
+                                                               [(LOOP_BACK_ADDR, SONG_ADDR_SIZE, "MainRAM")]))[0], "little")
 
             region_music: int = self.chosen_music[current_region]
-            await bizhawk.write(
-                ctx.bizhawk_ctx,
-                [(STARTING_SONG_ADDR, region_music.to_bytes(SONG_ADDR_SIZE, "little"), "MainRAM"),
-                 (LOOP_BACK_ADDR, region_music.to_bytes(SONG_ADDR_SIZE, "little"), "MainRAM"),],
-            )
-            await asyncio.sleep(30)
+            # logger.info(region_music)
+            if region_music != current_song_id:
+                await bizhawk.write(
+                    ctx.bizhawk_ctx,
+                    [(STARTING_SONG_ADDR, region_music.to_bytes(SONG_ADDR_SIZE, "little"), "MainRAM"),],
+                )
+            else:
+                await asyncio.sleep(5)
+                continue
 
 def _cmd_ringlink(self):
     """Toggle ringling from client. Overrides default setting."""
