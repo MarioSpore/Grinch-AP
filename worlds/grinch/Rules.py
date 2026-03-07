@@ -2029,7 +2029,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.SEIZE,
         ],
     ],
-    "WD - Infesting The Mayor's House With Rats - 1st Rat Lured": [
+    "WD - Infesting The Mayor's House With Rats - Rat 1": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
@@ -2043,7 +2043,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.MAX,
         ],
     ],
-    "WD - Infesting The Mayor's House With Rats - 2nd Rat Lured": [
+    "WD - Infesting The Mayor's House With Rats - Rat 2": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
@@ -2057,7 +2057,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.MAX,
         ],
     ],
-    "WD - Infesting The Mayor's House With Rats - 3rd Rat Lured": [
+    "WD - Infesting The Mayor's House With Rats - Rat 3": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
@@ -2071,7 +2071,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.MAX,
         ],
     ],
-    "WD - Infesting The Mayor's House With Rats - 4th Rat Lured": [
+    "WD - Infesting The Mayor's House With Rats - Rat 4": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
@@ -2085,7 +2085,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.MAX,
         ],
     ],
-    "WD - Infesting The Mayor's House With Rats - 5th Rat Lured": [
+    "WD - Infesting The Mayor's House With Rats - Rat 5": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
@@ -2099,7 +2099,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.MAX,
         ],
     ],
-    "WD - Infesting The Mayor's House With Rats - 6th Rat Lured": [
+    "WD - Infesting The Mayor's House With Rats - Rat 6": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
@@ -2113,7 +2113,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.MAX,
         ],
     ],
-    "WD - Infesting The Mayor's House With Rats - 7th Rat Lured": [
+    "WD - Infesting The Mayor's House With Rats - Rat 7": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
@@ -2127,7 +2127,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.MAX,
         ],
     ],
-    "WD - Infesting The Mayor's House With Rats - 8th Rat Lured": [
+    "WD - Infesting The Mayor's House With Rats - Rat 9": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
@@ -2141,7 +2141,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.MAX,
         ],
     ],
-    "WD - Infesting The Mayor's House With Rats - 9th Rat Lured": [
+    "WD - Infesting The Mayor's House With Rats - Rat 10": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,

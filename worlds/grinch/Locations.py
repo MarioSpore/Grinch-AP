@@ -2219,84 +2219,94 @@ grinch_locations = {
             GrinchRamData(0x010258, binary_bit_pos=6),
         ],
     ),
-    "WD - Infesting The Mayor's House With Rats - 1st Rat Lured": GrinchLocationData(
+    "WD - Infesting The Mayor's House With Rats - Rat 1": GrinchLocationData(
         "Who Dump",
         ["Who Dump's Missions", "Missionsanity", "Who Dump"],
         2121,
         [
-            GrinchRamData(0x0100FE, value=1),
+            # GrinchRamData(0x0100FE, value=1),
+            GrinchRamData(0x010258, binary_bit_pos=7),
         ],
     ),
-    "WD - Infesting The Mayor's House With Rats - 2nd Rat Lured": GrinchLocationData(
+    "WD - Infesting The Mayor's House With Rats - Rat 2": GrinchLocationData(
         "Who Dump",
         ["Who Dump's Missions", "Missionsanity", "Who Dump"],
         2122,
         [
-            GrinchRamData(0x0100FE, value=2),
+            # GrinchRamData(0x0100FE, value=2),
+            GrinchRamData(0x010259, binary_bit_pos=0),
         ],
     ),
-    "WD - Infesting The Mayor's House With Rats - 3rd Rat Lured": GrinchLocationData(
+    "WD - Infesting The Mayor's House With Rats - Rat 3": GrinchLocationData(
         "Who Dump",
         ["Who Dump's Missions", "Missionsanity", "Who Dump"],
         2123,
         [
-            GrinchRamData(0x0100FE, value=3),
+            # GrinchRamData(0x0100FE, value=3),
+            GrinchRamData(0x010259, binary_bit_pos=1),
         ],
     ),
-    "WD - Infesting The Mayor's House With Rats - 4th Rat Lured": GrinchLocationData(
+    "WD - Infesting The Mayor's House With Rats - Rat 4": GrinchLocationData(
         "Who Dump",
         ["Who Dump's Missions", "Missionsanity", "Who Dump"],
         2124,
         [
-            GrinchRamData(0x0100FE, value=4),
+            # GrinchRamData(0x0100FE, value=4),
+            GrinchRamData(0x010259, binary_bit_pos=2),
         ],
     ),
-    "WD - Infesting The Mayor's House With Rats - 5th Rat Lured": GrinchLocationData(
+    "WD - Infesting The Mayor's House With Rats - Rat 5": GrinchLocationData(
         "Who Dump",
         ["Who Dump's Missions", "Missionsanity", "Who Dump"],
         2125,
         [
-            GrinchRamData(0x0100FE, value=5),
+            # GrinchRamData(0x0100FE, value=5),
+            GrinchRamData(0x010259, binary_bit_pos=3),
         ],
     ),
-    "WD - Infesting The Mayor's House With Rats - 6th Rat Lured": GrinchLocationData(
+    "WD - Infesting The Mayor's House With Rats - Rat 6": GrinchLocationData(
         "Who Dump",
         ["Who Dump's Missions", "Missionsanity", "Who Dump"],
         2126,
         [
-            GrinchRamData(0x0100FE, value=6),
+            # GrinchRamData(0x0100FE, value=6),
+            GrinchRamData(0x010259, binary_bit_pos=4),
         ],
     ),
-    "WD - Infesting The Mayor's House With Rats - 7th Rat Lured": GrinchLocationData(
+    "WD - Infesting The Mayor's House With Rats - Rat 7": GrinchLocationData(
         "Who Dump",
         ["Who Dump's Missions", "Missionsanity", "Who Dump"],
         2127,
         [
-            GrinchRamData(0x0100FE, value=7),
+            # GrinchRamData(0x0100FE, value=7),
+            GrinchRamData(0x010259, binary_bit_pos=5),
         ],
     ),
-    "WD - Infesting The Mayor's House With Rats - 8th Rat Lured": GrinchLocationData(
+    "WD - Infesting The Mayor's House With Rats - Rat 8": GrinchLocationData(
         "Who Dump",
         ["Who Dump's Missions", "Missionsanity", "Who Dump"],
         2128,
         [
-            GrinchRamData(0x0100FE, value=8),
+            # GrinchRamData(0x0100FE, value=8),
+            GrinchRamData(0x010259, binary_bit_pos=6),
         ],
     ),
-    "WD - Infesting The Mayor's House With Rats - 9th Rat Lured": GrinchLocationData(
+    "WD - Infesting The Mayor's House With Rats - Rat 9": GrinchLocationData(
         "Who Dump",
         ["Who Dump's Missions", "Missionsanity", "Who Dump"],
         2129,
         [
-            GrinchRamData(0x0100FE, value=9),
+            # GrinchRamData(0x0100FE, value=9),
+            GrinchRamData(0x010259, binary_bit_pos=7),
         ],
     ),
-    "WD - Infesting The Mayor's House With Rats - 10th Rat Lured": GrinchLocationData(
+    "WD - Infesting The Mayor's House With Rats - Rat 10": GrinchLocationData(
         "Who Dump",
         ["Who Dump's Missions", "Missionsanity", "Who Dump"],
         2130,
         [
-            GrinchRamData(0x0100FE, value=10),
+            # GrinchRamData(0x0100FE, value=10),
+            GrinchRamData(0x01025A, binary_bit_pos=0),
         ],
     ),
     "WD - Stealing Food From Birds - Left area on right electric fence": GrinchLocationData(
