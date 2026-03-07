@@ -67,8 +67,8 @@ DEALTHLINK_REGION_OFFSET: int = 0x27
 
 DAMAGE_RATE_ADDR: int = 0x0e9006
 
-STARTING_SONG_ADDR: int = 0x8F8D0
-LOOP_BACK_ADDR: int = 0x8F8D8
+STARTING_SONG_ADDR: int = 0x08F8D0
+LOOP_BACK_ADDR: int = 0x08F8D8
 SONG_ADDR_SIZE: int = 1
 
 class GrinchClient(BizHawkClient):
@@ -157,6 +157,9 @@ class GrinchClient(BizHawkClient):
                     "You are now connected to the client. "
                     + "There may be a slight delay to check you are not in demo mode before locations start to send."
                 )
+
+                if self.music_rando:
+                    Utils.async_start(self.randomize_music(ctx),name="Grinch - Music Randomizer")
 
                 if not self.unlimited_eggs:
 
@@ -824,7 +827,6 @@ class GrinchClient(BizHawkClient):
 
     async def randomize_music(self, ctx: "BizHawkClientContext"):
 
-
         # While you are connected to AP and the player is not trying to close the client
         while ctx.slot and not ctx.exit_event.set():
             if not await self.ingame_checker(ctx) or await self.paused_state(ctx) or await self.loading_state(ctx):
@@ -833,17 +835,17 @@ class GrinchClient(BizHawkClient):
 
             current_region: str = await self.get_current_region()
             if not current_region or not ALL_REGIONS_INFO[current_region].allow_music_rando:
+
                 await asyncio.sleep(10)
                 continue
 
             region_music: int = self.chosen_music[current_region]
-
             await bizhawk.write(
                 ctx.bizhawk_ctx,
                 [(STARTING_SONG_ADDR, region_music.to_bytes(SONG_ADDR_SIZE, "little"), "MainRAM"),
                  (LOOP_BACK_ADDR, region_music.to_bytes(SONG_ADDR_SIZE, "little"), "MainRAM"),],
             )
-
+            await asyncio.sleep(30)
 
 def _cmd_ringlink(self):
     """Toggle ringling from client. Overrides default setting."""
