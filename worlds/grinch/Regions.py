@@ -46,6 +46,7 @@ class GrinchRegionInfo(NamedTuple):
     parent_region: str
     allow_deathlink: bool = False
     map_table_addr: Optional[int] = None
+    allow_music_rando: Optional[bool] = None
     region_access: Optional[list[list[str]]] = None
     advanced_region_access: Optional[list[list[str]]] = None
 
@@ -57,68 +58,68 @@ class GrinchRegion(Region):
         self.region_data = region_data
 
 ALL_REGIONS_INFO: dict[str, GrinchRegionInfo] = {
-    "Mount Crumpit": GrinchRegionInfo(0x05, "", False, 0x0FAAB4),
+    "Mount Crumpit": GrinchRegionInfo(0x05, "", False, 0x0FAAB4, True),
 
-    "Whoville": GrinchRegionInfo(0x07, "Mount Crumpit", True, 0x0E8FA0,
+    "Whoville": GrinchRegionInfo(0x07, "Mount Crumpit", True, 0x0E8FA0, True,
         region_access=[
             [grinch_items.keys.WHOVILLE],
             ["1:" + grinch_items.keys.PROGRESSIVE_VACUUM_TUBE],
         ],),
 
-    "Who Forest": GrinchRegionInfo(0x0B, "Mount Crumpit", True, 0x0E1C54,
+    "Who Forest": GrinchRegionInfo(0x0B, "Mount Crumpit", True, 0x0E1C54, True,
         region_access=[
             [grinch_items.keys.WHO_FOREST],
             ["2:" + grinch_items.keys.PROGRESSIVE_VACUUM_TUBE],
         ],),
 
-    "Who Dump": GrinchRegionInfo(0x0E, "Mount Crumpit", True, 0x0DFF24,
+    "Who Dump": GrinchRegionInfo(0x0E, "Mount Crumpit", True, 0x0DFF24, True,
         region_access=[
             [grinch_items.keys.WHO_DUMP],
             ["3:" + grinch_items.keys.PROGRESSIVE_VACUUM_TUBE],
         ],),
 
-    "Who Lake": GrinchRegionInfo(0x12, "Mount Crumpit", True, 0x0DD16C,
+    "Who Lake": GrinchRegionInfo(0x12, "Mount Crumpit", True, 0x0DD16C, True,
         region_access=[
             [grinch_items.keys.WHO_LAKE],
             ["4:" + grinch_items.keys.PROGRESSIVE_VACUUM_TUBE],
         ],),
 
-    "Sleigh Room": GrinchRegionInfo(0x05, "Mount Crumpit", False, 0x0FAAB4,
+    "Sleigh Room": GrinchRegionInfo(0x05, "Mount Crumpit", False, 0x0FAAB4, True,
         region_access=[
             [grinch_items.keys.SLEIGH_ROOM_KEY],
         ],),
 
-    "Spin N' Win": GrinchRegionInfo(0x1A, "Mount Crumpit", False),
-    "Dankamania": GrinchRegionInfo(0x1B, "Mount Crumpit", False),
-    "The Copter Race Contest": GrinchRegionInfo(0X1C, "Mount Crumpit", False),
-    "Post Office": GrinchRegionInfo(0x0A, "Whoville", False, 0x0DFB64,
+    "Spin N' Win": GrinchRegionInfo(0x1A, "Mount Crumpit", False, allow_music_rando=True),
+    "Dankamania": GrinchRegionInfo(0x1B, "Mount Crumpit", False, allow_music_rando=True),
+    "The Copter Race Contest": GrinchRegionInfo(0X1C, "Mount Crumpit", False, allow_music_rando=True),
+    "Post Office": GrinchRegionInfo(0x0A, "Whoville", False, 0x0DFB64, True,
         region_access=[
             [grinch_items.level_items.WV_WHO_CLOAK],
         ],),
 
-    "City Hall": GrinchRegionInfo(0x08, "Whoville", True, 0x0E7090,
+    "City Hall": GrinchRegionInfo(0x08, "Whoville", True, 0x0E7090, True,
         region_access=[
             [grinch_items.gadgets.ROTTEN_EGG_LAUNCHER],
         ],),
 
-    "Clock Tower": GrinchRegionInfo(0x09, "Whoville", False, 0x0E70E8,
+    "Clock Tower": GrinchRegionInfo(0x09, "Whoville", False, 0x0E70E8, True,
         region_access=[
             [grinch_items.moves.SNEAK],
             [grinch_items.gadgets.SLIME_SHOOTER],
         ],),
 
-    "Ski Resort": GrinchRegionInfo(0x0C, "Who Forest", True, 0x0E98C0,
+    "Ski Resort": GrinchRegionInfo(0x0C, "Who Forest", True, 0x0E98C0, True,
         region_access=[
             [grinch_items.level_items.WF_CABLE_CAR_ACCESS_CARD],
         ],),
 
-    "Civic Center": GrinchRegionInfo(0x0D, "Who Forest", True, 0x0DDEA0,
+    "Civic Center": GrinchRegionInfo(0x0D, "Who Forest", True, 0x0DDEA0, True,
         region_access=[
             [grinch_items.gadgets.GRINCH_COPTER],
             [grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE],
         ],),
 
-    "Minefield": GrinchRegionInfo(0x11, "Who Dump", True, 0x0E87C4,
+    "Minefield": GrinchRegionInfo(0x11, "Who Dump", True, 0x0E87C4, True,
         region_access=[
             [grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
@@ -128,7 +129,7 @@ ALL_REGIONS_INFO: dict[str, GrinchRegionInfo] = {
             grinch_items.moves.PANCAKE],
         ],),
 
-    "Power Plant": GrinchRegionInfo(0x10, "Who Dump", True, 0x0E885C,
+    "Power Plant": GrinchRegionInfo(0x10, "Who Dump", True, 0x0E885C, True,
         region_access=[
             [grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.GRINCH_COPTER,
@@ -143,7 +144,7 @@ ALL_REGIONS_INFO: dict[str, GrinchRegionInfo] = {
             grinch_items.moves.PANCAKE],
         ],),
 
-    "Generator Building": GrinchRegionInfo(0x0F, "Power Plant", True, 0x0E0ED4,
+    "Generator Building": GrinchRegionInfo(0x0F, "Power Plant", True, 0x0E0ED4, True,
         region_access=[
             [grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.GRINCH_COPTER],
@@ -154,12 +155,12 @@ ALL_REGIONS_INFO: dict[str, GrinchRegionInfo] = {
              grinch_items.moves.BAD_BREATH],
         ],),
 
-    "Submarine World": GrinchRegionInfo(0x17, "Who Lake", True, 0x0E0368,
+    "Submarine World": GrinchRegionInfo(0x17, "Who Lake", True, 0x0E0368, True,
         region_access=[
             [grinch_items.gadgets.MARINE_MOBILE],
         ],),
 
-    "Scout's Hut": GrinchRegionInfo(0x13, "Who Lake", True, 0x0D5DFC,
+    "Scout's Hut": GrinchRegionInfo(0x13, "Who Lake", True, 0x0D5DFC, True,
         region_access=[
             [grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.SNEAK],
@@ -167,17 +168,17 @@ ALL_REGIONS_INFO: dict[str, GrinchRegionInfo] = {
             grinch_items.moves.SNEAK],
         ],),
 
-    "North Shore": GrinchRegionInfo(0x14, "Who Lake", True, 0x0DD43C,
+    "North Shore": GrinchRegionInfo(0x14, "Who Lake", True, 0x0DD43C, True,
         region_access=[
             [grinch_items.level_items.WL_SCOUT_CLOTHES,
             grinch_items.moves.SNEAK],
         ],),
-    "Mayor's Villa": GrinchRegionInfo(0x16, "North Shore", True, 0x0FA7C8,
+    "Mayor's Villa": GrinchRegionInfo(0x16, "North Shore", True, 0x0FA7C8, True,
         region_access=[
             [grinch_items.level_items.WL_SCOUT_CLOTHES],
         ],),
-    "Bike Race": GrinchRegionInfo(0x18, "Sleigh Room", False),
-    "Sleigh Ride": GrinchRegionInfo(0x19, "Sleigh Room", False,
+    "Bike Race": GrinchRegionInfo(0x18, "Sleigh Room", False, allow_music_rando=True),
+    "Sleigh Ride": GrinchRegionInfo(0x19, "Sleigh Room", False, allow_music_rando=True,
         region_access=[
             [
              grinch_items.sleigh_parts.EXHAUST_PIPES,

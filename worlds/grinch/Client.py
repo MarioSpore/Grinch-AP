@@ -67,6 +67,10 @@ DEALTHLINK_REGION_OFFSET: int = 0x27
 
 DAMAGE_RATE_ADDR: int = 0x0e9006
 
+STARTING_SONG_ADDR: int = 0x8F8D0
+LOOP_BACK_ADDR: int = 0x8F8D8
+SONG_ADDR_SIZE: int = 1
+
 class GrinchClient(BizHawkClient):
     game = "The Grinch"
     system = "PSX"
@@ -81,6 +85,7 @@ class GrinchClient(BizHawkClient):
     ring_link_enabled: bool = False
     is_grinch_dead: bool = False
     curr_region: str | None = None
+    music_rando: bool = False
     #yes
 
     def __init__(self):
@@ -143,6 +148,7 @@ class GrinchClient(BizHawkClient):
                 self.ingame_log = False
                 self.unlimited_eggs = bool(ctx.slot_data["unlimited_eggs"])
                 self.damage_rate = int(ctx.slot_data["damage_rate"])
+                self.music_rando = bool(ctx.slot_data["music_rando"])
                 self.unique_client_id = self._get_uuid()
                 logger.info(
                     "You are now connected to the client. "
@@ -812,6 +818,29 @@ class GrinchClient(BizHawkClient):
                 [(0x0952A5, 1, "MainRAM")]))[0], "little")
         # This function returns true if the player is paused
         return is_game_paused > 0
+
+    async def randomize_music(self, ctx: "BizHawkClientContext"):
+
+
+        # While you are connected to AP and the player is not trying to close the client
+        while ctx.slot and not ctx.exit_event.set():
+            if not await self.ingame_checker(ctx) or await self.paused_state(ctx) or await self.loading_state(ctx):
+                await asyncio.sleep(5)
+                continue
+
+            current_region: str = await self.get_current_region()
+            if not current_region or not ALL_REGIONS_INFO[current_region].allow_music_rando:
+                await asyncio.sleep(10)
+                continue
+
+
+
+            # await bizhawk.write(
+            #     ctx.bizhawk_ctx,
+            #     [(STARTING_SONG_ADDR, .to_bytes(SONG_ADDR_SIZE, "little"), "MainRAM"),
+            #      (LOOP_BACK_ADDR, .to_bytes(SONG_ADDR_SIZE, "little"), "MainRAM"),],
+            # )
+
 
 def _cmd_ringlink(self):
     """Toggle ringling from client. Overrides default setting."""
