@@ -27,11 +27,14 @@ class GrinchWorld(World):
     location_name_groups = get_location_names_per_category()
     web = GrinchWeb()
 
+    songs_chosen: dict
+
     ut_can_gen_without_yaml = True  # class var that tells it to ignore the player YAML
 
     def __init__(self, *args, **kwargs):  # Pulls __init__ function and takes control from there in BaseClasses.py
         self.origin_region_name: str = "Mount Crumpit"
         super(GrinchWorld, self).__init__(*args, **kwargs)
+        self.songs_chosen = {}
 
     def generate_early(self) -> None:  # Special conditions changed before generation occurs
         from CommonClient import logger
@@ -50,6 +53,11 @@ class GrinchWorld(World):
         if total_trapweights <= 0 and self.options.trap_percentage >= 1:
             raise OptionError("Cannot begin generation as no trap options are defined. At least one trap item " +
                 f"must have a weight of at least 1. The following player's YAML needs to be fixed: {self.player_name}")
+
+        if self.options.music_rando.value == 1:
+            for music_enabled_region, region_data in ALL_REGIONS_INFO.items():
+                if region_data.allow_music_rando:
+                    self.songs_chosen[music_enabled_region] = self.random.randint(2, 22)
 
         # this handles all related logical UT things
         if hasattr(self.multiworld, "re_gen_passthrough"):
@@ -347,6 +355,7 @@ class GrinchWorld(World):
             "death_link": self.options.death_link.value,
             "damage_rate": self.options.damage_rate.value,
             "music_rando": self.options.music_rando.value,
+            "chosen_music": self.songs_chosen,
         }
 
     def generate_output(self, output_directory: str) -> None:

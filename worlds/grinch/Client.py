@@ -86,6 +86,7 @@ class GrinchClient(BizHawkClient):
     is_grinch_dead: bool = False
     curr_region: str | None = None
     music_rando: bool = False
+    chosen_music: dict = {}
     #yes
 
     def __init__(self):
@@ -95,6 +96,7 @@ class GrinchClient(BizHawkClient):
         self.unlimited_eggs = False
         self.damage_rate = 1
         self.unique_client_id = 0
+        self.chosen_music = {}
 
     async def validate_rom(self, ctx: "BizHawkClientContext") -> bool:
         from CommonClient import logger
@@ -149,6 +151,7 @@ class GrinchClient(BizHawkClient):
                 self.unlimited_eggs = bool(ctx.slot_data["unlimited_eggs"])
                 self.damage_rate = int(ctx.slot_data["damage_rate"])
                 self.music_rando = bool(ctx.slot_data["music_rando"])
+                self.chosen_music = dict(ctx.slot_data["chosen_music"])
                 self.unique_client_id = self._get_uuid()
                 logger.info(
                     "You are now connected to the client. "
@@ -833,13 +836,13 @@ class GrinchClient(BizHawkClient):
                 await asyncio.sleep(10)
                 continue
 
+            region_music: int = self.chosen_music[current_region]
 
-
-            # await bizhawk.write(
-            #     ctx.bizhawk_ctx,
-            #     [(STARTING_SONG_ADDR, .to_bytes(SONG_ADDR_SIZE, "little"), "MainRAM"),
-            #      (LOOP_BACK_ADDR, .to_bytes(SONG_ADDR_SIZE, "little"), "MainRAM"),],
-            # )
+            await bizhawk.write(
+                ctx.bizhawk_ctx,
+                [(STARTING_SONG_ADDR, region_music.to_bytes(SONG_ADDR_SIZE, "little"), "MainRAM"),
+                 (LOOP_BACK_ADDR, region_music.to_bytes(SONG_ADDR_SIZE, "little"), "MainRAM"),],
+            )
 
 
 def _cmd_ringlink(self):
