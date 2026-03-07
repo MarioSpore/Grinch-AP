@@ -1178,6 +1178,11 @@ rules_dict: dict[str, list[list[str]]] = {
     "Bike Race - Top 2": [[]],
     "Bike Race - Top 3": [[]],
     # Intro
+    "MC - Collect Key in Boxes": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
     "MC - 1st Crate Squashed": [
         [
             grinch_items.moves.PANCAKE,
