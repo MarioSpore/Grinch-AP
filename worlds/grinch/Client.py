@@ -828,7 +828,7 @@ class GrinchClient(BizHawkClient):
     async def randomize_music(self, ctx: "BizHawkClientContext"):
         from CommonClient import logger
         # While you are connected to AP and the player is not trying to close the client
-        while ctx.slot:
+        while ctx.slot and not ctx.exit_event:
             # if not await self.ingame_checker(ctx): #or await self.paused_state(ctx) or await self.loading_state(ctx)):
             #     await asyncio.sleep(5)
             #     continue
