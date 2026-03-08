@@ -431,7 +431,6 @@ grinch_option_groups: list[OptionGroup] = [
         TrapPercentage,
         TrapWeight,
         RingLinkOption,
-        DeathLinkMixin,
         TrapLinkOption,
     ]),
 ]
