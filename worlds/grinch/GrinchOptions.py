@@ -128,7 +128,7 @@ class ExcludeEnvironments(OptionSet):
 
     Valid keys: "Post Office", "Clock Tower", "City Hall", "Ski Resort",
     "Civic Center", "Minefield", "Power Plant", "Generator Building",
-    "Scout's Hut", "North Shore", "Mayor's Villa"
+    "Scout's Hut", "North Shore", "Mayor's Villa", "Submarine World"
     """
 
     display_name = "Exclude Environments"
@@ -144,6 +144,7 @@ class ExcludeEnvironments(OptionSet):
         "Scout's Hut",
         "North Shore",
         "Mayor's Villa",
+        "Submarine World",
     }
 
 
