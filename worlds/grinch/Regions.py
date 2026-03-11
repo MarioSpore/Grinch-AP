@@ -97,7 +97,7 @@ ALL_REGIONS_INFO: dict[str, GrinchRegionInfo] = {
             [grinch_items.level_items.WV_WHO_CLOAK],
         ],),
 
-    "City Hall": GrinchRegionInfo(0x08, "Whoville", True, 0x0E7090, True,
+    "City Hall": GrinchRegionInfo(0x08, "Whoville", False, 0x0E7090, True,
         region_access=[
             [grinch_items.gadgets.ROTTEN_EGG_LAUNCHER],
         ],),
