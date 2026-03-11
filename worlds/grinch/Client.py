@@ -545,10 +545,6 @@ class GrinchClient(BizHawkClient):
         from CommonClient import logger
 
         ingame_map_id = await self.get_current_map_id(ctx)
-        initial_cutscene_checker = int.from_bytes(
-            (await bizhawk.read(ctx.bizhawk_ctx, [(0x010094, 1, "MainRAM")]))[0],
-            "little",
-        )
 
         # If not in game or at a menu, or loading the publisher logos
         # If it is not greater than 0x02 and less than 0x35, you are not in game
@@ -565,7 +561,7 @@ class GrinchClient(BizHawkClient):
                 self.demo_mode_buffer = 0
                 self.ingame_log = False
 
-            if initial_cutscene_checker != 1:
+            if not await self.loading_state(ctx):
                 return False
 
             # Update the previous map we were on to be the current map.
