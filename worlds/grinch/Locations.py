@@ -86,7 +86,7 @@ grinch_locations = {
         100,
         [
             GrinchRamData(0x010000, value=0x07),
-            GrinchRamData(0x010212, binary_bit_pos=0),
+            # GrinchRamData(0x010212, binary_bit_pos=0),
         ],
 
     ),
@@ -114,7 +114,7 @@ grinch_locations = {
         104,
         [
             GrinchRamData(0x010000, value=0x0B),
-            GrinchRamData(0x01024A, binary_bit_pos=1),
+            # GrinchRamData(0x01024A, binary_bit_pos=1),
          ],
     ),
     "WF - Ski Resort - First Visit": GrinchLocationData(
@@ -135,7 +135,7 @@ grinch_locations = {
         107,
         [
             GrinchRamData(0x010000, value=0x0E),
-            GrinchRamData(0x01025C, binary_bit_pos=1),
+            # GrinchRamData(0x01025C, binary_bit_pos=1),
         ],
     ),
     "WD - Minefield - First Visit": GrinchLocationData(
@@ -162,7 +162,7 @@ grinch_locations = {
         111,
         [
             GrinchRamData(0x010000, value=0x12),
-            GrinchRamData(0x010282, binary_bit_pos=4),
+            # GrinchRamData(0x010282, binary_bit_pos=4),
         ],
     ),
     "WL - Submarine World - First Visit": GrinchLocationData(
