@@ -1202,25 +1202,41 @@ grinch_locations = {
         "Post Office",
         ["Heart of Stones", "Whoville", "Post Office"],
         1400,
-        [GrinchRamData(0x0101FA, binary_bit_pos=6)],
+        [
+            # GrinchRamData(0x0101FA, binary_bit_pos=6),
+            GrinchRamData(0x010000, value=0x0A),
+            GrinchRamData(0x0E303A, value=20),
+        ],
     ),
     "WF - Ski Resort - Heart of Stone": GrinchLocationData(
         "Ski Resort",
         ["Heart of Stones", "Who Forest", "Ski Resort"],
         1401,
-        [GrinchRamData(0x0101FA, binary_bit_pos=7)],
+        [
+            # GrinchRamData(0x0101FA, binary_bit_pos=7),
+            GrinchRamData(0x010000, value=0x0C),
+            GrinchRamData(0x0100C1, binary_bit_pos=6),
+         ],
     ),
     "WD - Minefield - Heart of Stone": GrinchLocationData(
         "Minefield",
         ["Heart of Stones", "Who Dump", "Minefield"],
         1402,
-        [GrinchRamData(0x0101FB, binary_bit_pos=0)],
+        [
+            # GrinchRamData(0x0101FB, binary_bit_pos=0),
+            GrinchRamData(0x010000, value=0x11),
+            GrinchRamData(0x0EE054, value=188),
+        ],
     ),
     "WL - North Shore - Heart of Stone": GrinchLocationData(
         "North Shore",
         ["Heart of Stones", "Who Lake", "North Shore"],
         1403,
-        [GrinchRamData(0x0101FB, binary_bit_pos=1)],
+        [
+            # GrinchRamData(0x0101FB, binary_bit_pos=1),
+            GrinchRamData(0x010000, value=0x14),
+            GrinchRamData(0x0100C3, binary_bit_pos=6),
+        ],
     ),
     # Supadow Minigames
     # "Spin N' Win - Easy": GrinchLocationData(
