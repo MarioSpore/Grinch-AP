@@ -189,14 +189,12 @@ class GrinchWorld(World):
             "Who Cloak": ["Post Office"],
             "Scout Clothes": ["Mayor's Villa", "North Shore"],
             "Cable Car Access Card": ["Ski Resort"],
-            "Marine Mobile": ["Submarine World"],
         }
         missionsanity_items: dict[str, list[str]] = {
             "Who Cloak": ["Post Office"],
             "Scout Clothes": ["Mayor's Villa", "North Shore"],
             "Drill": ["North Shore"],
             "Painting Bucket": ["Whoville"],
-            "Marine Mobile": ["Submarine World"],
         }
 
         # Precollected items is stored per player. First, we must get the current player's starting inventory.
@@ -231,22 +229,19 @@ class GrinchWorld(World):
 
             # If the item is a sub_area_item that has 0 locations, add it to start inventory
             if sub_area_has_no_locations:
-                continue
-                # self.multiworld.push_precollected(self.create_item(mission_item))
-                # player_start_inv.append(mission_item)
+                self.multiworld.push_precollected(self.create_item(mission_item))
+                player_start_inv.append(mission_item)
             # Else if the player disables missionsanity, add the item into start inventory
             # No .value after self.options.missionsanity because UT no likey
             elif self.options.missionsanity == 0:
-                continue
-                # self.multiworld.push_precollected(self.create_item(mission_item))
-                # player_start_inv.append(mission_item)
+                self.multiworld.push_precollected(self.create_item(mission_item))
+                player_start_inv.append(mission_item)
             elif self.options.missionsanity == 2:
                 if mission_item in missionsanity_items:
                     self_itempool.append(self.create_item(mission_item))
                 else:
-                    continue
-                    # self.multiworld.push_precollected(self.create_item(mission_item))
-                    # player_start_inv.append(mission_item)
+                    self.multiworld.push_precollected(self.create_item(mission_item))
+                    player_start_inv.append(mission_item)
             # Else, let the multiworld create the item normally.
             else:
                 self_itempool.append(self.create_item(mission_item))
@@ -266,9 +261,6 @@ class GrinchWorld(World):
         # Adds gadgets
         for gadgets_added in GADGETS_TABLE:
             if gadgets_added == "Grinch Copter" and self.options.exclude_gc:
-                continue
-
-            if gadgets_added == "Marine Mobile" and "Submarine World" in self.options.exclude_environments:
                 continue
 
             # Only create the item if it doesn't already exist in the player's start inventory.
