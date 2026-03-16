@@ -220,26 +220,31 @@ class GrinchWorld(World):
 
             # Checks to see if there are any locations in the Sub-area list.
             sub_area_has_no_locations: bool = False
-            if mission_item in sub_area_items.keys():
+
+            if mission_item in sub_area_items:
+                sub_area_has_no_locations = True
                 for grinch_reg in sub_area_items[mission_item]:
-                    if len(self.get_region(grinch_reg).get_locations()) == 0:
-                        sub_area_has_no_locations = True
+                    if len(self.get_region(grinch_reg).get_locations()) > 0:
+                        sub_area_has_no_locations = False
 
             # If the item is a sub_area_item that has 0 locations, add it to start inventory
             if sub_area_has_no_locations:
-                self.multiworld.push_precollected(self.create_item(mission_item))
-                player_start_inv.append(mission_item)
+                continue
+                # self.multiworld.push_precollected(self.create_item(mission_item))
+                # player_start_inv.append(mission_item)
             # Else if the player disables missionsanity, add the item into start inventory
             # No .value after self.options.missionsanity because UT no likey
             elif self.options.missionsanity == 0:
-                self.multiworld.push_precollected(self.create_item(mission_item))
-                player_start_inv.append(mission_item)
+                continue
+                # self.multiworld.push_precollected(self.create_item(mission_item))
+                # player_start_inv.append(mission_item)
             elif self.options.missionsanity == 2:
                 if mission_item in missionsanity_items:
                     self_itempool.append(self.create_item(mission_item))
                 else:
-                    self.multiworld.push_precollected(self.create_item(mission_item))
-                    player_start_inv.append(mission_item)
+                    continue
+                    # self.multiworld.push_precollected(self.create_item(mission_item))
+                    # player_start_inv.append(mission_item)
             # Else, let the multiworld create the item normally.
             else:
                 self_itempool.append(self.create_item(mission_item))
