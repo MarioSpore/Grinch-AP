@@ -189,14 +189,12 @@ class GrinchWorld(World):
             "Who Cloak": ["Post Office"],
             "Scout Clothes": ["Mayor's Villa", "North Shore"],
             "Cable Car Access Card": ["Ski Resort"],
-            "Marine Mobile": ["Submarine World"],
         }
         missionsanity_items: dict[str, list[str]] = {
             "Who Cloak": ["Post Office"],
             "Scout Clothes": ["Mayor's Villa", "North Shore"],
             "Drill": ["North Shore"],
             "Painting Bucket": ["Whoville"],
-            "Marine Mobile": ["Submarine World"],
         }
 
         # Precollected items is stored per player. First, we must get the current player's starting inventory.
@@ -265,6 +263,11 @@ class GrinchWorld(World):
             if gadgets_added == "Grinch Copter" and self.options.exclude_gc:
                 continue
 
+            if gadgets_added == "Marine Mobile" and "Submarine World" in self.options.exclude_environments:
+                self.multiworld.push_precollected(self.create_item(gadgets_added))
+                player_start_inv.append(gadgets_added)
+                continue
+
             # Only create the item if it doesn't already exist in the player's start inventory.
             elif gadgets_added in player_start_inv:
                 continue
@@ -274,6 +277,7 @@ class GrinchWorld(World):
             else:
                 self.multiworld.push_precollected(self.create_item(gadgets_added))
                 player_start_inv.append(gadgets_added)
+                continue
 
         if not self.options.progressive_vacuums:
         # When the starting area is chosen, add the key to the starting inventory.
