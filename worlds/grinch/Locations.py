@@ -1205,7 +1205,7 @@ grinch_locations = {
         [
             # GrinchRamData(0x0101FA, binary_bit_pos=6),
             GrinchRamData(0x010000, value=0x0A),
-            GrinchRamData(0x0E303A, value=20),
+            GrinchRamData(0x0E303A, binary_bit_pos=5),
         ],
     ),
     "WF - Ski Resort - Heart of Stone": GrinchLocationData(
