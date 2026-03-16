@@ -189,12 +189,14 @@ class GrinchWorld(World):
             "Who Cloak": ["Post Office"],
             "Scout Clothes": ["Mayor's Villa", "North Shore"],
             "Cable Car Access Card": ["Ski Resort"],
+            "Marine Mobile": ["Submarine World"],
         }
         missionsanity_items: dict[str, list[str]] = {
             "Who Cloak": ["Post Office"],
             "Scout Clothes": ["Mayor's Villa", "North Shore"],
             "Drill": ["North Shore"],
             "Painting Bucket": ["Whoville"],
+            "Marine Mobile": ["Submarine World"],
         }
 
         # Precollected items is stored per player. First, we must get the current player's starting inventory.
