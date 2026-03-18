@@ -2621,95 +2621,93 @@ rules_dict: dict[str, list[list[str]]] = {
     "WL - South Shore - Touch Grass": [[]],
     "WL - North Shore - Touch Grass": [[]],
     "WL - Mayor's Villa - Touch Grass": [[]],
-    # "MC - Solve Puzzle for Rotten Egg Launcher": [
-    #     [
-    #         grinch_items.level_items.WV_WHO_CLOAK,
-    #         grinch_items.moves.MAX,
-    #     ],
-    # ],
-    # "MC - Solve Puzzle for Rocket Spring": [
-    #     [
-    #         grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-    #     ],
-    #     [
-    #         grinch_items.gadgets.GRINCH_COPTER,
-    #     ],
-    # ],
-    # "MC - Solve Puzzle for Slime Shooter": [
-    #     [
-    #         grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-    #         grinch_items.gadgets.ROCKET_SPRING,
-    #         grinch_items.moves.BAD_BREATH,
-    #     ],
-    #     [
-    #         grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-    #         grinch_items.gadgets.GRINCH_COPTER,
-    #         grinch_items.moves.BAD_BREATH,
-    #     ],
-    # ],
-    # "MC - Solve Puzzle for Octopus Climbing Device": [
-    #     [
-    #         grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-    #         grinch_items.gadgets.ROCKET_SPRING,
-    #         grinch_items.moves.PANCAKE,
-    #         grinch_items.moves.SEIZE,
-    #         grinch_items.gadgets.SLIME_SHOOTER,
-    #     ],
-    #     [
-    #         grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-    #         grinch_items.gadgets.GRINCH_COPTER,
-    #         grinch_items.moves.PANCAKE,
-    #         grinch_items.moves.SEIZE,
-    #     ],
-    # ],
-    # "MC - Solve Puzzle for Marine Mobile": [
-    #     [
-    #         grinch_items.level_items.WL_SCOUT_CLOTHES,
-    #         grinch_items.gadgets.GRINCH_COPTER,
-    #         grinch_items.moves.MAX,
-    #         grinch_items.moves.SNEAK,
-    #     ],
-    #     [
-    #         grinch_items.level_items.WL_SCOUT_CLOTHES,
-    #         grinch_items.moves.SEIZE,
-    #         grinch_items.moves.MAX,
-    #         grinch_items.moves.SNEAK,
-    #         grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
-    #         grinch_items.gadgets.ROCKET_SPRING,
-    #     ],
-    # ],
-    # "MC - Solve Puzzle for Grinch Copter": [
-    #     [
-    #         grinch_items.level_items.WV_WHO_CLOAK,
-    #         grinch_items.level_items.WL_SCOUT_CLOTHES,
-    #         grinch_items.moves.MAX,
-    #         grinch_items.moves.SEIZE,
-    #         grinch_items.gadgets.ROCKET_SPRING,
-    #         grinch_items.level_items.WF_CABLE_CAR_ACCESS_CARD,
-    #         grinch_items.gadgets.MARINE_MOBILE,
-    #         grinch_items.moves.BAD_BREATH,
-    #         grinch_items.moves.SNEAK,
-    #         grinch_items.moves.PANCAKE,
-    #         grinch_items.gadgets.SLIME_SHOOTER,
-    #         grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-    #         grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
-    #     ],
-    #     [
-    #         grinch_items.level_items.WV_WHO_CLOAK,
-    #         grinch_items.level_items.WL_SCOUT_CLOTHES,
-    #         grinch_items.moves.MAX,
-    #         grinch_items.moves.SEIZE,
-    #         grinch_items.gadgets.ROCKET_SPRING,
-    #         grinch_items.level_items.WF_CABLE_CAR_ACCESS_CARD,
-    #         grinch_items.gadgets.MARINE_MOBILE,
-    #         grinch_items.moves.BAD_BREATH,
-    #         grinch_items.moves.SNEAK,
-    #         grinch_items.moves.PANCAKE,
-    #         grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-    #         grinch_items.gadgets.GRINCH_COPTER,
-    #     ]
-    # ],
-    "MC - Solve Puzzle for Binoculars": [
+    "MC - Collect all Rotten Egg Launcher Blueprints": [
+        [
+            grinch_items.level_items.WV_WHO_CLOAK,
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "MC - Collect all Rocket Spring Blueprints": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+        [
+            grinch_items.gadgets.GRINCH_COPTER,
+        ],
+    ],
+    "MC - Collect all Slime Shooter Blueprints": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "MC - Collect all Octopus Climbing Device Blueprints": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.SEIZE,
+            grinch_items.gadgets.SLIME_SHOOTER,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.SEIZE,
+        ],
+    ],
+    "MC - Collect all Marine Mobile Blueprints": [
+        [
+            grinch_items.level_items.WL_SCOUT_CLOTHES,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.MAX,
+            grinch_items.moves.SNEAK,
+        ],
+        [
+            grinch_items.level_items.WL_SCOUT_CLOTHES,
+            grinch_items.moves.SEIZE,
+            grinch_items.moves.MAX,
+            grinch_items.moves.SNEAK,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.gadgets.ROCKET_SPRING,
+        ],
+    ],
+    "MC - Collect all Grinch Copter Blueprints": [
+        [
+            grinch_items.level_items.WL_SCOUT_CLOTHES,
+            grinch_items.moves.MAX,
+            grinch_items.moves.SEIZE,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.level_items.WF_CABLE_CAR_ACCESS_CARD,
+            grinch_items.gadgets.MARINE_MOBILE,
+            grinch_items.moves.BAD_BREATH,
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.PANCAKE,
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+        ],
+        [
+            grinch_items.level_items.WL_SCOUT_CLOTHES,
+            grinch_items.moves.MAX,
+            grinch_items.moves.SEIZE,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.level_items.WF_CABLE_CAR_ACCESS_CARD,
+            grinch_items.gadgets.MARINE_MOBILE,
+            grinch_items.moves.BAD_BREATH,
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.PANCAKE,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+        ]
+    ],
+    "MC - Collect all Binoculars Blueprints": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.moves.SEIZE,
