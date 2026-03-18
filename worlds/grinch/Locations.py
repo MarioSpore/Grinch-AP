@@ -2964,7 +2964,7 @@ grinch_locations = {
     ),
     "MC - Collect all Rotten Egg Launcher Blueprints": GrinchLocationData(
         "Whoville",
-        ["Rotten Egg Launcher Blueprints", "Blueprints", "Whoville", "Whoville Blueprints"],
+        ["Rotten Egg Launcher Blueprints", "Blueprints", "Whoville", "Whoville Blueprints", "Miscellaneous"],
         2400,
         [
             GrinchRamData(0x01020B, binary_bit_pos=0),
@@ -2975,7 +2975,7 @@ grinch_locations = {
     ),
     "MC - Collect all Rocket Spring Blueprints": GrinchLocationData(
         "Who Forest",
-        ["Rocket Spring Blueprints", "Blueprints", "Who Forest", "Who Forest Blueprints"],
+        ["Rocket Spring Blueprints", "Blueprints", "Who Forest", "Who Forest Blueprints", "Miscellaneous"],
         2401,
         [
             GrinchRamData(0x010243, binary_bit_pos=3),
@@ -2991,7 +2991,7 @@ grinch_locations = {
     ),
     "MC - Collect all Slime Shooter Blueprints": GrinchLocationData(
         "Who Forest",
-        ["Slime Shooter Blueprints", "Blueprints", "Who Forest", "Who Forest Blueprints"],
+        ["Slime Shooter Blueprints", "Blueprints", "Who Forest", "Who Forest Blueprints", "Miscellaneous"],
         2402,
         [
             GrinchRamData(0x010244, binary_bit_pos=3),
@@ -3007,7 +3007,7 @@ grinch_locations = {
     ),
     "MC - Collect all Octopus Climbing Device Blueprints": GrinchLocationData(
         "Who Dump",
-        ["Octopus Climbing Device Blueprints", "Blueprints", "Who Dump", "Who Dump Blueprints"],
+        ["Octopus Climbing Device Blueprints", "Blueprints", "Who Dump", "Who Dump Blueprints", "Miscellaneous"],
         2403,
         [
             GrinchRamData(0x010252, binary_bit_pos=3),
@@ -3023,7 +3023,7 @@ grinch_locations = {
     ),
     "MC - Collect all Marine Mobile Blueprints": GrinchLocationData(
         "Who Lake",
-        ["Marine Mobile Blueprints", "Blueprints", "Who Lake", "Who Lake Blueprints"],
+        ["Marine Mobile Blueprints", "Blueprints", "Who Lake", "Who Lake Blueprints", "Miscellaneous"],
         2404,
         [
             GrinchRamData(0x010281, binary_bit_pos=5),
@@ -3047,7 +3047,7 @@ grinch_locations = {
     "MC - Collect all Grinch Copter Blueprints": GrinchLocationData(
         "Mount Crumpit",
         ["Grinch Copter Blueprints", "Blueprints", "Whoville", "Whoville Blueprints",
-         "Who Forest", "Who Forest Blueprints", "Who Dump", "Who Dump Blueprints", "Who Lake", "Who Lake Blueprints", ],
+         "Who Forest", "Who Forest Blueprints", "Who Dump", "Who Dump Blueprints", "Who Lake", "Who Lake Blueprints", "Miscellaneous"],
         2405,
         [
             GrinchRamData(0x01021F, binary_bit_pos=7),
@@ -3070,7 +3070,7 @@ grinch_locations = {
     ),
         "MC - Collect all Binoculars Blueprints": GrinchLocationData(
         "Whoville",
-        ["Binocular Blueprints", "Blueprints", "Whoville", "Whoville Blueprints"],
+        ["Binocular Blueprints", "Blueprints", "Whoville", "Whoville Blueprints", "Miscellaneous"],
         2406,
         [
             GrinchRamData(0x01020B, binary_bit_pos=2),
