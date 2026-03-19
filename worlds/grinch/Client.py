@@ -64,6 +64,8 @@ MC_ELEVATOR_ADDR: int = 0x01010D
 # Offsets from region table used to handle deathlink related things
 HEALTH_REGION_OFFSET: int = 0x3C
 DEALTHLINK_REGION_OFFSET: int = 0x27
+ANIMATION_REGION_OFFSET: int = 0x37
+ANIMATION_ADDR_SIZE: int = 2
 
 DAMAGE_RATE_ADDR: int = 0x0e9006
 
@@ -785,7 +787,7 @@ class GrinchClient(BizHawkClient):
         await bizhawk.write(
             ctx.bizhawk_ctx,
             [(curr_region_data.map_table_addr + HEALTH_REGION_OFFSET, int(0).to_bytes(1, "little"), "MainRAM"),
-             (curr_region_data.map_table_addr + DEALTHLINK_REGION_OFFSET, int(0x40).to_bytes(1, "little"), "MainRAM")],
+             (curr_region_data.map_table_addr + DEALTHLINK_REGION_OFFSET, int(0x4).to_bytes(1, "little"), "MainRAM")],
         )
         await self.wait_for_grinch_alive(ctx)
 
