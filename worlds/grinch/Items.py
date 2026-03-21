@@ -11,7 +11,7 @@ class GrinchItemData(NamedTuple):
     item_group: list[str]  # arbituary that can be whatever it can be, basically the field/property for item groups
     id: Optional[int]
     classification: IC
-    update_ram_addr: list[GrinchRamData]
+    update_ram_addr: Optional[list[GrinchRamData]]
 
 
 class GrinchItem(Item):
@@ -60,6 +60,13 @@ class grinch_items:
         PROGRESSIVE_VACUUM_TUBE: str = "Progressive Vacuum Tube"
         SLEIGH_ROOM_KEY: str = "Sleigh Room Key"
 
+    class sleigh_parts:
+        EXHAUST_PIPES: str = "Exhaust Pipes"
+        SKIS: str = "Skis"
+        TIRES: str = "Tires"
+        GPS: str = "GPS"
+        TWIN_END_TUBA: str = "Twin-End Tuba"
+
     class moves:
         PANCAKE: str = "Pancake"
         BAD_BREATH: str = "Bad Breath"
@@ -97,9 +104,11 @@ class grinch_categories:
     MOVES: str = "Moves"
     REQUIRED_ITEM: str = "Required Items"
     ROTTEN_EGG_BUNDLES: str = "Rotten Egg Bundles"
-    SLEIGH_ROOM: str = "Sleigh Room"
+    SLEIGH_ROOM: str = "Sleigh Room Items"
     TRAPS: str = "Traps"
     USEFUL_ITEMS: str = "Useful Items"
+    USEFUL_IC: str = "Useful"
+    PROGRESSION_IC: str = "Progression"
     VACUUM_TUBES: str = "Vacuum Tubes"
 
 
@@ -107,7 +116,10 @@ class grinch_categories:
 # All gadgets require at least 4 different blueprints to be unlocked in the computer in Mount Crumpit.
 GADGETS_TABLE: dict[str, GrinchItemData] = {
     grinch_items.gadgets.BINOCULARS: GrinchItemData(
-        [grinch_categories.GADGETS],
+        [
+            grinch_categories.GADGETS,
+            grinch_categories.USEFUL_IC,
+        ],
         100,
         IC.useful,
         [
@@ -115,11 +127,14 @@ GADGETS_TABLE: dict[str, GrinchItemData] = {
             GrinchRamData(0x0102B7, value=0x41),
             GrinchRamData(0x0102B8, value=0x44),
             GrinchRamData(0x0102B9, value=0x45),
-            # GrinchRamData(0x0100BC, binary_bit_pos=0)
+            GrinchRamData(0x0100BC, binary_bit_pos=0),
         ],
     ),
     grinch_items.gadgets.ROTTEN_EGG_LAUNCHER: GrinchItemData(
-        [grinch_categories.GADGETS],
+        [
+            grinch_categories.GADGETS,
+            grinch_categories.PROGRESSION_IC,
+        ],
         101,
         IC.progression,
         [
@@ -127,11 +142,15 @@ GADGETS_TABLE: dict[str, GrinchItemData] = {
             GrinchRamData(0x0102BB, value=0x41),
             GrinchRamData(0x0102BC, value=0x44),
             GrinchRamData(0x0102BD, value=0x45),
-            # GrinchRamData(0x0100BC, binary_bit_pos=1)
+            GrinchRamData(0x0100AC, binary_bit_pos=1),
+            GrinchRamData(0x0100BC, binary_bit_pos=1),
         ],
     ),
     grinch_items.gadgets.ROCKET_SPRING: GrinchItemData(
-        [grinch_categories.GADGETS],
+        [
+            grinch_categories.GADGETS,
+            grinch_categories.PROGRESSION_IC,
+        ],
         102,
         IC.progression,
         [
@@ -144,13 +163,15 @@ GADGETS_TABLE: dict[str, GrinchItemData] = {
             GrinchRamData(0x0102C4, value=0x48),
             GrinchRamData(0x0102C5, value=0x49),
             GrinchRamData(0x0102C6, value=0x4A),
-            # GrinchRamData(0x0100BC, binary_bit_pos=2)
+            GrinchRamData(0x0100AC, binary_bit_pos=2),
+            GrinchRamData(0x0100BC, binary_bit_pos=2),
         ],
     ),
     grinch_items.gadgets.SLIME_SHOOTER: GrinchItemData(
         [
             grinch_categories.GADGETS,
             "Slime Gun",  # For canon --MarioSpore
+            grinch_categories.PROGRESSION_IC,
         ],
         103,
         IC.progression,
@@ -164,11 +185,15 @@ GADGETS_TABLE: dict[str, GrinchItemData] = {
             GrinchRamData(0x0102CD, value=0x48),
             GrinchRamData(0x0102CE, value=0x49),
             GrinchRamData(0x0102CF, value=0x4A),
-            # GrinchRamData(0x0100BC, binary_bit_pos=3)
+            GrinchRamData(0x0100AC, binary_bit_pos=0),
+            GrinchRamData(0x0100BC, binary_bit_pos=3),
         ],
     ),
     grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE: GrinchItemData(
-        [grinch_categories.GADGETS],
+        [
+            grinch_categories.GADGETS,
+            grinch_categories.PROGRESSION_IC,
+        ],
         104,
         IC.progression,
         [
@@ -181,11 +206,15 @@ GADGETS_TABLE: dict[str, GrinchItemData] = {
             GrinchRamData(0x0102D6, value=0x48),
             GrinchRamData(0x0102D7, value=0x49),
             GrinchRamData(0x0102D8, value=0x4A),
-            # GrinchRamData(0x0100BC, binary_bit_pos=4)
+            GrinchRamData(0x0100AC, binary_bit_pos=3),
+            GrinchRamData(0x0100BC, binary_bit_pos=4),
         ],
     ),
     grinch_items.gadgets.MARINE_MOBILE: GrinchItemData(
-        [grinch_categories.GADGETS],
+        [
+            grinch_categories.GADGETS,
+            grinch_categories.PROGRESSION_IC,
+        ],
         105,
         IC.progression,
         [
@@ -205,11 +234,14 @@ GADGETS_TABLE: dict[str, GrinchItemData] = {
             GrinchRamData(0x0102E6, value=0x4D),
             GrinchRamData(0x0102E7, value=0x4E),
             GrinchRamData(0x0102E8, value=0x4F),
-            # GrinchRamData(0x0100BC, binary_bit_pos=5)
+            GrinchRamData(0x0100BC, binary_bit_pos=5),
         ],
     ),
     grinch_items.gadgets.GRINCH_COPTER: GrinchItemData(
-        [grinch_categories.GADGETS],
+        [
+            grinch_categories.GADGETS,
+            grinch_categories.PROGRESSION_IC,
+        ],
         106,
         IC.progression,
         [
@@ -229,7 +261,8 @@ GADGETS_TABLE: dict[str, GrinchItemData] = {
             GrinchRamData(0x0102F6, value=0x4D),
             GrinchRamData(0x0102F7, value=0x4E),
             GrinchRamData(0x0102F8, value=0x4F),
-            # GrinchRamData(0x0100BC, binary_bit_pos=6)
+            GrinchRamData(0x0100AC, binary_bit_pos=4),
+            GrinchRamData(0x0100BC, binary_bit_pos=6),
         ],
     ),
 }
@@ -240,6 +273,7 @@ MISSION_ITEMS_TABLE: dict[str, GrinchItemData] = {
         [
             grinch_categories.MISSION_SPECIFIC_ITEMS,
             grinch_categories.USEFUL_ITEMS,
+            grinch_categories.PROGRESSION_IC,
         ],
         200,
         IC.progression,
@@ -249,15 +283,17 @@ MISSION_ITEMS_TABLE: dict[str, GrinchItemData] = {
         [
             grinch_categories.MISSION_SPECIFIC_ITEMS,
             grinch_categories.USEFUL_ITEMS,
+            grinch_categories.PROGRESSION_IC,
         ],
         201,
-        IC.progression_deprioritized,
+        IC.progression,
         [GrinchRamData(0x0101F9, binary_bit_pos=1)],
     ),
     grinch_items.level_items.WD_SCISSORS: GrinchItemData(
         [
             grinch_categories.MISSION_SPECIFIC_ITEMS,
             grinch_categories.USEFUL_ITEMS,
+            grinch_categories.PROGRESSION_IC,
         ],
         202,
         IC.progression_deprioritized,
@@ -270,6 +306,7 @@ MISSION_ITEMS_TABLE: dict[str, GrinchItemData] = {
         [
             grinch_categories.MISSION_SPECIFIC_ITEMS,
             grinch_categories.USEFUL_ITEMS,
+            grinch_categories.PROGRESSION_IC,
         ],
         203,
         IC.progression_deprioritized,
@@ -279,6 +316,7 @@ MISSION_ITEMS_TABLE: dict[str, GrinchItemData] = {
         [
             grinch_categories.MISSION_SPECIFIC_ITEMS,
             grinch_categories.USEFUL_ITEMS,
+            grinch_categories.PROGRESSION_IC,
         ],
         204,
         IC.progression,
@@ -288,15 +326,17 @@ MISSION_ITEMS_TABLE: dict[str, GrinchItemData] = {
         [
             grinch_categories.MISSION_SPECIFIC_ITEMS,
             grinch_categories.USEFUL_ITEMS,
+            grinch_categories.PROGRESSION_IC,
         ],
         205,
-        IC.progression_deprioritized,
+        IC.progression,
         [GrinchRamData(0x0101FA, binary_bit_pos=2)],
     ),
     grinch_items.level_items.WL_ROPE: GrinchItemData(
         [
             grinch_categories.MISSION_SPECIFIC_ITEMS,
             grinch_categories.USEFUL_ITEMS,
+            grinch_categories.PROGRESSION_IC,
         ],
         206,
         IC.progression_deprioritized,
@@ -306,6 +346,7 @@ MISSION_ITEMS_TABLE: dict[str, GrinchItemData] = {
         [
             grinch_categories.MISSION_SPECIFIC_ITEMS,
             grinch_categories.USEFUL_ITEMS,
+            grinch_categories.PROGRESSION_IC,
         ],
         207,
         IC.progression_deprioritized,
@@ -315,6 +356,7 @@ MISSION_ITEMS_TABLE: dict[str, GrinchItemData] = {
         [
             grinch_categories.MISSION_SPECIFIC_ITEMS,
             grinch_categories.USEFUL_ITEMS,
+            grinch_categories.PROGRESSION_IC,
         ],
         208,
         IC.progression_deprioritized,
@@ -324,6 +366,8 @@ MISSION_ITEMS_TABLE: dict[str, GrinchItemData] = {
         [
             grinch_categories.MISSION_SPECIFIC_ITEMS,
             grinch_categories.USEFUL_ITEMS,
+            grinch_categories.PROGRESSION_IC,
+
         ],
         209,
         IC.progression_deprioritized,
@@ -333,6 +377,7 @@ MISSION_ITEMS_TABLE: dict[str, GrinchItemData] = {
         [
             grinch_categories.MISSION_SPECIFIC_ITEMS,
             grinch_categories.USEFUL_ITEMS,
+            grinch_categories.PROGRESSION_IC,
         ],
         210,
         IC.progression,
@@ -347,54 +392,114 @@ SLEIGH_TABLE: dict[str, GrinchItemData] = {
         [
             grinch_categories.SLEIGH_ROOM,
             grinch_categories.REQUIRED_ITEM,
+            grinch_categories.PROGRESSION_IC,
         ],
         410,
-        IC.progression,
+        IC.progression_skip_balancing,
         [
             GrinchRamData(0x010200, binary_bit_pos=6),
             GrinchRamData(0x0100AA, binary_bit_pos=5),
-#     "Exhaust Pipes": GrinchItemData(["Sleigh Parts"], 300, IC.progression_skip_balancing,
-#         [GrinchRamData(0x0101FB, binary_bit_pos=2)]),
-#     "GPS": GrinchItemData(["Sleigh Parts"], 301, IC.useful,
-#         [GrinchRamData(0x0101FB, binary_bit_pos=5)]),
-#     "Tires": GrinchItemData(["Sleigh Parts"], 302, IC.progression_skip_balancing,
-#         [GrinchRamData(0x0101FB, binary_bit_pos=4)]),
-#     "Skis": GrinchItemData(["Sleigh Parts"], 303, IC.progression_skip_balancing,
-#         [GrinchRamData(0x0101FB, binary_bit_pos=3)]),
-#     "Twin-End Tuba": GrinchItemData(["Sleigh Parts"], 304, IC.progression_skip_balancing,
-#         [GrinchRamData(0x0101FB, binary_bit_pos=6)])
         ],
+    ),
+    grinch_items.sleigh_parts.EXHAUST_PIPES: GrinchItemData(
+        [
+            grinch_categories.SLEIGH_ROOM,
+            grinch_categories.REQUIRED_ITEM,
+            grinch_categories.PROGRESSION_IC,
+        ],
+        411,
+        IC.progression_skip_balancing,
+        [
+            GrinchRamData(0x0101FB, binary_bit_pos=2)],
+    ),
+    grinch_items.sleigh_parts.GPS: GrinchItemData(
+        [
+            grinch_categories.SLEIGH_ROOM,
+            grinch_categories.FILLER,
+        ],
+        412,
+        IC.filler,
+        [
+            GrinchRamData(0x0101FB, binary_bit_pos=5)],
+    ),
+    grinch_items.sleigh_parts.TIRES: GrinchItemData(
+        [
+            grinch_categories.SLEIGH_ROOM,
+            grinch_categories.REQUIRED_ITEM,
+            grinch_categories.PROGRESSION_IC,
+        ],
+        413,
+        IC.progression_skip_balancing,
+        [
+            GrinchRamData(0x0101FB, binary_bit_pos=4)],
+    ),
+    grinch_items.sleigh_parts.SKIS: GrinchItemData(
+        [
+            grinch_categories.SLEIGH_ROOM,
+            grinch_categories.REQUIRED_ITEM,
+            grinch_categories.PROGRESSION_IC,
+        ],
+        414,
+        IC.progression_skip_balancing,
+        [
+            GrinchRamData(0x0101FB, binary_bit_pos=3)],
+    ),
+    grinch_items.sleigh_parts.TWIN_END_TUBA: GrinchItemData(
+        [
+            grinch_categories.SLEIGH_ROOM,
+            grinch_categories.REQUIRED_ITEM,
+            grinch_categories.PROGRESSION_IC,
+        ],
+        415,
+        IC.progression_skip_balancing,
+        [
+            GrinchRamData(0x0101FB, binary_bit_pos=6)],
     ),
 }
 
 # Access Keys
 KEYS_TABLE: dict[str, GrinchItemData] = {
     grinch_items.keys.WHOVILLE: GrinchItemData(
-        [grinch_categories.VACUUM_TUBES],
+        [
+            grinch_categories.VACUUM_TUBES,
+            grinch_categories.PROGRESSION_IC,
+        ],
         400,
         IC.progression,
         [GrinchRamData(0x010200, binary_bit_pos=1)],
     ),
     grinch_items.keys.WHO_FOREST: GrinchItemData(
-        [grinch_categories.VACUUM_TUBES],
+        [
+            grinch_categories.VACUUM_TUBES,
+            grinch_categories.PROGRESSION_IC,
+        ],
         401,
         IC.progression,
         [GrinchRamData(0x0100AA, binary_bit_pos=2)],
     ),
     grinch_items.keys.WHO_DUMP: GrinchItemData(
-        [grinch_categories.VACUUM_TUBES],
+        [
+            grinch_categories.VACUUM_TUBES,
+            grinch_categories.PROGRESSION_IC,
+        ],
         402,
         IC.progression,
         [GrinchRamData(0x0100AA, binary_bit_pos=3)],
     ),
     grinch_items.keys.WHO_LAKE: GrinchItemData(
-        [grinch_categories.VACUUM_TUBES],
+        [
+            grinch_categories.VACUUM_TUBES,
+            grinch_categories.PROGRESSION_IC,
+        ],
         403,
         IC.progression,
         [GrinchRamData(0x0100AA, binary_bit_pos=4)],
     ),
     grinch_items.keys.PROGRESSIVE_VACUUM_TUBE: GrinchItemData(
-        [grinch_categories.VACUUM_TUBES],
+        [
+            grinch_categories.VACUUM_TUBES,
+            grinch_categories.PROGRESSION_IC,
+        ],
         404,
         IC.progression,
         [GrinchRamData(0x010200, binary_bit_pos=1),
@@ -477,12 +582,21 @@ MISC_ITEMS_TABLE: dict[str, GrinchItemData] = {
             )
         ],
     ),
+    "Present": GrinchItemData(
+        [
+            grinch_categories.FILLER,
+        ],
+        505,
+        IC.filler,
+        [
+        ],
+    ),
 }
 
 USEFUL_ITEMS_TABLE: dict[str, GrinchItemData] = {
     grinch_items.useful_items.HEART_OF_STONE: GrinchItemData(
         [
-            grinch_categories.USEFUL_ITEMS,
+            grinch_categories.USEFUL_IC,
             grinch_categories.HEALING_ITEMS,
         ],
         501,
@@ -503,7 +617,10 @@ USEFUL_ITEMS_TABLE: dict[str, GrinchItemData] = {
 # Movesets
 MOVES_TABLE: dict[str, GrinchItemData] = {
     grinch_items.moves.BAD_BREATH: GrinchItemData(
-        [grinch_categories.MOVES],
+        [
+            grinch_categories.MOVES,
+            grinch_categories.PROGRESSION_IC,
+        ],
         700,
         IC.progression,
         [
@@ -511,7 +628,10 @@ MOVES_TABLE: dict[str, GrinchItemData] = {
         ],
     ),
     grinch_items.moves.PANCAKE: GrinchItemData(
-        [grinch_categories.MOVES],
+        [
+            grinch_categories.MOVES,
+            grinch_categories.PROGRESSION_IC,
+        ],
         701,
         IC.progression,
         [
@@ -519,7 +639,10 @@ MOVES_TABLE: dict[str, GrinchItemData] = {
         ],
     ),
     grinch_items.moves.SEIZE: GrinchItemData(
-        [grinch_categories.MOVES],
+        [
+            grinch_categories.MOVES,
+            grinch_categories.PROGRESSION_IC,
+        ],
         702,
         IC.progression,
         [
@@ -527,7 +650,10 @@ MOVES_TABLE: dict[str, GrinchItemData] = {
         ],
     ),
     grinch_items.moves.MAX: GrinchItemData(
-        [grinch_categories.MOVES],
+        [
+            grinch_categories.MOVES,
+            grinch_categories.PROGRESSION_IC,
+        ],
         703,
         IC.progression,
         [
@@ -536,7 +662,10 @@ MOVES_TABLE: dict[str, GrinchItemData] = {
         ],
     ),
     grinch_items.moves.SNEAK: GrinchItemData(
-        [grinch_categories.MOVES],
+        [
+            grinch_categories.MOVES,
+            grinch_categories.PROGRESSION_IC,
+        ],
         704,
         IC.progression,
         [
@@ -572,6 +701,8 @@ TRAPS_TABLE: dict[str, GrinchItemData] = {
             GrinchRamData(0x0100B4, value=0),
             GrinchRamData(0x08FB94, value=1),
             GrinchRamData(0x010111, value=0),
+            GrinchRamData(0x01010D, value=1),
+            GrinchRamData(0x0100B3, value=0),
         ],
     ),
     # alias to Spring Trap for traplink
@@ -584,6 +715,7 @@ TRAPS_TABLE: dict[str, GrinchItemData] = {
         [
             GrinchRamData(0x08FB94, value=1),
             GrinchRamData(0x010111, value=0),
+            GrinchRamData(0x0100B3, value=0),
         ],
     ),
     # "Cutscene Trap": GrinchItemData(["Traps"], 609, IC.trap, [GrinchRamData()]),

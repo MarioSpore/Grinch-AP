@@ -1,6 +1,4 @@
-import math
-
-from BaseClasses import Region, Item, Location
+from BaseClasses import Item, Location
 from .Locations import grinch_locations_to_id, grinch_locations, GrinchLocation, get_location_names_per_category, GrinchLocationData
 from .Items import (grinch_items_to_id, GrinchItem, ALL_ITEMS_TABLE, MISC_ITEMS_TABLE, get_item_names_per_category,
     TRAPS_TABLE, MOVES_TABLE, USEFUL_ITEMS_TABLE)
@@ -14,7 +12,6 @@ from worlds.AutoWorld import World
 from Options import OptionError
 
 from .GrinchOptions import GrinchOptions
-from .Rules import access_rules_dict
 from .Web import GrinchWeb
 
 
@@ -25,18 +22,22 @@ class GrinchWorld(World):
     topology_present = True # not an open world game, very linear, allows "Paths" in spoiler log
     item_name_to_id: ClassVar[dict[str, int]] = grinch_items_to_id()
     location_name_to_id: ClassVar[dict[str, int]] = grinch_locations_to_id()
-    required_client_version = (0, 6, 5) # Unused atm, replaced by ap.json
+    required_client_version = (0, 6, 6) # Unused atm, replaced by ap.json
     item_name_groups = get_item_names_per_category()
     location_name_groups = get_location_names_per_category()
     web = GrinchWeb()
 
-    ut_can_gen_without_yaml = True  # class var that tells it to ignore the player yaml
+    songs_chosen: dict
+
+    ut_can_gen_without_yaml = True  # class var that tells it to ignore the player YAML
 
     def __init__(self, *args, **kwargs):  # Pulls __init__ function and takes control from there in BaseClasses.py
         self.origin_region_name: str = "Mount Crumpit"
         super(GrinchWorld, self).__init__(*args, **kwargs)
+        self.songs_chosen = {}
 
     def generate_early(self) -> None:  # Special conditions changed before generation occurs
+        from CommonClient import logger
         if self.options.ring_link == 1 and self.options.unlimited_eggs == 1:
             raise OptionError("Cannot enable both unlimited rotten eggs and ring links. You can only enable one of " +
                 f"these at a time. The following player's YAML needs to be fixed: {self.player_name}")
@@ -46,19 +47,24 @@ class GrinchWorld(World):
         #   be not enough items for all defined locations. Later this can be changed to default item and this get removed.
         total_fillerweights = sum(self.options.filler_weight[filler] for filler in self.options.filler_weight.keys())
         if total_fillerweights <= 0:
-            raise OptionError("Cannot begin generation as no filler options are defined. At least one filler item " +
-                f"must have a weight of at least 1. The following player's YAML needs to be fixed: {self.player_name}")
+            logger.warning(f"Player {self.player_name} has all filler weights set to 0. Using Presents instead for filler.")
 
         total_trapweights = sum(self.options.trap_weight[trap] for trap in self.options.trap_weight.keys())
         if total_trapweights <= 0 and self.options.trap_percentage >= 1:
             raise OptionError("Cannot begin generation as no trap options are defined. At least one trap item " +
                 f"must have a weight of at least 1. The following player's YAML needs to be fixed: {self.player_name}")
 
+        if self.options.music_rando.value == 1:
+            for music_enabled_region, region_data in ALL_REGIONS_INFO.items():
+                if region_data.allow_music_rando:
+                    self.songs_chosen[music_enabled_region] = self.random.randint(2, 22)
+
+        # this handles all related logical UT things
         if hasattr(self.multiworld, "re_gen_passthrough"):
             if self.game in self.multiworld.re_gen_passthrough:
                 slot_data = self.multiworld.re_gen_passthrough[self.game]
                 print(slot_data)
-                self.options.unlimited_eggs.value = slot_data["give_unlimited_eggs"]
+                self.options.unlimited_eggs.value = slot_data["unlimited_eggs"]
                 self.options.starting_area.value = slot_data["starting_area"]
                 self.options.exclude_environments.value = ["exclude_environments"]
                 self.options.giftsanity.value = slot_data["giftsanity"]
@@ -72,12 +78,31 @@ class GrinchWorld(World):
                 self.options.exclude_gc = slot_data["exclude_gc"]
                 self.options.progressive_gadgets = slot_data["progressive_gadgets"]
                 self.options.killsanity = slot_data["killsanity"]
+                self.options.misc_checks = slot_data["misc_checks"]
 
     def create_regions(self):  # Generates all regions for the multiworld
-        for region_name in access_rules_dict.keys():
-            self.multiworld.regions.append(Region(region_name, self.player, self.multiworld))
+        connect_regions(self, self.multiworld)
 
-        self.multiworld.regions.append(Region("Mount Crumpit", self.player, self.multiworld))
+        wv_subareas: set[str] = {
+            "Post Office",
+            "Clock Tower",
+            "City Hall",
+        }
+        wf_subareas: set[str] = {
+            "Civic Center",
+            "Ski Resort",
+        }
+        wd_subareas: set[str] = {
+            "Minefield",
+            "Power Plant",
+            "Generator Building",
+        }
+        wl_subareas: set[str] = {
+            "Scout's Hut",
+            "North Shore",
+            "Mayor's Villa",
+            "Submarine World",
+        }
 
         for location, data in grinch_locations.items():
             region = self.get_region(data.region)
@@ -86,17 +111,60 @@ class GrinchWorld(World):
                 region.add_event(location, "Goal", None, Location, Item)
                 continue
 
-            # No .value after self.options.giftsanity because UT no likey
+            # No .value after self.options because UT no likey
+            if location == "MC - Unlock the Grinch Copter" and self.options.exclude_gc:
+                continue
+
+            # No .value after self.options because UT no likey
             if "Giftsanity" in data.location_group and (not self.options.giftsanity or self.options.exclude_gc):
                 continue
 
-            # No .value after self.options.missionsanity because UT no likey
+            # No .value after self.options because UT no likey
             if "Missions" in data.location_group and self.options.missionsanity in [0,2]:
                 continue
 
-            # No .value after self.options.missionsanity because UT no likey
+            # No .value after self.options because UT no likey
             if "Missionsanity" in data.location_group and self.options.missionsanity in [0,1]:
                 continue
+
+            if "Miscellaneous" in data.location_group and self.options.misc_checks == False:
+                continue
+
+            if location == "WV - Squashing All Gifts":
+                exclude_wv_squash: bool = False
+                for wv_sub in wv_subareas:
+                    if wv_sub in self.options.exclude_environments.value:
+                        exclude_wv_squash = True
+
+                if exclude_wv_squash:
+                    continue  # Ignores the creation of WV Squashing all Gifts
+
+            elif location == "WF - Squashing All Gifts":
+                exclude_wf_squash: bool = False
+                for wf_sub in wf_subareas:
+                    if wf_sub in self.options.exclude_environments.value:
+                        exclude_wf_squash = True
+
+                if exclude_wf_squash:
+                    continue  # Ignores the creation of WF Squashing all Gifts
+
+            elif location == "WD - Squashing All Gifts":
+                exclude_wd_squash: bool = False
+                for wd_sub in wd_subareas:
+                    if wd_sub in self.options.exclude_environments.value:
+                        exclude_wd_squash = True
+
+                if exclude_wd_squash:
+                    continue  # Ignores the creation of WD Squashing all Gifts
+
+            elif location == "WL - Squashing All Gifts":
+                exclude_wl_squash: bool = False
+                for wl_sub in wl_subareas:
+                    if wl_sub in self.options.exclude_environments.value:
+                        exclude_wl_squash = True
+
+                if exclude_wl_squash:
+                    continue  # Ignores the creation of WL Squashing all Gifts
 
             # If the region is in the list to be ignored, DON'T create the location and just continue.
             # Ex if Mount Crumpit is in the exclude env list, no locations should exist in Mount Crumpit.
@@ -105,10 +173,9 @@ class GrinchWorld(World):
                     logger.warning(f"Player {self.player_name} has excluded Mount Crumpit, which is where a large number of Sphere 1 locations usually exist.")
                 continue
 
+
             entry = GrinchLocation(self.player, location, region, data)
             region.locations.append(entry)
-
-        connect_regions(self)
 
     def create_item(self, item: str) -> GrinchItem:  # Creates specific items on demand
         if item in ALL_ITEMS_TABLE.keys():
@@ -122,6 +189,12 @@ class GrinchWorld(World):
             "Who Cloak": ["Post Office"],
             "Scout Clothes": ["Mayor's Villa", "North Shore"],
             "Cable Car Access Card": ["Ski Resort"],
+        }
+        missionsanity_items: dict[str, list[str]] = {
+            "Who Cloak": ["Post Office"],
+            "Scout Clothes": ["Mayor's Villa", "North Shore"],
+            "Drill": ["North Shore"],
+            "Painting Bucket": ["Whoville"],
         }
 
         # Precollected items is stored per player. First, we must get the current player's starting inventory.
@@ -147,12 +220,14 @@ class GrinchWorld(World):
 
             # Checks to see if there are any locations in the Sub-area list.
             sub_area_has_no_locations: bool = False
-            if mission_item in sub_area_items.keys():
-                for grinch_reg in sub_area_items[mission_item]:
-                    if len(self.get_region(grinch_reg).get_locations()) == 0:
-                        sub_area_has_no_locations = True
 
-            # If the item is a sub_area_item and it has 0 locations, add it to start inventory
+            if mission_item in sub_area_items:
+                sub_area_has_no_locations = True
+                for grinch_reg in sub_area_items[mission_item]:
+                    if len(self.get_region(grinch_reg).get_locations()) > 0:
+                        sub_area_has_no_locations = False
+
+            # If the item is a sub_area_item that has 0 locations, add it to start inventory
             if sub_area_has_no_locations:
                 self.multiworld.push_precollected(self.create_item(mission_item))
                 player_start_inv.append(mission_item)
@@ -161,6 +236,12 @@ class GrinchWorld(World):
             elif self.options.missionsanity == 0:
                 self.multiworld.push_precollected(self.create_item(mission_item))
                 player_start_inv.append(mission_item)
+            elif self.options.missionsanity == 2:
+                if mission_item in missionsanity_items:
+                    self_itempool.append(self.create_item(mission_item))
+                else:
+                    self.multiworld.push_precollected(self.create_item(mission_item))
+                    player_start_inv.append(mission_item)
             # Else, let the multiworld create the item normally.
             else:
                 self_itempool.append(self.create_item(mission_item))
@@ -182,6 +263,11 @@ class GrinchWorld(World):
             if gadgets_added == "Grinch Copter" and self.options.exclude_gc:
                 continue
 
+            if gadgets_added == "Marine Mobile" and "Submarine World" in self.options.exclude_environments:
+                self.multiworld.push_precollected(self.create_item(gadgets_added))
+                player_start_inv.append(gadgets_added)
+                continue
+
             # Only create the item if it doesn't already exist in the player's start inventory.
             elif gadgets_added in player_start_inv:
                 continue
@@ -191,6 +277,7 @@ class GrinchWorld(World):
             else:
                 self.multiworld.push_precollected(self.create_item(gadgets_added))
                 player_start_inv.append(gadgets_added)
+                continue
 
         if not self.options.progressive_vacuums:
         # When the starting area is chosen, add the key to the starting inventory.
@@ -233,14 +320,14 @@ class GrinchWorld(World):
             self_itempool.append(self.create_item(self.get_weighted_filler_item
                 (list(self.options.trap_weight.keys()), list(self.options.trap_weight.values()))))
 
-        # total_fillerweights = sum(self.options.filler_weight[filler] for filler in self.options.filler_weight.keys())
+        total_fillerweights = sum(self.options.filler_weight[filler] for filler in self.options.filler_weight.keys())
         for _ in range(filler_locations):
-            # if total_fillerweights > 0:
+            if total_fillerweights > 0:
                 # Keys are the individual items, values are the weights based on the option being set
                 self_itempool.append(self.create_item(self.get_weighted_filler_item(
                     list(self.options.filler_weight.keys()), list(self.options.filler_weight.values()))))
-            # else:
-                # self_itempool.append(self.create_item("5 Rotten Eggs"))
+            else:
+                self_itempool.append(self.create_item("Present"))
 
         self.multiworld.itempool += self_itempool
 
@@ -250,12 +337,14 @@ class GrinchWorld(World):
 
     def get_weighted_filler_item(self, other_filler: list[str], weights_dict: list[int]) -> str:
         # The below does this for deterministic reasons, otherwise if you rolled the same seed, you would get different outcomes.
-        local_dict: dict[str, int] = dict(sorted(dict(zip(other_filler, weights_dict)).items()))
-        return self.random.choices(list(local_dict.keys()), list(local_dict.values()))[0]
+            local_dict: dict[str, int] = dict(zip(other_filler, weights_dict))
+            # local_dict["Present"] = 1
+            return self.random.choices(list(local_dict.keys()), list(local_dict.values()))[0]
 
+    # this handles ingame/client related things
     def fill_slot_data(self):
         return {
-            "give_unlimited_eggs": self.options.unlimited_eggs.value,
+            "unlimited_eggs": self.options.unlimited_eggs.value,
             "ring_link": self.options.ring_link.value,
             "starting_area": self.options.starting_area.value,
             "exclude_environments": self.options.exclude_environments.value,
@@ -270,7 +359,11 @@ class GrinchWorld(World):
             "exclude_gc": self.options.exclude_gc.value,
             "progressive_gadgets": self.options.progressive_gadgets.value,
             "killsanity": self.options.killsanity.value,
-
+            "misc_checks": self.options.misc_checks.value,
+            "death_link": self.options.death_link.value,
+            "damage_rate": self.options.damage_rate.value,
+            "music_rando": self.options.music_rando.value,
+            "chosen_music": self.songs_chosen,
         }
 
     def generate_output(self, output_directory: str) -> None:

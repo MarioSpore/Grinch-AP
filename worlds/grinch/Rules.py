@@ -25,7 +25,7 @@ def interpret_rule(
     player: int,
 ):
     # If a region/location does not have any items required, make the section(s) return no logic.
-    if len(rule_set) < 1:
+    if rule_set is None or len(rule_set) < 1:
         return []
 
     # Otherwise, if a region/location DOES have items required, make the section(s) return list of logic.
@@ -79,6 +79,9 @@ access_rules_dict: dict[str, list[list[str]]] = {
     "Clock Tower": [
         [
             grinch_items.moves.SNEAK,
+        ],
+        [
+            grinch_items.gadgets.SLIME_SHOOTER,
         ],
     ],
     "Who Forest": [
@@ -195,26 +198,31 @@ access_rules_dict: dict[str, list[list[str]]] = {
     ],
     "Sleigh Ride": [
         [
-        grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-        grinch_items.keys.WHOVILLE,
-        grinch_items.keys.WHO_FOREST,
-        grinch_items.keys.WHO_DUMP,
-        grinch_items.keys.WHO_LAKE,
-        grinch_items.gadgets.ROCKET_SPRING,
-        grinch_items.gadgets.MARINE_MOBILE,
-        grinch_items.moves.MAX,
-        grinch_items.moves.SEIZE,
-        grinch_items.moves.PANCAKE,
+        grinch_items.sleigh_parts.EXHAUST_PIPES,
+        grinch_items.sleigh_parts.TWIN_END_TUBA,
+        grinch_items.sleigh_parts.SKIS,
+        grinch_items.sleigh_parts.TIRES,
+        # grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        # grinch_items.keys.WHOVILLE,
+        # grinch_items.keys.WHO_FOREST,
+        # grinch_items.keys.WHO_DUMP,
+        # grinch_items.keys.WHO_LAKE,
+        # grinch_items.gadgets.ROCKET_SPRING,
+        # grinch_items.gadgets.MARINE_MOBILE,
+        # grinch_items.moves.MAX,
+        # grinch_items.moves.SEIZE,
+        # grinch_items.moves.PANCAKE,
+        # ],
+        # [
+        # grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        # "4:"+grinch_items.keys.PROGRESSIVE_VACUUM_TUBE,
+        # grinch_items.gadgets.ROCKET_SPRING,
+        # grinch_items.gadgets.MARINE_MOBILE,
+        # grinch_items.moves.MAX,
+        # grinch_items.moves.SEIZE,
+        # grinch_items.moves.PANCAKE,
+        # ]
         ],
-        [
-        grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-        "4:"+grinch_items.keys.PROGRESSIVE_VACUUM_TUBE,
-        grinch_items.gadgets.ROCKET_SPRING,
-        grinch_items.gadgets.MARINE_MOBILE,
-        grinch_items.moves.MAX,
-        grinch_items.moves.SEIZE,
-        grinch_items.moves.PANCAKE,
-        ]
     ],
     "Spin N' Win": [[]],
     "Dankamania": [[]],
@@ -262,6 +270,9 @@ rules_dict: dict[str, list[list[str]]] = {
         [
             grinch_items.moves.PANCAKE,
         ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ]
     ],
     "WV - Painting The Mayor's Posters": [
         [
@@ -307,6 +318,10 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.PANCAKE,
             grinch_items.moves.MAX,
             grinch_items.moves.SEIZE,
+        ],
+        [
+            "advanced_logic"
+
         ]
     ],
     # Who Forest Missions
@@ -363,6 +378,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.gadgets.SLIME_SHOOTER,
             grinch_items.moves.BAD_BREATH,
+            grinch_items.moves.MAX,
         ],
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
@@ -370,6 +386,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SNEAK,
             grinch_items.moves.BAD_BREATH,
+            grinch_items.moves.MAX,
         ]
     ],
     "WF - Squashing All Gifts": [
@@ -729,7 +746,6 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.SLIME_SHOOTER,
             grinch_items.moves.PANCAKE,
             grinch_items.moves.MAX,
-            grinch_items.moves.BAD_BREATH,
         ],
     ],
     "WF - Civic Center - GC BP on Left Side in Bat Cave Wall": [
@@ -1097,50 +1113,42 @@ rules_dict: dict[str, list[list[str]]] = {
         ],
     ],
     # Finale
-    "WV - Exhaust Pipes": [
-        [
-            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-            grinch_items.keys.SLEIGH_ROOM_KEY,
-        ],
-    ],
-    "WF - Skis": [
-        [
-            grinch_items.keys.SLEIGH_ROOM_KEY,
-            grinch_items.moves.MAX,
-        ],
-    ],
-    "WD - Tires": [
-        [
-            grinch_items.gadgets.ROCKET_SPRING,
-            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-            grinch_items.keys.SLEIGH_ROOM_KEY,
-            grinch_items.moves.SEIZE,
-            grinch_items.moves.PANCAKE,
-        ],
-    ],
-    "WL - Submarine World - Twin-End Tuba": [
-        [
-            grinch_items.gadgets.MARINE_MOBILE,
-            grinch_items.keys.SLEIGH_ROOM_KEY,
-        ],
-    ],
-    "WL - South Shore - GPS": [
-        [
-            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-            grinch_items.keys.SLEIGH_ROOM_KEY,
-            grinch_items.moves.SNEAK,
-        ],
-    ],
-    "MC - Sleigh Ride - Stealing All Gifts": [
-        # ["Exhaust Pipes", "Tires", "Skis", "Twin-End Tuba"]
-        [
-        ],
-    ],
-    "MC - Sleigh Ride - Neutralizing Santa": [
-        # ["Exhaust Pipes", "Tires", "Skis", "Twin-End Tuba"]
-        [
-        ],
-    ],
+    # "WV - Exhaust Pipes": [
+    #     [
+    #         grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+    #         grinch_items.keys.SLEIGH_ROOM_KEY,
+    #     ],
+    # ],
+    # "WF - Skis": [
+    #     [
+    #         grinch_items.keys.SLEIGH_ROOM_KEY,
+    #         grinch_items.moves.MAX,
+    #     ],
+    # ],
+    # "WD - Tires": [
+    #     [
+    #         grinch_items.gadgets.ROCKET_SPRING,
+    #         grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+    #         grinch_items.keys.SLEIGH_ROOM_KEY,
+    #         grinch_items.moves.SEIZE,
+    #         grinch_items.moves.PANCAKE,
+    #     ],
+    # ],
+    # "WL - Submarine World - Twin-End Tuba": [
+    #     [
+    #         grinch_items.gadgets.MARINE_MOBILE,
+    #         grinch_items.keys.SLEIGH_ROOM_KEY,
+    #     ],
+    # ],
+    # "WL - South Shore - GPS": [
+    #     [
+    #         grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+    #         grinch_items.keys.SLEIGH_ROOM_KEY,
+    #         grinch_items.moves.SNEAK,
+    #     ],
+    # ],
+    "MC - Sleigh Ride - Stealing All Gifts": [[]],
+    "MC - Sleigh Ride - Neutralizing Santa": [[]],
     # Hearts of Stone
     "WV - Post Office - Heart of Stone": [[]],
     "WF - Ski Resort - Heart of Stone": [[]],
@@ -1173,6 +1181,11 @@ rules_dict: dict[str, list[list[str]]] = {
     "Bike Race - Top 2": [[]],
     "Bike Race - Top 3": [[]],
     # Intro
+    "MC - Collect Key in Boxes": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
     "MC - 1st Crate Squashed": [
         [
             grinch_items.moves.PANCAKE,
@@ -1223,55 +1236,85 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.BAD_BREATH,
         ],
     ],
-    "WV - Squashing Snowmen - Next to Vacuum Tube": [
+    "WV - Smashing Snowmen - Next to Vacuum Tube": [
         [
             grinch_items.moves.PANCAKE,
         ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ]
     ],
-    "WV - Squashing Snowmen - Left Side of Post Office": [
+    "WV - Smashing Snowmen - Left Side of Post Office": [
         [
             grinch_items.moves.PANCAKE,
         ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ]
     ],
-    "WV - Squashing Snowmen - Right Side of Clock Tower": [
+    "WV - Smashing Snowmen - Right Side of Clock Tower": [
         [
             grinch_items.moves.PANCAKE,
         ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ]
     ],
-    "WV - Squashing Snowmen - Left Side of Clock Tower": [
+    "WV - Smashing Snowmen - Left Side of Clock Tower": [
         [
             grinch_items.moves.PANCAKE,
         ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ]
     ],
-    "WV - Squashing Snowmen - Between Christmas Tree and Orange Round Building": [
+    "WV - Smashing Snowmen - Between Christmas Tree and Orange Round Building": [
         [
             grinch_items.moves.PANCAKE,
         ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ]
     ],
-    "WV - Squashing Snowmen - East of Christmas Tree on Platform": [
+    "WV - Smashing Snowmen - East of Christmas Tree on Platform": [
         [
             grinch_items.moves.PANCAKE,
         ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ]
     ],
-    "WV - Squashing Snowmen - Near Vacuum Tube on Blue Platform near Orange Bridge": [
+    "WV - Smashing Snowmen - Near Vacuum Tube on Blue Platform near Orange Bridge": [
         [
             grinch_items.moves.PANCAKE,
         ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ]
     ],
-    "WV - Squashing Snowmen - Left side of City Hall": [
+    "WV - Smashing Snowmen - Left side of City Hall": [
         [
             grinch_items.moves.PANCAKE,
         ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ]
     ],
-    "WV - Squashing Snowmen - South of Christmas Tree": [
+    "WV - Smashing Snowmen - South of Christmas Tree": [
         [
             grinch_items.moves.PANCAKE,
         ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ]
     ],
-    "WV - Squashing Snowmen - Right side of City Hall around the back": [
+    "WV - Smashing Snowmen - Right side of City Hall around the back": [
         [
             grinch_items.moves.PANCAKE,
         ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ]
     ],
     "WV - Launching Eggs Into Houses - On Gray Building right side of City Hall": [
         [
@@ -1398,57 +1441,57 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.MAX,
         ],
     ],
-    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Open Hatch to Floor 2": [
+    "WV - Clock Tower - Open Hatch to Floor 2": [
         [
             grinch_items.gadgets.ROCKET_SPRING,
         ],
     ],
-    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Open Hatch to Floor 3": [
+    "WV - Clock Tower - Open Hatch to Floor 3": [
         [
             grinch_items.gadgets.ROCKET_SPRING,
         ],
     ],
-    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Open Hatch to Floor 4": [
-        [
-            grinch_items.gadgets.ROCKET_SPRING,
-            grinch_items.moves.SEIZE,
-        ],
-    ],
-    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Open Hatch to Floor 5": [
+    "WV - Clock Tower - Open Hatch to Floor 4": [
         [
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SEIZE,
         ],
     ],
-    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Ring 1st Bell": [
+    "WV - Clock Tower - Open Hatch to Floor 5": [
         [
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SEIZE,
-            grinch_items.moves.MAX,
         ],
     ],
-    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Ring 2nd Bell": [
+    "WV - Clock Tower - Ring 1st Bell": [
         [
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SEIZE,
             grinch_items.moves.MAX,
         ],
     ],
-    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Ring 3rd Bell": [
+    "WV - Clock Tower - Ring 2nd Bell": [
         [
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SEIZE,
             grinch_items.moves.MAX,
         ],
     ],
-    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Ring 4th Bell": [
+    "WV - Clock Tower - Ring 3rd Bell": [
         [
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SEIZE,
             grinch_items.moves.MAX,
         ],
     ],
-    "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock - Ring 5th Bell": [
+    "WV - Clock Tower - Ring 4th Bell": [
+        [
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SEIZE,
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "WV - Clock Tower - Ring 5th Bell": [
         [
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SEIZE,
@@ -1711,6 +1754,18 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.SLIME_SHOOTER,
             grinch_items.moves.BAD_BREATH,
         ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.BAD_BREATH,
+        ],
     ],
     "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Furthest platform of super toy parkour": [
         [
@@ -1731,6 +1786,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.gadgets.SLIME_SHOOTER,
             grinch_items.moves.BAD_BREATH,
+            grinch_items.moves.MAX,
         ],
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
@@ -1738,6 +1794,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SNEAK,
             grinch_items.moves.BAD_BREATH,
+            grinch_items.moves.MAX,
         ],
     ],
     "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Across snow boulders": [
@@ -1790,6 +1847,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.PANCAKE,
+            grinch_items.moves.SEIZE,
         ],
     ],
     "WD - Feeding The Computer With Robot Parts - Right area near robot parts vacuum": [
@@ -1911,6 +1969,17 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.PANCAKE,
         ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+
+        ],
+        [
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
     ],
     "WD - Conducting The Stinky Gas To Who-Bris' Shack - Shooting pipe in right side": [
         [
@@ -1998,7 +2067,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.SEIZE,
         ],
     ],
-    "WD - Infesting The Mayor's House With Rats - 1st Rat Lured": [
+    "WD - Infesting The Mayor's House With Rats - Rat 1": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
@@ -2012,7 +2081,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.MAX,
         ],
     ],
-    "WD - Infesting The Mayor's House With Rats - 2nd Rat Lured": [
+    "WD - Infesting The Mayor's House With Rats - Rat 2": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
@@ -2026,7 +2095,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.MAX,
         ],
     ],
-    "WD - Infesting The Mayor's House With Rats - 3rd Rat Lured": [
+    "WD - Infesting The Mayor's House With Rats - Rat 3": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
@@ -2040,7 +2109,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.MAX,
         ],
     ],
-    "WD - Infesting The Mayor's House With Rats - 4th Rat Lured": [
+    "WD - Infesting The Mayor's House With Rats - Rat 4": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
@@ -2054,7 +2123,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.MAX,
         ],
     ],
-    "WD - Infesting The Mayor's House With Rats - 5th Rat Lured": [
+    "WD - Infesting The Mayor's House With Rats - Rat 5": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
@@ -2068,7 +2137,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.MAX,
         ],
     ],
-    "WD - Infesting The Mayor's House With Rats - 6th Rat Lured": [
+    "WD - Infesting The Mayor's House With Rats - Rat 6": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
@@ -2082,7 +2151,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.MAX,
         ],
     ],
-    "WD - Infesting The Mayor's House With Rats - 7th Rat Lured": [
+    "WD - Infesting The Mayor's House With Rats - Rat 7": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
@@ -2096,7 +2165,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.MAX,
         ],
     ],
-    "WD - Infesting The Mayor's House With Rats - 8th Rat Lured": [
+    "WD - Infesting The Mayor's House With Rats - Rat 8": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
@@ -2110,7 +2179,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.MAX,
         ],
     ],
-    "WD - Infesting The Mayor's House With Rats - 9th Rat Lured": [
+    "WD - Infesting The Mayor's House With Rats - Rat 9": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
@@ -2124,7 +2193,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.MAX,
         ],
     ],
-    "WD - Infesting The Mayor's House With Rats - 10th Rat Lured": [
+    "WD - Infesting The Mayor's House With Rats - Rat 10": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
@@ -2548,6 +2617,212 @@ rules_dict: dict[str, list[list[str]]] = {
     "WL - Submarine World - Modifying The Marine Mobile - Pirate Ship in Cave": [[]],
     "WL - Submarine World - Modifying The Marine Mobile - Sea Cow Leaves": [[]],
     "WL - Submarine World - Modifying The Marine Mobile - Timed Cage": [[]],
+    "WD - Power Plant - Touch Grass": [[]],
+    "WL - South Shore - Touch Grass": [[]],
+    "WL - North Shore - Touch Grass": [[]],
+    "WL - Mayor's Villa - Touch Grass": [[]],
+    "MC - Collect all Rotten Egg Launcher Blueprints": [
+        [
+            grinch_items.level_items.WV_WHO_CLOAK,
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "MC - Collect all Rocket Spring Blueprints": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+        [
+            grinch_items.gadgets.GRINCH_COPTER,
+        ],
+    ],
+    "MC - Collect all Slime Shooter Blueprints": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "MC - Collect all Octopus Climbing Device Blueprints": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.SEIZE,
+            grinch_items.gadgets.SLIME_SHOOTER,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.SEIZE,
+        ],
+    ],
+    "MC - Collect all Marine Mobile Blueprints": [
+        [
+            grinch_items.level_items.WL_SCOUT_CLOTHES,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.MAX,
+            grinch_items.moves.SNEAK,
+        ],
+        [
+            grinch_items.level_items.WL_SCOUT_CLOTHES,
+            grinch_items.moves.SEIZE,
+            grinch_items.moves.MAX,
+            grinch_items.moves.SNEAK,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.gadgets.ROCKET_SPRING,
+        ],
+    ],
+    "MC - Collect all Grinch Copter Blueprints": [
+        [
+            grinch_items.level_items.WL_SCOUT_CLOTHES,
+            grinch_items.moves.MAX,
+            grinch_items.moves.SEIZE,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.level_items.WF_CABLE_CAR_ACCESS_CARD,
+            grinch_items.gadgets.MARINE_MOBILE,
+            grinch_items.moves.BAD_BREATH,
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.PANCAKE,
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+        ],
+        [
+            grinch_items.level_items.WL_SCOUT_CLOTHES,
+            grinch_items.moves.MAX,
+            grinch_items.moves.SEIZE,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.level_items.WF_CABLE_CAR_ACCESS_CARD,
+            grinch_items.gadgets.MARINE_MOBILE,
+            grinch_items.moves.BAD_BREATH,
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.PANCAKE,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+        ]
+    ],
+    "MC - Collect all Binoculars Blueprints": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.moves.SEIZE,
+        ],
+    ],
+    "WL - North Shore - Squash the Groundhog 1 time": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WL - North Shore - Squash the Groundhog 2 times": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WL - North Shore - Squash the Groundhog 3 times": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WL - North Shore - Squash the Groundhog 4 times": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WL - North Shore - Squash the Groundhog 5 times": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WL - North Shore - Squash the Groundhog 6 times": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WL - North Shore - Squash the Groundhog 7 times": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WL - North Shore - Squash the Groundhog 8 times": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WL - North Shore - Squash the Groundhog 9 times": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WL - North Shore - Squash the Groundhog 10 times": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WD - Shoot Down North West Platform": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WD - Shoot Down South West Platform": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WD - Shoot Down South Platform": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WD - Shoot Down South East Platform": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WD - Shoot Down North East Platform": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
     # "Green Present": [
     #     []
     # ],

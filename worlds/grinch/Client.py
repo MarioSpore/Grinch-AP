@@ -1,3 +1,4 @@
+import math
 import time
 import re
 from typing import TYPE_CHECKING, Sequence
@@ -19,6 +20,7 @@ from .Items import (
 )
 import worlds._bizhawk as bizhawk
 from worlds._bizhawk.client import BizHawkClient
+from .Regions import ALL_REGIONS_INFO
 
 if TYPE_CHECKING:
     from worlds._bizhawk.context import BizHawkClientContext
@@ -56,6 +58,21 @@ DISGUISE_OFF_ADDR: int = 0x0100B4
 # Address related to the ingame timer
 TIMER_ADDR: int = 0x0100B3
 
+# Address related to Mount Crumpit Elevator's position
+MC_ELEVATOR_ADDR: int = 0x01010D
+
+# Offsets from region table used to handle deathlink related things
+HEALTH_REGION_OFFSET: int = 0x3C
+DEALTHLINK_REGION_OFFSET: int = 0x27
+ANIMATION_REGION_OFFSET: int = 0x37
+ANIMATION_ADDR_SIZE: int = 2
+
+DAMAGE_RATE_ADDR: int = 0x0e9006
+
+STARTING_SONG_ADDR: int = 0x08F8D0
+LOOP_BACK_ADDR: int = 0x08F8D8
+SONG_ADDR_SIZE: int = 1
+
 class GrinchClient(BizHawkClient):
     game = "The Grinch"
     system = "PSX"
@@ -67,14 +84,21 @@ class GrinchClient(BizHawkClient):
     previous_egg_count: int = 0
     send_ring_link: bool = False
     unique_client_id: int = 0
-    ring_link_enabled = False
+    ring_link_enabled: bool = False
+    is_grinch_dead: bool = False
+    curr_region: str | None = None
+    music_rando: bool = False
+    chosen_music: dict = {}
     #yes
+
     def __init__(self):
         super().__init__()
         self.last_received_index = 0
         self.loading_bios_msg = False
-        self.loc_unlimited_eggs = False
+        self.unlimited_eggs = False
+        self.damage_rate = 1
         self.unique_client_id = 0
+        self.chosen_music = {}
 
     async def validate_rom(self, ctx: "BizHawkClientContext") -> bool:
         from CommonClient import logger
@@ -105,6 +129,7 @@ class GrinchClient(BizHawkClient):
                 raise Exception("Invalid rom detected. You are not playing Grinch USA Version.")
 
             ctx.command_processor.commands["ringlink"] = _cmd_ringlink
+            ctx.command_processor.commands["deathlink"] = _cmd_deathlink
 
         except Exception:
             return False
@@ -125,16 +150,23 @@ class GrinchClient(BizHawkClient):
         match cmd:
             case "Connected":  # On Connect
                 self.ingame_log = False
-                self.loc_unlimited_eggs = bool(ctx.slot_data["give_unlimited_eggs"])
+                self.unlimited_eggs = bool(ctx.slot_data["unlimited_eggs"])
+                self.damage_rate = int(ctx.slot_data["damage_rate"])
+                self.music_rando = bool(ctx.slot_data["music_rando"])
+                self.chosen_music = dict(ctx.slot_data["chosen_music"])
                 self.unique_client_id = self._get_uuid()
                 logger.info(
                     "You are now connected to the client. "
                     + "There may be a slight delay to check you are not in demo mode before locations start to send."
                 )
 
-                if not self.loc_unlimited_eggs:
+                if self.music_rando:
+                    Utils.async_start(self.randomize_music(ctx),name="Grinch - Music Randomizer")
+
+                if not self.unlimited_eggs:
 
                     self.ring_link_enabled = bool(ctx.slot_data["ring_link"])
+                    death_link_enabled = bool(ctx.slot_data["death_link"])
 
                     tags = copy.deepcopy(ctx.tags)
 
@@ -144,10 +176,16 @@ class GrinchClient(BizHawkClient):
                     else:
                         ctx.tags -= {"RingLink"}
 
+                    if death_link_enabled:
+                        ctx.tags.add("DeathLink")
+
+                    else:
+                        ctx.tags -= {"DeathLink"}
+
                     if tags != ctx.tags:
                         Utils.async_start(
                             ctx.send_msgs([{"cmd": "ConnectUpdate", "tags": ctx.tags}]),
-                            "Update RingLink Tags",
+                            "Grinch - Update Link Tags",
                         )
 
             case "PrintJSON":
@@ -159,6 +197,12 @@ class GrinchClient(BizHawkClient):
             case "Bounced":
                 if "tags" not in args:
                     return
+
+                tags = args.get("tags", [])
+                # we can skip checking "DeathLink" in ctx.tags, as otherwise we wouldn't have been sent this
+                if ("DeathLink" in tags and args["data"]["source"] != ctx.player_names[ctx.slot] and
+                    not self.is_grinch_dead):
+                    Utils.async_start(self.kill_grinch(ctx), "Grinch - Received DeathLink")
 
                 if (
                     "RingLink" in ctx.tags
@@ -194,6 +238,10 @@ class GrinchClient(BizHawkClient):
             await self.goal_checker(ctx)
             await self.option_handler(ctx)
             await self.constant_address_update(ctx)
+            #await self.adjust_damage_rate(ctx)
+
+            if "DeathLink" in ctx.tags:
+                await self.check_grinch_alive(ctx)
 
         except bizhawk.RequestFailedError as ex:
             # The connector didn't respond. Exit handler and return to main loop to reconnect
@@ -267,7 +315,7 @@ class GrinchClient(BizHawkClient):
     async def receiving_items_handler(self, ctx: "BizHawkClientContext"):
         from CommonClient import logger
         # Len will give us the size of the items received list & we will track that against how many items we received already
-        # If the list says that we have 3 items and we already received items, we will ignore and continue.
+        # If the list says that we have 3 items that we already received items, we will ignore and continue.
         # Otherwise, we will get the new items and give them to the player.
 
         self.last_received_index = int.from_bytes(
@@ -489,17 +537,16 @@ class GrinchClient(BizHawkClient):
 
         await bizhawk.write(ctx.bizhawk_ctx, self.convert_dict_to_ram_list(ram_addr_dict))
 
-    async def ingame_checker(self, ctx: "BizHawkClientContext"):
-        from CommonClient import logger
-
-        ingame_map_id = int.from_bytes(
+    async def get_current_map_id(self, ctx: "BizHawkClientContext"):
+        return int.from_bytes(
             (await bizhawk.read(ctx.bizhawk_ctx, [(0x010000, 1, "MainRAM")]))[0],
             "little",
         )
-        initial_cutscene_checker = int.from_bytes(
-            (await bizhawk.read(ctx.bizhawk_ctx, [(0x010094, 1, "MainRAM")]))[0],
-            "little",
-        )
+
+    async def ingame_checker(self, ctx: "BizHawkClientContext"):
+        from CommonClient import logger
+
+        ingame_map_id = await self.get_current_map_id(ctx)
 
         # If not in game or at a menu, or loading the publisher logos
         # If it is not greater than 0x02 and less than 0x35, you are not in game
@@ -516,7 +563,7 @@ class GrinchClient(BizHawkClient):
                 self.demo_mode_buffer = 0
                 self.ingame_log = False
 
-            if initial_cutscene_checker != 1:
+            if not await self.loading_state(ctx):
                 return False
 
             # Update the previous map we were on to be the current map.
@@ -540,10 +587,18 @@ class GrinchClient(BizHawkClient):
             logger.info("You can now start sending locations from the Grinch!")
             self.ingame_log = True
 
+        self.curr_region = await self.get_current_region()
         return True
 
+    async def get_current_region(self) -> str | None:
+        for grinch_region, grinch_data in ALL_REGIONS_INFO.items():
+            # We only care about a region/map that is the same as the grinch
+            if self.last_map_location == grinch_data.map_id:
+                return grinch_region
+        return None
+
     async def option_handler(self, ctx: "BizHawkClientContext"):
-        if self.loc_unlimited_eggs:
+        if self.unlimited_eggs:
             await bizhawk.write(
                 ctx.bizhawk_ctx,
                 [(EGG_COUNT_ADDR, MAX_EGGS.to_bytes(EGG_ADDR_BYTESIZE, "little"), "MainRAM")],
@@ -553,7 +608,7 @@ class GrinchClient(BizHawkClient):
         from CommonClient import logger
 
         while self.send_ring_link and ctx.slot:
-            if not asyncio.run(self.ingame_checker(ctx)):
+            if not await self.ingame_checker(ctx):
                 await asyncio.sleep(0.5)
             try:
                 current_egg_count = int.from_bytes(
@@ -669,7 +724,8 @@ class GrinchClient(BizHawkClient):
                     TRIGGER_ADDR_SIZE, "MainRAM")]))[0],"little")
                 lobby_val = set_binary_position(lobby_val, 0, False)
                 await bizhawk.write(ctx.bizhawk_ctx,
-                    [(LOBBY_TRIGGER_ADDR, lobby_val.to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM")])
+                    [(LOBBY_TRIGGER_ADDR, lobby_val.to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM"),
+                            (MC_ELEVATOR_ADDR, int(3).to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM"),])
                 await _teleport_player(ctx, MOUNT_CRUMPIT_MAP_ID)
 
             # If RB and LB are both held + start, sending player to grinch computer room / lobby.
@@ -678,11 +734,121 @@ class GrinchClient(BizHawkClient):
                     TRIGGER_ADDR_SIZE, "MainRAM")]))[0], "little")
                 lobby_val = set_binary_position(lobby_val, 0, True)
                 await bizhawk.write(ctx.bizhawk_ctx,
-                    [(LOBBY_TRIGGER_ADDR, lobby_val.to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM")])
+                    [(LOBBY_TRIGGER_ADDR, lobby_val.to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM"),
+                            (MC_ELEVATOR_ADDR, int(1).to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM")])
                 await _teleport_player(ctx, MOUNT_CRUMPIT_MAP_ID)
 
             await asyncio.sleep(1)
             continue
+
+    async def check_grinch_alive(self, ctx: "BizHawkClientContext"):
+        reg_name = await self.get_current_region()
+        if not reg_name:
+            return
+        elif self.is_grinch_dead:
+            return
+
+        curr_region_data = ALL_REGIONS_INFO[reg_name]
+        if not curr_region_data.allow_deathlink:
+            return
+
+        # Get the current amount of Heart of Stones (HOS)
+        hos_count = get_item_count_by_id(ctx, 42570)
+        hp_amount = math.ceil(42 - (10.5 * hos_count))
+
+        curr_health: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
+                                                              [(curr_region_data.map_table_addr + HEALTH_REGION_OFFSET,
+                                                                1, "MainRAM")]))[0], "little")
+
+        loading_goo: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
+                                                                 [(0x010094, 1, "MainRAM")]))[0], "little")
+
+        in_cutscene: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
+                                                                 [(0x01009E, 1, "MainRAM")]))[0], "little")
+
+        if not await self.paused_state(ctx) and curr_health <= hp_amount and loading_goo == 1 and in_cutscene < 8:
+            await ctx.send_death(ctx.player_names[ctx.slot] + " could not fight off the Christmas cheer...")
+            await self.kill_grinch(ctx)
+
+    async def kill_grinch(self, ctx: "BizHawkClientContext"):
+        reg_name = await self.get_current_region()
+        if not (await self.ingame_checker(ctx) and reg_name):
+            return
+
+        curr_region_data = ALL_REGIONS_INFO[reg_name]
+        if not curr_region_data.allow_deathlink:
+            return
+
+        if await self.paused_state(ctx) or await self.loading_state(ctx):
+            return
+
+        # Update the Health Address to X amount and DeathLink Trigger to 0
+        self.is_grinch_dead = True
+        await bizhawk.write(
+            ctx.bizhawk_ctx,
+            [(curr_region_data.map_table_addr + HEALTH_REGION_OFFSET, int(0).to_bytes(1, "little"), "MainRAM"),
+             (curr_region_data.map_table_addr + DEALTHLINK_REGION_OFFSET, int(0x4).to_bytes(1, "little"), "MainRAM")],
+        )
+        await self.wait_for_grinch_alive(ctx)
+
+    async def adjust_damage_rate(self, ctx: "BizHawkClientContext"):
+        await bizhawk.write(
+            ctx.bizhawk_ctx,
+            [(DAMAGE_RATE_ADDR, self.damage_rate.to_bytes(1, "little"), "MainRAM")]
+        )
+
+    async def wait_for_grinch_alive(self, ctx: "BizHawkClientContext"):
+        is_dying: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
+            [(0x0100A1, 1, "MainRAM")]))[0], "little")
+
+        while is_dying > 0 or await self.paused_state(ctx) or await self.loading_state(ctx):
+            await asyncio.sleep(3.0)
+            is_dying: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
+                [(0x0100A1, 1, "MainRAM")]))[0], "little")
+
+        self.is_grinch_dead = False
+
+    async def loading_state(self, ctx: "BizHawkClientContext"):
+        loading_goo: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
+                [(0x010094, 1, "MainRAM")]))[0], "little")
+        in_cutscene: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
+                [(0x01009E, 1, "MainRAM")]))[0], "little")
+        # This function returns true if the player currently has the loading goo or is in a cutscene
+        return loading_goo == 0 or in_cutscene > 0
+
+
+    async def paused_state(self, ctx: "BizHawkClientContext"):
+        is_game_paused: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
+                [(0x0952A5, 1, "MainRAM")]))[0], "little")
+        # This function returns true if the player is paused
+        return is_game_paused > 0
+
+    async def randomize_music(self, ctx: "BizHawkClientContext"):
+        from CommonClient import logger
+        # While you are connected to AP and the player is not trying to close the client
+        while ctx.slot:
+            # if not await self.ingame_checker(ctx): #or await self.paused_state(ctx) or await self.loading_state(ctx)):
+            #     await asyncio.sleep(5)
+            #     continue
+
+            current_region: str = await self.get_current_region()
+            if not current_region or not ALL_REGIONS_INFO[current_region].allow_music_rando:
+
+                await asyncio.sleep(10)
+                continue
+            current_song_id: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
+                                                               [(LOOP_BACK_ADDR, SONG_ADDR_SIZE, "MainRAM")]))[0], "little")
+
+            region_music: int = self.chosen_music[current_region]
+            # logger.info(region_music)
+            if region_music != current_song_id:
+                await bizhawk.write(
+                    ctx.bizhawk_ctx,
+                    [(STARTING_SONG_ADDR, region_music.to_bytes(SONG_ADDR_SIZE, "little"), "MainRAM"),],
+                )
+            else:
+                await asyncio.sleep(5)
+                continue
 
 def _cmd_ringlink(self):
     """Toggle ringling from client. Overrides default setting."""
@@ -694,6 +860,11 @@ def _cmd_ringlink(self):
         name="Update RingLink",
     )
 
+def _cmd_deathlink(self):
+    """Toggle deathlink from client. Overrides default setting."""
+    from worlds._bizhawk.context import BizHawkClientContext
+    if isinstance(self.ctx, BizHawkClientContext):
+        Utils.async_start(self.ctx.update_death_link(not "DeathLink" in self.ctx.tags), name="Grinch - Update Deathlink")
 
 async def _update_ring_link(ctx: "BizHawkClientContext", ring_link: bool):
     """Helper function to set Ring Link connection tag on/off and update the connection if already connected."""
@@ -712,7 +883,8 @@ async def _teleport_player(ctx: "BizHawkClientContext", map_id: int):
         ctx.bizhawk_ctx,
         [(MAP_REGION_ADDR, map_id.to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM"),
         (TRIGGER_PLAYER_TELEPORT, int(1).to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM"),
-        (DISGUISE_OFF_ADDR, int(0).to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM"),],
+        (DISGUISE_OFF_ADDR, int(0).to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM"),
+         (TIMER_ADDR, int(0).to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM"),],
     )
 
 # TODO remove these in favor of Art's refactor. Use GrinchRamData going forward.

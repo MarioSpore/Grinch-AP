@@ -13,15 +13,65 @@ from Options import (
     OptionSet,
     OptionCounter,
     StartInventoryPool, OptionGroup, Visibility,
-    # DeathLinkMixin,
+    DeathLinkMixin,
 )
+
+class Goal(Choice):
+    """
+    sleigh_ride: Sleigh parts are placed in their local areas that you must
+    physically collect them to goal.
+    sleigh_ride_with_parts:  Sleigh parts are randomized in the pool that you
+    must find all the required parts and the Sleigh Room Key to goal.
+    missions_completed: You must complete a certain number of missions to
+    goal.
+    squashing_all_gifts: You must squash every gift in the entire game to goal.
+    supadows_completed: You are required to win every supadow minigame to
+    goal and obtain access to their minigames to do so.
+    slaughter: You must kill every Who, every animal, and every robot to goal.
+    """
+
+    display_name = "Goal"
+    option_sleigh_ride = 0
+    option_sleigh_ride_with_parts = 1
+    option_missions_completed = 2
+    option_squashing_all_gifts = 3
+    option_supadows_completed = 4
+    option_slaughter = 5
+    default = 0
+    visibility = Visibility.none
+
+
+class MissionsCompleted(Range):
+    """
+    If your goal is missions_completed, set how many missions you want to
+    complete to goal. If your goal is missions_completed_with_gifts, this option
+    will be ignored.
+    """
+
+    display_name = "Mission Goal Count"
+    range_start = 3
+    range_end = 22
+    default = 12
+    visibility = Visibility.none
+
+# We will make a list of every mission in the game, excluding squashing gifts.
+# Randomly pick whatever range is chosen via missions_completed to include
+# in the location pool. If they include squashing all gifts, include those in the
+# list.
+class MissionCompletedIncludeGiftSquash(Toggle):
+    """
+    If your goal is missions_completed, include the squashing all gift missions.
+    Otherwise, if your goal is not missions_completed, this will do nothing.
+    """
+    display_name = "Include Gift Squashing in Missions Completed Goal"
+    visibility = Visibility.none
 
 
 class StartingArea(Choice):
     """
     Here, you can select which area you'll start the game with.
     Whichever one you pick is the region you'll have access to at the start of the Multiworld.
-    If "progressive_vacuums" is enabled, this is not considered and you will always start in Whoville.
+    If "progressive_vacuums" is enabled, this is not considered and will always start in Whoville.
     """
 
     option_whoville = 0
@@ -46,7 +96,8 @@ class Missionsanity(Choice):
     How mission checks are randomized in the pool.
     - none: Does not add mission checks
     - completion: Only completing the mission gives you a check
-    - individual: Individual tasks for one mission, such as individual snowmen squashed, are checks.
+    - individual: Individual tasks for one mission, such as individual snowmen
+    squashed, are checks.
     - both: Both individual tasks and mission completion are randomized.
     """
 
@@ -60,20 +111,24 @@ class Missionsanity(Choice):
 class AdvancedLogic(Toggle):
 
     """
-    Enables logic to allow skips, damage boosts, glitches, game restarts, excessive egg usage, and various other
-    unintentional ways that beginners wouldn't grasp on their first playthrough if this is enabled to be considered
+    Enables logic to allow skips, damage boosts, glitches, game restarts,
+    excessive egg usage, and various other unintentional ways that beginners
+    wouldn't grasp on their first playthrough if this is enabled to be considered
     logical.
     """
+
     display_name = "Advanced Logic"
     visibility = Visibility.none
 
 class ExcludeEnvironments(OptionSet):
     """
-    Allows entire environments to be entirely removed to ensure you are not logically required to enter the environment
-    along with any and all checks that are in that environment too.
+    Allows entire environments to be entirely removed to ensure you are not
+    logically required to enter the environment along with any and all checks
+    that are in that environment too.
 
-    Valid keys: "Post Office", "Clock Tower", "City Hall", "Ski Resort", "Civic Center", "Minefield", "Power Plant",
-                "Generator Building", "Scout's Hut", "North Shore", "Mayor's Villa"
+    Valid keys: "Post Office", "Clock Tower", "City Hall", "Ski Resort",
+    "Civic Center", "Minefield", "Power Plant", "Generator Building",
+    "Scout's Hut", "North Shore", "Mayor's Villa", "Submarine World"
     """
 
     display_name = "Exclude Environments"
@@ -89,6 +144,7 @@ class ExcludeEnvironments(OptionSet):
         "Scout's Hut",
         "North Shore",
         "Mayor's Villa",
+        "Submarine World",
     }
 
 
@@ -112,8 +168,9 @@ class Supadow(Toggle):
 
 class Gifts(Toggle):
     """
-    Determines whether or not individual gifts are checks
-    NOTE: This currently only disables the missions relating to squashing all gifts for an entire region.
+    Determines if individual gifts are checks
+    NOTE: This currently only disables the missions relating to squashing all
+    gifts for an entire region.
     """
 
     display_name = "Giftsanity"
@@ -121,16 +178,21 @@ class Gifts(Toggle):
 
 class Killsanity(OptionSet):
     """
-    Determines whether you consider killing/destroying certain enemies throughout the games are checks.
+    Determines whether you consider killing/destroying certain enemies
+    throughout the games are checks.
 
-    "Whos" are considereed as people such as guards, children, other humanoid related figures.
-    "Animals" are considered as non human species such as Summer beasts, porcupines, moose, and mosquitoes.
-    "Robots" are considered mechanical beings that electrocute the player, specifically the robots you find in Who Dump.
+    "Whos" are considereed as people such as guards, children, and other
+    humanoid related figures.
+    "Animals" are considered as non-human species such as Summer beasts,
+    porcupines, moose, and mosquitoes.
+    "Robots" are considered mechanical beings that electrocute the player,
+    specifically the robots you find in Who Dump.
     """
 
     display_name = "Killsanity"
-    visibility = Visibility.none
     valid_keys = {"Whos", "Animals", "Robots"}
+    visibility = Visibility.none
+
 
 class Gadgetrando(DefaultOnToggle):
     """
@@ -139,9 +201,11 @@ class Gadgetrando(DefaultOnToggle):
 
     display_name = "Randomize Gadgets"
 
+
 class Gadgetrandolist(OptionSet):
     """
-    If "gadget_rando" is enabled, gadgets that you add to the dictionary will be randomized.
+    If "gadget_rando" is enabled, gadgets that you add to the dictionary will
+    be randomized.
     """
 
     display_name = "Gadgets Randomized"
@@ -155,24 +219,29 @@ class Gadgetrandolist(OptionSet):
         "Grinch Copter",
     ]
 
+
 class ExcludeGC(Toggle):
     """
-    Tired of getting Grinch Copter? This option ensures Grinch Copter is entirely taken out from the multiworld.
+    Tired of getting Grinch Copter? This option ensures Grinch Copter is
+    entirely taken out from the multiworld.
     Note that locations that hard require Grinch Copter will also be removed.
     """
 
     display_name = "Remove Grinch Copter"
 
+
 class Moverando(Toggle):
     """
     Determines whether the Grinch's moves will be randomized or not.
-    NOTE: Tutorial section would be logical linearly and vacuum tubes would still be logical. To access them, you can use
-    certain controller combinations to warp to their respective areas in Mount Crumpit at any time.
+    NOTE: Tutorial section would be logical linearly and vacuum tubes would still
+    be logical. To access them, you can use certain controller combinations to
+    warp to their respective areas in Mount Crumpit at any time.
     To warp to the computer room, press and hold start, L1, and R1 at the same time.
     To warp to the top, press and hold start, L2, and R2 at the same time.
     """
 
     display_name = "Randomize Moves"
+
 
 class Moverandolist(OptionSet):
     """
@@ -191,8 +260,9 @@ class Moverandolist(OptionSet):
 
 class UnlimitedEggs(Toggle):
     """
-    Determine whether or not you run out of rotten eggs when you utilize your gadgets.
-    NOTE: Attempting to enable this with ringlink will force generation to stop until either option is enabled.
+    Determine if you run out of rotten eggs when you utilize your gadgets.
+    NOTE: Attempting to enable this with ringlink will force generation to stop
+    until either option is disabled.
     """
 
     display_name = "Unlimited Rotten Eggs"
@@ -200,8 +270,10 @@ class UnlimitedEggs(Toggle):
 
 class RingLinkOption(Toggle):
     """
-    Whenever this is toggled, your ammo is linked with other ringlink-compatible games that also have this enabled.
-    NOTE: Attempting to enable this with unlimited_eggs will force generation to stop until either option is enabled.
+    Whenever this is toggled, your ammo is linked with other ringlink-compatible
+    games that also have this enabled.
+    NOTE: Attempting to enable this with unlimited_eggs will force generation
+    to stop until either option is enabled.
     """
 
     display_name = "Ring Link"
@@ -209,26 +281,28 @@ class RingLinkOption(Toggle):
 
 class TrapLinkOption(Toggle):
     """
-    If a trap is sent from Grinch, traps that are compatible with other games are triggered as well.
+    If a trap is sent from Grinch, traps that are compatible with other games
+    are triggered as well.
     """
 
     display_name = "Trap Link"
     visibility = Visibility.none
 
+
 class FillerWeight(OptionCounter):
     """
     Determines which filler is added to the pool.
-    Must be between 0 and 100
     """
 
     display_name = "Filler Weights"
-    min = 0
-    max = 100
+    # min = 0
+    # max = 100
     default = {
         "5 Rotten Eggs": 50,
         "10 Rotten Eggs": 25,
         "20 Rotten Eggs": 25,
     }
+
 
 class TrapPercentage(Range):
     """
@@ -240,23 +314,58 @@ class TrapPercentage(Range):
     range_end = 100
     default = 10
 
+
 class TrapWeight(OptionCounter):
     """
     Determines which traps are replaced with filler in the pool.
-    Must be between 0 and 100
     """
 
     display_name = "Trap Weights"
-    min = 0
-    max = 100
+    # min = 0
+    # max = 100
     default = {
         "Dump it to Crumpit": 33,
         "Who sent me back?": 33,
         "Depletion Trap": 34,
     }
 
+class MiscLocations(Toggle):
+    """
+    Adds locations that aren't specifically categorized and are either random
+    events or just unnecessarily added locations that don't mean anything.
+    """
+
+    display_name =  "Miscellaneous Locations"
+
+
+class DamageRate(Range):
+    """
+    How much damage can the Grinch tolerate before death
+    0 = Invincible
+    1 = Base game damage rate
+    78 = Instant death without any Hearts of Stone
+    88 = Instant death with one Heart of Stone
+    99 = Instant death with two Hearts of Stone
+    110 = Instant death with three Hearts of Stone
+    120 = Instant death
+    """
+
+    display_name = "Damage Rate"
+    range_start = 0
+    range_end = 120
+    default = 1
+    visibility = Visibility.none
+
+
+class MusicRando(Toggle):
+    """
+    Randomizes all music in the game
+    """
+    display_name = "Music Rando"
+
+
 @dataclass
-class GrinchOptions(PerGameCommonOptions):  # DeathLinkMixin
+class GrinchOptions(DeathLinkMixin, PerGameCommonOptions):
     progressive_vacuums: ProgressiveVacuums
     starting_area: StartingArea
     missionsanity: Missionsanity
@@ -278,8 +387,20 @@ class GrinchOptions(PerGameCommonOptions):  # DeathLinkMixin
     trap_link: TrapLinkOption
     advanced_logic: AdvancedLogic
     start_inventory_from_pool: StartInventoryPool
+    misc_checks: MiscLocations
+    damage_rate: DamageRate
+    goal: Goal
+    missions_completed: MissionsCompleted
+    include_gift_squash: MissionCompletedIncludeGiftSquash
+    music_rando: MusicRando
+
 
 grinch_option_groups: list[OptionGroup] = [
+    # OptionGroup("Goal", [
+    #     Goal,
+    #     MissionsCompleted,
+    #     MissionCompletedIncludeGiftSquash,
+    # ]),
     OptionGroup("Item Pool", [
         ProgressiveVacuums,
         StartingArea,
@@ -296,12 +417,15 @@ grinch_option_groups: list[OptionGroup] = [
         Gifts,
         Supadow,
         Killsanity,
+        MiscLocations,
     ]),
     # OptionGroup("Logic Settings", [
     #     AdvancedLogic,
     # ]),
-    OptionGroup("Quality of Life", [
+    OptionGroup("In-Game Tweaks", [
         UnlimitedEggs,
+        DamageRate,
+        MusicRando,
     ]),
     OptionGroup("Filler/Trap Settings", [
         FillerWeight,
