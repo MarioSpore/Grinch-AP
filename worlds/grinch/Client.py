@@ -883,7 +883,8 @@ async def _teleport_player(ctx: "BizHawkClientContext", map_id: int):
         ctx.bizhawk_ctx,
         [(MAP_REGION_ADDR, map_id.to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM"),
         (TRIGGER_PLAYER_TELEPORT, int(1).to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM"),
-        (DISGUISE_OFF_ADDR, int(0).to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM"),],
+        (DISGUISE_OFF_ADDR, int(0).to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM"),
+         (TIMER_ADDR, int(0).to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM"),],
     )
 
 # TODO remove these in favor of Art's refactor. Use GrinchRamData going forward.
