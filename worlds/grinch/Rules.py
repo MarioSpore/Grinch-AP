@@ -559,7 +559,7 @@ rules_dict: dict[str, list[list[str]]] = {
     ],
     "WV - REL BP left of City Hall": [[]],
     "WV - REL BP left of Clock Tower": [[]],
-    "WV - Post Office - REL BP inside Silver Room": [
+    "WV - Post Office - REL BP inside Gray Room": [
         [
             grinch_items.moves.MAX
         ],

@@ -434,7 +434,7 @@ grinch_locations = {
         701,
         [GrinchRamData(0x01020B, binary_bit_pos=1)],
     ),
-    "WV - Post Office - REL BP inside Silver Room": GrinchLocationData(
+    "WV - Post Office - REL BP inside Gray Room": GrinchLocationData(
         "Post Office",
         [
             "Rotten Egg Launcher Blueprints",
