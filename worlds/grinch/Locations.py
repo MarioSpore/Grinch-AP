@@ -2962,7 +2962,7 @@ grinch_locations = {
         2303,
         [GrinchRamData(0x010000, value=0x16)],
     ),
-    "MC - Collect all Rotten Egg Launcher Blueprints": GrinchLocationData(
+    "WV - Collect all Rotten Egg Launcher Blueprints": GrinchLocationData(
         "Whoville",
         ["Rotten Egg Launcher Blueprints", "Blueprints", "Whoville", "Whoville Blueprints", "Miscellaneous"],
         2400,
@@ -2973,7 +2973,7 @@ grinch_locations = {
             GrinchRamData(0x01021C, binary_bit_pos=2),
         ],
     ),
-    "MC - Collect all Rocket Spring Blueprints": GrinchLocationData(
+    "WF - Collect all Rocket Spring Blueprints": GrinchLocationData(
         "Who Forest",
         ["Rocket Spring Blueprints", "Blueprints", "Who Forest", "Who Forest Blueprints", "Miscellaneous"],
         2401,
@@ -2989,7 +2989,7 @@ grinch_locations = {
             GrinchRamData(0x010243, binary_bit_pos=5),
         ],
     ),
-    "MC - Collect all Slime Shooter Blueprints": GrinchLocationData(
+    "WF - Collect all Slime Shooter Blueprints": GrinchLocationData(
         "Who Forest",
         ["Slime Shooter Blueprints", "Blueprints", "Who Forest", "Who Forest Blueprints", "Miscellaneous"],
         2402,
@@ -3005,7 +3005,7 @@ grinch_locations = {
             GrinchRamData(0x010244, binary_bit_pos=0),
         ],
     ),
-    "MC - Collect all Octopus Climbing Device Blueprints": GrinchLocationData(
+    "WD - Collect all Octopus Climbing Device Blueprints": GrinchLocationData(
         "Who Dump",
         ["Octopus Climbing Device Blueprints", "Blueprints", "Who Dump", "Who Dump Blueprints", "Miscellaneous"],
         2403,
@@ -3021,7 +3021,7 @@ grinch_locations = {
             GrinchRamData(0x01026E, binary_bit_pos=3),
         ],
     ),
-    "MC - Collect all Marine Mobile Blueprints": GrinchLocationData(
+    "WL - Collect all Marine Mobile Blueprints": GrinchLocationData(
         "Who Lake",
         ["Marine Mobile Blueprints", "Blueprints", "Who Lake", "Who Lake Blueprints", "Miscellaneous"],
         2404,
@@ -3068,7 +3068,7 @@ grinch_locations = {
             GrinchRamData(0x010275, binary_bit_pos=6),
         ],
     ),
-        "MC - Collect all Binoculars Blueprints": GrinchLocationData(
+        "WV - Collect all Binoculars Blueprints": GrinchLocationData(
         "Whoville",
         ["Binocular Blueprints", "Blueprints", "Whoville", "Whoville Blueprints", "Miscellaneous"],
         2406,

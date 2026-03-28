@@ -2621,13 +2621,13 @@ rules_dict: dict[str, list[list[str]]] = {
     "WL - South Shore - Touch Grass": [[]],
     "WL - North Shore - Touch Grass": [[]],
     "WL - Mayor's Villa - Touch Grass": [[]],
-    "MC - Collect all Rotten Egg Launcher Blueprints": [
+    "WV - Collect all Rotten Egg Launcher Blueprints": [
         [
             grinch_items.level_items.WV_WHO_CLOAK,
             grinch_items.moves.MAX,
         ],
     ],
-    "MC - Collect all Rocket Spring Blueprints": [
+    "WF - Collect all Rocket Spring Blueprints": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
         ],
@@ -2635,7 +2635,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.GRINCH_COPTER,
         ],
     ],
-    "MC - Collect all Slime Shooter Blueprints": [
+    "WF - Collect all Slime Shooter Blueprints": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
@@ -2647,7 +2647,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.BAD_BREATH,
         ],
     ],
-    "MC - Collect all Octopus Climbing Device Blueprints": [
+    "WD - Collect all Octopus Climbing Device Blueprints": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
@@ -2662,7 +2662,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.SEIZE,
         ],
     ],
-    "MC - Collect all Marine Mobile Blueprints": [
+    "WL - Collect all Marine Mobile Blueprints": [
         [
             grinch_items.level_items.WL_SCOUT_CLOTHES,
             grinch_items.gadgets.GRINCH_COPTER,
@@ -2707,7 +2707,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.GRINCH_COPTER,
         ]
     ],
-    "MC - Collect all Binoculars Blueprints": [
+    "WV - Collect all Binoculars Blueprints": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.moves.SEIZE,
