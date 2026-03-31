@@ -42,6 +42,10 @@ MAX_EGGS: int = 200
 EGG_COUNT_ADDR: int = 0x010058
 EGG_ADDR_BYTESIZE: int = 2
 
+MAX_NITRO_THISTLE: int = 5
+NITRO_THISTLE_COUNT_ADDR: int = 0x095305
+NITRO_THISTLE_BYTESIZE: int = 1
+
 # Address and value used in checking to teleport player.
 START_BUTTON_ADDR: int = 0x01000B
 OTHER_BUTTON_ADDR: int = 0x01000A
@@ -598,11 +602,17 @@ class GrinchClient(BizHawkClient):
         return None
 
     async def option_handler(self, ctx: "BizHawkClientContext"):
-        if self.unlimited_eggs:
+        ingame_map_id = await self.get_current_map_id(ctx)
+        if self.unlimited_eggs and not ingame_map_id in [0x0E, 0x10, 0x12]:
             await bizhawk.write(
                 ctx.bizhawk_ctx,
                 [(EGG_COUNT_ADDR, MAX_EGGS.to_bytes(EGG_ADDR_BYTESIZE, "little"), "MainRAM")],
             )
+        else:
+                await bizhawk.write(
+                    ctx.bizhawk_ctx,
+                    [(NITRO_THISTLE_COUNT_ADDR, MAX_NITRO_THISTLE.to_bytes(NITRO_THISTLE_BYTESIZE, "little"), "MainRAM")],
+                )
 
     async def ring_link_output(self, ctx: "BizHawkClientContext"):
         from CommonClient import logger
