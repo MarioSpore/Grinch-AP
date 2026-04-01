@@ -477,7 +477,8 @@ class GrinchClient(BizHawkClient):
             1,
         ]
 
-        # Setting mission count for all accesses back to 0 to prevent warping/unlocking after completing 3 missions
+        # Setting mission count for all addresses back to 0 to prevent warping/unlocking after completing 3 missions
+        #
         ram_addr_dict[0x0100F0] = [0, 4]
 
         for item_name, item_data in items_to_check.items():
