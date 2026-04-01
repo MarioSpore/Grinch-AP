@@ -556,6 +556,12 @@ class GrinchClient(BizHawkClient):
         # If it is not greater than 0x02 and less than 0x35, you are not in game
         # 0x3E is an exception to allow goaling directly after defeating santa instead of after end credits.
         if not ((0x02 < ingame_map_id < 0x35) or ingame_map_id == 0x3E):
+            await bizhawk.write(
+                ctx.bizhawk_ctx,
+                [(0x09531B, int(1).to_bytes(EGG_ADDR_BYTESIZE, "little"), "MainRAM"),
+                 (0x08FA20, int(1).to_bytes(EGG_ADDR_BYTESIZE, "little"), "MainRAM")],
+            )
+            print("Currently in menu screen")
             self.ingame_log = False
             return False
 
@@ -564,31 +570,35 @@ class GrinchClient(BizHawkClient):
             # If the last "map" we were on was a menu or a publisher logo
             if self.last_map_location in MENU_MAP_IDS:
                 # Reset our demo mode checker just in case the game is in demo mode.
-                self.demo_mode_buffer = 0
+                # self.demo_mode_buffer = 0
+                print("Changed maps")
                 self.ingame_log = False
 
             if not await self.loading_state(ctx):
+                print("Currently in cutscene or goo")
                 return False
 
             # Update the previous map we were on to be the current map.
             self.last_map_location = ingame_map_id
 
         # Use this as a delayed check to make sure we are in game
-        if not self.demo_mode_buffer == MAX_DEMO_MODE_CHECK:
-            await asyncio.sleep(0.1)
-            self.demo_mode_buffer += 1
-            return False
+        # if not self.demo_mode_buffer == MAX_DEMO_MODE_CHECK:
+        #     await asyncio.sleep(0.1)
+        #     self.demo_mode_buffer += 1
+        #     print("Demo mode buffer")
+        #     return False
 
-        demo_mode = int.from_bytes(
-            (await bizhawk.read(ctx.bizhawk_ctx, [(0x01008A, 1, "MainRAM")]))[0],
-            "little",
-        )
-
-        if demo_mode == 1:
-            return False
+        # demo_mode = int.from_bytes(
+        #     (await bizhawk.read(ctx.bizhawk_ctx, [(0x01008A, 1, "MainRAM")]))[0],
+        #     "little",
+        # )
+        #
+        # if demo_mode == 1:
+        #     print("Currently in demo mode")
+        #     return False
 
         if not self.ingame_log:
-            logger.info("You can now start sending locations from the Grinch!")
+            print("You can now start sending locations from the Grinch!")
             self.ingame_log = True
 
         self.curr_region = await self.get_current_region()
@@ -824,7 +834,7 @@ class GrinchClient(BizHawkClient):
         in_cutscene: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
                 [(0x01009E, 1, "MainRAM")]))[0], "little")
         # This function returns true if the player currently has the loading goo or is in a cutscene
-        return loading_goo == 0 or in_cutscene > 0
+        return loading_goo == 0 and in_cutscene > 0
 
 
     async def paused_state(self, ctx: "BizHawkClientContext"):
