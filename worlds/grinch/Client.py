@@ -7,6 +7,7 @@ import NetUtils
 import copy
 import uuid
 import Utils
+from BaseClasses import ItemClassification
 from worlds.grinch.RamHandler import UpdateMethod
 from . import MOVES_TABLE
 from .Locations import grinch_locations, GrinchLocation
@@ -21,6 +22,7 @@ from .Items import (
 import worlds._bizhawk as bizhawk
 from worlds._bizhawk.client import BizHawkClient
 from .Regions import ALL_REGIONS_INFO
+from .Traps import convert_trap
 
 if TYPE_CHECKING:
     from worlds._bizhawk.context import BizHawkClientContext
@@ -371,7 +373,20 @@ class GrinchClient(BizHawkClient):
                     current_ram_address_value = current_ram_address_value | (1 << addr_to_update.binary_bit_pos)
 
                 elif addr_to_update.update_method == UpdateMethod.SET:
-                    current_ram_address_value = addr_to_update.value
+                    if grinch_item_ram_data.classification == ItemClassification.trap:
+                        trap_val: int | None = convert_trap(self.last_map_location, local_item)
+                        if trap_val is None:
+                            continue
+                        current_ram_address_value = trap_val
+
+                        # Need to update the trigger address
+                        if not local_item in ["Depletion Trap", "Who sent me back?", "Dump it to Crumpit"]:
+                            ram_addr_dict[ALL_REGIONS_INFO[self.curr_region].map_table_addr+0x27] = [
+                                40,
+                                1,
+                            ]
+                    else:
+                        current_ram_address_value = addr_to_update.value
 
                 elif addr_to_update.update_method == UpdateMethod.ADD:
                     # min() gets the lowest of a set, so we can't go over the max_count

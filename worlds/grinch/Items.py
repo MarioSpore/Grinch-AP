@@ -94,6 +94,11 @@ class grinch_items:
         DEPLETION_TRAP: str = "Depletion Trap"
         DUMP_IT_TO_CRUMPIT: str = "Dump it to Crumpit"
         WHO_SENT_ME_BACK: str = "Who sent me back?"
+        DAMAGE_TRAP: str = "Damage Trap"
+        ICE_TRAP: str = "Ice Trap"
+        BONK_TRAP: str = "Bonk Trap"
+        ELECTROCUTION_TRAP: str = "Electrocution Trap"
+        BANANA_TRAP: str = "Banana Peel"
 
 
 class grinch_categories:
@@ -684,7 +689,12 @@ TRAPS_TABLE: dict[str, GrinchItemData] = {
     # "Tip Toe Trap": GrinchItemData(["Traps"], 603, IC.trap, [GrinchRamData()]),
     # This item may not function properly if you receive it during a loading screen or in Mount Crumpit
     # alias to Exhaustion Trap
-    #     "Damage Trap": GrinchItemData(["Traps"], 604, IC.trap, [GrinchRamData(0x0E8FDC, value=-20, update_method=UpdateMethod.ADD)]),
+    grinch_items.trap_items.DAMAGE_TRAP: GrinchItemData(
+        [grinch_categories.TRAPS],
+        604,
+        IC.trap,
+        [GrinchRamData(0x010058, value=1, byte_size=2)],
+    ),
     grinch_items.trap_items.DEPLETION_TRAP: GrinchItemData(
         [grinch_categories.TRAPS],
         605,
@@ -735,20 +745,6 @@ ALL_ITEMS_TABLE: dict[str, GrinchItemData] = {
     **MOVES_TABLE,
     # **SUPADOW_TABLE,
 }
-
-# Psuedocoding traplink table
-# BEE_TRAP_EQUIV = ["Army Trap", "Buyon Trap", "Ghost", "Gooey Bag", "OmoTrap", "Police Trap"]
-# ICE_TRAP_EQUIV = ["Chaos Control Trap", "Freeze Trap", "Frozen Trap", "Honey Trap", "Paralyze Trap", "Stun Trap", "Bubble Trap"]
-# DAMAGE_TRAP_EQUIV = ["Banana Trap", "Bomb", "Bonk Trap", "Fire Trap", "Laughter Trap", "Nut Trap", "Push Trap",
-# "Squash Trap", "Thwimp Trap", "TNT Barrel Trap", "Meteor Trap", "Double Damage", "Spike Ball Trap"]
-
-# SPRING_TRAP_EQUIV = ["Eject Ability", "Hiccup Trap", "Jump Trap", "Jumping Jacks Trap", "Whoops! Trap"]
-# HOME_TRAP_EQUIV = ["Blue Balls Curse", "Instant Death Trap", "Get Out Trap"]
-# SLOWNESS_TRAP_EQUIV = ["Iron Boots Trap", "Slow Trap", "Sticky Floor Trap"]
-# CUTSCENE_TRAP_EQUIV = ["Phone Trap"]
-# ELEC_TRAP_EQUIV = []
-# DEPL_TRAP_EQUIV = ["Dry Trap"]
-
 
 def grinch_items_to_id() -> dict[str, int]:
     item_mappings: dict[str, int] = {}
