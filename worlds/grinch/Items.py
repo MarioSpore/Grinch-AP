@@ -100,6 +100,7 @@ class grinch_items:
         ELECTROCUTION_TRAP: str = "Electrocution Trap"
         BANANA_TRAP: str = "Banana Trap"
         BEE_TRAP: str = "Bee Trap"
+        PUSH_TRAP: str = "Push Trap"
 
 class grinch_categories:
     FILLER: str = "Filler"
@@ -683,6 +684,12 @@ TRAPS_TABLE: dict[str, GrinchItemData] = {
     # "Tip Toe Trap": GrinchItemData(["Traps"], 603, IC.trap, [GrinchRamData()]),
     # This item may not function properly if you receive it during a loading screen or in Mount Crumpit
     # alias to Ice Trap for traplink
+    grinch_items.trap_items.PUSH_TRAP: GrinchItemData(
+        [grinch_categories.TRAPS],
+        600,
+        IC.trap,
+        [GrinchRamData(0x010058, value=1, byte_size=2)],
+    ),
     grinch_items.trap_items.ICE_TRAP: GrinchItemData(
         [grinch_categories.TRAPS],
         601,
