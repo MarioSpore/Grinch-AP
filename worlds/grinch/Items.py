@@ -98,8 +98,8 @@ class grinch_items:
         ICE_TRAP: str = "Ice Trap"
         BONK_TRAP: str = "Bonk Trap"
         ELECTROCUTION_TRAP: str = "Electrocution Trap"
-        BANANA_TRAP: str = "Banana Peel"
-
+        BANANA_TRAP: str = "Banana Trap"
+        BEE_TRAP: str = "Bee Trap"
 
 class grinch_categories:
     FILLER: str = "Filler"
@@ -617,8 +617,6 @@ USEFUL_ITEMS_TABLE: dict[str, GrinchItemData] = {
     )
 }
 
-# Traps
-
 # Movesets
 MOVES_TABLE: dict[str, GrinchItemData] = {
     grinch_items.moves.BAD_BREATH: GrinchItemData(
@@ -681,13 +679,28 @@ MOVES_TABLE: dict[str, GrinchItemData] = {
 
 # Double star combines all dictionaries from each individual list together
 TRAPS_TABLE: dict[str, GrinchItemData] = {
-    # alias to Ice Trap for traplink
-    # "Freeze Trap": GrinchItemData(["Traps"], 600, IC.trap, [GrinchRamData()]),
-    # "Bee Trap": GrinchItemData(["Traps"], 601, IC.trap, [GrinchRamData()]),
-    # "Electrocution Trap": GrinchItemData(["Traps"], 602, IC.trap, [GrinchRamData()]),
     # alias to Slowness Trap for traplink
     # "Tip Toe Trap": GrinchItemData(["Traps"], 603, IC.trap, [GrinchRamData()]),
     # This item may not function properly if you receive it during a loading screen or in Mount Crumpit
+    # alias to Ice Trap for traplink
+    grinch_items.trap_items.ICE_TRAP: GrinchItemData(
+        [grinch_categories.TRAPS],
+        601,
+        IC.trap,
+        [GrinchRamData(0x010058, value=1, byte_size=2)],
+    ),
+    grinch_items.trap_items.BEE_TRAP: GrinchItemData(
+        [grinch_categories.TRAPS],
+        602,
+        IC.trap,
+        [GrinchRamData(0x010058, value=1, byte_size=2)],
+    ),
+    grinch_items.trap_items.ELECTROCUTION_TRAP: GrinchItemData(
+        [grinch_categories.TRAPS],
+        603,
+        IC.trap,
+        [GrinchRamData(0x010058, value=1, byte_size=2)],
+    ),
     # alias to Exhaustion Trap
     grinch_items.trap_items.DAMAGE_TRAP: GrinchItemData(
         [grinch_categories.TRAPS],
