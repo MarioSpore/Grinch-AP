@@ -629,16 +629,17 @@ class GrinchClient(BizHawkClient):
 
     async def option_handler(self, ctx: "BizHawkClientContext"):
         ingame_map_id = await self.get_current_map_id(ctx)
-        if self.unlimited_eggs and not ingame_map_id in [0x0E, 0x10, 0x12]:
+        if self.unlimited_eggs:
             await bizhawk.write(
                 ctx.bizhawk_ctx,
                 [(EGG_COUNT_ADDR, MAX_EGGS.to_bytes(EGG_ADDR_BYTESIZE, "little"), "MainRAM")],
             )
-        else:
+        if self.unlimited_eggs and ingame_map_id in [0x0E, 0x10, 0x12]:
                 await bizhawk.write(
                     ctx.bizhawk_ctx,
-                    [(NITRO_THISTLE_COUNT_ADDR, MAX_NITRO_THISTLE.to_bytes(NITRO_THISTLE_BYTESIZE, "little"), "MainRAM")],
+                    [(NITRO_THISTLE_COUNT_ADDR, int(1).to_bytes(NITRO_THISTLE_BYTESIZE, "little"), "MainRAM")],
                 )
+                await asyncio.sleep(0.5)
 
     async def ring_link_output(self, ctx: "BizHawkClientContext"):
         from CommonClient import logger
