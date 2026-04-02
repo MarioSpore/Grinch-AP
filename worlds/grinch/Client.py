@@ -583,6 +583,13 @@ class GrinchClient(BizHawkClient):
 
         # If grinch has changed maps
         if not ingame_map_id == self.last_map_location:
+            await ctx.send_msgs([{
+                "cmd": "Set",
+                "key": f"grinch_region_{ctx.team}_{ctx.slot}",
+                "default": 0,
+                "want_reply": False,
+                "operations": [{"operation": "replace", "value": ingame_map_id}]
+            }])
             # If the last "map" we were on was a menu or a publisher logo
             if self.last_map_location in MENU_MAP_IDS:
                 # Reset our demo mode checker just in case the game is in demo mode.
