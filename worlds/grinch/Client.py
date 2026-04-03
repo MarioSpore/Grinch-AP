@@ -603,14 +603,15 @@ class GrinchClient(BizHawkClient):
                 print("Changed maps")
                 self.ingame_log = False
 
-            if await self.loading_state(ctx):
-                print("Currently in cutscene or goo")
-                return False
-
             # Update the previous map we were on to be the current map.
             self.last_map_location = ingame_map_id
 
-        # Use this as a delayed check to make sure we are in game
+        if await self.loading_state(ctx):
+            print("Currently in cutscene or goo")
+            self.ingame_log = False
+            return False
+
+        # # Use this as a delayed check to make sure we are in game
         # if not self.demo_mode_buffer == MAX_DEMO_MODE_CHECK:
         #     await asyncio.sleep(0.1)
         #     self.demo_mode_buffer += 1
