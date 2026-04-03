@@ -571,15 +571,21 @@ class GrinchClient(BizHawkClient):
         # If not in game or at a menu, or loading the publisher logos
         # If it is not greater than 0x02 and less than 0x35, you are not in game
         # 0x3E is an exception to allow goaling directly after defeating santa instead of after end credits.
-        if not ((0x02 < ingame_map_id < 0x35) or ingame_map_id == 0x3E):
+        if ingame_map_id in [0x00, 0x02, 0x35, 0x36, 0x37]:
             await bizhawk.write(
                 ctx.bizhawk_ctx,
-                [(0x09531B, int(1).to_bytes(EGG_ADDR_BYTESIZE, "little"), "MainRAM"),
-                 (0x08FA20, int(1).to_bytes(EGG_ADDR_BYTESIZE, "little"), "MainRAM")],
+                [(0x08FA20, int(1).to_bytes(1, "little"), "MainRAM")],
             )
             print("Currently in menu screen")
             self.ingame_log = False
             return False
+        else:
+            await bizhawk.write(
+                ctx.bizhawk_ctx,
+                [(0x08FA20, int(0).to_bytes(1, "little"), "MainRAM")],
+            )
+
+
 
         # If grinch has changed maps
         if not ingame_map_id == self.last_map_location:
