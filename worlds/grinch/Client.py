@@ -603,7 +603,7 @@ class GrinchClient(BizHawkClient):
                 print("Changed maps")
                 self.ingame_log = False
 
-            if not await self.loading_state(ctx):
+            if await self.loading_state(ctx):
                 print("Currently in cutscene or goo")
                 return False
 
@@ -864,7 +864,7 @@ class GrinchClient(BizHawkClient):
         in_cutscene: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
                 [(0x01009E, 1, "MainRAM")]))[0], "little")
         # This function returns true if the player currently has the loading goo or is in a cutscene
-        return loading_goo == 0 and in_cutscene > 0
+        return loading_goo == 0 or in_cutscene > 0
 
 
     async def paused_state(self, ctx: "BizHawkClientContext"):
