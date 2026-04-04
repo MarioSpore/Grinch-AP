@@ -106,6 +106,7 @@ ALL_REGIONS_INFO: dict[str, GrinchRegionInfo] = {
         region_access=[
             [grinch_items.moves.SNEAK],
             [grinch_items.gadgets.SLIME_SHOOTER],
+            [grinch_items.level_items.WV_WHO_CLOAK],
         ],),
 
     "Ski Resort": GrinchRegionInfo(0x0C, "Who Forest", True, 0x0E98C0, True,

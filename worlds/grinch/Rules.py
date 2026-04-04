@@ -83,6 +83,9 @@ access_rules_dict: dict[str, list[list[str]]] = {
         [
             grinch_items.gadgets.SLIME_SHOOTER,
         ],
+        [
+            grinch_items.level_items.WV_WHO_CLOAK,
+        ],
     ],
     "Who Forest": [
         [
@@ -237,17 +240,7 @@ rules_dict: dict[str, list[list[str]]] = {
     "WV - First Visit": [[]],
     "WV - Post Office - First Visit": [[]],
     "WV - City Hall - First Visit": [[]],
-    "WV - Clock Tower - First Visit": [
-        [
-            grinch_items.moves.SNEAK,
-        ],
-        [
-            grinch_items.level_items.WV_WHO_CLOAK,
-        ],
-        [
-            grinch_items.gadgets.SLIME_SHOOTER,
-        ],
-    ],
+    "WV - Clock Tower - First Visit": [[]],
     "WF - First Visit": [[]],
     "WF - Ski Resort - First Visit": [[]],
     "WF - Civic Center - First Visit": [[]],
@@ -306,7 +299,13 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SEIZE,
             grinch_items.moves.MAX,
-        ]
+            grinch_items.gadgets.SLIME_SHOOTER,
+        ],
+            grinch_items.level_items.WV_HAMMER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SEIZE,
+            grinch_items.moves.MAX,
+            grinch_items.moves.SNEAK,
     ],
     "WV - Squashing All Gifts": [
         [
@@ -599,14 +598,24 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.MAX,
             grinch_items.moves.SEIZE,
+            grinch_items.gadgets.SLIME_SHOOTER,
         ],
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.MAX,
+            grinch_items.moves.SEIZE,
+            grinch_items.moves.SNEAK,
     ],
     "WV - Clock Tower - GC BP in Bell Room": [
         [
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.MAX,
             grinch_items.moves.SEIZE,
+            grinch_items.gadgets.SLIME_SHOOTER,
         ],
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.MAX,
+            grinch_items.moves.SEIZE,
+            grinch_items.moves.SNEAK,
     ],
     # Who Forest Blueprints
     "WF - RS BP behind Vacuum Tube": [[]],
@@ -1444,23 +1453,45 @@ rules_dict: dict[str, list[list[str]]] = {
     "WV - Clock Tower - Open Hatch to Floor 2": [
         [
             grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SNEAK,
+        ],
+        [
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.gadgets.SLIME_SHOOTER,
         ],
     ],
     "WV - Clock Tower - Open Hatch to Floor 3": [
         [
             grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SNEAK,
+        ],
+        [
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.gadgets.SLIME_SHOOTER,
         ],
     ],
     "WV - Clock Tower - Open Hatch to Floor 4": [
         [
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SEIZE,
+            grinch_items.moves.SNEAK,
+        ],
+        [
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SEIZE,
+            grinch_items.gadgets.SLIME_SHOOTER,
         ],
     ],
     "WV - Clock Tower - Open Hatch to Floor 5": [
         [
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SEIZE,
+            grinch_items.moves.SNEAK,
+        ],
+        [
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SEIZE,
+            grinch_items.gadgets.SLIME_SHOOTER,
         ],
     ],
     "WV - Clock Tower - Ring 1st Bell": [
@@ -1468,6 +1499,13 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SEIZE,
             grinch_items.moves.MAX,
+            grinch_items.moves.SNEAK,
+        ],
+        [
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SEIZE,
+            grinch_items.moves.MAX,
+            grinch_items.gadgets.SLIME_SHOOTER,
         ],
     ],
     "WV - Clock Tower - Ring 2nd Bell": [
@@ -1475,6 +1513,13 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SEIZE,
             grinch_items.moves.MAX,
+            grinch_items.moves.SNEAK,
+        ],
+        [
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SEIZE,
+            grinch_items.moves.MAX,
+            grinch_items.gadgets.SLIME_SHOOTER,
         ],
     ],
     "WV - Clock Tower - Ring 3rd Bell": [
@@ -1482,6 +1527,13 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SEIZE,
             grinch_items.moves.MAX,
+            grinch_items.moves.SNEAK,
+        ],
+        [
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SEIZE,
+            grinch_items.moves.MAX,
+            grinch_items.gadgets.SLIME_SHOOTER,
         ],
     ],
     "WV - Clock Tower - Ring 4th Bell": [
@@ -1489,6 +1541,13 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SEIZE,
             grinch_items.moves.MAX,
+            grinch_items.moves.SNEAK,
+        ],
+        [
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SEIZE,
+            grinch_items.moves.MAX,
+            grinch_items.gadgets.SLIME_SHOOTER,
         ],
     ],
     "WV - Clock Tower - Ring 5th Bell": [
@@ -1496,6 +1555,13 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SEIZE,
             grinch_items.moves.MAX,
+            grinch_items.moves.SNEAK,
+        ],
+        [
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SEIZE,
+            grinch_items.moves.MAX,
+            grinch_items.gadgets.SLIME_SHOOTER,
         ],
     ],
     "WF - Making Xmas Trees Droop - Swinging platform farthest to Glue Cannon": [
