@@ -683,47 +683,53 @@ TRAPS_TABLE: dict[str, GrinchItemData] = {
     # alias to Slowness Trap for traplink
     # "Tip Toe Trap": GrinchItemData(["Traps"], 603, IC.trap, [GrinchRamData()]),
     # This item may not function properly if you receive it during a loading screen or in Mount Crumpit
-    # alias to Ice Trap for traplink
-    grinch_items.trap_items.PUSH_TRAP: GrinchItemData(
+    grinch_items.trap_items.BANANA_TRAP: GrinchItemData(
         [grinch_categories.TRAPS],
         600,
         IC.trap,
-        [GrinchRamData(0x010058, value=1, byte_size=2)],
+        [],
     ),
-    grinch_items.trap_items.ICE_TRAP: GrinchItemData(
+    # alias to Ice Trap for traplink
+    grinch_items.trap_items.PUSH_TRAP: GrinchItemData(
         [grinch_categories.TRAPS],
         601,
         IC.trap,
-        [GrinchRamData(0x010058, value=1, byte_size=2)],
+        [],
     ),
-    grinch_items.trap_items.BEE_TRAP: GrinchItemData(
+    grinch_items.trap_items.ICE_TRAP: GrinchItemData(
         [grinch_categories.TRAPS],
         602,
         IC.trap,
-        [GrinchRamData(0x010058, value=1, byte_size=2)],
+        [],
     ),
-    grinch_items.trap_items.ELECTROCUTION_TRAP: GrinchItemData(
+    grinch_items.trap_items.BEE_TRAP: GrinchItemData(
         [grinch_categories.TRAPS],
         603,
         IC.trap,
-        [GrinchRamData(0x010058, value=1, byte_size=2)],
+        [],
+    ),
+    grinch_items.trap_items.ELECTROCUTION_TRAP: GrinchItemData(
+        [grinch_categories.TRAPS],
+        604,
+        IC.trap,
+        [],
     ),
     # alias to Exhaustion Trap
     grinch_items.trap_items.DAMAGE_TRAP: GrinchItemData(
         [grinch_categories.TRAPS],
-        604,
+        605,
         IC.trap,
-        [GrinchRamData(0x010058, value=1, byte_size=2)],
+        [],
     ),
     grinch_items.trap_items.DEPLETION_TRAP: GrinchItemData(
         [grinch_categories.TRAPS],
-        605,
+        606,
         IC.trap,
         [GrinchRamData(0x010058, value=1, byte_size=2)],
     ),
     grinch_items.trap_items.DUMP_IT_TO_CRUMPIT: GrinchItemData(
         [grinch_categories.TRAPS],
-        606,
+        607,
         IC.trap,  # Alias to Home Trap for traplink
         [
             GrinchRamData(0x010000, value=0x05),
