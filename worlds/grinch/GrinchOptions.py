@@ -370,6 +370,13 @@ class MusicRando(Toggle):
     display_name = "Music Rando"
 
 
+class ReducedCutscenes(Toggle):
+    """
+    Certain cutscenes no longer trigger if enabled for a faster experience
+    """
+    display_name = "Reduced Cutscenes"
+
+
 @dataclass
 class GrinchOptions(DeathLinkMixin, PerGameCommonOptions):
     progressive_vacuums: ProgressiveVacuums
@@ -399,6 +406,7 @@ class GrinchOptions(DeathLinkMixin, PerGameCommonOptions):
     missions_completed: MissionsCompleted
     include_gift_squash: MissionCompletedIncludeGiftSquash
     music_rando: MusicRando
+    reduced_cutscenes: ReducedCutscenes
 
 
 grinch_option_groups: list[OptionGroup] = [
@@ -432,6 +440,7 @@ grinch_option_groups: list[OptionGroup] = [
         UnlimitedEggs,
         DamageRate,
         MusicRando,
+        ReducedCutscenes,
     ]),
     OptionGroup("Filler/Trap Settings", [
         FillerWeight,

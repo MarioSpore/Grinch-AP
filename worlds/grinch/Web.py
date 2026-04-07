@@ -38,6 +38,7 @@ class GrinchWeb(WebWorld):
             UnlimitedEggs,
             DamageRate,
             MusicRando,
+            ReducedCutscenes,
         ]),
         OptionGroup("Filler/Trap Settings", [
             FillerWeight,

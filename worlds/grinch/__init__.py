@@ -364,6 +364,7 @@ class GrinchWorld(World):
             "damage_rate": self.options.damage_rate.value,
             "music_rando": self.options.music_rando.value,
             "chosen_music": self.songs_chosen,
+            "reduced_cutscenes": self.reduced_cutscenes.value,
         }
 
     def generate_output(self, output_directory: str) -> None:
