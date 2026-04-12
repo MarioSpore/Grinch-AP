@@ -1225,7 +1225,8 @@ grinch_locations = {
         [
             # GrinchRamData(0x0101FB, binary_bit_pos=0),
             GrinchRamData(0x010000, value=0x11),
-            GrinchRamData(0x0EE054, value=188),
+            # GrinchRamData(0x0EE054, value=188),
+            GrinchRamData(0x095306, value=27),
         ],
     ),
     "WL - North Shore - Heart of Stone": GrinchLocationData(
