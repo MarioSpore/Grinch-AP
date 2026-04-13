@@ -3045,7 +3045,7 @@ grinch_locations = {
             GrinchRamData(0x010293, binary_bit_pos=1),
         ],
     ),
-    "MC - Collect all Grinch Copter Blueprints": GrinchLocationData(
+    "Collect all Grinch Copter Blueprints": GrinchLocationData(
         "Mount Crumpit",
         ["Grinch Copter Blueprints", "Blueprints", "Whoville", "Whoville Blueprints",
          "Who Forest", "Who Forest Blueprints", "Who Dump", "Who Dump Blueprints", "Who Lake", "Who Lake Blueprints", "Miscellaneous"],
