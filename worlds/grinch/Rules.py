@@ -2744,7 +2744,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROCKET_SPRING,
         ],
     ],
-    "Collect all Grinch Copter Blueprints": [
+    "MC - Collect all Grinch Copter Blueprints": [
         [
             grinch_items.level_items.WL_SCOUT_CLOTHES,
             grinch_items.moves.MAX,
