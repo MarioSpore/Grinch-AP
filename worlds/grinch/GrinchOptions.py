@@ -377,6 +377,23 @@ class ReducedCutscenes(Toggle):
     display_name = "Reduced Cutscenes"
 
 
+class RandomizeMissionItems(DefaultOnToggle):
+    """
+    Allows mission specific items to be randomized in the itempool.
+    NOTE: Disabling this adds the locations and will still keep the items. But will be
+    forced to their vanilla locations. Enabling this removes these locations.
+    """
+    display_name = "Randomize Mission Specific Items"
+
+class RandomizeSleighParts(DefaultOnToggle):
+    """
+    Allows the sleigh parts to be randomized in the itempool.
+    NOTE: Disabling this adds the locations and will still keep the items. But will be
+    forced to their vanilla locations. Enabling this removes these locations.
+    """
+    display_name = "Randomize Sleigh Parts"
+
+
 @dataclass
 class GrinchOptions(DeathLinkMixin, PerGameCommonOptions):
     progressive_vacuums: ProgressiveVacuums
@@ -407,6 +424,8 @@ class GrinchOptions(DeathLinkMixin, PerGameCommonOptions):
     include_gift_squash: MissionCompletedIncludeGiftSquash
     music_rando: MusicRando
     reduced_cutscenes: ReducedCutscenes
+    randomize_mission_items: RandomizeMissionItems
+    randomize_sleigh_parts: RandomizeSleighParts
 
 
 grinch_option_groups: list[OptionGroup] = [
@@ -423,7 +442,9 @@ grinch_option_groups: list[OptionGroup] = [
         Gadgetrandolist,
         ExcludeGC,
         Moverando,
-        Moverandolist
+        Moverandolist,
+        RandomizeMissionItems,
+        RandomizeSleighParts,
     ]),
     OptionGroup("Location Settings", [
         Missionsanity,

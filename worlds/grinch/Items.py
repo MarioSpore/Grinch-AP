@@ -387,8 +387,8 @@ MISSION_ITEMS_TABLE: dict[str, GrinchItemData] = {
         ],
         210,
         IC.progression,
-        [GrinchRamData(0x0101F9, binary_bit_pos=7),
-         GrinchRamData(0x0100E3, value=5)], # Allows removal of pirate in cave when doing squashing all gifts
+        [GrinchRamData(0x0101F9, binary_bit_pos=7)],
+         # GrinchRamData(0x0100E3, value=5)], # Allows removal of pirate in cave when doing squashing all gifts
     ),
 }
 

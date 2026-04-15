@@ -1304,37 +1304,37 @@ grinch_locations = {
     #         GrinchRamData(0x010000, value=0x18),
     #         GrinchRamData(0x134CA5, min_count=1, max_count=4)]),
     # Sleigh Part Locations
-    # "WV - Exhaust Pipes": GrinchLocationData(
-    #     "Whoville",
-    #     ["Sleigh Ride", "Whoville"],
-    #     1600,
-    #     [
-    #         GrinchRamData(0x0101FB, binary_bit_pos=2)],
-    # ),
-    # "WF - Skis": GrinchLocationData(
-    #     "Who Forest",
-    #     ["Sleigh Ride", "Who Forest"],
-    #     1601,
-    #     [GrinchRamData(0x0101FB, binary_bit_pos=3)],
-    # ),
-    # "WD - Tires": GrinchLocationData(
-    #     "Who Dump",
-    #     ["Sleigh Ride", "Who Dump"],
-    #     1602,
-    #     [GrinchRamData(0x0101FB, binary_bit_pos=4)],
-    # ),
-    # "WL - Submarine World - Twin-End Tuba": GrinchLocationData(
-    #     "Submarine World",
-    #     ["Sleigh Ride", "Who Lake", "South Shore"],
-    #     1603,
-    #     [GrinchRamData(0x0101FB, binary_bit_pos=6)],
-    # ),
-    # "WL - South Shore - GPS": GrinchLocationData(
-    #     "Who Lake",
-    #     ["Sleigh Ride", "Who Lake", "Submarine World"],
-    #     1604,
-    #     [GrinchRamData(0x0101FB, binary_bit_pos=5)],
-    # ),
+    "WV - Exhaust Pipes": GrinchLocationData(
+        "Whoville",
+        ["Sleigh Ride", "Whoville", "Sleigh Parts"],
+        1600,
+        [
+            GrinchRamData(0x0101FB, binary_bit_pos=2)],
+    ),
+    "WF - Skis": GrinchLocationData(
+        "Who Forest",
+        ["Sleigh Ride", "Who Forest", "Sleigh Parts"],
+        1601,
+        [GrinchRamData(0x0101FB, binary_bit_pos=3)],
+    ),
+    "WD - Tires": GrinchLocationData(
+        "Who Dump",
+        ["Sleigh Ride", "Who Dump", "Sleigh Parts"],
+        1602,
+        [GrinchRamData(0x0101FB, binary_bit_pos=4)],
+    ),
+    "WL - Submarine World - Twin-End Tuba": GrinchLocationData(
+        "Submarine World",
+        ["Sleigh Ride", "Who Lake", "South Shore", "Sleigh Parts"],
+        1603,
+        [GrinchRamData(0x0101FB, binary_bit_pos=6)],
+    ),
+    "WL - South Shore - GPS": GrinchLocationData(
+        "Who Lake",
+        ["Sleigh Ride", "Who Lake", "Submarine World", "Sleigh Parts"],
+        1604,
+        [GrinchRamData(0x0101FB, binary_bit_pos=5)],
+    ),
     # Mount Crumpit Locations
     "MC - 1st Crate Squashed": GrinchLocationData(
         "Mount Crumpit",
@@ -3199,6 +3199,72 @@ grinch_locations = {
         ["Who Dump", "Miscellaneous"],
         2604,
         [GrinchRamData(0x01025B, binary_bit_pos=4)],
+    ),
+    "WV - Painting Bucket": GrinchLocationData(
+        "Whoville",
+        ["Whoville", "Mission Specific Item Locations"],
+        2700,
+        [GrinchRamData(0x0101F9, binary_bit_pos=1)],
+    ),
+    "WV - Clock Tower - Who Cloak": GrinchLocationData(
+        "Clock Tower",
+        ["Whoville", "Clock Tower", "Mission Specific Item Locations"],
+        2701,
+        [GrinchRamData(0x0101F9, binary_bit_pos=0)],
+    ),
+    "WV - Clock Tower - Hammer": GrinchLocationData(
+        "Clock Tower",
+        ["Whoville", "Clock Tower", "Mission Specific Item Locations"],
+        2702,
+        [GrinchRamData(0x0101F9, binary_bit_pos=3)],
+    ),
+    "WV - City Hall - Sculpting Tools": GrinchLocationData(
+        "City Hall",
+        ["Whoville", "City Hall", "Mission Specific Item Locations"],
+        2703,
+        [GrinchRamData(0x0101F9, binary_bit_pos=2)],
+    ),
+    "WF - Glue Bucket": GrinchLocationData(
+        "Who Forest",
+        ["Who Forest", "Mission Specific Item Locations"],
+        2704,
+        [GrinchRamData(0x0101F9, binary_bit_pos=4)],
+    ),
+    "WF - Cable Car Access Card": GrinchLocationData(
+        "Who Forest",
+        ["Who Forest", "Mission Specific Item Locations"],
+        2705,
+        [GrinchRamData(0x0101F9, binary_bit_pos=5)],
+    ),
+    "WD - Minefield - Scissors": GrinchLocationData(
+        "Minefield",
+        ["Who Dump", "Minefield", "Mission Specific Item Locations"],
+         2706,
+         [GrinchRamData(0x0101F9, binary_bit_pos=6)],
+    ),
+    "WL - Scout's Hut - Scout's Clothes": GrinchLocationData(
+        "Scout's Hut",
+        ["Who Lake", "Scout's Hut", "Mission Specific Item Locations"],
+        2707,
+        [GrinchRamData(0x0101F9, binary_bit_pos=7),],
+    ),
+    "WL - North Shore - Drill": GrinchLocationData(
+        "North Shore",
+        ["Who Lake", "North Shore", "Mission Specific Item Locations"],
+        2708,
+        [GrinchRamData(0x0101FA, binary_bit_pos=2)],
+    ),
+        "WL - Mayor's Villa - Rope": GrinchLocationData(
+        "Mayor's Villa",
+        ["Who Lake", "Mayor's Villa", "Mission Specific Item Locations"],
+        2709,
+        [GrinchRamData(0x0101FA, binary_bit_pos=1)],
+    ),
+    "WL - Mayor's Villa - Hook": GrinchLocationData(
+        "Mayor's Villa",
+        ["Who Lake", "Mayor's Villa", "Mission Specific Item Locations"],
+        2710,
+        [GrinchRamData(0x0101FA, binary_bit_pos=0)],
     ),
 }
 def grinch_locations_to_id() -> dict[str, int]:

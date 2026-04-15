@@ -2926,6 +2926,91 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.PANCAKE,
         ],
     ],
+    "WV - Painting Bucket": [
+        [
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WV - Clock Tower - Who Cloak": [[]],
+    "WV - Clock Tower - Hammer": [
+        [
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.MAX,
+            grinch_items.moves.SEIZE,
+            grinch_items.gadgets.SLIME_SHOOTER,
+        ],
+        [
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.MAX,
+            grinch_items.moves.SEIZE,
+            grinch_items.moves.SNEAK,
+        ],
+    ],
+    "WV - City Hall - Sculpting Tools": [
+        [
+            grinch_items.moves.SNEAK,
+            grinch_items.moves.SEIZE,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.moves.SEIZE,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.SEIZE,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WF - Glue Bucket": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WF - Cable Car Access Card": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.BAD_BREATH,
+            grinch_items.gadgets.SLIME_SHOOTER,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.BAD_BREATH,
+            grinch_items.gadgets.SLIME_SHOOTER,
+        ],
+    ],
+    "WD - Minefield - Scissors": [
+        [
+            grinch_items.gadgets.GRINCH_COPTER,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.gadgets.ROCKET_SPRING,
+        ],
+    ],
+    "WL - Scout's Hut - Scout's Clothes": [
+        [
+            grinch_items.moves.BAD_BREATH,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WL - North Shore - Drill": [[]],
+    "WL - Mayor's Villa - Rope": [
+        [
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "WL - Mayor's Villa - Hook": [
+        [
+            grinch_items.moves.BAD_BREATH,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
     # "Green Present": [
     #     []
     # ],
