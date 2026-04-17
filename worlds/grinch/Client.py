@@ -69,7 +69,8 @@ MC_ELEVATOR_ADDR: int = 0x01010D
 
 # Offsets from region table used to handle deathlink related things
 HEALTH_REGION_OFFSET: int = 0x3C
-DEALTHLINK_REGION_OFFSET: int = 0x27
+DEATHLINK_REGION_OFFSET: int = 0x27
+DEATHLINK_CHECK_OFFSET: int = 0x23
 ANIMATION_REGION_OFFSET: int = 0x37
 ANIMATION_ADDR_SIZE: int = 2
 
@@ -802,21 +803,14 @@ class GrinchClient(BizHawkClient):
         if not curr_region_data.allow_deathlink:
             return
 
-        # Get the current amount of Heart of Stones (HOS)
-        hos_count = get_item_count_by_id(ctx, 42570)
-        hp_amount = math.ceil(42 - (10.5 * hos_count))
-
-        curr_health: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
-                                                              [(curr_region_data.map_table_addr + HEALTH_REGION_OFFSET,
+        death_cutscene: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
+                                                              [(curr_region_data.map_table_addr + DEATHLINK_CHECK_OFFSET,
                                                                 1, "MainRAM")]))[0], "little")
 
         loading_goo: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
                                                                  [(0x010094, 1, "MainRAM")]))[0], "little")
 
-        in_cutscene: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
-                                                                 [(0x01009E, 1, "MainRAM")]))[0], "little")
-
-        if not await self.paused_state(ctx) and curr_health <= hp_amount and loading_goo == 1 and in_cutscene < 8:
+        if not await self.paused_state(ctx) and death_cutscene == 2:
             await ctx.send_death(ctx.player_names[ctx.slot] + " could not fight off the Christmas cheer...")
             await self.kill_grinch(ctx)
 
@@ -829,16 +823,22 @@ class GrinchClient(BizHawkClient):
         if not curr_region_data.allow_deathlink:
             return
 
-        if await self.paused_state(ctx) or await self.loading_state(ctx):
+        if await self.paused_state(ctx): # or await self.loading_state(ctx):
             return
 
         # Update the Health Address to X amount and DeathLink Trigger to 0
         self.is_grinch_dead = True
         await bizhawk.write(
             ctx.bizhawk_ctx,
-            [(curr_region_data.map_table_addr + HEALTH_REGION_OFFSET, int(0).to_bytes(1, "little"), "MainRAM"),
-             (curr_region_data.map_table_addr + DEALTHLINK_REGION_OFFSET, int(0x4).to_bytes(1, "little"), "MainRAM")],
+            [(curr_region_data.map_table_addr + HEALTH_REGION_OFFSET, int(0).to_bytes(1, "little"), "MainRAM"),],
         )
+        death_init_val: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
+                                                 [(curr_region_data.map_table_addr + DEATHLINK_REGION_OFFSET, 1, "MainRAM")]))[0], "little")
+        await bizhawk.write(
+            ctx.bizhawk_ctx,
+            [(curr_region_data.map_table_addr + DEATHLINK_REGION_OFFSET, int(death_init_val+0x40).to_bytes(1, "little"), "MainRAM"),],
+        )
+
         await self.wait_for_grinch_alive(ctx)
 
     async def adjust_damage_rate(self, ctx: "BizHawkClientContext"):
@@ -848,13 +848,18 @@ class GrinchClient(BizHawkClient):
         )
 
     async def wait_for_grinch_alive(self, ctx: "BizHawkClientContext"):
-        is_dying: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
-            [(0x0100A1, 1, "MainRAM")]))[0], "little")
+        curr_region_data = ALL_REGIONS_INFO[await self.get_current_region()]
 
-        while is_dying > 0 or await self.paused_state(ctx) or await self.loading_state(ctx):
+        death_cutscene: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
+       [(curr_region_data.map_table_addr + DEATHLINK_CHECK_OFFSET,
+                                                                      1, "MainRAM")]))[0], "little")
+
+        while death_cutscene == 2 and not await self.paused_state(ctx):
             await asyncio.sleep(3.0)
-            is_dying: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
-                [(0x0100A1, 1, "MainRAM")]))[0], "little")
+            death_cutscene: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
+                                                                     [(
+                                                                          curr_region_data.map_table_addr + DEATHLINK_CHECK_OFFSET,
+                                                                          1, "MainRAM")]))[0], "little")
 
         self.is_grinch_dead = False
 
