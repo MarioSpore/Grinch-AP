@@ -95,7 +95,8 @@ ALL_REGIONS_INFO: dict[str, GrinchRegionInfo] = {
     "Post Office": GrinchRegionInfo(0x0A, "Whoville", False, 0x0DFB64, True,
         region_access=[
             [grinch_items.level_items.WV_WHO_CLOAK],
-        ],),
+        ],
+        advanced_region_access=[],),
 
     "City Hall": GrinchRegionInfo(0x08, "Whoville", False, 0x0E7090, True,
         region_access=[
@@ -107,7 +108,8 @@ ALL_REGIONS_INFO: dict[str, GrinchRegionInfo] = {
             [grinch_items.moves.SNEAK],
             [grinch_items.gadgets.SLIME_SHOOTER],
             [grinch_items.level_items.WV_WHO_CLOAK],
-        ],),
+        ],
+        advanced_region_access=[],),
 
     "Ski Resort": GrinchRegionInfo(0x0C, "Who Forest", True, 0x0E98C0, True,
         region_access=[
@@ -128,6 +130,20 @@ ALL_REGIONS_INFO: dict[str, GrinchRegionInfo] = {
             [grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.PANCAKE],
+        ],
+        advanced_region_access=[
+            [grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+             grinch_items.gadgets.ROCKET_SPRING,
+             grinch_items.moves.PANCAKE],
+            [grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+             grinch_items.gadgets.GRINCH_COPTER,
+             grinch_items.moves.PANCAKE],
+            [grinch_items.gadgets.SLIME_SHOOTER,
+             grinch_items.gadgets.ROCKET_SPRING,
+             grinch_items.moves.PANCAKE],
+            [grinch_items.gadgets.SLIME_SHOOTER,
+             grinch_items.gadgets.GRINCH_COPTER,
+             grinch_items.moves.PANCAKE],
         ],),
 
     "Power Plant": GrinchRegionInfo(0x10, "Who Dump", True, 0x0E885C, True,
@@ -167,12 +183,19 @@ ALL_REGIONS_INFO: dict[str, GrinchRegionInfo] = {
             grinch_items.moves.SNEAK],
             [grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SNEAK],
+        ],
+        advanced_region_access=[
+            [grinch_items.gadgets.GRINCH_COPTER],
+            [grinch_items.gadgets.ROCKET_SPRING],
         ],),
 
     "North Shore": GrinchRegionInfo(0x14, "Who Lake", True, 0x0DD43C, True,
         region_access=[
             [grinch_items.level_items.WL_SCOUT_CLOTHES,
             grinch_items.moves.SNEAK],
+        ],
+        advanced_region_access=[
+            [grinch_items.level_items.WL_SCOUT_CLOTHES],
         ],),
     "Mayor's Villa": GrinchRegionInfo(0x16, "North Shore", True, 0x0FA7C8, True,
         region_access=[
