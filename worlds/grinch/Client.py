@@ -106,6 +106,7 @@ class GrinchClient(BizHawkClient):
         self.damage_rate = 1
         self.unique_client_id = 0
         self.chosen_music = {}
+        self.reduced_cutscenes = False
 
     async def validate_rom(self, ctx: "BizHawkClientContext") -> bool:
         from CommonClient import logger
@@ -161,6 +162,7 @@ class GrinchClient(BizHawkClient):
                 self.damage_rate = int(ctx.slot_data["damage_rate"])
                 self.music_rando = bool(ctx.slot_data["music_rando"])
                 self.chosen_music = dict(ctx.slot_data["chosen_music"])
+                self.reduced_cutscenes = dict(ctx.slot_data["reduced_cutscenes"])
                 self.unique_client_id = self._get_uuid()
                 logger.info(
                     "You are now connected to the client. "
@@ -655,6 +657,29 @@ class GrinchClient(BizHawkClient):
                     )
                     await asyncio.sleep(0.5)
 
+            if self.reduced_cutscenes:
+                await bizhawk.write(
+                    ctx.bizhawk_ctx,
+                    [(0x010212, int(95).to_bytes(1, "little"), "MainRAM")],
+                )
+                await bizhawk.write(
+                    ctx.bizhawk_ctx,
+                    [(0x01024A, int(2).to_bytes(1, "little"), "MainRAM")],
+                )
+                await bizhawk.write(
+                    ctx.bizhawk_ctx,
+                    [(0x01024C, int(2).to_bytes(1, "little"), "MainRAM")],
+                )
+                await bizhawk.write(
+                    ctx.bizhawk_ctx,
+                    [(0x01025C, int(2).to_bytes(1, "little"), "MainRAM")],
+                )
+                await bizhawk.write(
+                    ctx.bizhawk_ctx,
+                    [(0x010282, int(16).to_bytes(1, "little"), "MainRAM")],
+                )
+
+
     async def ring_link_output(self, ctx: "BizHawkClientContext"):
         from CommonClient import logger
 
@@ -851,7 +876,7 @@ class GrinchClient(BizHawkClient):
         curr_region_data = ALL_REGIONS_INFO[await self.get_current_region()]
 
         death_cutscene: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
-       [(curr_region_data.map_table_addr + DEATHLINK_CHECK_OFFSET,
+        [(curr_region_data.map_table_addr + DEATHLINK_CHECK_OFFSET,
                                                                       1, "MainRAM")]))[0], "little")
 
         while death_cutscene == 2 and not await self.paused_state(ctx):
