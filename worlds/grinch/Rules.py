@@ -1122,40 +1122,40 @@ rules_dict: dict[str, list[list[str]]] = {
         ],
     ],
     # Finale
-    # "WV - Exhaust Pipes": [
-    #     [
-    #         grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-    #         grinch_items.keys.SLEIGH_ROOM_KEY,
-    #     ],
-    # ],
-    # "WF - Skis": [
-    #     [
-    #         grinch_items.keys.SLEIGH_ROOM_KEY,
-    #         grinch_items.moves.MAX,
-    #     ],
-    # ],
-    # "WD - Tires": [
-    #     [
-    #         grinch_items.gadgets.ROCKET_SPRING,
-    #         grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-    #         grinch_items.keys.SLEIGH_ROOM_KEY,
-    #         grinch_items.moves.SEIZE,
-    #         grinch_items.moves.PANCAKE,
-    #     ],
-    # ],
-    # "WL - Submarine World - Twin-End Tuba": [
-    #     [
-    #         grinch_items.gadgets.MARINE_MOBILE,
-    #         grinch_items.keys.SLEIGH_ROOM_KEY,
-    #     ],
-    # ],
-    # "WL - South Shore - GPS": [
-    #     [
-    #         grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-    #         grinch_items.keys.SLEIGH_ROOM_KEY,
-    #         grinch_items.moves.SNEAK,
-    #     ],
-    # ],
+    "WV - Exhaust Pipes": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.keys.SLEIGH_ROOM_KEY,
+        ],
+    ],
+    "WF - Skis": [
+        [
+            grinch_items.keys.SLEIGH_ROOM_KEY,
+            grinch_items.moves.MAX,
+        ],
+    ],
+    "WD - Tires": [
+        [
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.keys.SLEIGH_ROOM_KEY,
+            grinch_items.moves.SEIZE,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WL - Submarine World - Twin-End Tuba": [
+        [
+            grinch_items.gadgets.MARINE_MOBILE,
+            grinch_items.keys.SLEIGH_ROOM_KEY,
+        ],
+    ],
+    "WL - South Shore - GPS": [
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.keys.SLEIGH_ROOM_KEY,
+            grinch_items.moves.SNEAK,
+        ],
+    ],
     "MC - Sleigh Ride - Stealing All Gifts": [[]],
     "MC - Sleigh Ride - Neutralizing Santa": [[]],
     # Hearts of Stone
