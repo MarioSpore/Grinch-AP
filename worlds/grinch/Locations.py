@@ -3242,7 +3242,7 @@ grinch_locations = {
          2706,
          [GrinchRamData(0x0101F9, binary_bit_pos=6)],
     ),
-    "WL - Scout's Hut - Scout's Clothes": GrinchLocationData(
+    "WL - Scout's Hut - Scout Clothes": GrinchLocationData(
         "Scout's Hut",
         ["Who Lake", "Scout's Hut", "Mission Specific Item Locations"],
         2707,

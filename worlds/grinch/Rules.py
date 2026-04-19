@@ -2992,7 +2992,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROCKET_SPRING,
         ],
     ],
-    "WL - Scout's Hut - Scout's Clothes": [
+    "WL - Scout's Hut - Scout Clothes": [
         [
             grinch_items.moves.BAD_BREATH,
             grinch_items.moves.PANCAKE,
