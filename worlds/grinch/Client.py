@@ -382,10 +382,16 @@ class GrinchClient(BizHawkClient):
                             continue
                         current_ram_address_value = trap_val
 
+                        curr_region_data = ALL_REGIONS_INFO[await self.get_current_region()]
+
+                        death_init_val: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
+                        [(curr_region_data.map_table_addr + DEATHLINK_REGION_OFFSET,
+                        1, "MainRAM")]))[0], "little")
+
                         # Need to update the trigger address
                         if not local_item in ["Depletion Trap", "Who sent me back?", "Dump it to Crumpit"]:
                             ram_addr_dict[ALL_REGIONS_INFO[self.curr_region].map_table_addr+0x27] = [
-                                40,
+                                death_init_val+0x40,
                                 1,
                             ]
                     else:
@@ -858,7 +864,7 @@ class GrinchClient(BizHawkClient):
             [(curr_region_data.map_table_addr + HEALTH_REGION_OFFSET, int(0).to_bytes(1, "little"), "MainRAM"),],
         )
         death_init_val: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
-                                                 [(curr_region_data.map_table_addr + DEATHLINK_REGION_OFFSET, 1, "MainRAM")]))[0], "little")
+        [(curr_region_data.map_table_addr + DEATHLINK_REGION_OFFSET, 1, "MainRAM")]))[0], "little")
         await bizhawk.write(
             ctx.bizhawk_ctx,
             [(curr_region_data.map_table_addr + DEATHLINK_REGION_OFFSET, int(death_init_val+0x40).to_bytes(1, "little"), "MainRAM"),],
