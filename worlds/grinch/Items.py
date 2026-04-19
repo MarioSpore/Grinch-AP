@@ -1,6 +1,5 @@
 from typing import NamedTuple, Optional
 
-from . import ALL_REGIONS_INFO
 from .RamHandler import GrinchRamData, UpdateMethod
 from BaseClasses import Item
 from BaseClasses import (
@@ -9,7 +8,7 @@ from BaseClasses import (
 
 
 class GrinchItemData(NamedTuple):
-    item_group: list[str]  # arbituary that can be whatever it can be, basically the field/property for item groups
+    item_group: list[str]  # arbitrary that can be whatever it can be, basically the field/property for item groups
     id: Optional[int]
     classification: IC
     update_ram_addr: Optional[list[GrinchRamData]]
@@ -119,6 +118,7 @@ class grinch_categories:
     VACUUM_TUBES: str = "Vacuum Tubes"
 
 def get_region_health(region_name: str):
+    from .Regions import ALL_REGIONS_INFO
     return ALL_REGIONS_INFO[region_name].map_table_addr + 0x3C
 
 # Gadgets
