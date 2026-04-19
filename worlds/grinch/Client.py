@@ -609,15 +609,16 @@ class GrinchClient(BizHawkClient):
                 # self.demo_mode_buffer = 0
                 print("Changed maps")
                 self.ingame_log = False
+                return False
 
             # Update the previous map we were on to be the current map.
             self.last_map_location = ingame_map_id
 
-            # Add failsafe for goal region to ensure it is able to trigger goal
-            if await self.loading_state(ctx) and not ingame_map_id == 0x3E:
-                print("Currently in cutscene or goo")
-                self.ingame_log = False
-                return False
+        # Add failsafe for goal region to ensure it is able to trigger goal
+        if await self.loading_state(ctx) and not ingame_map_id == 0x3E:
+            print("Currently in cutscene or goo")
+            self.ingame_log = False
+            return False
 
         # # Use this as a delayed check to make sure we are in game
         # if not self.demo_mode_buffer == MAX_DEMO_MODE_CHECK:
