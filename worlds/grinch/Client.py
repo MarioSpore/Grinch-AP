@@ -162,7 +162,7 @@ class GrinchClient(BizHawkClient):
                 self.damage_rate = int(ctx.slot_data["damage_rate"])
                 self.music_rando = bool(ctx.slot_data["music_rando"])
                 self.chosen_music = dict(ctx.slot_data["chosen_music"])
-                self.reduced_cutscenes = dict(ctx.slot_data["reduced_cutscenes"])
+                self.reduced_cutscenes = bool(ctx.slot_data["reduced_cutscenes"])
                 self.unique_client_id = self._get_uuid()
                 logger.info(
                     "You are now connected to the client. "
