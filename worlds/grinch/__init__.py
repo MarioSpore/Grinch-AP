@@ -42,6 +42,11 @@ class GrinchWorld(World):
             raise OptionError("Cannot enable both unlimited rotten eggs and ring links. You can only enable one of " +
                 f"these at a time. The following player's YAML needs to be fixed: {self.player_name}")
 
+        # if self.options.randomize_sleigh_parts and "Submarine World" in self.options.exclude_environments:
+        #     self.multiworld.push_precollected(self.create_item("Twin-End Tuba"))
+            # raise logger.info("Because Twin-End Tuba is forced into Submarine World, " +
+            #                   f"{self.player_name} cannot exclude exclude the Submarine World environment.")
+
         # Total available weight sum of filler items.
         # If this is 0, it means no filler was provided by the user, which will cause generation errors as there will
         #   be not enough items for all defined locations. Later this can be changed to default item and this get removed.
@@ -257,26 +262,46 @@ class GrinchWorld(World):
         if not self.options.randomize_mission_items:
             self.multiworld.get_location("WV - Painting Bucket", self.player).place_locked_item(
                 self.create_item("Painting Bucket"))
-            self.multiworld.get_location("WV - Clock Tower - Who Cloak", self.player).place_locked_item(
-                self.create_item("Who Cloak"))
-            self.multiworld.get_location("WV - Clock Tower - Hammer", self.player).place_locked_item(
-                self.create_item("Hammer"))
-            self.multiworld.get_location("WV - City Hall - Sculpting Tools", self.player).place_locked_item(
-                self.create_item("Sculpting Tools"))
+            if not "Clock Tower" in self.options.exclude_environments:
+                self.multiworld.get_location("WV - Clock Tower - Who Cloak", self.player).place_locked_item(
+                    self.create_item("Who Cloak"))
+                self.multiworld.get_location("WV - Clock Tower - Hammer", self.player).place_locked_item(
+                    self.create_item("Hammer"))
+            else:
+                self.multiworld.push_precollected(self.create_item("Who Cloak"))
+                self.multiworld.push_precollected(self.create_item("Hammer"))
+            if not "City Hall" in self.options.exclude_environments:
+                self.multiworld.get_location("WV - City Hall - Sculpting Tools", self.player).place_locked_item(
+                    self.create_item("Sculpting Tools"))
+            else:
+                self.multiworld.push_precollected(self.create_item("Sculpting Tools"))
             self.multiworld.get_location("WF - Glue Bucket", self.player).place_locked_item(
                 self.create_item("Glue Bucket"))
             self.multiworld.get_location("WF - Cable Car Access Card", self.player).place_locked_item(
                 self.create_item("Cable Car Access Card"))
-            self.multiworld.get_location("WD - Minefield - Scissors", self.player).place_locked_item(
-                self.create_item("Scissors"))
-            self.multiworld.get_location("WL - Scout's Hut - Scout's Clothes", self.player).place_locked_item(
-                self.create_item("Scout's Clothes"))
-            self.multiworld.get_location("WL - North Shore - Drill", self.player).place_locked_item(
-                self.create_item("Drill"))
-            self.multiworld.get_location("WL - Mayor's Villa - Rope", self.player).place_locked_item(
-                self.create_item("Rope"))
-            self.multiworld.get_location("WL - Mayor's Villa - Hook", self.player).place_locked_item(
-                self.create_item("Hook"))
+            if not "Minefield" in self.options.exclude_environments:
+                self.multiworld.get_location("WD - Minefield - Scissors", self.player).place_locked_item(
+                    self.create_item("Scissors"))
+            else:
+                self.multiworld.push_precollected(self.create_item("Scissors"))
+            if not "Scouts Hut" in self.options.exclude_environments:
+                self.multiworld.get_location("WL - Scout's Hut - Scout Clothes", self.player).place_locked_item(
+                    self.create_item("Scout Clothes"))
+            else:
+                self.multiworld.push_precollected(self.create_item("Scout's Clothes"))
+            if not "North Shore" in self.options.exclude_environments:
+                self.multiworld.get_location("WL - North Shore - Drill", self.player).place_locked_item(
+                    self.create_item("Drill"))
+            else:
+                self.multiworld.push_precollected(self.create_item("Drill"))
+            if not "Mayor's Villa" in self.options.exclude_environments:
+                self.multiworld.get_location("WL - Mayor's Villa - Rope", self.player).place_locked_item(
+                    self.create_item("Rope"))
+                self.multiworld.get_location("WL - Mayor's Villa - Hook", self.player).place_locked_item(
+                    self.create_item("Hook"))
+            else:
+                self.multiworld.push_precollected(self.create_item("Rope"))
+                self.multiworld.push_precollected(self.create_item("Hook"))
 
         # Add various moves that the user requested.
         for moves_added in MOVES_TABLE:
@@ -348,8 +373,11 @@ class GrinchWorld(World):
                 self.create_item("Skis"))
             self.multiworld.get_location("WD - Tires", self.player).place_locked_item(
                 self.create_item("Tires"))
-            self.multiworld.get_location("WL - Submarine World - Twin-End Tuba", self.player).place_locked_item(
-                self.create_item("Twin-End Tuba"))
+            if not "Submarine World" in self.options.exclude_environments:
+                self.multiworld.get_location("WL - Submarine World - Twin-End Tuba", self.player).place_locked_item(
+                    self.create_item("Twin-End Tuba"))
+            else:
+                self.multiworld.push_precollected(self.create_item("Twin-End Tuba"))
             self.multiworld.get_location("WL - South Shore - GPS", self.player).place_locked_item(
                 self.create_item("GPS"))
 
