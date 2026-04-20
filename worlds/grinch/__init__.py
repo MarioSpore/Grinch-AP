@@ -299,9 +299,10 @@ class GrinchWorld(World):
                     self.create_item("Rope"))
                 self.multiworld.get_location("WL - Mayor's Villa - Hook", self.player).place_locked_item(
                     self.create_item("Hook"))
+                if self.exclude_gc:
+                    self.multiworld.push_precollected(self.create_item("Hook"))
             else:
                 self.multiworld.push_precollected(self.create_item("Rope"))
-                self.multiworld.push_precollected(self.create_item("Hook"))
 
         # Add various moves that the user requested.
         for moves_added in MOVES_TABLE:
