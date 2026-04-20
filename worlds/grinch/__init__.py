@@ -176,6 +176,9 @@ class GrinchWorld(World):
             if "Mission Specific Item Locations" in data.location_group and self.options.randomize_mission_items:
                 continue
 
+            if "WL - Mayor's Villa - Hook" in location and not self.options.randomize_mission_items.value and self.options.exclude_gc.value:
+                continue
+
             if "Sleigh Parts" in data.location_group and self.options.randomize_sleigh_parts:
                 continue
 
