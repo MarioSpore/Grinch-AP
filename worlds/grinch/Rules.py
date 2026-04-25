@@ -1158,6 +1158,7 @@ rules_dict: dict[str, list[list[str]]] = {
     ],
     "MC - Sleigh Ride - Stealing All Gifts": [[]],
     "MC - Sleigh Ride - Neutralizing Santa": [[]],
+    "MC - Sleigh Ride - Save Christmas": [[]],
     # Hearts of Stone
     "WV - Post Office - Heart of Stone": [[]],
     "WF - Ski Resort - Heart of Stone": [[]],
