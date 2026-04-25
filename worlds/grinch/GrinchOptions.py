@@ -286,6 +286,7 @@ class TrapLinkOption(Toggle):
     """
 
     display_name = "Trap Link"
+    visibility = Visibility.none
 
 
 class FillerWeight(OptionCounter):
@@ -326,13 +327,13 @@ class TrapWeight(OptionCounter):
         "Dump it to Crumpit": 33,
         "Who sent me back?": 33,
         "Depletion Trap": 34,
-        "Bonk Trap": 25,
-        "Push Trap": 25,
-        "Damage Trap": 25,
-        "Electrocution Trap": 25,
-        "Ice Trap": 25,
-        "Bee Trap": 25,
-        "Banana Trap": 25,
+        # "Bonk Trap": 25,
+        # "Push Trap": 25,
+        # "Damage Trap": 25,
+        # "Electrocution Trap": 25,
+        # "Ice Trap": 25,
+        # "Bee Trap": 25,
+        # "Banana Trap": 25,
     }
 
 class MiscLocations(Toggle):
@@ -384,6 +385,7 @@ class RandomizeMissionItems(DefaultOnToggle):
     forced to their vanilla locations. Enabling this removes these locations.
     """
     display_name = "Randomize Mission Specific Items"
+    visibility = Visibility.none
 
 class RandomizeSleighParts(DefaultOnToggle):
     """
@@ -392,6 +394,7 @@ class RandomizeSleighParts(DefaultOnToggle):
     forced to their vanilla locations. Enabling this removes these locations.
     """
     display_name = "Randomize Sleigh Parts"
+    visibility = Visibility.none
 
 
 @dataclass

@@ -382,25 +382,25 @@ class GrinchClient(BizHawkClient):
                     current_ram_address_value = current_ram_address_value | (1 << addr_to_update.binary_bit_pos)
 
                 elif addr_to_update.update_method == UpdateMethod.SET:
-                    if grinch_item_ram_data.classification == ItemClassification.trap:
-                        trap_val: int | None = convert_trap(self.last_map_location, local_item)
-                        if trap_val is None:
-                            continue
-                        current_ram_address_value = trap_val
-
-                        curr_region_data = ALL_REGIONS_INFO[await self.get_current_region()]
-
-                        death_init_val: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
-                        [(curr_region_data.map_table_addr + DEATHLINK_REGION_OFFSET,
-                        1, "MainRAM")]))[0], "little")
-
-                        # Need to update the trigger address
-                        if not local_item in ["Depletion Trap", "Who sent me back?", "Dump it to Crumpit"]:
-                            ram_addr_dict[ALL_REGIONS_INFO[self.curr_region].map_table_addr+0x27] = [
-                                death_init_val+0x40,
-                                1,
-                            ]
-                    else:
+                    # if grinch_item_ram_data.classification == ItemClassification.trap:
+                    #     trap_val: int | None = convert_trap(self.last_map_location, local_item)
+                    #     if trap_val is None:
+                    #         continue
+                    #     current_ram_address_value = trap_val
+                    #
+                    #     curr_region_data = ALL_REGIONS_INFO[await self.get_current_region()]
+                    #
+                    #     death_init_val: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
+                    #     [(curr_region_data.map_table_addr + DEATHLINK_REGION_OFFSET,
+                    #     1, "MainRAM")]))[0], "little")
+                    #
+                    #     # Need to update the trigger address
+                    #     if not local_item in ["Depletion Trap", "Who sent me back?", "Dump it to Crumpit"]:
+                    #         ram_addr_dict[ALL_REGIONS_INFO[self.curr_region].map_table_addr+0x27] = [
+                    #             death_init_val+0x40,
+                    #             1,
+                    #         ]
+                    # else:
                         current_ram_address_value = addr_to_update.value
 
                 elif addr_to_update.update_method == UpdateMethod.ADD:
