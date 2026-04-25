@@ -88,6 +88,9 @@ class GrinchClient(BizHawkClient):
     demo_mode_buffer: int = 0
     last_map_location: int = -1
     ingame_log: bool = False
+    cutscene_goo_log: bool = False
+    menu_log: bool = False
+    demo_log: bool = False
     previous_egg_count: int = 0
     send_ring_link: bool = False
     unique_client_id: int = 0
@@ -158,6 +161,9 @@ class GrinchClient(BizHawkClient):
         match cmd:
             case "Connected":  # On Connect
                 self.ingame_log = False
+                self.cutscene_goo_log = False
+                self.menu_log = False
+                self.demo_log = False
                 self.unlimited_eggs = bool(ctx.slot_data["unlimited_eggs"])
                 self.damage_rate = int(ctx.slot_data["damage_rate"])
                 self.music_rando = bool(ctx.slot_data["music_rando"])
@@ -585,8 +591,12 @@ class GrinchClient(BizHawkClient):
                 ctx.bizhawk_ctx,
                 [(0x08FA20, int(1).to_bytes(1, "little"), "MainRAM")],
             )
-            print("Currently in menu screen")
+            if not self.menu_log:
+                print("Currently in menu screen")
+                self.menu_log = True
             self.ingame_log = False
+            self.cutscene_goo_log = False
+            self.demo_log = False
             return False
         else:
             await bizhawk.write(
@@ -609,6 +619,9 @@ class GrinchClient(BizHawkClient):
                 # self.demo_mode_buffer = 0
                 print("Changed maps")
                 self.ingame_log = False
+                self.cutscene_goo_log = False
+                self.menu_log = False
+                self.demo_log = False
                 return False
 
             # Update the previous map we were on to be the current map.
@@ -616,8 +629,12 @@ class GrinchClient(BizHawkClient):
 
         # Add failsafe for goal region to ensure it is able to trigger goal
         if await self.loading_state(ctx) and not ingame_map_id == 0x3E:
-            print("Currently in cutscene or goo")
+            if not self.cutscene_goo_log:
+                print("Currently in cutscene or goo")
+                self.cutscene_goo_log = True
             self.ingame_log = False
+            self.menu_log = False
+            self.demo_log = False
             return False
 
         # # Use this as a delayed check to make sure we are in game
@@ -639,6 +656,9 @@ class GrinchClient(BizHawkClient):
         if not self.ingame_log:
             print("You can now start sending locations from the Grinch!")
             self.ingame_log = True
+            self.cutscene_goo_log = False
+            self.menu_log = False
+            self.demo_log = False
 
         self.curr_region = await self.get_current_region()
         return True
