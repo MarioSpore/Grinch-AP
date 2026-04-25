@@ -253,6 +253,7 @@ class GrinchClient(BizHawkClient):
             await self.goal_checker(ctx)
             await self.option_handler(ctx)
             await self.constant_address_update(ctx)
+            # await self.funny_secret_goal(ctx)
             #await self.adjust_damage_rate(ctx)
 
             if "DeathLink" in ctx.tags:
@@ -644,14 +645,27 @@ class GrinchClient(BizHawkClient):
         #     print("Demo mode buffer")
         #     return False
 
-        # demo_mode = int.from_bytes(
-        #     (await bizhawk.read(ctx.bizhawk_ctx, [(0x01008A, 1, "MainRAM")]))[0],
-        #     "little",
-        # )
-        #
-        # if demo_mode == 1:
-        #     print("Currently in demo mode")
-        #     return False
+        demo_mode = int.from_bytes(
+            (await bizhawk.read(ctx.bizhawk_ctx, [(0x01008A, 1, "MainRAM")]))[0],
+            "little",
+        )
+
+        if demo_mode == 1:
+            if not self.demo_log:
+                print("Connected in demo mode, warping back to main menu")
+                self.demo_log = True
+            await bizhawk.write(
+                ctx.bizhawk_ctx,
+                [(MAP_REGION_ADDR, int(0x00).to_bytes(1, "little"), "MainRAM")],
+            )
+            await bizhawk.write(
+                ctx.bizhawk_ctx,
+                [(0x08FB94, int(1).to_bytes(1, "little"), "MainRAM")],
+            )
+            self.ingame_log = False
+            self.cutscene_goo_log = False
+            self.menu_log = False
+            return False
 
         if not self.ingame_log:
             print("You can now start sending locations from the Grinch!")
@@ -706,6 +720,47 @@ class GrinchClient(BizHawkClient):
                     [(0x010282, int(16).to_bytes(1, "little"), "MainRAM")],
                 )
 
+    async def funny_secret_goal(self, ctx: "BizHawkClientContext"):
+        secret_cond = False
+        secret_cond_activated = False
+        while ctx.slot:
+            await asyncio.sleep(0.1)
+            if not await self.ingame_checker(ctx):
+                continue
+            if not secret_cond_activated:
+                print("funny goal event activated")
+                secret_cond_activated = True
+            spin_win_hiscore = int.from_bytes(
+                    (await bizhawk.read(ctx.bizhawk_ctx, [(0x0100FD, 1, "MainRAM")]))[0],
+                    "little",)
+            dankamania_hiscore= int.from_bytes(
+                    (await bizhawk.read(ctx.bizhawk_ctx, [(0x0100FB, 1, "MainRAM")]))[0],
+                    "little",)
+            gc_race_hiscore = int.from_bytes(
+                    (await bizhawk.read(ctx.bizhawk_ctx, [(0x0100FC, 1, "MainRAM")]))[0],
+                    "little",)
+            region = int.from_bytes(
+                    (await bizhawk.read(ctx.bizhawk_ctx, [(MAP_REGION_ADDR, 1, "MainRAM")]))[0],
+                    "little",)
+
+            if 0 < spin_win_hiscore <= 29 and region == 0x1A:
+                secret_cond = True
+            elif dankamania_hiscore >= 12 and region == 0x1B:
+                secret_cond = True
+            elif 0 < gc_race_hiscore  <= 29 and region == 0x1C:
+                secret_cond = True
+
+            if secret_cond:
+                    print("LOL?")
+                    await bizhawk.write(
+                        ctx.bizhawk_ctx,
+                        [(MAP_REGION_ADDR, int(0x3E).to_bytes(1, "little"), "MainRAM")],
+                    )
+                    await bizhawk.write(
+                        ctx.bizhawk_ctx,
+                        [(TRIGGER_PLAYER_TELEPORT, int(1).to_bytes(1, "little"), "MainRAM")],
+                    )
+                    secret_cond = False
 
     async def ring_link_output(self, ctx: "BizHawkClientContext"):
         from CommonClient import logger
@@ -822,27 +877,29 @@ class GrinchClient(BizHawkClient):
             lt_pressed: bool = (get_other_buttons_state & (1 << 0)) > 0
 
             # If RT and LT are both held + start, sending player up to the top of MC / Tutorial area.
-            if rt_pressed and lt_pressed:
-                lobby_val = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx, [(LOBBY_TRIGGER_ADDR,
-                    TRIGGER_ADDR_SIZE, "MainRAM")]))[0],"little")
-                lobby_val = set_binary_position(lobby_val, 0, False)
-                await bizhawk.write(ctx.bizhawk_ctx,
-                    [(LOBBY_TRIGGER_ADDR, lobby_val.to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM"),
-                            (MC_ELEVATOR_ADDR, int(3).to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM"),])
-                await _teleport_player(ctx, MOUNT_CRUMPIT_MAP_ID)
+            if await self.paused_state(ctx):
+                if rt_pressed and lt_pressed:
+                    lobby_val = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx, [(LOBBY_TRIGGER_ADDR,
+                        TRIGGER_ADDR_SIZE, "MainRAM")]))[0],"little")
+                    lobby_val = set_binary_position(lobby_val, 0, False)
+                    await asyncio.sleep(1)
+                    await bizhawk.write(ctx.bizhawk_ctx,
+                        [(LOBBY_TRIGGER_ADDR, lobby_val.to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM"),
+                                (MC_ELEVATOR_ADDR, int(3).to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM"),])
+                    await _teleport_player(ctx, MOUNT_CRUMPIT_MAP_ID)
 
-            # If RB and LB are both held + start, sending player to grinch computer room / lobby.
-            if lb_pressed and rb_pressed:
-                lobby_val = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx, [(LOBBY_TRIGGER_ADDR,
-                    TRIGGER_ADDR_SIZE, "MainRAM")]))[0], "little")
-                lobby_val = set_binary_position(lobby_val, 0, True)
-                await bizhawk.write(ctx.bizhawk_ctx,
-                    [(LOBBY_TRIGGER_ADDR, lobby_val.to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM"),
-                            (MC_ELEVATOR_ADDR, int(1).to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM")])
-                await _teleport_player(ctx, MOUNT_CRUMPIT_MAP_ID)
+                # If RB and LB are both held + start, sending player to grinch computer room / lobby.
+                if lb_pressed and rb_pressed:
+                    lobby_val = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx, [(LOBBY_TRIGGER_ADDR,
+                        TRIGGER_ADDR_SIZE, "MainRAM")]))[0], "little")
+                    lobby_val = set_binary_position(lobby_val, 0, True)
+                    await asyncio.sleep(1)
+                    await bizhawk.write(ctx.bizhawk_ctx,
+                        [(LOBBY_TRIGGER_ADDR, lobby_val.to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM"),
+                                (MC_ELEVATOR_ADDR, int(1).to_bytes(TRIGGER_ADDR_SIZE, "little"), "MainRAM")])
+                    await _teleport_player(ctx, MOUNT_CRUMPIT_MAP_ID)
 
-            await asyncio.sleep(1)
-            continue
+                continue
 
     async def check_grinch_alive(self, ctx: "BizHawkClientContext"):
         reg_name = await self.get_current_region()
@@ -934,9 +991,9 @@ class GrinchClient(BizHawkClient):
         from CommonClient import logger
         # While you are connected to AP and the player is not trying to close the client
         while ctx.slot:
-            # if not await self.ingame_checker(ctx): #or await self.paused_state(ctx) or await self.loading_state(ctx)):
-            #     await asyncio.sleep(5)
-            #     continue
+            if not await self.ingame_checker(ctx): #or await self.paused_state(ctx) or await self.loading_state(ctx)):
+                # await asyncio.sleep(5)
+                continue
 
             current_region: str = await self.get_current_region()
             if not current_region or not ALL_REGIONS_INFO[current_region].allow_music_rando:
