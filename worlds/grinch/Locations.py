@@ -34,7 +34,7 @@ class GrinchLocationData:
         if update_ram_addr:
             self.update_ram_addr = update_ram_addr
         else:
-            raise ValueError(f"udpate_ram_addr is required on GrinchLocationData")
+            raise ValueError(f"update_ram_addr is required on GrinchLocationData")
 
         if reset_addr:
             self.reset_addr = reset_addr
