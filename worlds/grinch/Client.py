@@ -170,10 +170,10 @@ class GrinchClient(BizHawkClient):
                 self.chosen_music = dict(ctx.slot_data["chosen_music"])
                 self.reduced_cutscenes = bool(ctx.slot_data["reduced_cutscenes"])
                 self.unique_client_id = self._get_uuid()
-                logger.info(
-                    "You are now connected to the client. "
-                    + "There may be a slight delay to check you are not in demo mode before locations start to send."
-                )
+                # logger.info(
+                #     "You are now connected to the client. "
+                #     + "There may be a slight delay to check you are not in demo mode before locations start to send."
+                # )
 
                 if self.music_rando:
                     Utils.async_start(self.randomize_music(ctx),name="Grinch - Music Randomizer")
