@@ -114,7 +114,7 @@ class GrinchWorld(World):
         for location, data in grinch_locations.items():
             region = self.get_region(data.region)
 
-            if location == "MC - Sleigh Ride - Neutralizing Santa":
+            if location == "MC - Sleigh Ride - Save Christmas":
                 region.add_event(location, "Goal", None, Location, Item)
                 continue
 
