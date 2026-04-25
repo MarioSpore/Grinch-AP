@@ -121,6 +121,10 @@ def get_region_health(region_name: str):
     from .Regions import ALL_REGIONS_INFO
     return ALL_REGIONS_INFO[region_name].map_table_addr + 0x3C
 
+def get_death_offset(region_name: str):
+    from .Regions import  ALL_REGIONS_INFO
+    return ALL_REGIONS_INFO[region_name].map_table_addr + 0x27
+
 # Gadgets
 # All gadgets require at least 4 different blueprints to be unlocked in the computer in Mount Crumpit.
 GADGETS_TABLE: dict[str, GrinchItemData] = {
@@ -724,7 +728,21 @@ TRAPS_TABLE: dict[str, GrinchItemData] = {
         [grinch_categories.TRAPS],
         600,
         IC.trap,
-        [],
+        [
+            GrinchRamData(get_death_offset("Whoville"), value=40, byte_size=1, ),
+            GrinchRamData(get_death_offset("City Hall"), value=40, byte_size=1, ),
+            GrinchRamData(get_death_offset("Who Forest"), value=40, byte_size=1, ),
+            GrinchRamData(get_death_offset("Ski Resort"), value=40, byte_size=1, ),
+            GrinchRamData(get_death_offset("Civic Center"), value=40, byte_size=1, ),
+            GrinchRamData(get_death_offset("Who Dump"), value=40, byte_size=1, ),
+            GrinchRamData(get_death_offset("Minefield"), value=40, byte_size=1, ),
+            GrinchRamData(get_death_offset("Power Plant"), value=40, byte_size=1, ),
+            GrinchRamData(get_death_offset("Generator Building"), value=40,  byte_size=1, ),
+            GrinchRamData(get_death_offset("Who Lake"), value=40, byte_size=1, ),
+            GrinchRamData(get_death_offset("Scout's Hut"), value=40, byte_size=1, ),
+            GrinchRamData(get_death_offset("North Shore"), value=40, byte_size=1, ),
+            GrinchRamData(get_death_offset("Mayor's Villa"), value=40, byte_size=1, ),
+        ],
     ),
     # alias to Ice Trap for traplink
     grinch_items.trap_items.PUSH_TRAP: GrinchItemData(
@@ -732,6 +750,11 @@ TRAPS_TABLE: dict[str, GrinchItemData] = {
         601,
         IC.trap,
         [
+            GrinchRamData(get_death_offset("Who Forest"), value=40, byte_size=1, ),
+            GrinchRamData(get_death_offset("Ski Resort"), value=40, byte_size=1, ),
+            GrinchRamData(get_death_offset("Civic Center"), value=40, byte_size=1, ),
+            GrinchRamData(get_death_offset("Who Dump"), value=40, byte_size=1, ),
+            GrinchRamData(get_death_offset("Submarine World"), value=40, byte_size=1, ),
             GrinchRamData(get_region_health("Who Forest"), value=10, update_method=UpdateMethod.SUBTRACT, max_count=255,
                           byte_size=1, ),
             GrinchRamData(get_region_health("Ski Resort"), value=10, update_method=UpdateMethod.SUBTRACT, max_count=255,
@@ -748,19 +771,29 @@ TRAPS_TABLE: dict[str, GrinchItemData] = {
         [grinch_categories.TRAPS],
         602,
         IC.trap,
-        [],
+        [
+            GrinchRamData(get_death_offset("Whoville"), value=40, byte_size=1, ),
+            GrinchRamData(get_death_offset("Ski Resort"), value=40, byte_size=1, ),
+            GrinchRamData(get_death_offset("Civic Center"), value=40, byte_size=1, ),
+        ],
     ),
     grinch_items.trap_items.BEE_TRAP: GrinchItemData(
         [grinch_categories.TRAPS],
         603,
         IC.trap,
-        [],
+        [
+            GrinchRamData(get_death_offset("Who Lake"), value=40, byte_size=1, ),
+        ],
     ),
     grinch_items.trap_items.ELECTROCUTION_TRAP: GrinchItemData(
         [grinch_categories.TRAPS],
         604,
         IC.trap,
         [
+            GrinchRamData(get_death_offset("Who Dump"), value=40, byte_size=1, ),
+            GrinchRamData(get_death_offset("Minefield"), value=40, byte_size=1, ),
+            GrinchRamData(get_death_offset("Power Plant"), value=40, byte_size=1, ),
+            GrinchRamData(get_death_offset("Generator Building"), value=40, byte_size=1, ),
             GrinchRamData(get_region_health("Who Dump"), value=10, update_method=UpdateMethod.SUBTRACT, max_count=255,
                           byte_size=1, ),
             GrinchRamData(get_region_health("Minefield"), value=10, update_method=UpdateMethod.SUBTRACT, max_count=255,
@@ -777,6 +810,20 @@ TRAPS_TABLE: dict[str, GrinchItemData] = {
         605,
         IC.trap,
         [
+            GrinchRamData(get_death_offset("Whoville"), value=40, byte_size=1, ),
+            GrinchRamData(get_death_offset("City Hall"), value=40, byte_size=1, ),
+            GrinchRamData(get_death_offset("Who Forest"), value=40, byte_size=1, ),
+            GrinchRamData(get_death_offset("Ski Resort"), value=40, byte_size=1, ),
+            GrinchRamData(get_death_offset("Civic Center"), value=40, byte_size=1, ),
+            GrinchRamData(get_death_offset("Who Dump"), value=40, byte_size=1, ),
+            GrinchRamData(get_death_offset("Minefield"), value=40, byte_size=1, ),
+            GrinchRamData(get_death_offset("Power Plant"), value=40, byte_size=1, ),
+            GrinchRamData(get_death_offset("Generator Building"), value=40, byte_size=1, ),
+            GrinchRamData(get_death_offset("Who Lake"), value=40, byte_size=1, ),
+            GrinchRamData(get_death_offset("Scout's Hut"), value=40, byte_size=1, ),
+            GrinchRamData(get_death_offset("North Shore"), value=40, byte_size=1, ),
+            GrinchRamData(get_death_offset("Mayor's Villa"), value=40, byte_size=1, ),
+            GrinchRamData(get_death_offset("Submarine World"), value=40, byte_size=1, ),
             GrinchRamData(get_region_health("Whoville"), value=8, update_method=UpdateMethod.SUBTRACT, max_count=255,
                           byte_size=1, ),
             GrinchRamData(get_region_health("City Hall"), value=5, update_method=UpdateMethod.SUBTRACT, max_count=255,
