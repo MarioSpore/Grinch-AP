@@ -21,7 +21,8 @@ class GrinchWeb(WebWorld):
             ExcludeGC,
             Moverando,
             Moverandolist,
-            AdvancedLogic
+            RandomizeMissionItems,
+            RandomizeSleighParts,
         ]),
         OptionGroup("Location Settings", [
             Missionsanity,
@@ -38,6 +39,7 @@ class GrinchWeb(WebWorld):
             UnlimitedEggs,
             DamageRate,
             MusicRando,
+            ReducedCutscenes,
         ]),
         OptionGroup("Filler/Trap Settings", [
             FillerWeight,

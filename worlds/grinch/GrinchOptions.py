@@ -312,7 +312,7 @@ class TrapPercentage(Range):
     display_name = "Trap Percentage"
     range_start = 0
     range_end = 100
-    default = 10
+    default = 0
 
 
 class TrapWeight(OptionCounter):
@@ -327,6 +327,13 @@ class TrapWeight(OptionCounter):
         "Dump it to Crumpit": 33,
         "Who sent me back?": 33,
         "Depletion Trap": 34,
+        # "Bonk Trap": 25,
+        # "Push Trap": 25,
+        # "Damage Trap": 25,
+        # "Electrocution Trap": 25,
+        # "Ice Trap": 25,
+        # "Bee Trap": 25,
+        # "Banana Trap": 25,
     }
 
 class MiscLocations(Toggle):
@@ -364,6 +371,32 @@ class MusicRando(Toggle):
     display_name = "Music Rando"
 
 
+class ReducedCutscenes(Toggle):
+    """
+    Certain cutscenes no longer trigger if enabled for a faster experience
+    """
+    display_name = "Reduced Cutscenes"
+
+
+class RandomizeMissionItems(DefaultOnToggle):
+    """
+    Allows mission specific items to be randomized in the itempool.
+    NOTE: Disabling this adds the locations and will still keep the items. But will be
+    forced to their vanilla locations. Enabling this removes these locations.
+    """
+    display_name = "Randomize Mission Specific Items"
+    visibility = Visibility.none
+
+class RandomizeSleighParts(DefaultOnToggle):
+    """
+    Allows the sleigh parts to be randomized in the itempool.
+    NOTE: Disabling this adds the locations and will still keep the items. But will be
+    forced to their vanilla locations. Enabling this removes these locations.
+    """
+    display_name = "Randomize Sleigh Parts"
+    visibility = Visibility.none
+
+
 @dataclass
 class GrinchOptions(DeathLinkMixin, PerGameCommonOptions):
     progressive_vacuums: ProgressiveVacuums
@@ -393,6 +426,9 @@ class GrinchOptions(DeathLinkMixin, PerGameCommonOptions):
     missions_completed: MissionsCompleted
     include_gift_squash: MissionCompletedIncludeGiftSquash
     music_rando: MusicRando
+    reduced_cutscenes: ReducedCutscenes
+    randomize_mission_items: RandomizeMissionItems
+    randomize_sleigh_parts: RandomizeSleighParts
 
 
 grinch_option_groups: list[OptionGroup] = [
@@ -409,7 +445,9 @@ grinch_option_groups: list[OptionGroup] = [
         Gadgetrandolist,
         ExcludeGC,
         Moverando,
-        Moverandolist
+        Moverandolist,
+        RandomizeMissionItems,
+        RandomizeSleighParts,
     ]),
     OptionGroup("Location Settings", [
         Missionsanity,
@@ -426,6 +464,7 @@ grinch_option_groups: list[OptionGroup] = [
         UnlimitedEggs,
         DamageRate,
         MusicRando,
+        ReducedCutscenes,
     ]),
     OptionGroup("Filler/Trap Settings", [
         FillerWeight,
