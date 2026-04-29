@@ -763,6 +763,7 @@ class GrinchClient(BizHawkClient):
                     secret_cond = False
 
     async def ring_link_output(self, ctx: "BizHawkClientContext"):
+        # Sends rings to other worlds
         from CommonClient import logger
 
         while self.send_ring_link and ctx.slot:
@@ -789,6 +790,8 @@ class GrinchClient(BizHawkClient):
                         },
                         "tags": ["RingLink"],
                     }
+                    # Need asyncio sleep because AP may mandate delayed sends for
+                    await asyncio.sleep(1)
 
                     await ctx.send_msgs([msg])
                     self.previous_egg_count = current_egg_count
@@ -804,6 +807,7 @@ class GrinchClient(BizHawkClient):
             logger.info("You must be connected to the multi-world in order for RingLink to work properly.")
 
     async def ring_link_input(self, egg_amount: int, ctx: "BizHawkClientContext"):
+        # Receives rings from other worlds
         from CommonClient import logger
         if not (await self.ingame_checker(ctx) and not self.last_map_location in [0x18, 0x19, 0x1A, 0x1B, 0x1C]):
             return
