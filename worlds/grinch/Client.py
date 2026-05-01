@@ -779,6 +779,8 @@ class GrinchClient(BizHawkClient):
                     )[0],
                     "little",
                 )
+                # Need asyncio sleep because AP may mandate delayed sends for
+                await asyncio.sleep(1)
 
                 if (current_egg_count - self.previous_egg_count) != 0:
                     msg = {
