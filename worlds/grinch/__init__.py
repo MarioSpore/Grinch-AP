@@ -177,7 +177,7 @@ class GrinchWorld(World):
                 continue
 
             if ("WL - Mayor's Villa - Hook" in location
-                    and not self.options.randomize_mission_items.value
+                    and not self.options.randomize_mission_items
                     and self.options.exclude_gc.value
                     and not "Mayor's Villa" in self.options.exclude_environments.value):
                 continue
@@ -227,7 +227,7 @@ class GrinchWorld(World):
             if "Sleigh Room Key" in sleigh_parts:
                 self_itempool.append(self.create_item(sleigh_parts))
 
-            if not self.options.randomize_sleigh_parts.value:
+            if not self.options.randomize_sleigh_parts:
                 if "Exhaust Pipes" in sleigh_parts:
                     self.multiworld.get_location("WV - Exhaust Pipes", self.player).place_locked_item(
                         self.create_item("Exhaust Pipes"))
@@ -275,10 +275,10 @@ class GrinchWorld(World):
                 player_start_inv.append(mission_item)
             # Else if the player disables missionsanity, add the item into start inventory
             # No .value after self.options.missionsanity because UT no likey
-            elif self.options.missionsanity.value == 0:
+            elif self.options.missionsanity == 0:
                 self.multiworld.push_precollected(self.create_item(mission_item))
                 player_start_inv.append(mission_item)
-            elif self.options.missionsanity.value == 2:
+            elif self.options.missionsanity == 2:
                 if mission_item in missionsanity_items:
                     self_itempool.append(self.create_item(mission_item))
                 else:
@@ -371,7 +371,7 @@ class GrinchWorld(World):
 
         # Adds gadgets
         for gadgets_added in GADGETS_TABLE:
-            if gadgets_added == "Grinch Copter" and self.options.exclude_gc.value:
+            if gadgets_added == "Grinch Copter" and self.options.exclude_gc:
                 continue
 
             if gadgets_added == "Marine Mobile" and "Submarine World" in self.options.exclude_environments.value:
@@ -383,14 +383,14 @@ class GrinchWorld(World):
             elif gadgets_added in player_start_inv:
                 continue
 
-            if self.options.gadget_rando and gadgets_added in self.options.gadgets_to_randomize.value:
+            if self.options.gadget_rando and gadgets_added in self.options.gadgets_to_randomize:
                 self_itempool.append(self.create_item(gadgets_added))
             else:
                 self.multiworld.push_precollected(self.create_item(gadgets_added))
                 player_start_inv.append(gadgets_added)
                 continue
 
-        if not self.options.progressive_vacuums.value:
+        if not self.options.progressive_vacuums:
         # When the starting area is chosen, add the key to the starting inventory.
             if self.options.starting_area.value == 0:
                 self.multiworld.push_precollected(self.create_item("Whoville Vacuum Tube"))
@@ -408,7 +408,7 @@ class GrinchWorld(World):
             self.multiworld.push_precollected((self.create_item("Progressive Vacuum Tube")))
             player_start_inv.append("Progressive Vacuum Tube")
 
-        if not self.options.progressive_vacuums.value:
+        if not self.options.progressive_vacuums:
             for vacuums_added in KEYS_TABLE.keys():
                 if vacuums_added == "Progressive Vacuum Tube":
                     continue
@@ -420,7 +420,7 @@ class GrinchWorld(World):
             for _ in range(4 - progress_vac_count):
                 self_itempool.append(self.create_item("Progressive Vacuum Tube"))
 
-        if not self.options.randomize_sleigh_parts.value:
+        if not self.options.randomize_sleigh_parts:
             self.multiworld.get_location("WV - Exhaust Pipes", self.player).place_locked_item(
                 self.create_item("Exhaust Pipes"))
             self.multiworld.get_location("WF - Skis", self.player).place_locked_item(
