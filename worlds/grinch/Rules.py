@@ -301,11 +301,13 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.MAX,
             grinch_items.gadgets.SLIME_SHOOTER,
         ],
+        [
             grinch_items.level_items.WV_HAMMER,
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SEIZE,
             grinch_items.moves.MAX,
             grinch_items.moves.SNEAK,
+        ],
     ],
     "WV - Squashing All Gifts": [
         [
@@ -600,10 +602,12 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.SEIZE,
             grinch_items.gadgets.SLIME_SHOOTER,
         ],
+        [
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.MAX,
             grinch_items.moves.SEIZE,
             grinch_items.moves.SNEAK,
+        ],
     ],
     "WV - Clock Tower - GC BP in Bell Room": [
         [
@@ -612,10 +616,12 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.SEIZE,
             grinch_items.gadgets.SLIME_SHOOTER,
         ],
+        [
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.MAX,
             grinch_items.moves.SEIZE,
             grinch_items.moves.SNEAK,
+        ],
     ],
     # Who Forest Blueprints
     "WF - RS BP behind Vacuum Tube": [[]],
