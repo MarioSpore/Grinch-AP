@@ -698,27 +698,27 @@ class GrinchClient(BizHawkClient):
                     )
                     await asyncio.sleep(0.5)
 
-            if self.reduced_cutscenes:
-                # Disables all Whoville tutorial cutscenes & first visit cutscene
-                await bizhawk.write(
-                    ctx.bizhawk_ctx,
-                    [(0x010212, int(95).to_bytes(1, "little"), "MainRAM")],
-                )
-                # Disables WF first visit cutscene
-                await bizhawk.write(
-                    ctx.bizhawk_ctx,
-                    [(0x01024A, int(2).to_bytes(1, "little"), "MainRAM")],
-                )
-                # Disables WD first visit cutscene
-                await bizhawk.write(
-                    ctx.bizhawk_ctx,
-                    [(0x01025C, int(2).to_bytes(1, "little"), "MainRAM")],
-                )
-                # Disables WL first visit cutscene
-                await bizhawk.write(
-                    ctx.bizhawk_ctx,
-                    [(0x010282, int(16).to_bytes(1, "little"), "MainRAM")],
-                )
+        if self.reduced_cutscenes:
+            # Disables all Whoville tutorial cutscenes & first visit cutscene
+            await bizhawk.write(
+                ctx.bizhawk_ctx,
+                [(0x010212, int(95).to_bytes(1, "little"), "MainRAM")],
+            )
+            # Disables WF first visit cutscene
+            await bizhawk.write(
+                ctx.bizhawk_ctx,
+                [(0x01024A, int(2).to_bytes(1, "little"), "MainRAM")],
+            )
+            # Disables WD first visit cutscene
+            await bizhawk.write(
+                ctx.bizhawk_ctx,
+                [(0x01025C, int(2).to_bytes(1, "little"), "MainRAM")],
+            )
+            # Disables WL first visit cutscene
+            await bizhawk.write(
+                ctx.bizhawk_ctx,
+                [(0x010282, int(16).to_bytes(1, "little"), "MainRAM")],
+            )
 
     async def funny_secret_goal(self, ctx: "BizHawkClientContext"):
         secret_cond = False
@@ -925,7 +925,8 @@ class GrinchClient(BizHawkClient):
         loading_goo: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
                                                                  [(0x010094, 1, "MainRAM")]))[0], "little")
 
-        if not await self.paused_state(ctx) and death_cutscene == 2:
+        if not await self.paused_state(ctx) and death_cutscene == 2 and not self.is_grinch_dead:
+            self.is_grinch_dead = True
             await ctx.send_death(ctx.player_names[ctx.slot] + " could not fight off the Christmas cheer...")
             await self.kill_grinch(ctx)
 
