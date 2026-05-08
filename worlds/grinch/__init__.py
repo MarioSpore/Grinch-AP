@@ -224,8 +224,8 @@ class GrinchWorld(World):
             if sleigh_parts in player_start_inv:
                 continue
 
-            if "Sleigh Room Key" in sleigh_parts:
-                self_itempool.append(self.create_item(sleigh_parts))
+            # if "Sleigh Room Key" in sleigh_parts:
+            #     self_itempool.append(self.create_item(sleigh_parts))
 
             if not self.options.randomize_sleigh_parts:
                 if "Exhaust Pipes" in sleigh_parts:
