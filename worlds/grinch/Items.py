@@ -866,7 +866,6 @@ TRAPS_TABLE: dict[str, GrinchItemData] = {
         IC.trap,  # Alias to Home Trap for traplink
         [
             GrinchRamData(0x010000, value=0x05),
-            GrinchRamData(0x0101FF, binary_bit_pos=0),
             GrinchRamData(0x0100B4, value=0),
             GrinchRamData(0x08FB94, value=1),
             GrinchRamData(0x010111, value=0),
