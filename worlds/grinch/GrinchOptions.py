@@ -20,8 +20,6 @@ class Goal(Choice):
     """
     sleigh_ride: Sleigh parts are placed in their local areas that you must
     physically collect them to goal.
-    sleigh_ride_with_parts:  Sleigh parts are randomized in the pool that you
-    must find all the required parts and the Sleigh Room Key to goal.
     missions_completed: You must complete a certain number of missions to
     goal.
     squashing_all_gifts: You must squash every gift in the entire game to goal.
@@ -32,11 +30,10 @@ class Goal(Choice):
 
     display_name = "Goal"
     option_sleigh_ride = 0
-    option_sleigh_ride_with_parts = 1
-    option_missions_completed = 2
-    option_squashing_all_gifts = 3
-    option_supadows_completed = 4
-    option_slaughter = 5
+    option_missions_completed = 1
+    option_squashing_all_gifts = 2
+    option_supadows_completed = 3
+    option_slaughter = 4
     default = 0
     visibility = Visibility.none
 
@@ -233,11 +230,6 @@ class ExcludeGC(Toggle):
 class Moverando(Toggle):
     """
     Determines whether the Grinch's moves will be randomized or not.
-    NOTE: Tutorial section would be logical linearly and vacuum tubes would still
-    be logical. To access them, you can use certain controller combinations to
-    warp to their respective areas in Mount Crumpit at any time.
-    To warp to the computer room, press and hold start, L1, and R1 at the same time.
-    To warp to the top, press and hold start, L2, and R2 at the same time.
     """
 
     display_name = "Randomize Moves"
