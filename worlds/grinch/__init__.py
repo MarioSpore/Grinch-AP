@@ -445,20 +445,6 @@ class GrinchWorld(World):
             for _ in range(4 - progress_vac_count):
                 self_itempool.append(self.create_item("Progressive Vacuum Tube"))
 
-        if not self.options.randomize_sleigh_parts:
-            self.multiworld.get_location("WV - Exhaust Pipes", self.player).place_locked_item(
-                self.create_item("Exhaust Pipes"))
-            self.multiworld.get_location("WF - Skis", self.player).place_locked_item(
-                self.create_item("Skis"))
-            self.multiworld.get_location("WD - Tires", self.player).place_locked_item(
-                self.create_item("Tires"))
-            if not "Submarine World" in self.options.exclude_environments:
-                self.multiworld.get_location("WL - Submarine World - Twin-End Tuba", self.player).place_locked_item(
-                    self.create_item("Twin-End Tuba"))
-            else:
-                self.multiworld.push_precollected(self.create_item("Twin-End Tuba"))
-            self.multiworld.get_location("WL - South Shore - GPS", self.player).place_locked_item(
-                self.create_item("GPS"))
 
         # Get number of current unfilled locations
         unfilled_locations: int = len(self.multiworld.get_unfilled_locations(self.player)) - len(self_itempool)
