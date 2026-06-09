@@ -254,11 +254,10 @@ class GrinchWorld(World):
                     self.multiworld.get_location("WL - South Shore - GPS",
                     self.player).place_locked_item(self.create_item("GPS"))
 
-                else:
-                    if self.options.goal != 0:
-                        self_itempool.append(self.set_skip_balancing(sleigh_parts))
-                    else:
-                        self_itempool.append(self.create_item(sleigh_parts))
+            if self.options.goal != 0:
+                self_itempool.append(self.set_skip_balancing(sleigh_parts))
+            else:
+                self_itempool.append(self.create_item(sleigh_parts))
 
         for hearts_added in USEFUL_ITEMS_TABLE:
             if hearts_added == grinch_items.useful_items.HEART_OF_STONE:
@@ -360,12 +359,11 @@ class GrinchWorld(World):
                     else:
                         self.multiworld.push_precollected(self.create_item("Hook"))
 
-                else:
-                    if self.options.goal != 1:
-                        self_itempool.append(self.set_skip_balancing(mission_item))
-                # Else, let the multiworld create the item normally.
-                    else:
-                        self_itempool.append(self.create_item(mission_item))
+            if self.options.goal != 1:
+                self_itempool.append(self.set_skip_balancing(mission_item))
+            # Else, let the multiworld create the item normally.
+            else:
+                self_itempool.append(self.create_item(mission_item))
 
         # Add various moves that the user requested.
         for moves_added in MOVES_TABLE:
