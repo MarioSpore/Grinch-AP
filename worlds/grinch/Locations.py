@@ -1422,38 +1422,38 @@ grinch_locations = {
             GrinchRamData(0x0F84E4, value=0x58),
         ],
     ),
-    "MC - Move Boulder": GrinchLocationData(
-        "Mount Crumpit",
-        ["Mount Crumpit"],
-        1709,
-        [
-            GrinchRamData(0x0101FE, binary_bit_pos=1),
-        ],
-    ),
-    "MC - Collect Max Door Key": GrinchLocationData(
-        "Mount Crumpit",
-        ["Mount Crumpit"],
-        1710,
-        [
-            GrinchRamData(0x0101FE, binary_bit_pos=4),
-        ],
-    ),
-    "MC - Open Door with Breath Analyzer": GrinchLocationData(
-        "Mount Crumpit",
-        ["Mount Crumpit"],
-        1711,
-        [
-            GrinchRamData(0x0101FE, binary_bit_pos=5),
-        ],
-    ),
-    "MC - Collect Key in Boxes": GrinchLocationData(
-        "Mount Crumpit",
-        ["Mount Crumpit"],
-        1712,
-        [
-            GrinchRamData(0x0101FE, binary_bit_pos=0),
-        ],
-    ),
+    # "MC - Move Boulder": GrinchLocationData(
+    #     "Mount Crumpit",
+    #     ["Mount Crumpit"],
+    #     1709,
+    #     [
+    #         GrinchRamData(0x0101FE, binary_bit_pos=1),
+    #     ],
+    # ),
+    # "MC - Collect Max Door Key": GrinchLocationData(
+    #     "Mount Crumpit",
+    #     ["Mount Crumpit"],
+    #     1710,
+    #     [
+    #         GrinchRamData(0x0101FE, binary_bit_pos=4),
+    #     ],
+    # ),
+    # "MC - Open Door with Breath Analyzer": GrinchLocationData(
+    #     "Mount Crumpit",
+    #     ["Mount Crumpit"],
+    #     1711,
+    #     [
+    #         GrinchRamData(0x0101FE, binary_bit_pos=5),
+    #     ],
+    # ),
+    # "MC - Collect Key in Boxes": GrinchLocationData(
+    #     "Mount Crumpit",
+    #     ["Mount Crumpit"],
+    #     1712,
+    #     [
+    #         GrinchRamData(0x0101FE, binary_bit_pos=0),
+    #     ],
+    # ),
     "WL - Scout's Hut - Steal Scout's Hat": GrinchLocationData(
         "Scout's Hut",
         ["Scout's Hut", "Who Lake", "Miscellaneous"],

@@ -59,6 +59,10 @@ class GrinchWorld(World):
             raise OptionError("Cannot begin generation as no trap options are defined. At least one trap item " +
                 f"must have a weight of at least 1. The following player's YAML needs to be fixed: {self.player_name}")
 
+        # if self.options.reduced_cutscenes and self.options.giftsanity:
+        #     raise OptionError("Cannot enable reduced_cutscenes and giftsanity due to a clash of addresses " +
+        #         f"that can prevent locations from sending properly. The following player's YAML needs to be fixed: {self.player_name}")
+
         if self.options.music_rando.value == 1:
             for music_enabled_region, region_data in ALL_REGIONS_INFO.items():
                 if region_data.allow_music_rando:
