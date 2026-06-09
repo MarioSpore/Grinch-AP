@@ -230,11 +230,6 @@ class ExcludeGC(Toggle):
 class Moverando(Toggle):
     """
     Determines whether the Grinch's moves will be randomized or not.
-    NOTE: Tutorial section would be logical linearly and vacuum tubes would still
-    be logical. To access them, you can use certain controller combinations to
-    warp to their respective areas in Mount Crumpit at any time.
-    To warp to the computer room, press and hold start, L1, and R1 at the same time.
-    To warp to the top, press and hold start, L2, and R2 at the same time.
     """
 
     display_name = "Randomize Moves"
