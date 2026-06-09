@@ -42,10 +42,10 @@ class GrinchWorld(World):
             raise OptionError("Cannot enable both unlimited rotten eggs and ring links. You can only enable one of " +
                 f"these at a time. The following player's YAML needs to be fixed: {self.player_name}")
 
-        # if self.options.randomize_sleigh_parts and "Submarine World" in self.options.exclude_environments:
-        #     self.multiworld.push_precollected(self.create_item("Twin-End Tuba"))
-            # raise logger.info("Because Twin-End Tuba is forced into Submarine World, " +
-            #                   f"{self.player_name} cannot exclude exclude the Submarine World environment.")
+        if not self.options.randomize_sleigh_parts and "Submarine World" in self.options.exclude_environments:
+            self.multiworld.push_precollected(self.create_item("Twin-End Tuba"))
+            raise logger.warning(f"Player {self.player_name} is not randomizing sleigh parts." +
+                "But excluded the Submarine World environment. Giving the player Twin-End Tuba.")
 
         # Total available weight sum of filler items.
         # If this is 0, it means no filler was provided by the user, which will cause generation errors as there will
@@ -180,7 +180,7 @@ class GrinchWorld(World):
             if "Mission Specific Item Locations" in data.location_group and self.options.randomize_mission_items:
                 continue
 
-            if ("WL - Mayor's Villa - Hook" in location
+            if ("WL - Mayor's Villa - Hooking The Mayor's Bed To The Motorboat" in location
                     and not self.options.randomize_mission_items
                     and self.options.exclude_gc
                     and not "Mayor's Villa" in self.options.exclude_environments):
@@ -233,24 +233,29 @@ class GrinchWorld(World):
 
             if not self.options.randomize_sleigh_parts:
                 if "Exhaust Pipes" in sleigh_parts:
-                    self.multiworld.get_location("WV - Exhaust Pipes", self.player).place_locked_item(
-                        self.create_item("Exhaust Pipes"))
-                if "Skis" in sleigh_parts:
-                    self.multiworld.get_location("WF - Skis", self.player).place_locked_item(
-                        self.create_item("Skis"))
-                if "Tires" in sleigh_parts:
-                    self.multiworld.get_location("WD - Tires", self.player).place_locked_item(
-                        self.create_item("Tires"))
-                if not "Submarine World" in self.options.exclude_environments and "Twin-End Tuba" in sleigh_parts:
-                    self.multiworld.get_location("WL - Submarine World - Twin-End Tuba", self.player).place_locked_item(
-                        self.create_item("Twin-End Tuba"))
+                    self.multiworld.get_location("WV - Exhaust Pipes",
+                    self.player).place_locked_item(self.create_item("Exhaust Pipes"))
+                elif "Skis" in sleigh_parts:
+                    self.multiworld.get_location("WF - Skis",
+                    self.player).place_locked_item(self.create_item("Skis"))
+                elif "Tires" in sleigh_parts:
+                    self.multiworld.get_location("WD - Tires",
+                    self.player).place_locked_item(self.create_item("Tires"))
+                elif "Twin-End Tuba" in sleigh_parts:
+                    if not "Submarine World" in self.options.exclude_environments:
+                        self.multiworld.get_location("WL - Submarine World - Twin-End Tuba",
+                        self.player).place_locked_item(self.create_item("Twin-End Tuba"))
+                    else:
+                        self.multiworld.push_precollected(self.create_item("Twin-End Tuba"))
+                elif "GPS" in sleigh_parts:
+                    self.multiworld.get_location("WL - South Shore - GPS",
+                    self.player).place_locked_item(self.create_item("GPS"))
+
                 else:
-                    self.multiworld.push_precollected(self.create_item("Twin-End Tuba"))
-                if "GPS" in sleigh_parts:
-                    self.multiworld.get_location("WL - South Shore - GPS", self.player).place_locked_item(
-                        self.create_item("GPS"))
-            else:
-                self_itempool.append(self.create_item(sleigh_parts))
+                    if self.options.goal != 0:
+                        self_itempool.append(self.set_skip_balancing(sleigh_parts))
+                    else:
+                        self_itempool.append(self.create_item(sleigh_parts))
 
         for hearts_added in USEFUL_ITEMS_TABLE:
             if hearts_added == grinch_items.useful_items.HEART_OF_STONE:
@@ -292,68 +297,73 @@ class GrinchWorld(World):
             if not self.options.randomize_mission_items:
 
                 if "Painting Bucket" in mission_item:
-                    self.multiworld.get_location("WV - Painting Bucket", self.player).place_locked_item(
-                        self.create_item("Painting Bucket"))
+                    self.multiworld.get_location("WV - Painting Bucket",
+                    self.player).place_locked_item(self.create_item("Painting Bucket"))
 
-                if not "Clock Tower" in self.options.exclude_environments:
-                    if "Who Cloak" in mission_item:
-                        self.multiworld.get_location("WV - Clock Tower - Who Cloak", self.player).place_locked_item(
-                            self.create_item("Who Cloak"))
+                elif "Who Cloak" in mission_item:
+                    if not "Clock Tower" in self.options.exclude_environments:
+                        self.multiworld.get_location("WV - Clock Tower - Who Cloak",
+                        self.player).place_locked_item(self.create_item("Who Cloak"))
                     else:
                         self.multiworld.push_precollected(self.create_item("Who Cloak"))
 
-                    if "Hammer" in mission_item:
-                        self.multiworld.get_location("WV - Clock Tower - Hammer", self.player).place_locked_item(
-                            self.create_item("Hammer"))
+                elif "Hammer" in mission_item:
+                    if not "Clock Tower" in self.options.exclude_environments:
+                        self.multiworld.get_location("WV - Clock Tower - Hammer",
+                        self.player).place_locked_item(self.create_item("Hammer"))
                     else:
                         self.multiworld.push_precollected(self.create_item("Hammer"))
 
-                if not "City Hall" in self.options.exclude_environments:
-                    if "Sculpting Tools" in mission_item:
-                        self.multiworld.get_location("WV - City Hall - Sculpting Tools", self.player).place_locked_item(
-                            self.create_item("Sculpting Tools"))
+                elif "Sculpting Tools" in mission_item:
+                    if not "City Hall" in self.options.exclude_environments:
+                        self.multiworld.get_location("WV - City Hall - Sculpting Tools",
+                        self.player).place_locked_item(self.create_item("Sculpting Tools"))
                     else:
                         self.multiworld.push_precollected(self.create_item("Sculpting Tools"))
 
-                if "Glue Bucket" in mission_item:
-                    self.multiworld.get_location("WF - Glue Bucket", self.player).place_locked_item(
-                        self.create_item("Glue Bucket"))
+                elif "Glue Bucket" in mission_item:
+                    self.multiworld.get_location("WF - Glue Bucket",
+                    self.player).place_locked_item(self.create_item("Glue Bucket"))
 
-                if "Cable Car Access Card" in mission_item:
-                    self.multiworld.get_location("WF - Cable Car Access Card", self.player).place_locked_item(
-                        self.create_item("Cable Car Access Card"))
+                elif "Cable Car Access Card" in mission_item:
+                    self.multiworld.get_location("WF - Cable Car Access Card",
+                    self.player).place_locked_item(self.create_item("Cable Car Access Card"))
 
-                if not "Minefield" in self.options.exclude_environments:
-                    if "Scissors" in mission_item:
-                        self.multiworld.get_location("WD - Minefield - Scissors", self.player).place_locked_item(
-                            self.create_item("Scissors"))
+                elif "Scissors" in mission_item:
+                    if not "Minefield" in self.options.exclude_environments:
+                        self.multiworld.get_location("WD - Minefield - Scissors",
+                        self.player).place_locked_item(self.create_item("Scissors"))
                     else:
                         self.multiworld.push_precollected(self.create_item("Scissors"))
 
-                if not "Scout's Hut" in self.options.exclude_environments:
-                    if "Scout Clothes" in mission_item:
-                        self.multiworld.get_location("WL - Scout's Hut - Scout Clothes", self.player).place_locked_item(
-                            self.create_item("Scout Clothes"))
+                elif "Scout Clothes" in mission_item:
+                    if not "Scout's Hut" in self.options.exclude_environments:
+                        self.multiworld.get_location("WL - Scout's Hut - Scout Clothes",
+                        self.player).place_locked_item(self.create_item("Scout Clothes"))
                     else:
                         self.multiworld.push_precollected(self.create_item("Scout Clothes"))
 
-                if not "North Shore" in self.options.exclude_environments:
-                    if "Drill" in mission_item:
-                        self.multiworld.get_location("WL - North Shore - Drill", self.player).place_locked_item(
-                            self.create_item("Drill"))
+                elif "Drill" in mission_item:
+                    if not "North Shore" in self.options.exclude_environments:
+                        self.multiworld.get_location("WL - North Shore - Drill",
+                        self.player).place_locked_item(self.create_item("Drill"))
                     else:
                         self.multiworld.push_precollected(self.create_item("Drill"))
 
-                if not "Mayor's Villa" in self.options.exclude_environments:
-                    if "Rope" in mission_item:
-                        self.multiworld.get_location("WL - Mayor's Villa - Rope", self.player).place_locked_item(
-                            self.create_item("Rope"))
+                elif "Rope" in mission_item:
+                    if not "Mayor's Villa" in self.options.exclude_environments:
+                        self.multiworld.get_location("WL - Mayor's Villa - Rope",
+                        self.player).place_locked_item(self.create_item("Rope"))
                     else:
                         self.multiworld.push_precollected(self.create_item("Rope"))
 
                     if not self.options.exclude_gc and "Hook" in mission_item:
                         self.multiworld.get_location("WL - Mayor's Villa - Hook", self.player).place_locked_item(
                             self.create_item("Hook"))
+                elif "Hook" in mission_item:
+                    if not self.options.exclude_gc and not "Mayor's Villa" in self.options.exclude_environments:
+                        self.multiworld.get_location("WL - Mayor's Villa - Hook",
+                        self.player).place_locked_item(self.create_item("Hook"))
                     else:
                         self.multiworld.push_precollected(self.create_item("Hook"))
 

@@ -3009,6 +3009,11 @@ rules_dict: dict[str, list[list[str]]] = {
     "WL - Mayor's Villa - Rope": [
         [
             grinch_items.moves.MAX,
+            grinch_items.gadgets.GRINCH_COPTER,
+        ],
+        [
+            grinch_items.moves.MAX,
+            grinch_items.gadgets.ROCKET_SPRING,
         ],
     ],
     "WL - Mayor's Villa - Hook": [
@@ -3016,6 +3021,59 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.BAD_BREATH,
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+    ],
+    "WL - Mayor's Villa - Hooking The Mayor's Bed To The Motorboat - Scarf on Scout near Pier": [
+        [
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WL - Mayor's Villa - Hooking The Mayor's Bed To The Motorboat - Scarf on Scout beside Tree Stump": [
+        [
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+    ],
+    "WL - Mayor's Villa - Hooking The Mayor's Bed To The Motorboat - Scarf on Scout above Villa": [
+        [
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.BAD_BREATH,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+        [
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.BAD_BREATH,
+            grinch_items.gadgets.SLIME_SHOOTER,
+        ],
+    ],
+    "WL - Mayor's Villa - Hooking The Mayor's Bed To The Motorboat - Scarf on Flying Scout": [
+        [
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+    ],
+    "WL - Mayor's Villa - Hooking The Mayor's Bed To The Motorboat - Scarf on Scout near Pirate Cave": [
+        [
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.BAD_BREATH,
         ],
     ],
     # "Green Present": [
