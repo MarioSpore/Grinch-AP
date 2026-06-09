@@ -357,9 +357,6 @@ class GrinchWorld(World):
                     else:
                         self.multiworld.push_precollected(self.create_item("Rope"))
 
-                    if not self.options.exclude_gc and "Hook" in mission_item:
-                        self.multiworld.get_location("WL - Mayor's Villa - Hook", self.player).place_locked_item(
-                            self.create_item("Hook"))
                 elif "Hook" in mission_item:
                     if not self.options.exclude_gc and not "Mayor's Villa" in self.options.exclude_environments:
                         self.multiworld.get_location("WL - Mayor's Villa - Hook",
