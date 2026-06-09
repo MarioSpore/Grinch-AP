@@ -230,7 +230,7 @@ grinch_locations = {
     ),
     "WV - Squashing All Gifts": GrinchLocationData(
         "Whoville",
-        ["Whoville Missions", "Missions", "Giftsanity", "Whoville"],
+        ["Whoville Missions", "Missions", "Giftsanity", "Whoville", "Hard Require GC"],
         206,
         [GrinchRamData(0x01005C, value=500, byte_size=2)],
     ),
@@ -267,7 +267,7 @@ grinch_locations = {
     ),
     "WF - Squashing All Gifts": GrinchLocationData(
         "Who Forest",
-        ["Who Forest Missions", "Missions", "Giftsanity", "Who Forest"],
+        ["Who Forest Missions", "Missions", "Giftsanity", "Who Forest", "Hard Require GC"],
         305,
         [GrinchRamData(0x01005E, value=750, byte_size=2)],
     ),
@@ -310,7 +310,7 @@ grinch_locations = {
     ),
     "WD - Squashing All Gifts": GrinchLocationData(
         "Who Dump",
-        ["Who Dump Missions", "Missions", "Who Dump", "Giftsanity"],
+        ["Who Dump Missions", "Missions", "Who Dump", "Giftsanity", "Hard Require GC"],
         406,
         [GrinchRamData(0x010060, value=750, byte_size=2)],
     ),
@@ -359,7 +359,7 @@ grinch_locations = {
     ),
     "WL - Squashing All Gifts": GrinchLocationData(
         "Who Lake",
-        ["Who Lake Missions", "Missions", "Who Lake", "Giftsanity"],
+        ["Who Lake Missions", "Missions", "Who Lake", "Giftsanity", "Hard Require GC"],
         505,
         [GrinchRamData(0x010062, value=1000, byte_size=2)],
     ),

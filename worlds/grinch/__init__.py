@@ -127,7 +127,7 @@ class GrinchWorld(World):
                 continue
 
             # No .value after self.options because UT no likey
-            if "Giftsanity" in data.location_group and (not self.options.giftsanity or self.options.exclude_gc):
+            if "Giftsanity" in data.location_group and not self.options.giftsanity:
                 continue
 
             # No .value after self.options because UT no likey
@@ -184,6 +184,9 @@ class GrinchWorld(World):
                     and not self.options.randomize_mission_items
                     and self.options.exclude_gc
                     and not "Mayor's Villa" in self.options.exclude_environments):
+                continue
+
+            if "Hard Require GC" in data.location_group and self.options.exclude_gc:
                 continue
 
             if "Sleigh Parts" in data.location_group and self.options.randomize_sleigh_parts:
