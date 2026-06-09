@@ -815,8 +815,6 @@ class GrinchClient(BizHawkClient):
                     )[0],
                     "little",
                 )
-                # Need asyncio sleep because AP may mandate delayed sends for
-                await asyncio.sleep(1)
 
                 if (current_egg_count - self.previous_egg_count) != 0:
                     msg = {
@@ -841,7 +839,7 @@ class GrinchClient(BizHawkClient):
                 logger.error("While monitoring grinch's egg count ingame, an error occurred. Details:" + str(ex))
                 self.send_ring_link = False
 
-        if not ctx.slot:
+        if not ctx.slot and self.send_ring_link:
             logger.info("You must be connected to the multi-world in order for RingLink to work properly.")
 
     async def ring_link_input(self, egg_amount: int, ctx: "BizHawkClientContext"):
@@ -1059,7 +1057,7 @@ class GrinchClient(BizHawkClient):
 
 def _cmd_ringlink(self):
     """Toggle ringling from client. Overrides default setting."""
-    if not self.ctx.slot:
+    if not self.ctx.slot and self.send_ring_link:
         return
 
     Utils.async_start(
