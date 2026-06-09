@@ -40,6 +40,7 @@ class GrinchWeb(WebWorld):
             DamageRate,
             MusicRando,
             ReducedCutscenes,
+            TeleportMultibind,
         ]),
         OptionGroup("Filler/Trap Settings", [
             FillerWeight,

@@ -388,6 +388,12 @@ class RandomizeSleighParts(DefaultOnToggle):
     display_name = "Randomize Sleigh Parts"
     visibility = Visibility.none
 
+class TeleportMultibind(Toggle):
+    """
+    Enables functionality to directly teleport back to Mount Crumpit on command.
+    To teleport, you must be in the notebook and hold start followed by L1 + R1
+    """
+    display_name = "Teleport Multibind"
 
 @dataclass
 class GrinchOptions(DeathLinkMixin, PerGameCommonOptions):
@@ -421,6 +427,7 @@ class GrinchOptions(DeathLinkMixin, PerGameCommonOptions):
     reduced_cutscenes: ReducedCutscenes
     randomize_mission_items: RandomizeMissionItems
     randomize_sleigh_parts: RandomizeSleighParts
+    teleport_multibind: TeleportMultibind
 
 
 grinch_option_groups: list[OptionGroup] = [
@@ -457,6 +464,7 @@ grinch_option_groups: list[OptionGroup] = [
         DamageRate,
         MusicRando,
         ReducedCutscenes,
+        TeleportMultibind,
     ]),
     OptionGroup("Filler/Trap Settings", [
         FillerWeight,

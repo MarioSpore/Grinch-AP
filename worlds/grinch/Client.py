@@ -110,6 +110,7 @@ class GrinchClient(BizHawkClient):
         self.unique_client_id = 0
         self.chosen_music = {}
         self.reduced_cutscenes = False
+        self.multibind_teleport = False
 
     async def validate_rom(self, ctx: "BizHawkClientContext") -> bool:
         from CommonClient import logger
@@ -169,6 +170,7 @@ class GrinchClient(BizHawkClient):
                 self.music_rando = bool(ctx.slot_data["music_rando"])
                 self.chosen_music = dict(ctx.slot_data["chosen_music"])
                 self.reduced_cutscenes = bool(ctx.slot_data["reduced_cutscenes"])
+                self.multibind_teleport = bool(ctx.slot_data["multibind_teleport"])
                 self.unique_client_id = self._get_uuid()
                 # logger.info(
                 #     "You are now connected to the client. "
@@ -890,7 +892,7 @@ class GrinchClient(BizHawkClient):
 
     async def watch_to_teleport_player(self, ctx: "BizHawkClientContext"):
         while ctx.slot:
-            if not await self.ingame_checker(ctx):
+            if not await self.ingame_checker(ctx) and self.multibind_teleport:
                 await asyncio.sleep(5)
                 continue
 
@@ -917,7 +919,7 @@ class GrinchClient(BizHawkClient):
             lt_pressed: bool = (get_other_buttons_state & (1 << 0)) > 0
 
             # If RT and LT are both held + start, sending player up to the top of MC / Tutorial area.
-            if await self.paused_state(ctx):
+            if await self.paused_state(ctx) and self:
                 # if rt_pressed and lt_pressed:
                 #     lobby_val = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx, [(LOBBY_TRIGGER_ADDR,
                 #         TRIGGER_ADDR_SIZE, "MainRAM")]))[0],"little")
