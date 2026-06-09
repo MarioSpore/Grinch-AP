@@ -230,11 +230,6 @@ class GrinchWorld(World):
         player_start_inv: list[str] = [item.name for item in self.multiworld.precollected_items[self.player]]
 
         for sleigh_parts in SLEIGH_TABLE:
-            if sleigh_parts in player_start_inv:
-                continue
-
-            # if "Sleigh Room Key" in sleigh_parts:
-            #     self_itempool.append(self.create_item(sleigh_parts))
 
             if not self.options.randomize_sleigh_parts:
                 if "Exhaust Pipes" in sleigh_parts:
@@ -264,15 +259,11 @@ class GrinchWorld(World):
 
         for hearts_added in USEFUL_ITEMS_TABLE:
             if hearts_added == grinch_items.useful_items.HEART_OF_STONE:
-                # Get the count of already created Heart of Stone items, but capped to 4
-                heart_stone_count: int = min(player_start_inv.count(grinch_items.useful_items.HEART_OF_STONE), 4)
-                for _ in range(4 - heart_stone_count):
+                for _ in range(4):
                     self_itempool.append(self.create_item(hearts_added))
 
         for mission_item in MISSION_ITEMS_TABLE:
             # Only create the item if it doesn't already exist in the player's start inventory.
-            if mission_item in player_start_inv:
-                continue
 
             # Checks to see if there are any locations in the Sub-area list.
             sub_area_has_no_locations: bool = False
@@ -286,18 +277,15 @@ class GrinchWorld(World):
             # If the item is a sub_area_item that has 0 locations, add it to start inventory
             if sub_area_has_no_locations:
                 self.multiworld.push_precollected(self.create_item(mission_item))
-                player_start_inv.append(mission_item)
             # Else if the player disables missionsanity, add the item into start inventory
             # No .value after self.options.missionsanity because UT no likey
             elif self.options.missionsanity == 0:
                 self.multiworld.push_precollected(self.create_item(mission_item))
-                player_start_inv.append(mission_item)
             elif self.options.missionsanity == 2:
                 if mission_item in missionsanity_items:
                     self_itempool.append(self.create_item(mission_item))
                 else:
                     self.multiworld.push_precollected(self.create_item(mission_item))
-                    player_start_inv.append(mission_item)
 
             if not self.options.randomize_mission_items:
 
@@ -379,8 +367,6 @@ class GrinchWorld(World):
         # Add various moves that the user requested.
         for moves_added in MOVES_TABLE:
             # Only create the item if it doesn't already exist in the player's start inventory.
-            if moves_added in player_start_inv:
-                continue
 
             if self.options.move_rando and moves_added in self.options.moves_to_randomize:
                 if moves_added not in ["Seize", "Pancake", "Max"] and self.options.goal != 0:
@@ -389,7 +375,6 @@ class GrinchWorld(World):
                     self_itempool.append(self.create_item(moves_added))
             else:
                 self.multiworld.push_precollected(self.create_item(moves_added))
-                player_start_inv.append(moves_added)
 
         # Adds gadgets
         for gadgets_added in GADGETS_TABLE:
@@ -398,11 +383,6 @@ class GrinchWorld(World):
 
             if gadgets_added == "Marine Mobile" and "Submarine World" in self.options.exclude_environments:
                 self.multiworld.push_precollected(self.create_item(gadgets_added))
-                player_start_inv.append(gadgets_added)
-                continue
-
-            # Only create the item if it doesn't already exist in the player's start inventory.
-            elif gadgets_added in player_start_inv:
                 continue
 
             if self.options.gadget_rando and gadgets_added in self.options.gadgets_to_randomize:
@@ -412,38 +392,38 @@ class GrinchWorld(World):
                     self_itempool.append(self.create_item(gadgets_added))
             else:
                 self.multiworld.push_precollected(self.create_item(gadgets_added))
-                player_start_inv.append(gadgets_added)
                 continue
 
         if not self.options.progressive_vacuums:
-        # When the starting area is chosen, add the key to the starting inventory.
             if self.options.starting_area == 0:
                 self.multiworld.push_precollected(self.create_item("Whoville Vacuum Tube"))
-                player_start_inv.append("Whoville Vacuum Tube")
+                for vacuums_added in KEYS_TABLE.keys():
+                    if vacuums_added in ["Progressive Vacuum Tube", "Whoville Vacuum Tube"]:
+                        continue
+                    self_itempool.append((self.create_item(vacuums_added)))
             elif self.options.starting_area == 1:
                 self.multiworld.push_precollected(self.create_item("Who Forest Vacuum Tube"))
-                player_start_inv.append("Who Forest Vacuum Tube")
+                for vacuums_added in KEYS_TABLE.keys():
+                    if vacuums_added in ["Progressive Vacuum Tube", "Who ForestVacuum Tube"]:
+                        continue
+                    self_itempool.append((self.create_item(vacuums_added)))
             elif self.options.starting_area == 2:
                 self.multiworld.push_precollected(self.create_item("Who Dump Vacuum Tube"))
-                player_start_inv.append("Who Dump Vacuum Tube")
+                for vacuums_added in KEYS_TABLE.keys():
+                    if vacuums_added in ["Progressive Vacuum Tube", "Who Dump Vacuum Tube"]:
+                        continue
+                    self_itempool.append((self.create_item(vacuums_added)))
             elif self.options.starting_area == 3:
-                self.multiworld.push_precollected((self.create_item("Who Lake Vacuum Tube")))
-                player_start_inv.append("Who Lake Vacuum Tube")
+                self.multiworld.push_precollected(self.create_item("Who Lake Vacuum Tube"))
+                for vacuums_added in KEYS_TABLE.keys():
+                    if vacuums_added in ["Progressive Vacuum Tube", "Who Lake Vacuum Tube"]:
+                        continue
+                    self_itempool.append((self.create_item(vacuums_added)))
+
         else:
             self.multiworld.push_precollected((self.create_item("Progressive Vacuum Tube")))
-            player_start_inv.append("Progressive Vacuum Tube")
-
-        if not self.options.progressive_vacuums:
-            for vacuums_added in KEYS_TABLE.keys():
-                if vacuums_added == "Progressive Vacuum Tube":
-                    continue
-
-                if vacuums_added not in player_start_inv:
-                    self_itempool.append(self.create_item(vacuums_added))
-        else:
-            progress_vac_count: int = min(player_start_inv.count("Progressive Vacuum Tube"),4)
-            for _ in range(4 - progress_vac_count):
-                self_itempool.append(self.create_item("Progressive Vacuum Tube"))
+            for _ in range(3):
+                self_itempool.append((self.create_item("Progressive Vacuum Tube")))
 
 
         # Get number of current unfilled locations
