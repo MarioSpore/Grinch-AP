@@ -539,6 +539,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.level_items.WL_SCOUT_CLOTHES,
             grinch_items.moves.SNEAK,
             grinch_items.moves.PANCAKE,
+            grinch_items.level_items.WL_HOOK,
         ],
     ],
     # Whoville Blueprints
