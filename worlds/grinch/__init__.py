@@ -206,6 +206,11 @@ class GrinchWorld(World):
 
         raise Exception(f"Invalid item name: {item}")
 
+    def set_skip_balancing(self, item: str) -> GrinchItem: # Creates the item and sets classification of the item to skip balance
+        grinch_item: GrinchItem = self.create_item(item)
+        grinch_item.classification = ItemClassification.progression_skip_balancing
+        return grinch_item
+
     def create_items(self):  # Generates all items for the multiworld
         self_itempool: list[GrinchItem] = []
         sub_area_items: dict[str, list[str]] = {
@@ -364,9 +369,12 @@ class GrinchWorld(World):
                     else:
                         self.multiworld.push_precollected(self.create_item("Hook"))
 
-            # Else, let the multiworld create the item normally.
-            else:
-                self_itempool.append(self.create_item(mission_item))
+                else:
+                    if self.options.goal != 1:
+                        self_itempool.append(self.set_skip_balancing(mission_item))
+                # Else, let the multiworld create the item normally.
+                    else:
+                        self_itempool.append(self.create_item(mission_item))
 
         # Add various moves that the user requested.
         for moves_added in MOVES_TABLE:
@@ -375,7 +383,10 @@ class GrinchWorld(World):
                 continue
 
             if self.options.move_rando and moves_added in self.options.moves_to_randomize:
-                self_itempool.append(self.create_item(moves_added))
+                if moves_added not in ["Seize", "Pancake", "Max"] and self.options.goal != 0:
+                    self_itempool.append(self.set_skip_balancing(moves_added))
+                else:
+                    self_itempool.append(self.create_item(moves_added))
             else:
                 self.multiworld.push_precollected(self.create_item(moves_added))
                 player_start_inv.append(moves_added)
@@ -395,7 +406,10 @@ class GrinchWorld(World):
                 continue
 
             if self.options.gadget_rando and gadgets_added in self.options.gadgets_to_randomize:
-                self_itempool.append(self.create_item(gadgets_added))
+                if gadgets_added not in ["Rotten Egg Launcher", "Rocket Spring", "Marine Mobile", "Binoculars"] and self.options.goal == 0:
+                        self_itempool.append(self.set_skip_balancing(gadgets_added))
+                else:
+                    self_itempool.append(self.create_item(gadgets_added))
             else:
                 self.multiworld.push_precollected(self.create_item(gadgets_added))
                 player_start_inv.append(gadgets_added)
@@ -467,6 +481,34 @@ class GrinchWorld(World):
                 self_itempool.append(self.create_item("Present"))
 
         self.multiworld.itempool += self_itempool
+
+        def get_classification_description(classification: ItemClassification) -> str:
+            """Returns a human-readable description of the ItemClassification flags."""
+            descriptions = []
+
+            # Check individual base flags using bitwise AND
+            if classification & ItemClassification.progression:
+                descriptions.append("Progression")
+            if classification & ItemClassification.useful:
+                descriptions.append("Useful")
+            if classification & ItemClassification.trap:
+                descriptions.append("Trap")
+            if classification & ItemClassification.skip_balancing:
+                descriptions.append("Skip Balancing")
+            if classification & ItemClassification.deprioritized:
+                descriptions.append("Deprioritized")
+
+            # Handle the case where no specific flags are set (e.g., just filler)
+            if not descriptions:
+                return "Filler"
+
+            return ", ".join(descriptions)
+
+        for item in self_itempool:
+            debug_class_desc = False
+            if debug_class_desc:
+                desc = get_classification_description(item.classification)
+                print(f"{item.name}: {desc}")
 
     def set_rules(self):
         self.multiworld.completion_condition[self.player] = lambda state: state.has("Goal", self.player)
