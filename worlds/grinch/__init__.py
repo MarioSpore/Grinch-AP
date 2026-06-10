@@ -513,6 +513,7 @@ class GrinchWorld(World):
             "reduced_cutscenes": self.options.reduced_cutscenes.value,
             "randomize_mission_items": self.options.randomize_mission_items.value,
             "randomize_sleigh_parts": self.options.randomize_sleigh_parts.value,
+            "teleport_multibind": self.options.teleport_multibind.value,
         }
 
     def generate_output(self, output_directory: str) -> None:
