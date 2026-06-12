@@ -892,7 +892,7 @@ class GrinchClient(BizHawkClient):
 
     async def watch_to_teleport_player(self, ctx: "BizHawkClientContext"):
         while ctx.slot:
-            if not await self.ingame_checker(ctx) and self.teleport_multibind:
+            if not await self.ingame_checker(ctx):
                 await asyncio.sleep(5)
                 continue
 
@@ -919,7 +919,7 @@ class GrinchClient(BizHawkClient):
             lt_pressed: bool = (get_other_buttons_state & (1 << 0)) > 0
 
             # If RT and LT are both held + start, sending player up to the top of MC / Tutorial area.
-            if await self.paused_state(ctx) and self:
+            if await self.paused_state(ctx) and self.teleport_multibind:
                 # if rt_pressed and lt_pressed:
                 #     lobby_val = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx, [(LOBBY_TRIGGER_ADDR,
                 #         TRIGGER_ADDR_SIZE, "MainRAM")]))[0],"little")
