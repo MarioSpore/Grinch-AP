@@ -785,12 +785,6 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.SLIME_SHOOTER,
             grinch_items.moves.BAD_BREATH,
         ],
-        [
-            grinch_items.gadgets.GRINCH_COPTER,
-            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-            grinch_items.moves.SNEAK,
-            grinch_items.moves.BAD_BREATH,
-        ],
     ],
     "WF - Civic Center - GC BP in Frozen Ice": [
         [
