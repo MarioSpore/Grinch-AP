@@ -1,7 +1,7 @@
 {
     "game": "The Grinch",
     "authors": ["MarioSpore", "SomeJakeGuy"],
-    "world_version": "1.5.8",
+    "world_version": "1.5.9",
     "minimum_ap_version": "0.6.7",
     "version": 7,
     "compatible_version": 7
