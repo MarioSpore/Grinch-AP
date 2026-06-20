@@ -809,6 +809,12 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SNEAK,
         ],
+        [
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.moves.BAD_BREATH,
+        ],
     ],
     # Who Dump Blueprints
     "WD - OCD BP inside Pipe near Vacuum Tube": [
