@@ -1054,9 +1054,9 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.SNEAK,
         ],
         [
-            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
             grinch_items.moves.SNEAK,
+            grinch_items.moves.MAX,
         ],
     ],
     "WL - Scout's Hut - Steal Scout's Hat": [
@@ -2741,6 +2741,7 @@ rules_dict: dict[str, list[list[str]]] = {
         [
             grinch_items.level_items.WL_SCOUT_CLOTHES,
             grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.SEIZE,
             grinch_items.moves.MAX,
             grinch_items.moves.SNEAK,
         ],
