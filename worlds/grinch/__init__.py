@@ -239,6 +239,16 @@ class GrinchWorld(World):
             else:
                 continue
 
+            if "SleighPartsNotRandomized" in option and not self.options.randomize_sleigh_parts:
+                self.multiworld.push_precollected(self.create_item(option))
+            else:
+                continue
+
+            if "BeehivesDoor" in option:
+                continue
+                # self.multiworld.get_location("WF - Putting Beehives In Cabins - Event",
+                # self.player).place_locked_item(self.create_item("BeehivesDoor"))
+
 
         for sleigh_parts in SLEIGH_TABLE:
 
