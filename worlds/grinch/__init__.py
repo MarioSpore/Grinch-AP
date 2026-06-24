@@ -228,6 +228,13 @@ class GrinchWorld(World):
             "Drill": ["North Shore"],
             "Painting Bucket": ["Whoville"],
         }
+        sleigh_pieces: set[str] = {
+            "Exhaust Pipes",
+            "Skis",
+            "Tires",
+            "GPS",
+            "Twin-End Tuba",
+        }
 
         # Precollected items is stored per player. First, we must get the current player's starting inventory.
         # From here, we get an AP item list. But, we only care about the name. So we get a list of strings as a result.
@@ -251,38 +258,41 @@ class GrinchWorld(World):
 
 
         for sleigh_parts in SLEIGH_TABLE:
-
-            if "Sleigh Room Key" in sleigh_parts:
-                if self.options.goal != 0:
-                    self_itempool.append(self.set_skip_balancing("Sleigh Room Key"))
-                else:
-                    self_itempool.append(self.create_item("Sleigh Room Key"))
-
-            if not self.options.randomize_sleigh_parts:
-                if "Exhaust Pipes" in sleigh_parts:
-                    self.multiworld.get_location("WV - Exhaust Pipes",
-                    self.player).place_locked_item(self.create_item("Exhaust Pipes"))
-                elif "Skis" in sleigh_parts:
-                    self.multiworld.get_location("WF - Skis",
-                    self.player).place_locked_item(self.create_item("Skis"))
-                elif "Tires" in sleigh_parts:
-                    self.multiworld.get_location("WD - Tires",
-                    self.player).place_locked_item(self.create_item("Tires"))
-                elif "Twin-End Tuba" in sleigh_parts:
-                    if not "Submarine World" in self.options.exclude_environments:
-                        self.multiworld.get_location("WL - Submarine World - Twin-End Tuba",
-                        self.player).place_locked_item(self.create_item("Twin-End Tuba"))
+            if sleigh_parts in sleigh_pieces:
+                if self.options.randomize_sleigh_parts:
+                    if self.options.goal != 0:
+                        self_itempool.append(self.set_skip_balancing(sleigh_parts))
                     else:
-                        self.multiworld.push_precollected(self.create_item("Twin-End Tuba"))
-                elif "GPS" in sleigh_parts:
-                    self.multiworld.get_location("WL - South Shore - GPS",
-                    self.player).place_locked_item(self.create_item("GPS"))
+                        self_itempool.append(self.create_item(sleigh_parts))
+            else:
+                self_itempool.append(self.create_item(sleigh_parts))
 
-            elif self.options.randomize_sleigh_parts and "Sleigh Room Key" not in sleigh_parts:
-                if self.options.goal != 0:
-                    self_itempool.append(self.set_skip_balancing(sleigh_parts))
-                else:
-                    self_itempool.append(self.create_item(sleigh_parts))
+
+            # if not self.options.randomize_sleigh_parts:
+                # if "Exhaust Pipes" in sleigh_parts:
+                #     self.multiworld.get_location("WV - Exhaust Pipes",
+                #     self.player).place_locked_item(self.create_item("Exhaust Pipes"))
+                # elif "Skis" in sleigh_parts:
+                #     self.multiworld.get_location("WF - Skis",
+                #     self.player).place_locked_item(self.create_item("Skis"))
+                # elif "Tires" in sleigh_parts:
+                #     self.multiworld.get_location("WD - Tires",
+                #     self.player).place_locked_item(self.create_item("Tires"))
+                # elif "Twin-End Tuba" in sleigh_parts:
+                #     if not "Submarine World" in self.options.exclude_environments:
+                #         self.multiworld.get_location("WL - Submarine World - Twin-End Tuba",
+                #         self.player).place_locked_item(self.create_item("Twin-End Tuba"))
+                #     else:
+                #         self.multiworld.push_precollected(self.create_item("Twin-End Tuba"))
+                # elif "GPS" in sleigh_parts:
+                #     self.multiworld.get_location("WL - South Shore - GPS",
+                #     self.player).place_locked_item(self.create_item("GPS"))
+
+            # elif self.options.randomize_sleigh_parts and "Sleigh Room Key" not in sleigh_parts:
+            #     if self.options.goal != 0:
+            #         self_itempool.append(self.set_skip_balancing(sleigh_parts))
+            #     else:
+            #         self_itempool.append(self.create_item(sleigh_parts))
 
         for hearts_added in USEFUL_ITEMS_TABLE:
             if hearts_added == grinch_items.useful_items.HEART_OF_STONE:
@@ -405,6 +415,11 @@ class GrinchWorld(World):
 
         # Adds gadgets
         for gadgets_added in GADGETS_TABLE:
+            # if gadgets_added == "Binoculars" and self.options.advanced_logic:
+            #     self_itempool.append(self.set_skip_balancing(gadgets_added))
+            # else:
+            #     self_itempool.append(self.create_item(gadgets_added))
+
             if gadgets_added == "Grinch Copter" and self.options.exclude_gc:
                 continue
 

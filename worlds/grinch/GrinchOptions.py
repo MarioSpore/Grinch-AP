@@ -373,8 +373,8 @@ class ReducedCutscenes(Toggle):
 class RandomizeMissionItems(DefaultOnToggle):
     """
     Allows mission specific items to be randomized in the itempool.
-    NOTE: Disabling this adds the locations and will still keep the items. But will be
-    forced to their vanilla locations. Enabling this removes these locations.
+    NOTE: Disabling this adds the locations and will not add their items to the
+    item pool. Enabling this removes these locations and adds the items.
     """
     display_name = "Randomize Mission Specific Items"
     visibility = Visibility.none
@@ -382,8 +382,8 @@ class RandomizeMissionItems(DefaultOnToggle):
 class RandomizeSleighParts(DefaultOnToggle):
     """
     Allows the sleigh parts to be randomized in the itempool.
-    NOTE: Disabling this adds the locations and will still keep the items. But will be
-    forced to their vanilla locations. Enabling this removes these locations.
+    NOTE: Disabling this adds the locations and will not add their items to the
+    item pool. Enabling this removes these locations and adds the items.
     """
     display_name = "Randomize Sleigh Parts"
     visibility = Visibility.none

@@ -688,7 +688,7 @@ MOVES_TABLE: dict[str, GrinchItemData] = {
             grinch_categories.PROGRESSION_IC,
         ],
         700,
-        IC.progression,
+        IC.progression_skip_balancing,
         [
             GrinchRamData(0x0100BB, binary_bit_pos=0),
         ],
@@ -733,7 +733,7 @@ MOVES_TABLE: dict[str, GrinchItemData] = {
             grinch_categories.PROGRESSION_IC,
         ],
         704,
-        IC.progression,
+        IC.progression_skip_balancing,
         [
             GrinchRamData(0x0100BB, binary_bit_pos=4),
         ],
