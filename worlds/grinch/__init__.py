@@ -1,7 +1,7 @@
 from BaseClasses import Item, Location
 from .Locations import grinch_locations_to_id, grinch_locations, GrinchLocation, get_location_names_per_category, GrinchLocationData
 from .Items import (grinch_items_to_id, GrinchItem, ALL_ITEMS_TABLE, MISC_ITEMS_TABLE, get_item_names_per_category,
-    TRAPS_TABLE, MOVES_TABLE, USEFUL_ITEMS_TABLE)
+    TRAPS_TABLE, MOVES_TABLE, USEFUL_ITEMS_TABLE, EVENT_TABLE)
 from .Regions import connect_regions
 from .Rules import set_location_rules
 
@@ -232,6 +232,13 @@ class GrinchWorld(World):
         # Precollected items is stored per player. First, we must get the current player's starting inventory.
         # From here, we get an AP item list. But, we only care about the name. So we get a list of strings as a result.
         player_start_inv: list[str] = [item.name for item in self.multiworld.precollected_items[self.player]]
+
+        for option in EVENT_TABLE:
+            if "AdvancedLogic" in option and self.options.advanced_logic:
+                self.multiworld.push_precollected(self.create_item(option))
+            else:
+                continue
+
 
         for sleigh_parts in SLEIGH_TABLE:
 

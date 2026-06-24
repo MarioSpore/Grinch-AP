@@ -8,7 +8,7 @@ from BaseClasses import (
 
 
 class GrinchItemData(NamedTuple):
-    item_group: list[str]  # arbitrary that can be whatever it can be, basically the field/property for item groups
+    item_group: Optional[list[str]]  # arbitrary that can be whatever it can be, basically the field/property for item groups
     id: Optional[int]
     classification: IC
     update_ram_addr: Optional[list[GrinchRamData]]
@@ -101,6 +101,9 @@ class grinch_items:
         BANANA_TRAP: str = "Banana Trap"
         BEE_TRAP: str = "Bee Trap"
         PUSH_TRAP: str = "Push Trap"
+
+    class events:
+        ADVANCED_LOGIC: str = "AdvancedLogic"
 
 class grinch_categories:
     FILLER: str = "Filler"
@@ -948,6 +951,15 @@ TRAPS_TABLE: dict[str, GrinchItemData] = {
     # "Child Trap": GrinchItemData(["Traps"], 612, IC.trap,[GrinchRamData()])
     # "Disable Jump Trap": GrinchItemData(["Traps"], 613, IC.trap,[GrinchRamData(0x010026, binary_bit_pos=6)])
 }
+EVENT_TABLE: dict[str, GrinchItemData] = {
+    grinch_items.events.ADVANCED_LOGIC: GrinchItemData(
+        [],
+        800,
+        IC.progression_skip_balancing,
+        [],
+    ),
+}
+
 ALL_ITEMS_TABLE: dict[str, GrinchItemData] = {
     **GADGETS_TABLE,
     **MISSION_ITEMS_TABLE,
@@ -958,6 +970,7 @@ ALL_ITEMS_TABLE: dict[str, GrinchItemData] = {
     **SLEIGH_TABLE,
     **MOVES_TABLE,
     # **SUPADOW_TABLE,
+    **EVENT_TABLE,
 }
 
 def grinch_items_to_id() -> dict[str, int]:
