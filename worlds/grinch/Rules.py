@@ -133,6 +133,18 @@ access_rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.PANCAKE,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
     ],
     "Power Plant": [
         [
@@ -183,11 +195,23 @@ access_rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SNEAK,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.GRINCH_COPTER,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROCKET_SPRING,
+        ],
     ],
     "North Shore": [
         [
             grinch_items.level_items.WL_SCOUT_CLOTHES,
             grinch_items.moves.SNEAK,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.level_items.WL_SCOUT_CLOTHES,
         ],
     ],
     "Mayor's Villa": [
@@ -211,26 +235,29 @@ access_rules_dict: dict[str, list[list[str]]] = {
         grinch_items.sleigh_parts.TWIN_END_TUBA,
         grinch_items.sleigh_parts.SKIS,
         grinch_items.sleigh_parts.TIRES,
-        # grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-        # grinch_items.keys.WHOVILLE,
-        # grinch_items.keys.WHO_FOREST,
-        # grinch_items.keys.WHO_DUMP,
-        # grinch_items.keys.WHO_LAKE,
-        # grinch_items.gadgets.ROCKET_SPRING,
-        # grinch_items.gadgets.MARINE_MOBILE,
-        # grinch_items.moves.MAX,
-        # grinch_items.moves.SEIZE,
-        # grinch_items.moves.PANCAKE,
-        # ],
-        # [
-        # grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-        # "4:"+grinch_items.keys.PROGRESSIVE_VACUUM_TUBE,
-        # grinch_items.gadgets.ROCKET_SPRING,
-        # grinch_items.gadgets.MARINE_MOBILE,
-        # grinch_items.moves.MAX,
-        # grinch_items.moves.SEIZE,
-        # grinch_items.moves.PANCAKE,
-        # ]
+        ],
+        [
+        grinch_items.events.SLEIGH_PARTS_NOT_RANDOMIZED,
+        grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        grinch_items.keys.WHOVILLE,
+        grinch_items.keys.WHO_FOREST,
+        grinch_items.keys.WHO_DUMP,
+        grinch_items.keys.WHO_LAKE,
+        grinch_items.gadgets.ROCKET_SPRING,
+        grinch_items.gadgets.MARINE_MOBILE,
+        grinch_items.moves.MAX,
+        grinch_items.moves.SEIZE,
+        grinch_items.moves.PANCAKE,
+        ],
+        [
+        grinch_items.events.SLEIGH_PARTS_NOT_RANDOMIZED,
+        grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        "4:"+grinch_items.keys.PROGRESSIVE_VACUUM_TUBE,
+        grinch_items.gadgets.ROCKET_SPRING,
+        grinch_items.gadgets.MARINE_MOBILE,
+        grinch_items.moves.MAX,
+        grinch_items.moves.SEIZE,
+        grinch_items.moves.PANCAKE,
         ],
     ],
     "Spin N' Win": [[]],
@@ -297,7 +324,17 @@ rules_dict: dict[str, list[list[str]]] = {
         [
             grinch_items.level_items.WV_SCULPTING_TOOLS,
             grinch_items.gadgets.GRINCH_COPTER,
-        ]
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.level_items.WV_SCULPTING_TOOLS,
+            grinch_items.moves.SNEAK,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.level_items.WV_SCULPTING_TOOLS,
+            grinch_items.gadgets.SLIME_SHOOTER,
+        ],
     ],
     "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock": [
         [
@@ -305,13 +342,26 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SEIZE,
             grinch_items.moves.MAX,
-            grinch_items.gadgets.SLIME_SHOOTER,
         ],
         [
             grinch_items.level_items.WV_HAMMER,
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SEIZE,
             grinch_items.moves.MAX,
+            grinch_items.moves.SNEAK,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.level_items.WV_HAMMER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SEIZE,
+            grinch_items.gadgets.SLIME_SHOOTER,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.level_items.WV_HAMMER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SEIZE,
             grinch_items.moves.SNEAK,
         ],
     ],
@@ -326,10 +376,6 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.MAX,
             grinch_items.moves.SEIZE,
         ],
-        [
-            "advanced_logic"
-
-        ]
     ],
     # Who Forest Missions
     "WF - Making Xmas Trees Droop": [
@@ -413,7 +459,14 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.moves.PANCAKE,
             grinch_items.moves.SEIZE,
-        ]
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.SEIZE,
+        ],
     ],
     "WD - Feeding The Computer With Robot Parts": [
         [
@@ -421,7 +474,14 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.moves.PANCAKE,
             grinch_items.moves.SEIZE,
-        ]
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.SEIZE,
+        ],
     ],
     "WD - Infesting The Mayor's House With Rats": [
         [
@@ -443,7 +503,14 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.moves.PANCAKE,
             grinch_items.moves.SEIZE,
-        ]
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.SEIZE,
+        ],
     ],
     "WD - Minefield - Shaving Who Dump Guardian": [
         [
@@ -453,6 +520,13 @@ rules_dict: dict[str, list[list[str]]] = {
         ],
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SNEAK,
+            grinch_items.level_items.WD_SCISSORS,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
             grinch_items.gadgets.SLIME_SHOOTER,
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SNEAK,
@@ -502,7 +576,16 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.SNEAK,
-
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
         ],
     ],
     "WL - South Shore - Sabotaging The Tents": [
@@ -517,6 +600,18 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.PANCAKE,
             grinch_items.moves.SNEAK,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.SEIZE,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
         ],
     ],
     "WL - North Shore - Drilling Holes In Canoes": [
@@ -601,6 +696,18 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.BAD_BREATH,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.moves.SNEAK,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.SLIME_SHOOTER,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.GRINCH_COPTER,
+        ],
     ],
     "WV - Clock Tower - GC BP in Bedroom": [
         [
@@ -626,6 +733,18 @@ rules_dict: dict[str, list[list[str]]] = {
         [
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.MAX,
+            grinch_items.moves.SEIZE,
+            grinch_items.moves.SNEAK,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SEIZE,
+            grinch_items.gadgets.SLIME_SHOOTER,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SEIZE,
             grinch_items.moves.SNEAK,
         ],
@@ -658,6 +777,10 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.BAD_BREATH,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
     ],
     "WF - SS BP in Branch Platform House next to Beast": [
         [
@@ -669,6 +792,10 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
         ],
     ],
     "WF - SS BP in House in front of Civic Center Cave": [
@@ -682,6 +809,10 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.BAD_BREATH,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
     ],
     "WF - SS BP in House next to Tree House": [
         [
@@ -693,6 +824,10 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
         ],
     ],
     "WF - SS BP in House across from Tree House": [
@@ -706,6 +841,10 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.BAD_BREATH,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
     ],
     "WF - SS BP in 2nd House near Vacuum Tube Right Side": [
         [
@@ -717,6 +856,10 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
         ],
     ],
     "WF - SS BP in 2nd House near Vacuum Tube Left Side": [
@@ -730,6 +873,10 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.BAD_BREATH,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
     ],
     "WF - SS BP in 2nd House near Vacuum Tube inbetween Blueprints": [
         [
@@ -741,6 +888,10 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
         ],
     ],
     "WF - SS BP in House near Vacuum Tube": [
@@ -754,6 +905,10 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.BAD_BREATH,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
     ],
     "WF - Ski Resort - GC BP inside Dog's Fence": [
         [
@@ -761,6 +916,9 @@ rules_dict: dict[str, list[list[str]]] = {
         ],
         [
             grinch_items.gadgets.GRINCH_COPTER,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
         ],
     ],
     "WF - Ski Resort - GC BP in Max Cave": [
@@ -771,6 +929,11 @@ rules_dict: dict[str, list[list[str]]] = {
         ],
         [
             grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.MAX,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
             grinch_items.moves.PANCAKE,
             grinch_items.moves.MAX,
         ],
@@ -842,6 +1005,16 @@ rules_dict: dict[str, list[list[str]]] = {
         [
             grinch_items.gadgets.SLIME_SHOOTER,
             grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.SLIME_SHOOTER,
             grinch_items.moves.PANCAKE,
         ],
     ],
@@ -933,6 +1106,11 @@ rules_dict: dict[str, list[list[str]]] = {
         [
             grinch_items.moves.MAX,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.gadgets.ROCKET_SPRING,
+        ],
     ],
     "WD - Minefield - OCD BP on Right Side of Shack": [
         [
@@ -940,6 +1118,11 @@ rules_dict: dict[str, list[list[str]]] = {
         ],
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.gadgets.ROCKET_SPRING,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
             grinch_items.gadgets.SLIME_SHOOTER,
             grinch_items.gadgets.ROCKET_SPRING,
         ],
@@ -955,6 +1138,11 @@ rules_dict: dict[str, list[list[str]]] = {
         ],
         [
             grinch_items.moves.MAX,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.gadgets.ROCKET_SPRING,
         ],
     ],
     "WD - Power Plant - GC BP in Max Cave": [
@@ -1004,6 +1192,9 @@ rules_dict: dict[str, list[list[str]]] = {
         [
             grinch_items.moves.SNEAK,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+        ],
     ],
     "WL - South Shore - MM BP across from Tent near Porcupine": [
         [
@@ -1011,6 +1202,9 @@ rules_dict: dict[str, list[list[str]]] = {
         ],
         [
             grinch_items.moves.SNEAK,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
         ],
     ],
     "WL - South Shore - MM BP near Outhouse": [
@@ -1020,6 +1214,9 @@ rules_dict: dict[str, list[list[str]]] = {
         [
             grinch_items.moves.SNEAK,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+        ],
     ],
     "WL - South Shore - MM BP near Hill Bridge": [
         [
@@ -1027,6 +1224,9 @@ rules_dict: dict[str, list[list[str]]] = {
         ],
         [
             grinch_items.moves.SNEAK,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
         ],
     ],
     "WL - South Shore - MM BP on Scout's Hut Roof": [
@@ -1037,6 +1237,14 @@ rules_dict: dict[str, list[list[str]]] = {
         [
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.SNEAK,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROCKET_SPRING,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.GRINCH_COPTER,
         ],
     ],
     "WL - South Shore - MM BP on Grass Platform": [
@@ -1049,6 +1257,14 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.SNEAK,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROCKET_SPRING,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.GRINCH_COPTER,
+        ],
     ],
     "WL - South Shore - MM BP across Zipline Platform": [
         [
@@ -1059,6 +1275,15 @@ rules_dict: dict[str, list[list[str]]] = {
         [
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.SNEAK,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.GRINCH_COPTER,
         ],
     ],
     "WL - South Shore - MM BP behind Summer Beast": [
@@ -1075,11 +1300,6 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
             grinch_items.moves.SNEAK,
-        ],
-        [
-            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
-            grinch_items.moves.SNEAK,
-            grinch_items.moves.MAX,
         ],
         [
             grinch_items.events.ADVANCED_LOGIC,
@@ -1186,6 +1406,14 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.SEIZE,
             grinch_items.moves.PANCAKE,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.keys.SLEIGH_ROOM_KEY,
+            grinch_items.moves.SEIZE,
+            grinch_items.moves.PANCAKE,
+        ],
     ],
     "WL - Submarine World - Twin-End Tuba": [
         [
@@ -1198,6 +1426,11 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.keys.SLEIGH_ROOM_KEY,
             grinch_items.moves.SNEAK,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.keys.SLEIGH_ROOM_KEY,
         ],
     ],
     "MC - Sleigh Ride - Stealing All Gifts": [[]],
@@ -1212,6 +1445,11 @@ rules_dict: dict[str, list[list[str]]] = {
         ],
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.gadgets.ROCKET_SPRING,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
             grinch_items.gadgets.SLIME_SHOOTER,
             grinch_items.gadgets.ROCKET_SPRING,
         ],
@@ -1552,6 +1790,18 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.MAX,
             grinch_items.gadgets.SLIME_SHOOTER,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SEIZE,
+            grinch_items.moves.SNEAK,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SEIZE,
+            grinch_items.gadgets.SLIME_SHOOTER,
+        ],
     ],
     "WV - Clock Tower - Ring 2nd Bell": [
         [
@@ -1564,6 +1814,18 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SEIZE,
             grinch_items.moves.MAX,
+            grinch_items.gadgets.SLIME_SHOOTER,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SEIZE,
+            grinch_items.moves.SNEAK,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SEIZE,
             grinch_items.gadgets.SLIME_SHOOTER,
         ],
     ],
@@ -1580,6 +1842,18 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.MAX,
             grinch_items.gadgets.SLIME_SHOOTER,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SEIZE,
+            grinch_items.moves.SNEAK,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SEIZE,
+            grinch_items.gadgets.SLIME_SHOOTER,
+        ],
     ],
     "WV - Clock Tower - Ring 4th Bell": [
         [
@@ -1594,6 +1868,18 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.MAX,
             grinch_items.gadgets.SLIME_SHOOTER,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SEIZE,
+            grinch_items.moves.SNEAK,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SEIZE,
+            grinch_items.gadgets.SLIME_SHOOTER,
+        ],
     ],
     "WV - Clock Tower - Ring 5th Bell": [
         [
@@ -1606,6 +1892,18 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SEIZE,
             grinch_items.moves.MAX,
+            grinch_items.gadgets.SLIME_SHOOTER,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SEIZE,
+            grinch_items.moves.SNEAK,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SEIZE,
             grinch_items.gadgets.SLIME_SHOOTER,
         ],
     ],
@@ -1654,6 +1952,10 @@ rules_dict: dict[str, list[list[str]]] = {
     "WF - Making Xmas Trees Droop - Tree closest to vacuum tube": [
         [
             grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.GRINCH_COPTER,
         ],
     ],
     "WF - Making Xmas Trees Droop - Tree 4th closest to vacuum tube": [
@@ -1705,6 +2007,10 @@ rules_dict: dict[str, list[list[str]]] = {
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
         ],
     ],
     "WF - Putting Beehives In Cabins - Yellow house across from Tree House": [
@@ -1840,6 +2146,11 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.SNEAK,
             grinch_items.moves.BAD_BREATH,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+        ],
     ],
     "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Front of Bat Cave entrance": [
         [
@@ -1877,6 +2188,11 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.SNEAK,
             grinch_items.moves.BAD_BREATH,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+        ],
     ],
     "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Furthest platform of super toy parkour": [
         [
@@ -1906,6 +2222,11 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.SNEAK,
             grinch_items.moves.BAD_BREATH,
             grinch_items.moves.MAX,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
         ],
     ],
     "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Across snow boulders": [
@@ -1972,6 +2293,12 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.PANCAKE,
         ],
+        # [
+            # grinch_items.events.ADVANCED_LOGIC,
+            # grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            # grinch_items.moves.MAX,
+            # grinch_items.gadgets.BINOCULARS,
+        # ],
     ],
     "WD - Feeding The Computer With Robot Parts - Right area near entrance to center area": [
         [
@@ -1983,6 +2310,11 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.moves.MAX,
         ],
     ],
     "WD - Feeding The Computer With Robot Parts - Right area near shooting pipe": [
@@ -1996,6 +2328,12 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.PANCAKE,
         ],
+        # [
+        #     grinch_items.events.ADVANCED_LOGIC,
+        #     grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        #     grinch_items.moves.MAX,
+        #     grinch_items.gadgets.BINOCULARS,
+        # ],
     ],
     "WD - Feeding The Computer With Robot Parts - Near inward pipe in left area": [
         [
@@ -2043,6 +2381,14 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.SLIME_SHOOTER,
             grinch_items.gadgets.ROCKET_SPRING,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.SLIME_SHOOTER,
+        ],
     ],
     "WD - Conducting The Stinky Gas To Who-Bris' Shack - Shooting pipe in left area": [
         [
@@ -2081,12 +2427,13 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.PANCAKE,
         ],
         [
+            grinch_items.events.ADVANCED_LOGIC,
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.PANCAKE,
-
         ],
         [
+            grinch_items.events.ADVANCED_LOGIC,
             grinch_items.gadgets.SLIME_SHOOTER,
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.PANCAKE,
@@ -2103,7 +2450,14 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.PANCAKE,
-
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.SLIME_SHOOTER,
         ],
     ],
     "WD - Conducting The Stinky Gas To Who-Bris' Shack - Seizing pipe in rat area": [
@@ -2118,7 +2472,6 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.PANCAKE,
             grinch_items.moves.SEIZE,
-
         ],
     ],
     "WD - Conducting The Stinky Gas To Who-Bris' Shack - Shooting pipe in right side inside pipe": [
@@ -2156,13 +2509,23 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.PANCAKE,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.moves.PANCAKE,
+
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.moves.PANCAKE,
+        ],
     ],
     "WD - Conducting The Stinky Gas To Who-Bris' Shack - Swinging pipe in left area pipe": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.PANCAKE,
-
         ],
         [
             grinch_items.gadgets.SLIME_SHOOTER,
@@ -2371,6 +2734,16 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.PANCAKE,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.moves.MAX,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.moves.MAX,
+        ],
     ],
     "WD - Stealing Food From Birds - Right area in rat section": [
         [
@@ -2448,6 +2821,16 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.SLIME_SHOOTER,
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.moves.MAX,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.moves.MAX,
         ],
     ],
     "WD - Stealing Food From Birds - Near blue tube in center area": [
@@ -2527,10 +2910,24 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.SNEAK,
             grinch_items.moves.PANCAKE,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
     ],
     "WL - South Shore - Sabotaging The Tents - Across from boulder": [
         [
             grinch_items.moves.SNEAK,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
             grinch_items.moves.PANCAKE,
         ],
     ],
@@ -2546,10 +2943,24 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.SNEAK,
             grinch_items.moves.PANCAKE,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
     ],
     "WL - South Shore - Sabotaging The Tents - Left side of bridge right of rope wall": [
         [
             grinch_items.moves.SNEAK,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
             grinch_items.moves.PANCAKE,
         ],
     ],
@@ -2564,10 +2975,24 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.SNEAK,
             grinch_items.moves.PANCAKE,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
     ],
     "WL - South Shore - Sabotaging The Tents - Across from clothes line": [
         [
             grinch_items.moves.SNEAK,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
             grinch_items.moves.PANCAKE,
         ],
     ],
@@ -2583,10 +3008,25 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.SNEAK,
             grinch_items.moves.PANCAKE,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
     ],
     "WL - South Shore - Sabotaging The Tents - Across from clothes line near North Shore bridge": [
         [
             grinch_items.moves.SNEAK,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
             grinch_items.moves.PANCAKE,
         ],
     ],
@@ -2595,10 +3035,18 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.SNEAK,
             grinch_items.moves.PANCAKE,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.moves.PANCAKE,
+        ],
     ],
     "WL - South Shore - Putting Thistles In Shorts - Left of rack guarded by child": [
         [
             grinch_items.moves.SNEAK,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
         ],
     ],
@@ -2607,16 +3055,28 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.SNEAK,
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
     ],
     "WL - South Shore - Putting Thistles In Shorts - Middle of rack near entrance": [
         [
             grinch_items.moves.SNEAK,
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
     ],
     "WL - South Shore - Putting Thistles In Shorts - Right of rack near entrance": [
         [
             grinch_items.moves.SNEAK,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
         ],
     ],
@@ -2628,6 +3088,16 @@ rules_dict: dict[str, list[list[str]]] = {
         ],
         [
             grinch_items.moves.SNEAK,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.GRINCH_COPTER,
         ],
@@ -2643,10 +3113,24 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.GRINCH_COPTER,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+        ],
     ],
     "WL - South Shore - Putting Thistles In Shorts - Right of rack near North Shore Bridge": [
         [
             grinch_items.moves.SNEAK,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
         ],
     ],
@@ -2655,16 +3139,28 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.SNEAK,
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
     ],
     "WL - South Shore - Putting Thistles In Shorts - Right of rack guarded by child": [
         [
             grinch_items.moves.SNEAK,
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
     ],
     "WL - South Shore - Putting Thistles In Shorts - Middle of rack guarded by child": [
         [
             grinch_items.moves.SNEAK,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
         ],
     ],
@@ -2757,6 +3253,10 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.BAD_BREATH,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
     ],
     "WD - Collect all Octopus Climbing Device Blueprints": [
         [
@@ -2785,7 +3285,6 @@ rules_dict: dict[str, list[list[str]]] = {
         [
             grinch_items.level_items.WL_SCOUT_CLOTHES,
             grinch_items.gadgets.GRINCH_COPTER,
-            grinch_items.moves.SEIZE,
             grinch_items.moves.MAX,
             grinch_items.moves.SNEAK,
         ],
@@ -2855,23 +3354,6 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.level_items.WF_CABLE_CAR_ACCESS_CARD,
             grinch_items.gadgets.MARINE_MOBILE,
             grinch_items.moves.BAD_BREATH,
-            grinch_items.moves.PANCAKE,
-            grinch_items.gadgets.SLIME_SHOOTER,
-            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-            grinch_items.gadgets.GRINCH_COPTER,
-            grinch_items.keys.WHOVILLE,
-            grinch_items.keys.WHO_FOREST,
-            grinch_items.keys.WHO_DUMP,
-            grinch_items.keys.WHO_LAKE,
-        ],
-        [
-            grinch_items.level_items.WL_SCOUT_CLOTHES,
-            grinch_items.moves.MAX,
-            grinch_items.moves.SEIZE,
-            grinch_items.gadgets.ROCKET_SPRING,
-            grinch_items.level_items.WF_CABLE_CAR_ACCESS_CARD,
-            grinch_items.gadgets.MARINE_MOBILE,
-            grinch_items.moves.BAD_BREATH,
             grinch_items.moves.SNEAK,
             grinch_items.moves.PANCAKE,
             grinch_items.gadgets.SLIME_SHOOTER,
@@ -2889,20 +3371,6 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.BAD_BREATH,
             grinch_items.moves.SNEAK,
             grinch_items.moves.PANCAKE,
-            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-            grinch_items.gadgets.GRINCH_COPTER,
-            "4:" + grinch_items.keys.PROGRESSIVE_VACUUM_TUBE,
-        ],
-        [
-            grinch_items.level_items.WL_SCOUT_CLOTHES,
-            grinch_items.moves.MAX,
-            grinch_items.moves.SEIZE,
-            grinch_items.gadgets.ROCKET_SPRING,
-            grinch_items.level_items.WF_CABLE_CAR_ACCESS_CARD,
-            grinch_items.gadgets.MARINE_MOBILE,
-            grinch_items.moves.BAD_BREATH,
-            grinch_items.moves.PANCAKE,
-            grinch_items.gadgets.SLIME_SHOOTER,
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.GRINCH_COPTER,
             "4:" + grinch_items.keys.PROGRESSIVE_VACUUM_TUBE,
@@ -2975,6 +3443,18 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.PANCAKE,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
     ],
     "WD - Shoot Down South West Platform": [
         [
@@ -2984,6 +3464,18 @@ rules_dict: dict[str, list[list[str]]] = {
         ],
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.SLIME_SHOOTER,
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.PANCAKE,
         ],
@@ -2999,6 +3491,18 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.PANCAKE,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
     ],
     "WD - Shoot Down South East Platform": [
         [
@@ -3011,6 +3515,18 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.PANCAKE,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
     ],
     "WD - Shoot Down North East Platform": [
         [
@@ -3020,6 +3536,18 @@ rules_dict: dict[str, list[list[str]]] = {
         ],
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.SLIME_SHOOTER,
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.PANCAKE,
         ],
@@ -3079,6 +3607,12 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.BAD_BREATH,
             grinch_items.gadgets.SLIME_SHOOTER,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.moves.PANCAKE,
+        ],
     ],
     "WD - Minefield - Scissors": [
         [
@@ -3086,6 +3620,11 @@ rules_dict: dict[str, list[list[str]]] = {
         ],
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.SLIME_SHOOTER,
+            grinch_items.gadgets.ROCKET_SPRING,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
             grinch_items.gadgets.SLIME_SHOOTER,
             grinch_items.gadgets.ROCKET_SPRING,
         ],
