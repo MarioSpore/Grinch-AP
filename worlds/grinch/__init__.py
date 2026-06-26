@@ -321,8 +321,8 @@ class GrinchWorld(World):
                 else:
                     self.multiworld.push_precollected(self.create_item(mission_item))
 
-            if not self.options.randomize_mission_items:
-                continue
+            # if not self.options.randomize_mission_items:
+            #     continue
                 # if "Painting Bucket" in mission_item:
                 #     self.multiworld.get_location("WV - Painting Bucket",
                 #     self.player).place_locked_item(self.create_item("Painting Bucket"))
@@ -391,12 +391,12 @@ class GrinchWorld(World):
                 #     else:
                 #         self.multiworld.push_precollected(self.create_item("Hook"))
 
-            elif self.options.randomize_mission_items:
+            if self.options.randomize_mission_items:
                 if self.options.goal == 1:
                     self_itempool.append(self.create_item(mission_item))
                 # Else, let the multiworld create the item normally.
-            else:
-                self_itempool.append(self.set_skip_balancing(mission_item))
+                else:
+                    self_itempool.append(self.set_skip_balancing(mission_item))
 
         # Add various moves that the user requested.
         for moves_added in MOVES_TABLE:
