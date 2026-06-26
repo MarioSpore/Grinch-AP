@@ -258,12 +258,10 @@ class GrinchWorld(World):
 
 
         for sleigh_parts in SLEIGH_TABLE:
-            if sleigh_parts in sleigh_pieces:
-                if self.options.randomize_sleigh_parts and self.options.goal != 0:
-                        self_itempool.append(self.set_skip_balancing(sleigh_parts))
-                else:
-                    self_itempool.append(self.create_item(sleigh_parts))
-
+            if self.options.randomize_sleigh_parts and self.options.goal != 0:
+                    self_itempool.append(self.set_skip_balancing(sleigh_parts))
+            else:
+                self_itempool.append(self.create_item(sleigh_parts))
 
             # if not self.options.randomize_sleigh_parts:
                 # if "Exhaust Pipes" in sleigh_parts:
@@ -284,12 +282,6 @@ class GrinchWorld(World):
                 # elif "GPS" in sleigh_parts:
                 #     self.multiworld.get_location("WL - South Shore - GPS",
                 #     self.player).place_locked_item(self.create_item("GPS"))
-
-            # elif self.options.randomize_sleigh_parts and "Sleigh Room Key" not in sleigh_parts:
-            #     if self.options.goal != 0:
-            #         self_itempool.append(self.set_skip_balancing(sleigh_parts))
-            #     else:
-            #         self_itempool.append(self.create_item(sleigh_parts))
 
         for hearts_added in USEFUL_ITEMS_TABLE:
             if hearts_added == grinch_items.useful_items.HEART_OF_STONE:
