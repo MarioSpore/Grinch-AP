@@ -259,13 +259,10 @@ class GrinchWorld(World):
 
         for sleigh_parts in SLEIGH_TABLE:
             if sleigh_parts in sleigh_pieces:
-                if self.options.randomize_sleigh_parts:
-                    if self.options.goal != 0:
+                if self.options.randomize_sleigh_parts and self.options.goal != 0:
                         self_itempool.append(self.set_skip_balancing(sleigh_parts))
-                    else:
-                        self_itempool.append(self.create_item(sleigh_parts))
-            else:
-                self_itempool.append(self.create_item(sleigh_parts))
+                else:
+                    self_itempool.append(self.create_item(sleigh_parts))
 
 
             # if not self.options.randomize_sleigh_parts:
