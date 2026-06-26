@@ -377,7 +377,6 @@ class RandomizeMissionItems(DefaultOnToggle):
     item pool. Enabling this removes these locations and adds the items.
     """
     display_name = "Randomize Mission Specific Items"
-    visibility = Visibility.none
 
 class RandomizeSleighParts(DefaultOnToggle):
     """
@@ -386,7 +385,6 @@ class RandomizeSleighParts(DefaultOnToggle):
     item pool. Enabling this removes these locations and adds the items.
     """
     display_name = "Randomize Sleigh Parts"
-    visibility = Visibility.none
 
 class TeleportMultibind(Toggle):
     """
