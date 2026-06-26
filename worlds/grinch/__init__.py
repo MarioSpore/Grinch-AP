@@ -425,10 +425,10 @@ class GrinchWorld(World):
                 continue
 
             if self.options.gadget_rando and gadgets_added in self.options.gadgets_to_randomize:
-                if gadgets_added not in ["Rotten Egg Launcher", "Rocket Spring", "Marine Mobile", "Binoculars"] and self.options.goal == 0:
-                        self_itempool.append(self.set_skip_balancing(gadgets_added))
+                if gadgets_added in ["Rotten Egg Launcher", "Rocket Spring", "Marine Mobile", "Binoculars"] and self.options.goal == 0:
+                        self_itempool.append(self.create_item(gadgets_added))
                 else:
-                    self_itempool.append(self.create_item(gadgets_added))
+                    self_itempool.append(self.set_skip_balancing(gadgets_added))
             else:
                 self.multiworld.push_precollected(self.create_item(gadgets_added))
                 continue
