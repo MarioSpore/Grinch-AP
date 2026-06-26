@@ -90,7 +90,7 @@ class GrinchWorld(World):
                 self.options.misc_checks = slot_data["misc_checks"]
                 self.options.randomize_mission_items = slot_data["randomize_mission_items"]
                 self.options.randomize_sleigh_parts = slot_data["randomize_sleigh_parts"]
-                self.options.randomize_sleigh_parts = slot_data["goal"]
+                self.options.goal = slot_data["goal"]
 
     def create_regions(self):  # Generates all regions for the multiworld
         connect_regions(self, self.multiworld)
