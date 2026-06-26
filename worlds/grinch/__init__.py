@@ -393,20 +393,20 @@ class GrinchWorld(World):
 
             elif self.options.randomize_mission_items:
                 if self.options.goal != 1:
-                    self_itempool.append(self.set_skip_balancing(mission_item))
+                    self_itempool.append(self.create_item(mission_item))
                 # Else, let the multiworld create the item normally.
             else:
-                self_itempool.append(self.create_item(mission_item))
+                self_itempool.append(self.set_skip_balancing(mission_item))
 
         # Add various moves that the user requested.
         for moves_added in MOVES_TABLE:
             # Only create the item if it doesn't already exist in the player's start inventory.
 
             if self.options.move_rando and moves_added in self.options.moves_to_randomize:
-                if moves_added not in ["Seize", "Pancake", "Max"] and self.options.goal != 0:
-                    self_itempool.append(self.set_skip_balancing(moves_added))
-                else:
+                if moves_added in ["Seize", "Pancake", "Max"] and self.options.goal == 0:
                     self_itempool.append(self.create_item(moves_added))
+                else:
+                    self_itempool.append(self.set_skip_balancing(moves_added))
             else:
                 self.multiworld.push_precollected(self.create_item(moves_added))
 
