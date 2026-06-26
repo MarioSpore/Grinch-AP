@@ -412,10 +412,12 @@ class GrinchWorld(World):
 
         # Adds gadgets
         for gadgets_added in GADGETS_TABLE:
-            # if gadgets_added == "Binoculars" and self.options.advanced_logic:
-            #     self_itempool.append(self.set_skip_balancing(gadgets_added))
-            # else:
-            #     self_itempool.append(self.create_item(gadgets_added))
+            if gadgets_added == "Binoculars" :
+                if self.options.advanced_logic:
+                    self_itempool.append(self.set_skip_balancing(gadgets_added))
+                else:
+                    self_itempool.append(self.create_item(gadgets_added))
+                continue
 
             if gadgets_added == "Grinch Copter" and self.options.exclude_gc:
                 continue
