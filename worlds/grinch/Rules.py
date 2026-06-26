@@ -261,6 +261,7 @@ access_rules_dict: dict[str, list[list[str]]] = {
         ],
         [
         grinch_items.events.SLEIGH_PARTS_NOT_RANDOMIZED,
+        grinch_items.events.ADVANCED_LOGIC,
         grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
         grinch_items.keys.WHOVILLE,
         grinch_items.keys.WHO_FOREST,
