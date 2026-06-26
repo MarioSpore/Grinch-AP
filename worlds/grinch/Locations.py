@@ -3226,7 +3226,8 @@ grinch_locations = {
         2700,
         [
             GrinchRamData(0x010000, value=0x01),
-            GrinchRamData(0x0F05C0, value=0),
+            # GrinchRamData(0x0F05C0, value=0),
+            GrinchRamData(0x0101F9, binary_bit_pos=1)
         ],
     ),
     "WV - Clock Tower - Who Cloak": GrinchLocationData(
@@ -3235,7 +3236,8 @@ grinch_locations = {
         2701,
         [
             GrinchRamData(0x010000, value=0x09),
-            GrinchRamData(0x095306, value=10),
+            # GrinchRamData(0x095306, value=10),
+            GrinchRamData(0x0101F9, binary_bit_pos=0),
         ],
     ),
     "WV - Clock Tower - Hammer": GrinchLocationData(
@@ -3244,7 +3246,8 @@ grinch_locations = {
         2702,
         [
             GrinchRamData(0x010000, value=0x09),
-            GrinchRamData(0x0F1B39, value=30),
+            # GrinchRamData(0x0F1B39, value=30),
+            GrinchRamData(0x0101F9, binary_bit_pos=3)
         ],
     ),
     "WV - City Hall - Sculpting Tools": GrinchLocationData(
@@ -3253,7 +3256,8 @@ grinch_locations = {
         2703,
         [
             GrinchRamData(0x010000, value=0x08),
-            GrinchRamData(0x0E9859, value=0),
+            # GrinchRamData(0x0E9859, value=0),
+            GrinchRamData(0x0101F9, binary_bit_pos=2),
         ],
     ),
     "WF - Glue Bucket": GrinchLocationData(
@@ -3262,7 +3266,8 @@ grinch_locations = {
         2704,
         [
             GrinchRamData(0x010000, value=0x0B),
-            GrinchRamData(0x0E2C44, value=0),
+            # GrinchRamData(0x0E2C44, value=0),
+            GrinchRamData(0x0101F9, binary_bit_pos=4),
         ],
     ),
     "WF - Cable Car Access Card": GrinchLocationData(
@@ -3271,7 +3276,8 @@ grinch_locations = {
         2705,
         [
             GrinchRamData(0x010000, value=0x0B),
-            GrinchRamData(0x10C114, value=0),
+            # GrinchRamData(0x10C114, value=0),
+            GrinchRamData(0x0101F9, binary_bit_pos=5),
         ],
     ),
     "WD - Minefield - Scissors": GrinchLocationData(
@@ -3280,7 +3286,8 @@ grinch_locations = {
          2706,
          [
              GrinchRamData(0x010000, value=0x11),
-             GrinchRamData(0x095306, value=16),
+             # GrinchRamData(0x095306, value=16),
+             GrinchRamData(0x0101F9, binary_bit_pos=6),
          ],
     ),
     "WL - Scout's Hut - Scout Clothes": GrinchLocationData(
@@ -3289,8 +3296,9 @@ grinch_locations = {
         2707,
         [
             GrinchRamData(0x010000, value=0x13),
-            GrinchRamData(0x095349, binary_bit_pos=2),
-            GrinchRamData(0x095306, value=21),
+            # GrinchRamData(0x095349, binary_bit_pos=2),
+            # GrinchRamData(0x095306, value=21),
+            GrinchRamData(0x0101F9, binary_bit_pos=7),
         ],
     ),
     "WL - North Shore - Drill": GrinchLocationData(
@@ -3299,7 +3307,8 @@ grinch_locations = {
         2708,
         [
             GrinchRamData(0x010000, value=0x14),
-            GrinchRamData(0x0F9472, value=0),
+            # GrinchRamData(0x0F9472, value=0),
+            GrinchRamData(0x0101FA, binary_bit_pos=2),
          ],
     ),
         "WL - Mayor's Villa - Rope": GrinchLocationData(
@@ -3308,7 +3317,8 @@ grinch_locations = {
         2709,
         [
             GrinchRamData(0x010000, value=0x16),
-            GrinchRamData(0x95306, value=19),
+            # GrinchRamData(0x95306, value=19),
+            GrinchRamData(0x0101FA, binary_bit_pos=1),
          ],
     ),
     "WL - Mayor's Villa - Hook": GrinchLocationData(
