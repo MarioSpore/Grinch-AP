@@ -392,7 +392,7 @@ class GrinchWorld(World):
                 #         self.multiworld.push_precollected(self.create_item("Hook"))
 
             elif self.options.randomize_mission_items:
-                if self.options.goal != 1:
+                if self.options.goal == 1:
                     self_itempool.append(self.create_item(mission_item))
                 # Else, let the multiworld create the item normally.
             else:
