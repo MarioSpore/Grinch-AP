@@ -443,7 +443,7 @@ class GrinchWorld(World):
             elif self.options.starting_area == 1:
                 self.multiworld.push_precollected(self.create_item("Who Forest Vacuum Tube"))
                 for vacuums_added in KEYS_TABLE.keys():
-                    if vacuums_added in ["Progressive Vacuum Tube", "Who ForestVacuum Tube"]:
+                    if vacuums_added in ["Progressive Vacuum Tube", "Who Forest Vacuum Tube"]:
                         continue
                     self_itempool.append((self.create_item(vacuums_added)))
             elif self.options.starting_area == 2:
