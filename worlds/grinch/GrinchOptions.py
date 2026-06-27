@@ -115,7 +115,6 @@ class AdvancedLogic(Toggle):
     """
 
     display_name = "Advanced Logic"
-    visibility = Visibility.none
 
 class ExcludeEnvironments(OptionSet):
     """
