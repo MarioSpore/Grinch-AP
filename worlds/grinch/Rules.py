@@ -3484,15 +3484,25 @@ rules_dict: dict[str, list[list[str]]] = {
         [
             grinch_items.level_items.WL_DRILL,
         ],
+        [
+            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
+        ],
     ],
     "WL - North Shore - Drilling Holes In Canoes - Left side adjacent to fence area": [
         [
             grinch_items.level_items.WL_DRILL,
         ],
+        [
+            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
+        ],
     ],
     "WL - North Shore - Drilling Holes In Canoes - Left side in fence area": [
         [
             grinch_items.level_items.WL_DRILL,
+            grinch_items.moves.MAX,
+        ],
+        [
+            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
             grinch_items.moves.MAX,
         ],
     ],
@@ -3501,15 +3511,29 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.level_items.WL_DRILL,
             grinch_items.moves.MAX,
         ],
+        [
+            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
+            grinch_items.moves.MAX,
+        ],
     ],
     "WL - North Shore - Drilling Holes In Canoes - On beach left side below max house": [
         [
             grinch_items.level_items.WL_DRILL,
+            grinch_items.moves.MAX,
+        ],
+        [
+            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
+            grinch_items.moves.MAX,
         ],
     ],
     "WL - North Shore - Drilling Holes In Canoes - On beach right side below max house": [
         [
             grinch_items.level_items.WL_DRILL,
+            grinch_items.moves.MAX,
+        ],
+        [
+            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
+            grinch_items.moves.MAX,
         ],
     ],
     "WL - North Shore - Drilling Holes In Canoes - Middle side in fence area": [
@@ -3517,10 +3541,17 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.level_items.WL_DRILL,
             grinch_items.moves.MAX,
         ],
+        [
+            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
+            grinch_items.moves.MAX,
+        ],
     ],
     "WL - North Shore - Drilling Holes In Canoes - Behind max house": [
         [
             grinch_items.level_items.WL_DRILL,
+        ],
+        [
+            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
         ],
     ],
     "WL - North Shore - Drilling Holes In Canoes - Right side on top of car": [
@@ -3528,10 +3559,18 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.level_items.WL_DRILL,
             grinch_items.moves.SEIZE,
         ],
+        [
+            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
+            grinch_items.moves.SEIZE,
+        ],
     ],
     "WL - North Shore - Drilling Holes In Canoes - Left side on top of car": [
         [
             grinch_items.level_items.WL_DRILL,
+            grinch_items.moves.SEIZE,
+        ],
+        [
+            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
             grinch_items.moves.SEIZE,
         ],
     ],
