@@ -833,6 +833,11 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.SEIZE,
             grinch_items.moves.MAX,
         ],
+        [
+            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
+            grinch_items.moves.SEIZE,
+            grinch_items.moves.MAX,
+        ],
     ],
     "WL - Submarine World - Modifying The Marine Mobile": [[]],
     "WL - Mayor's Villa - Hooking The Mayor's Bed To The Motorboat": [
