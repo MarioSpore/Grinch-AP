@@ -243,18 +243,12 @@ class GrinchWorld(World):
         for option in EVENT_TABLE:
             if "AdvancedLogic" in option and self.options.advanced_logic:
                 self.multiworld.push_precollected(self.create_item(option))
-            else:
-                continue
 
             if "SleighPartsNotRandomized" in option and not self.options.randomize_sleigh_parts:
                 self.multiworld.push_precollected(self.create_item(option))
-            else:
-                continue
 
             if "MissionItemsNotRandomized" in option and not self.options.randomize_mission_items:
                 self.multiworld.push_precollected(self.create_item(option))
-            else:
-                continue
 
             if "BeehivesDoor" in option:
                 continue
@@ -272,8 +266,6 @@ class GrinchWorld(World):
             if sleigh_parts in sleigh_pieces:
                 if self.options.randomize_sleigh_parts:
                     self_itempool.append(self.create_item(sleigh_parts))
-                else:
-                    continue
 
 
             # if not self.options.randomize_sleigh_parts:
