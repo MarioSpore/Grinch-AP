@@ -178,7 +178,7 @@ class GrinchWorld(World):
                 if exclude_wl_squash:
                     continue  # Ignores the creation of WL Squashing all Gifts
 
-            if "Mission Specific Item Locations" in data.location_group and not self.options.randomize_mission_items:
+            if "Mission Specific Item Locations" in data.location_group and self.options.randomize_mission_items:
                 continue
 
             if ("WL - Mayor's Villa - Hooking The Mayor's Bed To The Motorboat" in location
@@ -247,6 +247,11 @@ class GrinchWorld(World):
                 continue
 
             if "SleighPartsNotRandomized" in option and not self.options.randomize_sleigh_parts:
+                self.multiworld.push_precollected(self.create_item(option))
+            else:
+                continue
+
+            if "MissionItemsNotRandomized" in option and not self.options.randomize_mission_items:
                 self.multiworld.push_precollected(self.create_item(option))
             else:
                 continue
