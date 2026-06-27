@@ -47,7 +47,7 @@ class GrinchRegionInfo(NamedTuple):
     allow_deathlink: bool = False
     map_table_addr: Optional[int] = None
     allow_music_rando: Optional[bool] = None
-    region_access: Optional[list[list[str]]] = None
+    region_access: list[list[str]] = None
     advanced_region_access: Optional[list[list[str]]] = None
 
 class GrinchRegion(Region):
@@ -362,7 +362,12 @@ def grinchconnect(
 def connect_regions(world: "GrinchWorld", multiworld: MultiWorld):
     for grinch_region, grinch_data in ALL_REGIONS_INFO.items():
         multiworld.regions.append(GrinchRegion(grinch_region, grinch_data, world.player, multiworld))
-
+        access_list = grinch_data.region_access
+        if grinch_data.advanced_region_access is not None:
+            for advanced_rule in grinch_data.advanced_region_access:
+                access_list.append(advanced_rule)
+        print(grinch_region)
+        print(access_list)
         if grinch_region == "Mount Crumpit":
             continue
-        grinchconnect(world, grinch_region, grinch_data.parent_region, grinch_data.region_access)
+        grinchconnect(world, grinch_region, grinch_data.parent_region, access_list)
