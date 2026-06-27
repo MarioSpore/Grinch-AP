@@ -42,10 +42,10 @@ class GrinchWorld(World):
             raise OptionError("Cannot enable both unlimited rotten eggs and ring links. You can only enable one of " +
                 f"these at a time. The following player's YAML needs to be fixed: {self.player_name}")
 
-        if not self.options.randomize_sleigh_parts and "Submarine World" in self.options.exclude_environments:
-            self.multiworld.push_precollected(self.create_item("Twin-End Tuba"))
-            raise logger.warning(f"Player {self.player_name} is not randomizing sleigh parts." +
-                "But excluded the Submarine World environment. Giving the player Twin-End Tuba.")
+        # if self.options.randomize_sleigh_parts and "Submarine World" in self.options.exclude_environments:
+        #     self.multiworld.push_precollected(self.create_item("Twin-End Tuba"))
+        #     raise logger.warning(f"Player {self.player_name} is not randomizing sleigh parts." +
+        #         "But excluded the Submarine World environment. Giving the player Twin-End Tuba.")
 
         # Total available weight sum of filler items.
         # If this is 0, it means no filler was provided by the user, which will cause generation errors as there will
