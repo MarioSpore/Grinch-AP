@@ -363,11 +363,13 @@ def connect_regions(world: "GrinchWorld", multiworld: MultiWorld):
     for grinch_region, grinch_data in ALL_REGIONS_INFO.items():
         multiworld.regions.append(GrinchRegion(grinch_region, grinch_data, world.player, multiworld))
         access_list = grinch_data.region_access
-        if grinch_data.advanced_region_access is not None:
-            for advanced_rule in grinch_data.advanced_region_access:
-                access_list.append(advanced_rule)
-        print(grinch_region)
-        print(access_list)
+        if world.options.advanced_logic.value == 1 :
+            if grinch_data.advanced_region_access is not None:
+                for advanced_rule in grinch_data.advanced_region_access:
+                    access_list.append(advanced_rule)
+
+        print(f"Region:{grinch_region}")
+        print(f"Access_rules:{access_list}")
         if grinch_region == "Mount Crumpit":
             continue
         grinchconnect(world, grinch_region, grinch_data.parent_region, access_list)
