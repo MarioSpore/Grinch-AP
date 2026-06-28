@@ -6,5 +6,5 @@ into motion
 - Thanks to the Grinch PS1 speedrunning discord community server for encouraging the production of this randomizer.
 - Artamiss for the vast majority of BZZ decompilation and general backend coding.
 - TheMogul for further ram address searches via CPU for more complicated addresses such as 
-gadgets, new traps, and other complicated searches such as region tables that makes deathlinks official.
-- Thedragon005 for proceeding to help with the restructing of the apworld
+gadgets, new traps, and other complicated searches such as region tables that makes deathlink functional.
+- Thedragon005 for proceeding to help with the restructuring of this apworld
