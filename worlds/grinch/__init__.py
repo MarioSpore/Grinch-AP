@@ -91,6 +91,7 @@ class GrinchWorld(World):
                 self.options.randomize_mission_items = slot_data["randomize_mission_items"]
                 self.options.randomize_sleigh_parts = slot_data["randomize_sleigh_parts"]
                 self.options.goal = slot_data["goal"]
+                self.options.advanced_logic = slot_data["advanced_logic"]
 
     def create_regions(self):  # Generates all regions for the multiworld
         connect_regions(self, self.multiworld)
@@ -554,6 +555,7 @@ class GrinchWorld(World):
             "randomize_sleigh_parts": self.options.randomize_sleigh_parts.value,
             "teleport_multibind": self.options.teleport_multibind.value,
             "goal": self.options.goal.value,
+            "advanced_logic": self.options.advanced_logic.value,
         }
 
     def generate_output(self, output_directory: str) -> None:
