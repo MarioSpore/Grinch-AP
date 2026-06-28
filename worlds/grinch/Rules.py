@@ -7,7 +7,7 @@ from worlds.generic.Rules import add_rule
 from .Items import grinch_items
 
 
-# Adds all rules from access_rules_dict to locations
+# Adds all rules from rules_dict to locations
 def set_location_rules(world: World):
     all_locations = world.get_locations()
     for location in all_locations:
