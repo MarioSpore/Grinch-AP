@@ -344,16 +344,19 @@ def grinchconnect(
     connect_entr: Entrance = connected_region.connect(current_region)
 
     for access_rule in rule_list:
+
+        # If the current region has no logic
         if rule_list.index(access_rule) == 0:
             add_rule(curr_entr, access_rule)
 
         else:
             add_rule(curr_entr, access_rule, combine="or")
 
-
+        # If the adjacent region has no logic
         if rule_list.index(access_rule) == 0:
             add_rule(connect_entr, access_rule)
 
+        # If the adjacent region has logic
         else:
             add_rule(connect_entr, access_rule, combine="or")
 
