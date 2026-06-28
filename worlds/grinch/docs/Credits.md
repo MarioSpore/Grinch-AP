@@ -7,3 +7,4 @@ into motion
 - Credit to Artamiss for the vast majority of BZZ decompilation and general backend coding.
 - Shoutouts to TheMogul for further ram address searches via CPU for more complicated addresses such as 
 gadgets, new traps, and other complicated searches.
+- Thedragon005 for proceeding to help with the restructing of the apworld
