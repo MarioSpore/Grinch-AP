@@ -957,25 +957,25 @@ TRAPS_TABLE: dict[str, GrinchItemData] = {
 EVENT_TABLE: dict[str, GrinchItemData] = {
     grinch_items.events.ADVANCED_LOGIC: GrinchItemData(
         [],
-        800,
+        0,
         IC.progression_skip_balancing,
         [],
     ),
     grinch_items.events.SLEIGH_PARTS_NOT_RANDOMIZED: GrinchItemData(
         [],
-        801,
+        0,
         IC.progression_skip_balancing,
         [],
     ),
     grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED: GrinchItemData(
         [],
-        802,
+        0,
         IC.progression_skip_balancing,
         [],
     ),
     grinch_items.events.BEEHIVES_DOOR: GrinchItemData(
         [],
-        None,
+        0,
         IC.progression_skip_balancing,
         [],
     ),
