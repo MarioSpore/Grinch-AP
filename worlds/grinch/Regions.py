@@ -333,7 +333,8 @@ def grinchconnect(
     world: "GrinchWorld",
     current_region_name: str,
     connected_region_name: str,
-    access_rules: list[list[str]]
+    access_rules: list[list[str]],
+    rule=None
 ):
     current_region = world.get_region(current_region_name)
     connected_region = world.get_region(connected_region_name)
@@ -343,17 +344,32 @@ def grinchconnect(
     # Goes from connected to current
     connect_entr: Entrance = connected_region.connect(current_region)
 
+    glitches_item_name = "AdvancedLogic"
+    glitched_rule = lambda state: state.has(glitches_item_name, world.player) and rule(state)
+
     for access_rule in rule_list:
+
+        # If the current region has no logic
         if rule_list.index(access_rule) == 0:
             add_rule(curr_entr, access_rule)
 
+        # If the current region has glitched logic
+        # elif not world.options.advanced_logic and access_rule in glitches_item_name:
+            # add_rule(curr_entr, glitched_rule, "or")
+
+        # If the current region has logic
         else:
             add_rule(curr_entr, access_rule, combine="or")
 
-
+        # If the adjacent region has no logic
         if rule_list.index(access_rule) == 0:
             add_rule(connect_entr, access_rule)
 
+        # If the adjacent region has glitched logic
+        # elif not world.options.advanced_logic and access_rule in glitches_item_name:
+            # add_rule(connect_entr, glitched_rule, "or")
+
+        # If the adjacent region has logic
         else:
             add_rule(connect_entr, access_rule, combine="or")
 

@@ -7,7 +7,7 @@ from worlds.generic.Rules import add_rule
 from .Items import grinch_items
 
 
-# Adds all rules from access_rules_dict to locations
+# Adds all rules from rules_dict to locations
 def set_location_rules(world: World):
     all_locations = world.get_locations()
     for location in all_locations:
@@ -23,11 +23,15 @@ def set_location_rules(world: World):
 def interpret_rule(
     rule_set: list[list[str]],
     player: int,
+    # world: GrinchWorld,
 ):
     # If a region/location does not have any items required, make the section(s) return no logic.
     if rule_set is None or len(rule_set) < 1:
         return []
 
+    # If a region/location includes the Advanced Logic item and is in logic, make the section(s) return OOL.
+    # if grinch_items.events.ADVANCED_LOGIC in rule_set and not world.options.advanced_logic:
+    #     return []
     # Otherwise, if a region/location DOES have items required, make the section(s) return list of logic.
     access_list: list[Callable[[CollectionState], bool]] = []
 

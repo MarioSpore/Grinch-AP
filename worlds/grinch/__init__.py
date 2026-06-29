@@ -93,6 +93,7 @@ class GrinchWorld(World):
                 self.options.randomize_mission_items = slot_data["randomize_mission_items"]
                 self.options.randomize_sleigh_parts = slot_data["randomize_sleigh_parts"]
                 self.options.goal = slot_data["goal"]
+                self.options.advanced_logic = slot_data["advanced_logic"]
             else:
                 self.using_ut = False
         else:
@@ -126,6 +127,7 @@ class GrinchWorld(World):
             region = self.get_region(data.region)
 
             if location == "MC - Sleigh Ride - Save Christmas":
+                # Place the "Goal" item in the location as an event
                 region.add_event(location, "Goal", None, Location, Item)
                 continue
 
@@ -523,7 +525,9 @@ class GrinchWorld(World):
                 print(f"{item.name}: {desc}")
 
     def set_rules(self):
+        # Creates an item and make it so it goals the game upon collection
         self.multiworld.completion_condition[self.player] = lambda state: state.has("Goal", self.player)
+        # Point to set_location_rules in Rules.py for reference to rules
         set_location_rules(self)
 
     def get_weighted_filler_item(self, other_filler: list[str], weights_dict: list[int]) -> str:
@@ -560,6 +564,7 @@ class GrinchWorld(World):
             "randomize_sleigh_parts": self.options.randomize_sleigh_parts.value,
             "teleport_multibind": self.options.teleport_multibind.value,
             "goal": self.options.goal.value,
+            "advanced_logic": self.options.advanced_logic.value,
         }
 
     def generate_output(self, output_directory: str) -> None:
