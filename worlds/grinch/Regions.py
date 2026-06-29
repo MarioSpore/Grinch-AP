@@ -377,8 +377,8 @@ def connect_regions(world: "GrinchWorld", multiworld: MultiWorld):
                         #advanced_rule.append(world.glitches_item_name)
                     access_list.append(advanced_rule)
 
-        print(f"Region:{grinch_region}")
-        print(f"Access_rules:{access_list}")
+        # print(f"Region:{grinch_region}")
+        # print(f"Access_rules:{access_list}")
         if grinch_region == "Mount Crumpit":
             continue
         grinchconnect(world, grinch_region, grinch_data.parent_region, access_list)

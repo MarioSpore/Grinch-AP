@@ -74,7 +74,7 @@ class GrinchWorld(World):
             if self.game in self.multiworld.re_gen_passthrough:
                 slot_data = self.multiworld.re_gen_passthrough[self.game]
                 self.using_ut = True
-                print(slot_data)
+                # print(slot_data)
                 self.options.unlimited_eggs.value = slot_data["unlimited_eggs"]
                 self.options.starting_area.value = slot_data["starting_area"]
                 self.options.exclude_environments.value = ["exclude_environments"]
