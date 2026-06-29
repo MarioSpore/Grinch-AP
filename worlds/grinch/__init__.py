@@ -26,7 +26,8 @@ class GrinchWorld(World):
     item_name_groups = get_item_names_per_category()
     location_name_groups = get_location_names_per_category()
     web = GrinchWeb()
-
+    glitches_item_name = "AdvancedLogic"
+    using_ut: bool  # so we can check if we're using UT only once
     songs_chosen: dict
 
     ut_can_gen_without_yaml = True  # class var that tells it to ignore the player YAML
@@ -72,6 +73,7 @@ class GrinchWorld(World):
         if hasattr(self.multiworld, "re_gen_passthrough"):
             if self.game in self.multiworld.re_gen_passthrough:
                 slot_data = self.multiworld.re_gen_passthrough[self.game]
+                self.using_ut = True
                 print(slot_data)
                 self.options.unlimited_eggs.value = slot_data["unlimited_eggs"]
                 self.options.starting_area.value = slot_data["starting_area"]
@@ -92,6 +94,10 @@ class GrinchWorld(World):
                 self.options.randomize_sleigh_parts = slot_data["randomize_sleigh_parts"]
                 self.options.goal = slot_data["goal"]
                 self.options.advanced_logic = slot_data["advanced_logic"]
+            else:
+                self.using_ut = False
+        else:
+            self.using_ut = False
 
     def create_regions(self):  # Generates all regions for the multiworld
         connect_regions(self, self.multiworld)
