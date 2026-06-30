@@ -1316,7 +1316,8 @@ grinch_locations = {
         1600,
         [
             GrinchRamData(0x010000, value=0x07),
-            GrinchRamData(0x0F6B8, value=0),
+            GrinchRamData(0x0101FB, binary_bit_pos=2),
+            # GrinchRamData(0x0F6B8, value=0),
         ],
     ),
     "WF - Skis": GrinchLocationData(
@@ -1325,7 +1326,8 @@ grinch_locations = {
         1601,
         [
             GrinchRamData(0x010000, value=0x0B),
-            GrinchRamData(0x010248, binary_bit_pos=1),
+            # GrinchRamData(0x010248, binary_bit_pos=1),
+            GrinchRamData(0x0101FB, binary_bit_pos=3)
         ],
     ),
     "WD - Tires": GrinchLocationData(
@@ -1334,7 +1336,8 @@ grinch_locations = {
         1602,
         [
             GrinchRamData(0x010000, value=0x0E),
-            GrinchRamData(0x0FC42C, value=176)
+            GrinchRamData(0x0101FB, binary_bit_pos=4)
+            # GrinchRamData(0x0FC42C, value=176),
         ],
     ),
     "WL - Submarine World - Twin-End Tuba": GrinchLocationData(
@@ -1343,7 +1346,8 @@ grinch_locations = {
         1603,
         [
             GrinchRamData(0x010000, value=0x17),
-            GrinchRamData(0x095305, value=10),
+            GrinchRamData(0x0101FB, binary_bit_pos=6),
+            # GrinchRamData(0x095305, value=10),
         ],
     ),
     "WL - South Shore - GPS": GrinchLocationData(
@@ -1352,7 +1356,8 @@ grinch_locations = {
         1604,
         [
             GrinchRamData(0x010000, value=0x12),
-            GrinchRamData(0x010105, binary_bit_pos=7),
+            GrinchRamData(0x0101FB, binary_bit_pos=5)
+            # GrinchRamData(0x010105, binary_bit_pos=7),
         ],
     ),
     # Mount Crumpit Locations
@@ -3225,9 +3230,9 @@ grinch_locations = {
         ["Whoville", "Mission Specific Item Locations"],
         2700,
         [
-            GrinchRamData(0x010000, value=0x01),
+            GrinchRamData(0x010000, value=0x07),
             # GrinchRamData(0x0F05C0, value=0),
-            GrinchRamData(0x0101F9, binary_bit_pos=1)
+            GrinchRamData(0x0101F9, binary_bit_pos=1),
         ],
     ),
     "WV - Clock Tower - Who Cloak": GrinchLocationData(
@@ -3247,7 +3252,7 @@ grinch_locations = {
         [
             GrinchRamData(0x010000, value=0x09),
             # GrinchRamData(0x0F1B39, value=30),
-            GrinchRamData(0x0101F9, binary_bit_pos=3)
+            GrinchRamData(0x0101F9, binary_bit_pos=3),
         ],
     ),
     "WV - City Hall - Sculpting Tools": GrinchLocationData(
