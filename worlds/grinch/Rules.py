@@ -23,7 +23,6 @@ def set_location_rules(world: World):
 def interpret_rule(
     rule_set: list[list[str]],
     player: int,
-    # world: GrinchWorld,
 ):
     # If a region/location does not have any items required, make the section(s) return no logic.
     if rule_set is None or len(rule_set) < 1:

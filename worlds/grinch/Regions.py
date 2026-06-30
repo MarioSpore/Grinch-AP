@@ -334,7 +334,6 @@ def grinchconnect(
     current_region_name: str,
     connected_region_name: str,
     access_rules: list[list[str]],
-    rule=None
 ):
     current_region = world.get_region(current_region_name)
     connected_region = world.get_region(connected_region_name)
