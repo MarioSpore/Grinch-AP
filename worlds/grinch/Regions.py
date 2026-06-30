@@ -368,7 +368,7 @@ def connect_regions(world: "GrinchWorld", multiworld: MultiWorld):
     for grinch_region, grinch_data in ALL_REGIONS_INFO.items():
         multiworld.regions.append(GrinchRegion(grinch_region, grinch_data, world.player, multiworld))
         access_list = grinch_data.region_access
-        if world.options.advanced_logic.value == 1 or world.using_ut:
+        if world.options.advanced_logic == 1 or world.using_ut:
             if grinch_data.advanced_region_access is not None:
                 for advanced_rule in grinch_data.advanced_region_access:
                     # If the glitches_item_name is different than "AdvancedLogic",
