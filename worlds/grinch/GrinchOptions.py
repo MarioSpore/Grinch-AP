@@ -392,8 +392,16 @@ class TeleportMultibind(Toggle):
     """
     display_name = "Teleport Multibind"
 
+class DeathLinkOption(Toggle):
+    """
+    When you die, everyone who enabled death link dies. Of course, the reverse is true too.
+    NOTE: Due to instability, you will not be received deaths if you are in the following areas:
+
+    Mount Crumpit, Sleigh Ride, any supadow minigame, Clock Tower, City Hall, and Post Office
+    """
+
 @dataclass
-class GrinchOptions(DeathLinkMixin, PerGameCommonOptions):
+class GrinchOptions(PerGameCommonOptions):
     progressive_vacuums: ProgressiveVacuums
     starting_area: StartingArea
     missionsanity: Missionsanity
@@ -425,6 +433,7 @@ class GrinchOptions(DeathLinkMixin, PerGameCommonOptions):
     randomize_mission_items: RandomizeMissionItems
     randomize_sleigh_parts: RandomizeSleighParts
     teleport_multibind: TeleportMultibind
+    death_link: DeathLinkOption
 
 
 grinch_option_groups: list[OptionGroup] = [
@@ -469,5 +478,6 @@ grinch_option_groups: list[OptionGroup] = [
         TrapWeight,
         RingLinkOption,
         TrapLinkOption,
+        DeathLinkOption,
     ]),
 ]

@@ -48,6 +48,7 @@ class GrinchWeb(WebWorld):
             TrapWeight,
             RingLinkOption,
             TrapLinkOption,
+            DeathLinkOption,
         ]),
     ]
 
