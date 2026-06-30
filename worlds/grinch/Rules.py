@@ -29,9 +29,6 @@ def interpret_rule(
     if rule_set is None or len(rule_set) < 1:
         return []
 
-    # If a region/location includes the Advanced Logic item and is in logic, make the section(s) return OOL.
-    # if grinch_items.events.ADVANCED_LOGIC in rule_set and not world.options.advanced_logic:
-    #     return []
     # Otherwise, if a region/location DOES have items required, make the section(s) return list of logic.
     access_list: list[Callable[[CollectionState], bool]] = []
 

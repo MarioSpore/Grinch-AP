@@ -344,18 +344,11 @@ def grinchconnect(
     # Goes from connected to current
     connect_entr: Entrance = connected_region.connect(current_region)
 
-    #glitches_item_name = "AdvancedLogic"
-    #glitched_rule = lambda state: state.has(glitches_item_name, world.player) and rule(state)
-
     for access_rule in rule_list:
 
         # If the current region has no logic
         if rule_list.index(access_rule) == 0:
             add_rule(curr_entr, access_rule)
-
-        # If the current region has glitched logic
-        # elif not world.options.advanced_logic and access_rule in glitches_item_name:
-            # add_rule(curr_entr, glitched_rule, "or")
 
         # If the current region has logic
         else:
@@ -364,10 +357,6 @@ def grinchconnect(
         # If the adjacent region has no logic
         if rule_list.index(access_rule) == 0:
             add_rule(connect_entr, access_rule)
-
-        # If the adjacent region has glitched logic
-        # elif not world.options.advanced_logic and access_rule in glitches_item_name:
-            # add_rule(connect_entr, glitched_rule, "or")
 
         # If the adjacent region has logic
         else:
@@ -388,8 +377,8 @@ def connect_regions(world: "GrinchWorld", multiworld: MultiWorld):
                         #advanced_rule.append(world.glitches_item_name)
                     access_list.append(advanced_rule)
 
-        print(f"Region:{grinch_region}")
-        print(f"Access_rules:{access_list}")
+        # print(f"Region:{grinch_region}")
+        # print(f"Access_rules:{access_list}")
         if grinch_region == "Mount Crumpit":
             continue
         grinchconnect(world, grinch_region, grinch_data.parent_region, access_list)
