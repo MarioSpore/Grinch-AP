@@ -453,9 +453,9 @@ grinch_option_groups: list[OptionGroup] = [
         Killsanity,
         MiscLocations,
     ]),
-    # OptionGroup("Logic Settings", [
-    #     AdvancedLogic,
-    # ]),
+    OptionGroup("Logic Settings", [
+        AdvancedLogic,
+    ]),
     OptionGroup("In-Game Tweaks", [
         UnlimitedEggs,
         DamageRate,

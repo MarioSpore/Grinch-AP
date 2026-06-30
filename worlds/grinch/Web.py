@@ -32,9 +32,9 @@ class GrinchWeb(WebWorld):
             Killsanity,
             MiscLocations,
         ]),
-        # OptionGroup("Logic Settings", [
-        #     AdvancedLogic,
-        # ]),
+        OptionGroup("Logic Settings", [
+            AdvancedLogic,
+        ]),
         OptionGroup("In-Game Tweaks", [
             UnlimitedEggs,
             DamageRate,
