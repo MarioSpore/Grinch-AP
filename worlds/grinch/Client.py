@@ -99,6 +99,8 @@ class GrinchClient(BizHawkClient):
     curr_region: str | None = None
     music_rando: bool = False
     chosen_music: dict = {}
+    randomize_mission_items: bool = False
+    randomize_sleigh_parts: bool = False
     #yes
 
     def __init__(self):
@@ -111,6 +113,8 @@ class GrinchClient(BizHawkClient):
         self.chosen_music = {}
         self.reduced_cutscenes = False
         self.teleport_multibind = False
+        self.randomize_mission_items = False
+        self.randomize_sleigh_parts = False
 
     async def validate_rom(self, ctx: "BizHawkClientContext") -> bool:
         from CommonClient import logger
@@ -171,6 +175,8 @@ class GrinchClient(BizHawkClient):
                 self.chosen_music = dict(ctx.slot_data["chosen_music"])
                 self.reduced_cutscenes = bool(ctx.slot_data["reduced_cutscenes"])
                 self.teleport_multibind = bool(ctx.slot_data["teleport_multibind"])
+                self.randomize_mission_items = bool(ctx.slot_data["randomize_mission_items"])
+                self.randomize_sleigh_parts = bool(ctx.slot_data["randomize_sleigh_parts"])
                 self.unique_client_id = self._get_uuid()
                 # logger.info(
                 #     "You are now connected to the client. "
@@ -524,11 +530,28 @@ class GrinchClient(BizHawkClient):
                 ctx.bizhawk_ctx,
                 [(0x0101FE, int(255).to_bytes(1, "little"), "MainRAM")],
             )
+            # Removes crate
+            await bizhawk.write(
+                ctx.bizhawk_ctx,
+                [(0x0F70CC, int(30620).to_bytes(2, "little"), "MainRAM")],
+            )
 
 
         for item_name, item_data in items_to_check.items():
             # If item is an event or already been received, ignore.
             if item_data.id is None:  # or GrinchLocation.get_apid(item_data.id) in list_recv_itemids:
+                continue
+
+            if (item_name in
+                    ["Painting Bucket", "Who Cloak", "Sculpting Tools", "Hammer",
+                    "Cable Car Access Card", "Glue Bucket",
+                    "Scissors",
+                    "Scout Clothes", "Drill", "Hook", "Rope"]
+                    and not self.randomize_mission_items):
+                continue
+
+            if (item_name in ["Exhaust Pipes", "Skis", "Tires", "Twin-End Tuba", "GPS"]
+                    and not self.randomize_sleigh_parts):
                 continue
 
             if item_name == grinch_items.keys.PROGRESSIVE_VACUUM_TUBE and has_whoville_vacuum_tube:
