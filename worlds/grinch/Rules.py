@@ -158,6 +158,7 @@ rules_dict: dict[str, list[list[str]]] = {
         ],
         [
             grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
+            grinch_items.events.ADVANCED_LOGIC,
             grinch_items.gadgets.SLIME_SHOOTER,
             grinch_items.moves.SEIZE,
             grinch_items.moves.PANCAKE,
