@@ -193,6 +193,7 @@ class Killsanity(OptionSet):
 class Gadgetrando(DefaultOnToggle):
     """
     Determines whether the Grinch's gadgets will be randomized or not.
+    Disabling this will give you every gadget at the start from gadgets_to_randomize.
     """
 
     display_name = "Randomize Gadgets"
@@ -230,6 +231,7 @@ class ExcludeGC(Toggle):
 class Moverando(Toggle):
     """
     Determines whether the Grinch's moves will be randomized or not.
+    Disabling this will give you every gadget at the start from moves_to_randomize.
     """
 
     display_name = "Randomize Moves"
@@ -253,6 +255,7 @@ class Moverandolist(OptionSet):
 class UnlimitedEggs(Toggle):
     """
     Determine if you run out of rotten eggs when you utilize your gadgets.
+    This will also give 1 nitro egg/thistle per 0.5 seconds if in their respective regions.
     NOTE: Attempting to enable this with ringlink will force generation to stop
     until either option is disabled.
     """
@@ -264,6 +267,8 @@ class RingLinkOption(Toggle):
     """
     Whenever this is toggled, your ammo is linked with other ringlink-compatible
     games that also have this enabled.
+    Due to instability, ringlink will not give you eggs if you are in either the
+    Sleigh Ride or any of the minigames in Mount Crumpit.
     NOTE: Attempting to enable this with unlimited_eggs will force generation
     to stop until either option is enabled.
     """
@@ -396,9 +401,9 @@ class TeleportMultibind(Toggle):
 class DeathLinkOption(Toggle):
     """
     When you die, everyone who enabled death link dies. Of course, the reverse is true too.
-    NOTE: Due to instability, you will not be received deaths if you are in the following areas:
+    NOTE: Due to instability, you will not be able to send or receive deaths if you are in the following areas:
 
-    Mount Crumpit, Sleigh Ride, any supadow minigame, Clock Tower, City Hall, and Post Office
+    Mount Crumpit, Sleigh Ride, any minigame in Mount Crumpit, Clock Tower, City Hall, and Post Office
     """
 
 @dataclass
