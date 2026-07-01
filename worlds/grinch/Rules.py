@@ -1411,31 +1411,31 @@ rules_dict: dict[str, list[list[str]]] = {
     #         grinch_items.moves.PANCAKE,
     #     ],
     # ],
-    "MC - 1st Crate Squashed": [
-        [
-            grinch_items.moves.PANCAKE,
-        ],
-    ],
-    "MC - 2nd Crate Squashed": [
-        [
-            grinch_items.moves.PANCAKE,
-        ],
-    ],
-    "MC - 3rd Crate Squashed": [
-        [
-            grinch_items.moves.PANCAKE,
-        ],
-    ],
-    "MC - 4th Crate Squashed": [
-        [
-            grinch_items.moves.PANCAKE,
-        ],
-    ],
-    "MC - 5th Crate Squashed": [
-        [
-            grinch_items.moves.PANCAKE,
-        ],
-    ],
+    # "MC - 1st Crate Squashed": [
+    #     [
+    #         grinch_items.moves.PANCAKE,
+    #     ],
+    # ],
+    # "MC - 2nd Crate Squashed": [
+    #     [
+    #         grinch_items.moves.PANCAKE,
+    #     ],
+    # ],
+    # "MC - 3rd Crate Squashed": [
+    #     [
+    #         grinch_items.moves.PANCAKE,
+    #     ],
+    # ],
+    # "MC - 4th Crate Squashed": [
+    #     [
+    #         grinch_items.moves.PANCAKE,
+    #     ],
+    # ],
+    # "MC - 5th Crate Squashed": [
+    #     [
+    #         grinch_items.moves.PANCAKE,
+    #     ],
+    # ],
     "MC - Interact with the Telescope": [[]],
     "MC - I hate Whos!": [[]],
     "MC - I hate Christmas!": [[]],

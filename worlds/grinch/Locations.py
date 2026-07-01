@@ -1361,51 +1361,51 @@ grinch_locations = {
         ],
     ),
     # Mount Crumpit Locations
-    "MC - 1st Crate Squashed": GrinchLocationData(
-        "Mount Crumpit",
-        ["Mount Crumpit"],
-        1700,
-        [
-            GrinchRamData(0x095343, value=1),
-            GrinchRamData(0x010000, value=0x05),
-        ],
-    ),
-    "MC - 2nd Crate Squashed": GrinchLocationData(
-        "Mount Crumpit",
-        ["Mount Crumpit"],
-        1701,
-        [
-            GrinchRamData(0x095343, value=2),
-            GrinchRamData(0x010000, value=0x05),
-        ],
-    ),
-    "MC - 3rd Crate Squashed": GrinchLocationData(
-        "Mount Crumpit",
-        ["Mount Crumpit"],
-        1702,
-        [
-            GrinchRamData(0x095343, value=3),
-            GrinchRamData(0x010000, value=0x05),
-        ],
-    ),
-    "MC - 4th Crate Squashed": GrinchLocationData(
-        "Mount Crumpit",
-        ["Mount Crumpit"],
-        1703,
-        [
-            GrinchRamData(0x095343, value=4),
-            GrinchRamData(0x010000, value=0x05),
-        ],
-    ),
-    "MC - 5th Crate Squashed": GrinchLocationData(
-        "Mount Crumpit",
-        ["Mount Crumpit"],
-        1704,
-        [
-            GrinchRamData(0x095343, value=5),
-            GrinchRamData(0x010000, value=0x05),
-        ],
-    ),
+    # "MC - 1st Crate Squashed": GrinchLocationData(
+    #     "Mount Crumpit",
+    #     ["Mount Crumpit"],
+    #     1700,
+    #     [
+    #         GrinchRamData(0x095343, value=1),
+    #         GrinchRamData(0x010000, value=0x05),
+    #     ],
+    # ),
+    # "MC - 2nd Crate Squashed": GrinchLocationData(
+    #     "Mount Crumpit",
+    #     ["Mount Crumpit"],
+    #     1701,
+    #     [
+    #         GrinchRamData(0x095343, value=2),
+    #         GrinchRamData(0x010000, value=0x05),
+    #     ],
+    # ),
+    # "MC - 3rd Crate Squashed": GrinchLocationData(
+    #     "Mount Crumpit",
+    #     ["Mount Crumpit"],
+    #     1702,
+    #     [
+    #         GrinchRamData(0x095343, value=3),
+    #         GrinchRamData(0x010000, value=0x05),
+    #     ],
+    # ),
+    # "MC - 4th Crate Squashed": GrinchLocationData(
+    #     "Mount Crumpit",
+    #     ["Mount Crumpit"],
+    #     1703,
+    #     [
+    #         GrinchRamData(0x095343, value=4),
+    #         GrinchRamData(0x010000, value=0x05),
+    #     ],
+    # ),
+    # "MC - 5th Crate Squashed": GrinchLocationData(
+    #     "Mount Crumpit",
+    #     ["Mount Crumpit"],
+    #     1704,
+    #     [
+    #         GrinchRamData(0x095343, value=5),
+    #         GrinchRamData(0x010000, value=0x05),
+    #     ],
+    # ),
     "MC - Interact with the Telescope": GrinchLocationData(
         "Mount Crumpit",
         ["Mount Crumpit"],
