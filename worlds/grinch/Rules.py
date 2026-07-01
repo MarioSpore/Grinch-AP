@@ -530,9 +530,10 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
             grinch_items.moves.BAD_BREATH,
             grinch_items.gadgets.GRINCH_COPTER,
-            grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.moves.MAX,
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.SNEAK,
         ],
     ],
     "WL - Squashing All Gifts": [
