@@ -2266,12 +2266,12 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.PANCAKE,
         ],
-        # [
-            # grinch_items.events.ADVANCED_LOGIC,
-            # grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-            # grinch_items.moves.MAX,
-            # grinch_items.gadgets.BINOCULARS,
-        # ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.moves.MAX,
+            grinch_items.gadgets.BINOCULARS,
+        ],
     ],
     "WD - Feeding The Computer With Robot Parts - Right area near entrance to center area": [
         [
@@ -2301,12 +2301,12 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.PANCAKE,
         ],
-        # [
-        #     grinch_items.events.ADVANCED_LOGIC,
-        #     grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-        #     grinch_items.moves.MAX,
-        #     grinch_items.gadgets.BINOCULARS,
-        # ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.moves.MAX,
+            grinch_items.gadgets.BINOCULARS,
+        ],
     ],
     "WD - Feeding The Computer With Robot Parts - Near inward pipe in left area": [
         [
