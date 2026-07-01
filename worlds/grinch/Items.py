@@ -193,7 +193,7 @@ GADGETS_TABLE: dict[str, GrinchItemData] = {
             grinch_categories.PROGRESSION_IC,
         ],
         103,
-        IC.progression,
+        IC.progression_skip_balancing,
         [
             GrinchRamData(0x0102C7, value=0x40),
             GrinchRamData(0x0102C8, value=0x41),
@@ -214,7 +214,7 @@ GADGETS_TABLE: dict[str, GrinchItemData] = {
             grinch_categories.PROGRESSION_IC,
         ],
         104,
-        IC.progression,
+        IC.progression_skip_balancing,
         [
             GrinchRamData(0x0102D0, value=0x40),
             GrinchRamData(0x0102D1, value=0x41),

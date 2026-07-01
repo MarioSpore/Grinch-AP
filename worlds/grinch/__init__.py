@@ -417,12 +417,6 @@ class GrinchWorld(World):
 
         # Adds gadgets
         for gadgets_added in GADGETS_TABLE:
-            if gadgets_added == "Binoculars" :
-                if self.options.advanced_logic:
-                    self_itempool.append(self.set_skip_balancing(gadgets_added))
-                else:
-                    self_itempool.append(self.create_item(gadgets_added))
-                continue
 
             if gadgets_added == "Grinch Copter" and self.options.exclude_gc:
                 continue
@@ -432,12 +426,23 @@ class GrinchWorld(World):
                 continue
 
             if self.options.gadget_rando and gadgets_added in self.options.gadgets_to_randomize:
-                if self.options.goal == 0 and gadgets_added in ["Rotten Egg Launcher", "Rocket Spring", "Marine Mobile"]:
-                    self_itempool.append(self.create_item(gadgets_added))
-                elif "Grinch Copter" in gadgets_added and self.options.advanced_logic and self.options.goal == 0:
-                    self_itempool.append(self.create_item(gadgets_added))
+                if gadgets_added in ["Rotten Egg Launcher", "Rocket Spring", "Marine Mobile"]:
+                    if self.options.goal == 0:
+                        self_itempool.append(self.create_item(gadgets_added))
+                    else:
+                        self_itempool.append(self.set_skip_balancing(gadgets_added))
+                elif gadgets_added == "Grinch Copter":
+                    if self.options.advanced_logic and self.options.goal == 0:
+                        self_itempool.append(self.create_item(gadgets_added))
+                    else:
+                        self_itempool.append(self.set_skip_balancing(gadgets_added))
+                elif gadgets_added == "Binoculars":
+                    if not self.options.advanced_logic:
+                        self_itempool.append(self.create_item(gadgets_added))
+                    else:
+                        self_itempool.append(self.set_skip_balancing(gadgets_added))
                 else:
-                    self_itempool.append(self.set_skip_balancing(gadgets_added))
+                    self_itempool.append(self.create_item(gadgets_added))
             else:
                 self.multiworld.push_precollected(self.create_item(gadgets_added))
                 continue
