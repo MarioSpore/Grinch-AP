@@ -213,6 +213,7 @@ class Gadgetrandolist(OptionSet):
         "Octopus Climbing Device",
         "Marine Mobile",
         "Grinch Copter",
+        "Binoculars",
     ]
 
 
