@@ -169,6 +169,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SEIZE,
             grinch_items.moves.MAX,
+            grinch_items.gadgets.SLIME_SHOOTER,
         ],
         [
             grinch_items.level_items.WV_HAMMER,
