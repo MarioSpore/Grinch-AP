@@ -1030,7 +1030,14 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.PANCAKE,
             grinch_items.moves.SEIZE,
-        ]
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.SEIZE,
+        ],
     ],
     "WD - Minefield - OCD BP on Left Side of House": [
         [
