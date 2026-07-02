@@ -184,28 +184,27 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.level_items.WV_HAMMER,
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SEIZE,
+        ],
+        [
+            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.MAX,
+            grinch_items.moves.SEIZE,
             grinch_items.gadgets.SLIME_SHOOTER,
         ],
         [
+            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.MAX,
+            grinch_items.moves.SEIZE,
+            grinch_items.moves.SNEAK,
+        ],
+        [
+            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
             grinch_items.events.ADVANCED_LOGIC,
-            grinch_items.level_items.WV_HAMMER,
-            grinch_items.gadgets.ROCKET_SPRING,
-            grinch_items.moves.SEIZE,
-            grinch_items.moves.SNEAK,
-        ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.MAX,
             grinch_items.moves.SEIZE,
-            grinch_items.gadgets.SLIME_SHOOTER,
-        ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.gadgets.ROCKET_SPRING,
-            grinch_items.moves.MAX,
-            grinch_items.moves.SEIZE,
-            grinch_items.moves.SNEAK,
         ],
     ],
     "WV - Squashing All Gifts": [
@@ -662,6 +661,12 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.SEIZE,
             grinch_items.moves.SNEAK,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.MAX,
+            grinch_items.moves.SEIZE,
+        ],
     ],
     "WV - Clock Tower - GC BP in Bell Room": [
         [
@@ -680,13 +685,6 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.events.ADVANCED_LOGIC,
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SEIZE,
-            grinch_items.gadgets.SLIME_SHOOTER,
-        ],
-        [
-            grinch_items.events.ADVANCED_LOGIC,
-            grinch_items.gadgets.ROCKET_SPRING,
-            grinch_items.moves.SEIZE,
-            grinch_items.moves.SNEAK,
         ],
     ],
     # Who Forest Blueprints
@@ -1732,6 +1730,10 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.gadgets.SLIME_SHOOTER,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROCKET_SPRING,
+        ],
     ],
     "WV - Clock Tower - Open Hatch to Floor 3": [
         [
@@ -1741,6 +1743,10 @@ rules_dict: dict[str, list[list[str]]] = {
         [
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.gadgets.SLIME_SHOOTER,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROCKET_SPRING,
         ],
     ],
     "WV - Clock Tower - Open Hatch to Floor 4": [
@@ -1754,6 +1760,11 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.SEIZE,
             grinch_items.gadgets.SLIME_SHOOTER,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SEIZE,
+        ],
     ],
     "WV - Clock Tower - Open Hatch to Floor 5": [
         [
@@ -1765,6 +1776,11 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SEIZE,
             grinch_items.gadgets.SLIME_SHOOTER,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.SEIZE,
         ],
     ],
     "WV - Clock Tower - Ring 1st Bell": [
@@ -1784,13 +1800,6 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.events.ADVANCED_LOGIC,
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SEIZE,
-            grinch_items.moves.SNEAK,
-        ],
-        [
-            grinch_items.events.ADVANCED_LOGIC,
-            grinch_items.gadgets.ROCKET_SPRING,
-            grinch_items.moves.SEIZE,
-            grinch_items.gadgets.SLIME_SHOOTER,
         ],
     ],
     "WV - Clock Tower - Ring 2nd Bell": [
@@ -1810,13 +1819,6 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.events.ADVANCED_LOGIC,
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SEIZE,
-            grinch_items.moves.SNEAK,
-        ],
-        [
-            grinch_items.events.ADVANCED_LOGIC,
-            grinch_items.gadgets.ROCKET_SPRING,
-            grinch_items.moves.SEIZE,
-            grinch_items.gadgets.SLIME_SHOOTER,
         ],
     ],
     "WV - Clock Tower - Ring 3rd Bell": [
@@ -1836,13 +1838,6 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.events.ADVANCED_LOGIC,
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SEIZE,
-            grinch_items.moves.SNEAK,
-        ],
-        [
-            grinch_items.events.ADVANCED_LOGIC,
-            grinch_items.gadgets.ROCKET_SPRING,
-            grinch_items.moves.SEIZE,
-            grinch_items.gadgets.SLIME_SHOOTER,
         ],
     ],
     "WV - Clock Tower - Ring 4th Bell": [
@@ -1862,13 +1857,6 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.events.ADVANCED_LOGIC,
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SEIZE,
-            grinch_items.moves.SNEAK,
-        ],
-        [
-            grinch_items.events.ADVANCED_LOGIC,
-            grinch_items.gadgets.ROCKET_SPRING,
-            grinch_items.moves.SEIZE,
-            grinch_items.gadgets.SLIME_SHOOTER,
         ],
     ],
     "WV - Clock Tower - Ring 5th Bell": [
@@ -1888,13 +1876,6 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.events.ADVANCED_LOGIC,
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SEIZE,
-            grinch_items.moves.SNEAK,
-        ],
-        [
-            grinch_items.events.ADVANCED_LOGIC,
-            grinch_items.gadgets.ROCKET_SPRING,
-            grinch_items.moves.SEIZE,
-            grinch_items.gadgets.SLIME_SHOOTER,
         ],
     ],
     "WF - Making Xmas Trees Droop - Swinging platform farthest to Glue Cannon": [
@@ -3856,6 +3837,12 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.MAX,
             grinch_items.moves.SEIZE,
             grinch_items.moves.SNEAK,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.MAX,
+            grinch_items.moves.SEIZE,
         ],
     ],
     "WV - City Hall - Sculpting Tools": [
