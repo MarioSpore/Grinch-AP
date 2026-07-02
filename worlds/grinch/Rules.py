@@ -2697,7 +2697,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.PANCAKE,
         ],
         [
-            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.SLIME_SHOOTER,
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.PANCAKE,
         ],
