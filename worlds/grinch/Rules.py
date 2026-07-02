@@ -3337,6 +3337,7 @@ rules_dict: dict[str, list[list[str]]] = {
         [
             grinch_items.level_items.WL_SCOUT_CLOTHES,
             grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.SEIZE,
             grinch_items.moves.MAX,
             grinch_items.moves.SNEAK,
         ],
@@ -3352,6 +3353,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.events.ADVANCED_LOGIC,
             grinch_items.level_items.WL_SCOUT_CLOTHES,
             grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.SEIZE,
             grinch_items.moves.MAX,
         ],
         [
@@ -3365,6 +3367,7 @@ rules_dict: dict[str, list[list[str]]] = {
         [
             grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
             grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.SEIZE,
             grinch_items.moves.MAX,
             grinch_items.moves.SNEAK,
             grinch_items.moves.BAD_BREATH,
@@ -3385,6 +3388,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.events.ADVANCED_LOGIC,
             grinch_items.level_items.WL_SCOUT_CLOTHES,
             grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.SEIZE,
             grinch_items.moves.MAX,
             grinch_items.moves.BAD_BREATH,
             grinch_items.moves.PANCAKE,
