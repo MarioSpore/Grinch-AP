@@ -3201,21 +3201,17 @@ rules_dict: dict[str, list[list[str]]] = {
     "WL - North Shore - Drilling Holes In Canoes - On beach left side below max house": [
         [
             grinch_items.level_items.WL_DRILL,
-            grinch_items.moves.MAX,
         ],
         [
             grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.moves.MAX,
         ],
     ],
     "WL - North Shore - Drilling Holes In Canoes - On beach right side below max house": [
         [
             grinch_items.level_items.WL_DRILL,
-            grinch_items.moves.MAX,
         ],
         [
             grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.moves.MAX,
         ],
     ],
     "WL - North Shore - Drilling Holes In Canoes - Middle side in fence area": [
