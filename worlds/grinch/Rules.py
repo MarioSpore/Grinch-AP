@@ -1976,6 +1976,11 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.BAD_BREATH,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+        ],
     ],
     "WF - Putting Beehives In Cabins - Green house on glue cannon platform": [
         [
@@ -2014,11 +2019,21 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.BAD_BREATH,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+        ],
     ],
     "WF - Putting Beehives In Cabins - Red house next to Tree House": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
         ],
     ],
     "WF - Putting Beehives In Cabins - Tree house": [
@@ -2032,6 +2047,11 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.BAD_BREATH,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+        ],
     ],
     "WF - Putting Beehives In Cabins - Red house near Cable car": [
         [
@@ -2043,6 +2063,11 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
         ],
     ],
     "WF - Putting Beehives In Cabins - Blue house in front of civic center cave": [
