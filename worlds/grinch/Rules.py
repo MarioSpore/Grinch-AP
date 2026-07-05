@@ -552,6 +552,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.level_items.WL_SCOUT_CLOTHES,
             grinch_items.moves.SNEAK,
             grinch_items.moves.PANCAKE,
+            grinch_items.moves.MAX,
             grinch_items.level_items.WL_HOOK,
         ],
         [
@@ -561,6 +562,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.level_items.WL_SCOUT_CLOTHES,
             grinch_items.moves.PANCAKE,
+            grinch_items.moves.MAX,
             grinch_items.level_items.WL_HOOK,
         ],
         [
@@ -570,6 +572,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.moves.SNEAK,
             grinch_items.moves.PANCAKE,
+            grinch_items.moves.MAX,
             grinch_items.moves.BAD_BREATH,
         ],
         [
@@ -580,6 +583,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.moves.PANCAKE,
             grinch_items.moves.BAD_BREATH,
+            grinch_items.moves.MAX,
         ],
     ],
     # Whoville Blueprints
