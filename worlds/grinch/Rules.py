@@ -50,13 +50,6 @@ def interpret_rule(
 # - You can get softlocked in an area and would require restarting
 # - You have a chance to get teleported back to the start by doing this
 # - You take damage to brute force through certain areas
-# - You waste a lot of Rotten Eggs when there are intentional game design alternatives not to.
-# Example being guessing bell order in Countdown to Xmas Clock. Skipping areas via GC does not count.
-# - Sections where you are camera locked in an area and have to perform precise jumps to get around it.
-# Example using Pancake on Mole in North Shore up to the drill house
-# - Locations that might just barely be enough in reach to jump towards without moving a boulder
-# Example being WL - South Shore - MM BP on Grass Platform
-
 rules_dict: dict[str, list[list[str]]] = {
     # Rules applied to regions first via the access_list, so "First Visit" checks should ALWAYS be empty
     # First Visit Checks (ALWAYS empty)
@@ -94,10 +87,6 @@ rules_dict: dict[str, list[list[str]]] = {
         [
             grinch_items.level_items.WV_PAINT_BUCKET,
         ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.moves.PANCAKE,
-        ],
     ],
     "WV - Launching Eggs Into Houses": [
         [
@@ -129,40 +118,6 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.level_items.WV_SCULPTING_TOOLS,
             grinch_items.gadgets.SLIME_SHOOTER,
         ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.moves.SNEAK,
-            grinch_items.moves.SEIZE,
-            grinch_items.moves.PANCAKE,
-            grinch_items.moves.BAD_BREATH,
-        ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.gadgets.SLIME_SHOOTER,
-            grinch_items.moves.SEIZE,
-            grinch_items.moves.PANCAKE,
-            grinch_items.moves.BAD_BREATH,
-        ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.gadgets.GRINCH_COPTER,
-            grinch_items.moves.SEIZE,
-            grinch_items.moves.PANCAKE,
-        ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.events.ADVANCED_LOGIC,
-            grinch_items.moves.SNEAK,
-            grinch_items.moves.SEIZE,
-            grinch_items.moves.PANCAKE,
-        ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.events.ADVANCED_LOGIC,
-            grinch_items.gadgets.SLIME_SHOOTER,
-            grinch_items.moves.SEIZE,
-            grinch_items.moves.PANCAKE,
-        ],
     ],
     "WV - Clock Tower - Advancing The Countdown-To-Xmas Clock": [
         [
@@ -185,27 +140,6 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SEIZE,
         ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.gadgets.ROCKET_SPRING,
-            grinch_items.moves.MAX,
-            grinch_items.moves.SEIZE,
-            grinch_items.gadgets.SLIME_SHOOTER,
-        ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.gadgets.ROCKET_SPRING,
-            grinch_items.moves.MAX,
-            grinch_items.moves.SEIZE,
-            grinch_items.moves.SNEAK,
-        ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.events.ADVANCED_LOGIC,
-            grinch_items.gadgets.ROCKET_SPRING,
-            grinch_items.moves.MAX,
-            grinch_items.moves.SEIZE,
-        ],
     ],
     "WV - Squashing All Gifts": [
         [
@@ -213,16 +147,6 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.SLIME_SHOOTER,
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.level_items.WV_WHO_CLOAK,
-            grinch_items.gadgets.ROCKET_SPRING,
-            grinch_items.moves.PANCAKE,
-            grinch_items.moves.MAX,
-            grinch_items.moves.SEIZE,
-        ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.gadgets.GRINCH_COPTER,
-            grinch_items.gadgets.SLIME_SHOOTER,
-            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.PANCAKE,
             grinch_items.moves.MAX,
@@ -243,16 +167,6 @@ rules_dict: dict[str, list[list[str]]] = {
         ],
         [
             grinch_items.level_items.WF_GLUE_BUCKET,
-            grinch_items.gadgets.GRINCH_COPTER,
-        ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-            grinch_items.gadgets.ROCKET_SPRING,
-        ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.GRINCH_COPTER,
         ],
     ],
@@ -308,15 +222,6 @@ rules_dict: dict[str, list[list[str]]] = {
         [
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.level_items.WF_CABLE_CAR_ACCESS_CARD,
-            grinch_items.gadgets.SLIME_SHOOTER,
-            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-            grinch_items.moves.BAD_BREATH,
-            grinch_items.moves.PANCAKE,
-            grinch_items.moves.MAX,
-        ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.gadgets.SLIME_SHOOTER,
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.moves.BAD_BREATH,
@@ -403,25 +308,6 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SNEAK,
             grinch_items.level_items.WD_SCISSORS,
-        ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.gadgets.GRINCH_COPTER,
-            grinch_items.moves.SNEAK,
-        ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-            grinch_items.gadgets.SLIME_SHOOTER,
-            grinch_items.gadgets.ROCKET_SPRING,
-            grinch_items.moves.SNEAK,
-        ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.events.ADVANCED_LOGIC,
-            grinch_items.moves.SNEAK,
-            grinch_items.gadgets.SLIME_SHOOTER,
-            grinch_items.gadgets.ROCKET_SPRING,
         ],
     ],
     "WD - Generator Building - Short-Circuiting Power-Plant": [
@@ -520,11 +406,6 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.SEIZE,
             grinch_items.moves.MAX,
         ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.moves.SEIZE,
-            grinch_items.moves.MAX,
-        ],
     ],
     "WL - Submarine World - Modifying The Marine Mobile": [[]],
     "WL - Mayor's Villa - Hooking The Mayor's Bed To The Motorboat": [
@@ -533,15 +414,6 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.level_items.WL_HOOK,
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.level_items.WL_SCOUT_CLOTHES,
-            grinch_items.moves.PANCAKE,
-            grinch_items.moves.SNEAK,
-        ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.moves.BAD_BREATH,
-            grinch_items.gadgets.GRINCH_COPTER,
-            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-            grinch_items.moves.MAX,
             grinch_items.moves.PANCAKE,
             grinch_items.moves.SNEAK,
         ],
@@ -566,26 +438,6 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.PANCAKE,
             grinch_items.moves.MAX,
             grinch_items.level_items.WL_HOOK,
-        ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.gadgets.GRINCH_COPTER,
-            grinch_items.gadgets.MARINE_MOBILE,
-            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-            grinch_items.moves.SNEAK,
-            grinch_items.moves.PANCAKE,
-            grinch_items.moves.MAX,
-            grinch_items.moves.BAD_BREATH,
-        ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.events.ADVANCED_LOGIC,
-            grinch_items.gadgets.GRINCH_COPTER,
-            grinch_items.gadgets.MARINE_MOBILE,
-            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-            grinch_items.moves.PANCAKE,
-            grinch_items.moves.BAD_BREATH,
-            grinch_items.moves.MAX,
         ],
     ],
     # Whoville Blueprints
@@ -1623,90 +1475,50 @@ rules_dict: dict[str, list[list[str]]] = {
         [
             grinch_items.level_items.WV_PAINT_BUCKET,
         ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.moves.PANCAKE,
-        ],
     ],
     "WV - Painting The Mayor's Posters - Left side of City Hall on Red Building": [
         [
             grinch_items.level_items.WV_PAINT_BUCKET,
-        ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.moves.PANCAKE,
         ],
     ],
     "WV - Painting The Mayor's Posters - Orange Building in front of Post Office upper level": [
         [
             grinch_items.level_items.WV_PAINT_BUCKET,
         ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.moves.PANCAKE,
-        ],
     ],
     "WV - Painting The Mayor's Posters - Left side of Post Office on Orange Building left side wall": [
         [
             grinch_items.level_items.WV_PAINT_BUCKET,
-        ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.moves.PANCAKE,
         ],
     ],
     "WV - Painting The Mayor's Posters - Right side of City Hall on Gray Building Platform": [
         [
             grinch_items.level_items.WV_PAINT_BUCKET,
         ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.moves.PANCAKE,
-        ],
     ],
     "WV - Painting The Mayor's Posters - Next to Vacuum Tube on left side": [
         [
             grinch_items.level_items.WV_PAINT_BUCKET,
-        ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.moves.PANCAKE,
         ],
     ],
     "WV - Painting The Mayor's Posters - Right side of Clock Tower on Swinging Platform": [
         [
             grinch_items.level_items.WV_PAINT_BUCKET,
         ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.moves.PANCAKE,
-        ],
     ],
     "WV - Painting The Mayor's Posters - Orange Building in front of Post Office lower level": [
         [
             grinch_items.level_items.WV_PAINT_BUCKET,
-        ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.moves.PANCAKE,
         ],
     ],
     "WV - Painting The Mayor's Posters - Left Side of City Hall on Gray Building Platform": [
         [
             grinch_items.level_items.WV_PAINT_BUCKET,
         ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.moves.PANCAKE,
-        ],
     ],
     "WV - Painting The Mayor's Posters - Right Side of City Hall on Orange Building": [
         [
             grinch_items.level_items.WV_PAINT_BUCKET,
-        ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.moves.PANCAKE,
         ],
     ],
     "WV - Post Office - Shuffling The Mail - Pink Room (Room 1)": [
@@ -3234,25 +3046,15 @@ rules_dict: dict[str, list[list[str]]] = {
         [
             grinch_items.level_items.WL_DRILL,
         ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-        ],
     ],
     "WL - North Shore - Drilling Holes In Canoes - Left side adjacent to fence area": [
         [
             grinch_items.level_items.WL_DRILL,
         ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-        ],
     ],
     "WL - North Shore - Drilling Holes In Canoes - Left side in fence area": [
         [
             grinch_items.level_items.WL_DRILL,
-            grinch_items.moves.MAX,
-        ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
             grinch_items.moves.MAX,
         ],
     ],
@@ -3261,25 +3063,15 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.level_items.WL_DRILL,
             grinch_items.moves.MAX,
         ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.moves.MAX,
-        ],
     ],
     "WL - North Shore - Drilling Holes In Canoes - On beach left side below max house": [
         [
             grinch_items.level_items.WL_DRILL,
         ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-        ],
     ],
     "WL - North Shore - Drilling Holes In Canoes - On beach right side below max house": [
         [
             grinch_items.level_items.WL_DRILL,
-        ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
         ],
     ],
     "WL - North Shore - Drilling Holes In Canoes - Middle side in fence area": [
@@ -3287,17 +3079,10 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.level_items.WL_DRILL,
             grinch_items.moves.MAX,
         ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.moves.MAX,
-        ],
     ],
     "WL - North Shore - Drilling Holes In Canoes - Behind max house": [
         [
             grinch_items.level_items.WL_DRILL,
-        ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
         ],
     ],
     "WL - North Shore - Drilling Holes In Canoes - Right side on top of car": [
@@ -3305,18 +3090,10 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.level_items.WL_DRILL,
             grinch_items.moves.SEIZE,
         ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.moves.SEIZE,
-        ],
     ],
     "WL - North Shore - Drilling Holes In Canoes - Left side on top of car": [
         [
             grinch_items.level_items.WL_DRILL,
-            grinch_items.moves.SEIZE,
-        ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
             grinch_items.moves.SEIZE,
         ],
     ],
@@ -3337,16 +3114,6 @@ rules_dict: dict[str, list[list[str]]] = {
         [
             grinch_items.events.ADVANCED_LOGIC,
             grinch_items.moves.MAX,
-        ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.moves.MAX,
-            grinch_items.moves.SNEAK,
-        ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.moves.MAX,
-            grinch_items.gadgets.SLIME_SHOOTER,
         ],
     ],
     "WF - Collect all Rocket Spring Blueprints": [
@@ -3426,45 +3193,6 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.MAX,
             grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
             grinch_items.gadgets.ROCKET_SPRING,
-        ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.gadgets.GRINCH_COPTER,
-            grinch_items.moves.SEIZE,
-            grinch_items.moves.MAX,
-            grinch_items.moves.SNEAK,
-            grinch_items.moves.BAD_BREATH,
-            grinch_items.moves.PANCAKE,
-        ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.moves.SEIZE,
-            grinch_items.moves.MAX,
-            grinch_items.moves.SNEAK,
-            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
-            grinch_items.gadgets.ROCKET_SPRING,
-            grinch_items.moves.BAD_BREATH,
-            grinch_items.moves.PANCAKE,
-        ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.events.ADVANCED_LOGIC,
-            grinch_items.level_items.WL_SCOUT_CLOTHES,
-            grinch_items.gadgets.GRINCH_COPTER,
-            grinch_items.moves.SEIZE,
-            grinch_items.moves.MAX,
-            grinch_items.moves.BAD_BREATH,
-            grinch_items.moves.PANCAKE,
-        ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.events.ADVANCED_LOGIC,
-            grinch_items.moves.SEIZE,
-            grinch_items.moves.MAX,
-            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
-            grinch_items.gadgets.ROCKET_SPRING,
-            grinch_items.moves.BAD_BREATH,
-            grinch_items.moves.PANCAKE,
         ],
     ],
     "MC - Collect all Grinch Copter Blueprints": [
@@ -3588,128 +3316,6 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.events.ADVANCED_LOGIC,
             grinch_items.level_items.WL_SCOUT_CLOTHES,
             grinch_items.level_items.WF_CABLE_CAR_ACCESS_CARD,
-            grinch_items.moves.MAX,
-            grinch_items.moves.SEIZE,
-            grinch_items.moves.BAD_BREATH,
-            grinch_items.moves.PANCAKE,
-            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-            grinch_items.gadgets.ROCKET_SPRING,
-            grinch_items.gadgets.MARINE_MOBILE,
-            grinch_items.gadgets.GRINCH_COPTER,
-            "4:" + grinch_items.keys.PROGRESSIVE_VACUUM_TUBE,
-        ],
-        # Mission items not randomized only
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.moves.MAX,
-            grinch_items.moves.SEIZE,
-            grinch_items.moves.BAD_BREATH,
-            grinch_items.moves.SNEAK,
-            grinch_items.moves.PANCAKE,
-            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-            grinch_items.gadgets.ROCKET_SPRING,
-            grinch_items.gadgets.SLIME_SHOOTER,
-            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
-            grinch_items.gadgets.MARINE_MOBILE,
-            grinch_items.keys.WHOVILLE,
-            grinch_items.keys.WHO_FOREST,
-            grinch_items.keys.WHO_DUMP,
-            grinch_items.keys.WHO_LAKE,
-        ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.moves.MAX,
-            grinch_items.moves.SEIZE,
-            grinch_items.moves.BAD_BREATH,
-            grinch_items.moves.SNEAK,
-            grinch_items.moves.PANCAKE,
-            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-            grinch_items.gadgets.ROCKET_SPRING,
-            grinch_items.gadgets.MARINE_MOBILE,
-            grinch_items.gadgets.GRINCH_COPTER,
-            grinch_items.keys.WHOVILLE,
-            grinch_items.keys.WHO_FOREST,
-            grinch_items.keys.WHO_DUMP,
-            grinch_items.keys.WHO_LAKE,
-        ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.moves.MAX,
-            grinch_items.moves.SEIZE,
-            grinch_items.moves.BAD_BREATH,
-            grinch_items.moves.SNEAK,
-            grinch_items.moves.PANCAKE,
-            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-            grinch_items.gadgets.ROCKET_SPRING,
-            grinch_items.gadgets.SLIME_SHOOTER,
-            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
-            grinch_items.gadgets.MARINE_MOBILE,
-            "4:" + grinch_items.keys.PROGRESSIVE_VACUUM_TUBE,
-        ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.moves.MAX,
-            grinch_items.moves.SEIZE,
-            grinch_items.moves.BAD_BREATH,
-            grinch_items.moves.SNEAK,
-            grinch_items.moves.PANCAKE,
-            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-            grinch_items.gadgets.ROCKET_SPRING,
-            grinch_items.gadgets.MARINE_MOBILE,
-            grinch_items.gadgets.GRINCH_COPTER,
-            "4:" + grinch_items.keys.PROGRESSIVE_VACUUM_TUBE,
-        ],
-        # No mission items + Adv logic
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.events.ADVANCED_LOGIC,
-            grinch_items.moves.MAX,
-            grinch_items.moves.SEIZE,
-            grinch_items.moves.BAD_BREATH,
-            grinch_items.moves.PANCAKE,
-            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-            grinch_items.gadgets.ROCKET_SPRING,
-            grinch_items.gadgets.SLIME_SHOOTER,
-            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
-            grinch_items.gadgets.MARINE_MOBILE,
-            grinch_items.keys.WHOVILLE,
-            grinch_items.keys.WHO_FOREST,
-            grinch_items.keys.WHO_DUMP,
-            grinch_items.keys.WHO_LAKE,
-        ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.events.ADVANCED_LOGIC,
-            grinch_items.moves.MAX,
-            grinch_items.moves.SEIZE,
-            grinch_items.moves.BAD_BREATH,
-            grinch_items.moves.PANCAKE,
-            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-            grinch_items.gadgets.ROCKET_SPRING,
-            grinch_items.gadgets.MARINE_MOBILE,
-            grinch_items.gadgets.GRINCH_COPTER,
-            grinch_items.keys.WHOVILLE,
-            grinch_items.keys.WHO_FOREST,
-            grinch_items.keys.WHO_DUMP,
-            grinch_items.keys.WHO_LAKE,
-        ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.events.ADVANCED_LOGIC,
-            grinch_items.moves.MAX,
-            grinch_items.moves.SEIZE,
-            grinch_items.moves.BAD_BREATH,
-            grinch_items.moves.PANCAKE,
-            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-            grinch_items.gadgets.ROCKET_SPRING,
-            grinch_items.gadgets.SLIME_SHOOTER,
-            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
-            grinch_items.gadgets.MARINE_MOBILE,
-            "4:" + grinch_items.keys.PROGRESSIVE_VACUUM_TUBE,
-        ],
-        [
-            grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED,
-            grinch_items.events.ADVANCED_LOGIC,
             grinch_items.moves.MAX,
             grinch_items.moves.SEIZE,
             grinch_items.moves.BAD_BREATH,
@@ -4074,3 +3680,10 @@ rules_dict: dict[str, list[list[str]]] = {
     #     [PC]
     # ]
 }
+# - You waste a lot of Rotten Eggs when there are intentional game design alternatives not to.
+# Example being guessing bell order in Countdown to Xmas Clock. Skipping areas via GC does not count.
+# - Sections where you are camera locked in an area and have to perform precise jumps to get around it.
+# Example using Pancake on Mole in North Shore up to the drill house
+# - Locations that might just barely be enough in reach to jump towards without moving a boulder
+# Example being WL - South Shore - MM BP on Grass Platform
+

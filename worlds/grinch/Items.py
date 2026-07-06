@@ -104,8 +104,8 @@ class grinch_items:
 
     class events:
         ADVANCED_LOGIC: str = "AdvancedLogic"
-        SLEIGH_PARTS_NOT_RANDOMIZED: str = "SleighPartsNotRandomized"
-        MISSION_ITEMS_NOT_RANDOMIZED: str = "MissionItemsNotRandomized"
+        # SLEIGH_PARTS_NOT_RANDOMIZED: str = "SleighPartsNotRandomized"
+        # MISSION_ITEMS_NOT_RANDOMIZED: str = "MissionItemsNotRandomized"
         BEEHIVES_DOOR: str = "BeehivesDoor"
 
 class grinch_categories:
@@ -961,18 +961,18 @@ EVENT_TABLE: dict[str, GrinchItemData] = {
         IC.progression_skip_balancing,
         [],
     ),
-    grinch_items.events.SLEIGH_PARTS_NOT_RANDOMIZED: GrinchItemData(
-        [],
-        0,
-        IC.progression_skip_balancing,
-        [],
-    ),
-    grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED: GrinchItemData(
-        [],
-        0,
-        IC.progression_skip_balancing,
-        [],
-    ),
+    # grinch_items.events.SLEIGH_PARTS_NOT_RANDOMIZED: GrinchItemData(
+    #     [],
+    #     0,
+    #     IC.progression_skip_balancing,
+    #     [],
+    # ),
+    # grinch_items.events.MISSION_ITEMS_NOT_RANDOMIZED: GrinchItemData(
+    #     [],
+    #     0,
+    #     IC.progression_skip_balancing,
+    #     [],
+    # ),
     grinch_items.events.BEEHIVES_DOOR: GrinchItemData(
         [],
         0,

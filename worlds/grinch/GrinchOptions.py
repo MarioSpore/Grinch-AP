@@ -378,6 +378,8 @@ class ReducedCutscenes(Toggle):
 class RandomizeMissionItems(DefaultOnToggle):
     """
     Allows mission specific items to be randomized in the itempool.
+    NOTE: Excluding Submarine World from `exclude_environments` will still require
+    you to enter the region to collect the Twin-End Tuba.
     NOTE: Disabling this adds the locations and will not add their items to the
     item pool. Enabling this removes these locations and adds the items.
     """
@@ -405,6 +407,7 @@ class DeathLinkOption(Toggle):
 
     Mount Crumpit, Sleigh Ride, any minigame in Mount Crumpit, Clock Tower, City Hall, and Post Office
     """
+    display_name = "Death Link Option"
 
 @dataclass
 class GrinchOptions(PerGameCommonOptions):
