@@ -1342,7 +1342,7 @@ grinch_locations = {
     ),
     "WL - Submarine World - Twin-End Tuba": GrinchLocationData(
         "Submarine World",
-        ["Sleigh Ride", "Who Lake", "South Shore", "Sleigh Parts"],
+        ["Sleigh Ride", "Who Lake", "Submarine World", "Sleigh Parts"],
         1603,
         [
             GrinchRamData(0x010000, value=0x17),
@@ -1352,7 +1352,7 @@ grinch_locations = {
     ),
     "WL - South Shore - GPS": GrinchLocationData(
         "Who Lake",
-        ["Sleigh Ride", "Who Lake", "Submarine World", "Sleigh Parts"],
+        ["Sleigh Ride", "Who Lake", "South Shore", "Sleigh Parts"],
         1604,
         [
             GrinchRamData(0x010000, value=0x12),
