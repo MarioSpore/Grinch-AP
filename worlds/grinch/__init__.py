@@ -320,9 +320,11 @@ class GrinchWorld(World):
             # If the item is a sub_area_item that has 0 locations, add it to start inventory
             if sub_area_has_no_locations:
                 self.multiworld.push_precollected(self.create_item(mission_item))
+                print(f"Pushed_Pre_collected:{mission_item}")
             # Else if the player disables missionsanity, add the item into start inventory
             # No .value after self.options.missionsanity because UT no likey
             elif self.options.missionsanity == 0:
+                print(f"Pushed_Pre_collected:{mission_item}")
                 self.multiworld.push_precollected(self.create_item(mission_item))
             else:
                 self_itempool.append(self.create_item(mission_item))
@@ -338,6 +340,7 @@ class GrinchWorld(World):
                         self.multiworld.get_location("WV - Clock Tower - Who Cloak",
                         self.player).place_locked_item(self.create_item("Who Cloak"))
                     else:
+                        print(f"Pushed_Pre_collected:{mission_item}")
                         self.multiworld.push_precollected(self.create_item("Who Cloak"))
 
                 elif "Hammer" in mission_item:
@@ -396,7 +399,7 @@ class GrinchWorld(World):
                         self.player).place_locked_item(self.create_item("Hook"))
                     else:
                         self.multiworld.push_precollected(self.create_item("Hook"))
-                self.multiworld.push_precollected(self.create_item(mission_item))
+                #self.multiworld.push_precollected(self.create_item(mission_item))
 
             if self.options.randomize_mission_items:
                 if self.options.goal == 1:
