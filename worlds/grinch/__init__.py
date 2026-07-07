@@ -306,26 +306,6 @@ class GrinchWorld(World):
                     self_itempool.append(self.create_item(hearts_added))
 
         for mission_item in MISSION_ITEMS_TABLE:
-            # Only create the item if it doesn't already exist in the player's start inventory.
-
-            # Checks to see if there are any locations in the Sub-area list.
-            sub_area_has_no_locations: bool = False
-
-            if mission_item in sub_area_items:
-                sub_area_has_no_locations = True
-                for grinch_reg in sub_area_items[mission_item]:
-                    if len(self.get_region(grinch_reg).get_locations()) > 0:
-                        sub_area_has_no_locations = False
-
-            # If the item is a sub_area_item that has 0 locations, add it to start inventory
-            if sub_area_has_no_locations:
-                self.multiworld.push_precollected(self.create_item(mission_item))
-            # Else if the player disables missionsanity, add the item into start inventory
-            # No .value after self.options.missionsanity because UT no likey
-            elif self.options.missionsanity == 0:
-                self.multiworld.push_precollected(self.create_item(mission_item))
-            else:
-                self_itempool.append(self.create_item(mission_item))
 
             if not self.options.randomize_mission_items:
 
@@ -396,10 +376,25 @@ class GrinchWorld(World):
                         self.player).place_locked_item(self.create_item("Hook"))
                     else:
                         self.multiworld.push_precollected(self.create_item("Hook"))
-                self.multiworld.push_precollected(self.create_item(mission_item))
 
             if self.options.randomize_mission_items:
-                if self.options.goal == 1:
+                # Only create the item if it doesn't already exist in the player's start inventory.
+
+                # Checks to see if there are any locations in the Sub-area list.
+                sub_area_has_no_locations: bool = False
+
+                if mission_item in sub_area_items:
+                    sub_area_has_no_locations = True
+                    for grinch_reg in sub_area_items[mission_item]:
+                        if len(self.get_region(grinch_reg).get_locations()) > 0:
+                            sub_area_has_no_locations = False
+
+                # If the item is a sub_area_item that has 0 locations, add it to start inventory
+                if sub_area_has_no_locations or self.options.missionsanity == 0:
+                    self.multiworld.push_precollected(self.create_item(mission_item))
+                # Else if the player disables missionsanity, add the item into start inventory
+                # No .value after self.options.missionsanity because UT no likey
+                elif self.options.goal == 1:
                     self_itempool.append(self.create_item(mission_item))
                 # Else, let the multiworld create the item normally.
                 else:
