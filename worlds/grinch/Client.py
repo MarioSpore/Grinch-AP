@@ -776,10 +776,10 @@ class GrinchClient(BizHawkClient):
                     [(LOBBY_TRIGGER_ADDR, int(1).to_bytes(1, "little"), "MainRAM")],
                 )
                     # Removes crate
-                await bizhawk.write(
-                    ctx.bizhawk_ctx,
-                    [(0x0F70CC, int(30620).to_bytes(2, "little"), "MainRAM")],
-                )
+                # await bizhawk.write(
+                #     ctx.bizhawk_ctx,
+                #     [(0x0F70CC, int(30620).to_bytes(2, "little"), "MainRAM")],
+                # )
 
     async def funny_secret_goal(self, ctx: "BizHawkClientContext"):
         secret_cond = False
