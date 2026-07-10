@@ -2886,6 +2886,11 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        ],
     ],
     "WD - Generator Building - Short-Circuiting Power-Plant - Orange Generator (3rd)": [
         [
