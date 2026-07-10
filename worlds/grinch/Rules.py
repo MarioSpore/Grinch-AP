@@ -2410,7 +2410,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.SEIZE,
         ],
     ],
-    "WD - Infesting The Mayor's House With Rats - Rat 1": [
+    "WD - Infesting The Mayor's House With Rats - Rudolph the Rat": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
@@ -2436,7 +2436,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.PANCAKE,
         ],
     ],
-    "WD - Infesting The Mayor's House With Rats - Rat 2": [
+    "WD - Infesting The Mayor's House With Rats - Dasher the Rat": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
@@ -2462,7 +2462,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.PANCAKE,
         ],
     ],
-    "WD - Infesting The Mayor's House With Rats - Rat 3": [
+    "WD - Infesting The Mayor's House With Rats - Dancer the Rat": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
@@ -2488,7 +2488,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.PANCAKE,
         ],
     ],
-    "WD - Infesting The Mayor's House With Rats - Rat 4": [
+    "WD - Infesting The Mayor's House With Rats - Prancer the Rat": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
@@ -2514,7 +2514,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.PANCAKE,
         ],
     ],
-    "WD - Infesting The Mayor's House With Rats - Rat 5": [
+    "WD - Infesting The Mayor's House With Rats - Vixen the Rat": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
@@ -2540,7 +2540,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.PANCAKE,
         ],
     ],
-    "WD - Infesting The Mayor's House With Rats - Rat 6": [
+    "WD - Infesting The Mayor's House With Rats - Comet the Rat": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
@@ -2566,7 +2566,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.PANCAKE,
         ],
     ],
-    "WD - Infesting The Mayor's House With Rats - Rat 7": [
+    "WD - Infesting The Mayor's House With Rats - Cupid the Rat": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
@@ -2592,7 +2592,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.PANCAKE,
         ],
     ],
-    "WD - Infesting The Mayor's House With Rats - Rat 8": [
+    "WD - Infesting The Mayor's House With Rats - Donner the Rat": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
@@ -2618,7 +2618,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.PANCAKE,
         ],
     ],
-    "WD - Infesting The Mayor's House With Rats - Rat 9": [
+    "WD - Infesting The Mayor's House With Rats - Blitzen the Rat": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
@@ -2644,7 +2644,7 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.PANCAKE,
         ],
     ],
-    "WD - Infesting The Mayor's House With Rats - Rat 10": [
+    "WD - Infesting The Mayor's House With Rats - Larry the Rat": [
         [
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
             grinch_items.gadgets.ROCKET_SPRING,
