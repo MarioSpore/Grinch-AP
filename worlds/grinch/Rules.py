@@ -792,6 +792,12 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.SLIME_SHOOTER,
             grinch_items.moves.BAD_BREATH,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.moves.PANCAKE,
+        ],
     ],
     # Who Dump Blueprints
     "WD - OCD BP inside Pipe near Vacuum Tube": [
@@ -1955,6 +1961,12 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.SNEAK,
             grinch_items.moves.BAD_BREATH,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+            grinch_items.moves.PANCAKE,
         ],
     ],
     "WF - Civic Center - Replacing The Candles On The Cake With Fireworks - Middle platform of super toy parkour": [
