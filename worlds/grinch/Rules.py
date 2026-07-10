@@ -1811,6 +1811,12 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.BAD_BREATH,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.moves.PANCAKE,
+            grinch_items.moves.BAD_BREATH,
+        ],
     ],
     "WF - Putting Beehives In Cabins - 2nd closest to vacuum tube": [
         [
