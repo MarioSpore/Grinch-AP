@@ -273,6 +273,18 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.PANCAKE,
             grinch_items.moves.MAX,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
     ],
     "WD - Conducting The Stinky Gas To Who-Bris' Shack": [
         [
@@ -2406,6 +2418,18 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.PANCAKE,
             grinch_items.moves.MAX,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
     ],
     "WD - Infesting The Mayor's House With Rats - Rat 2": [
         [
@@ -2419,6 +2443,18 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.PANCAKE,
             grinch_items.moves.MAX,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
         ],
     ],
     "WD - Infesting The Mayor's House With Rats - Rat 3": [
@@ -2434,6 +2470,18 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.PANCAKE,
             grinch_items.moves.MAX,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
     ],
     "WD - Infesting The Mayor's House With Rats - Rat 4": [
         [
@@ -2447,6 +2495,18 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.PANCAKE,
             grinch_items.moves.MAX,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
         ],
     ],
     "WD - Infesting The Mayor's House With Rats - Rat 5": [
@@ -2462,6 +2522,18 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.PANCAKE,
             grinch_items.moves.MAX,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
     ],
     "WD - Infesting The Mayor's House With Rats - Rat 6": [
         [
@@ -2475,6 +2547,18 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.PANCAKE,
             grinch_items.moves.MAX,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
         ],
     ],
     "WD - Infesting The Mayor's House With Rats - Rat 7": [
@@ -2490,6 +2574,18 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.PANCAKE,
             grinch_items.moves.MAX,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
     ],
     "WD - Infesting The Mayor's House With Rats - Rat 8": [
         [
@@ -2503,6 +2599,18 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.PANCAKE,
             grinch_items.moves.MAX,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
         ],
     ],
     "WD - Infesting The Mayor's House With Rats - Rat 9": [
@@ -2518,6 +2626,18 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.moves.PANCAKE,
             grinch_items.moves.MAX,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
+        ],
     ],
     "WD - Infesting The Mayor's House With Rats - Rat 10": [
         [
@@ -2531,6 +2651,18 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.PANCAKE,
             grinch_items.moves.MAX,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.ROCKET_SPRING,
+            grinch_items.moves.PANCAKE,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+            grinch_items.moves.PANCAKE,
         ],
     ],
     "WD - Stealing Food From Birds - Left area on right electric fence": [
