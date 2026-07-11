@@ -521,7 +521,7 @@ class GrinchWorld(World):
             return ", ".join(descriptions)
 
         for item in self_itempool:
-            debug_class_desc = True
+            debug_class_desc = False
             if debug_class_desc:
                 desc = get_classification_description(item.classification)
                 print(f"{item.name}: {desc}")
