@@ -3244,11 +3244,21 @@ rules_dict: dict[str, list[list[str]]] = {
             grinch_items.level_items.WL_DRILL,
             grinch_items.moves.SEIZE,
         ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.level_items.WL_DRILL,
+            grinch_items.moves.PANCAKE,
+        ],
     ],
     "WL - North Shore - Drilling Holes In Canoes - Left side on top of car": [
         [
             grinch_items.level_items.WL_DRILL,
             grinch_items.moves.SEIZE,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.level_items.WL_DRILL,
+            grinch_items.moves.PANCAKE,
         ],
     ],
     "WL - Submarine World - Modifying The Marine Mobile - Outer Fast-moving Fish": [[]],
