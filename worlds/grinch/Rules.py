@@ -1880,6 +1880,12 @@ rules_dict: dict[str, list[list[str]]] = {
         [
             grinch_items.events.ADVANCED_LOGIC,
             grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.gadgets.GRINCH_COPTER,
+        ],
+        [
+            grinch_items.events.ADVANCED_LOGIC,
+            grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+            grinch_items.moves.BAD_BREATH,
         ],
     ],
     "WF - Putting Beehives In Cabins - Red house near Cable car": [
