@@ -97,7 +97,7 @@ ALL_REGIONS_INFO: dict[str, GrinchRegionInfo] = {
             [grinch_items.level_items.WV_WHO_CLOAK],
         ],
         advanced_region_access=[
-            [grinch_items.events.ADVANCED_LOGIC]
+            []
         ],),
 
     "City Hall": GrinchRegionInfo(0x08, "Whoville", False, 0x0E7090, True,
@@ -112,7 +112,7 @@ ALL_REGIONS_INFO: dict[str, GrinchRegionInfo] = {
             [grinch_items.level_items.WV_WHO_CLOAK],
         ],
         advanced_region_access=[
-            [grinch_items.events.ADVANCED_LOGIC]
+            []
         ],),
 
     "Ski Resort": GrinchRegionInfo(0x0C, "Who Forest", True, 0x0E98C0, True,
@@ -136,12 +136,10 @@ ALL_REGIONS_INFO: dict[str, GrinchRegionInfo] = {
             grinch_items.moves.PANCAKE],
         ],
         advanced_region_access=[
-            [grinch_items.events.ADVANCED_LOGIC,
-            grinch_items.gadgets.SLIME_SHOOTER,
+            [grinch_items.gadgets.SLIME_SHOOTER,
             grinch_items.gadgets.ROCKET_SPRING,
             grinch_items.moves.PANCAKE],
-            [grinch_items.events.ADVANCED_LOGIC,
-            grinch_items.gadgets.SLIME_SHOOTER,
+            [grinch_items.gadgets.SLIME_SHOOTER,
             grinch_items.gadgets.GRINCH_COPTER,
             grinch_items.moves.PANCAKE],
         ],),
@@ -185,10 +183,8 @@ ALL_REGIONS_INFO: dict[str, GrinchRegionInfo] = {
             grinch_items.moves.SNEAK],
         ],
         advanced_region_access=[
-            [grinch_items.events.ADVANCED_LOGIC,
-            grinch_items.gadgets.GRINCH_COPTER],
-            [grinch_items.events.ADVANCED_LOGIC,
-            grinch_items.gadgets.ROCKET_SPRING],
+            [grinch_items.gadgets.GRINCH_COPTER],
+            [grinch_items.gadgets.ROCKET_SPRING],
         ],),
 
     "North Shore": GrinchRegionInfo(0x14, "Who Lake", True, 0x0DD43C, True,
@@ -197,8 +193,7 @@ ALL_REGIONS_INFO: dict[str, GrinchRegionInfo] = {
             grinch_items.moves.SNEAK],
         ],
         advanced_region_access=[
-            [grinch_items.events.ADVANCED_LOGIC,
-            grinch_items.level_items.WL_SCOUT_CLOTHES],
+            [grinch_items.level_items.WL_SCOUT_CLOTHES],
         ],),
     "Mayor's Villa": GrinchRegionInfo(0x16, "North Shore", True, 0x0FA7C8, True,
         region_access=[
@@ -259,15 +254,15 @@ def connect_regions(world: "GrinchWorld", multiworld: MultiWorld):
     for grinch_region, grinch_data in ALL_REGIONS_INFO.items():
         multiworld.regions.append(GrinchRegion(grinch_region, grinch_data, world.player, multiworld))
         access_list = grinch_data.region_access
-        if world.using_ut:
+        if world.options.advanced_logic or world.using_ut:
             if grinch_data.advanced_region_access is not None:
                 for advanced_rule in grinch_data.advanced_region_access:
                     # If the glitches_item_name is different than "AdvancedLogic",
                     # uncomment these line to add it to the regions rules
-                    #if world.using_ut:
-                        #advanced_rule.append(world.glitches_item_name)
-                    if not world.options.advanced_logic:
-                        access_list.append(advanced_rule)
+                    if world.using_ut and not world.options.advanced_logic:
+                        advanced_rule.append(world.glitches_item_name)
+                    #if (world.using_ut and not world.options.advanced_logic) or (not world.using_ut and world.options.advanced_logic):
+                    access_list.append(advanced_rule)
 
         # print(f"Region:{grinch_region}")
         # print(f"Access_rules:{access_list}")

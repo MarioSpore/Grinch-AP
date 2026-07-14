@@ -26,7 +26,7 @@ class GrinchWorld(World):
     item_name_groups = get_item_names_per_category()
     location_name_groups = get_location_names_per_category()
     web = GrinchWeb()
-    glitches_item_name = "AdvancedLogic"
+    glitches_item_name = grinch_items.events.GLITCHED_LOGIC_ITEM
     using_ut: bool  # so we can check if we're using UT only once
     songs_chosen: dict
 
@@ -254,8 +254,8 @@ class GrinchWorld(World):
         player_start_inv: list[str] = [item.name for item in self.multiworld.precollected_items[self.player]]
 
         for option in EVENT_TABLE:
-            if "AdvancedLogic" in option and self.options.advanced_logic:
-                self.multiworld.push_precollected(self.create_item(option))
+            #if "AdvancedLogic" in option and self.options.advanced_logic:
+                #self.multiworld.push_precollected(self.create_item(option))
 
             # if "SleighPartsNotRandomized" in option and not self.options.randomize_sleigh_parts:
             #     self.multiworld.push_precollected(self.create_item(option))
