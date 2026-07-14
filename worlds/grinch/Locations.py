@@ -1,8 +1,13 @@
-from typing import Optional
+from typing import Optional, NamedTuple
 
 from .RamHandler import GrinchRamData
 from BaseClasses import Location, Region
 
+
+
+class GrinchLocationInfo(NamedTuple):
+    location_access: list[list[str]] = None
+    advanced_location_access: Optional[list[list[str]]] = None
 
 class GrinchLocationData:
     region: str

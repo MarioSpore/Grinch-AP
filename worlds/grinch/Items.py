@@ -103,7 +103,8 @@ class grinch_items:
         PUSH_TRAP: str = "Push Trap"
 
     class events:
-        ADVANCED_LOGIC: str = "AdvancedLogic"
+        #ADVANCED_LOGIC: str = "AdvancedLogic"
+        GLITCHED_LOGIC_ITEM: str = "Glitched_Logic_Item"
         # SLEIGH_PARTS_NOT_RANDOMIZED: str = "SleighPartsNotRandomized"
         # MISSION_ITEMS_NOT_RANDOMIZED: str = "MissionItemsNotRandomized"
         BEEHIVES_DOOR: str = "BeehivesDoor"
@@ -955,7 +956,13 @@ TRAPS_TABLE: dict[str, GrinchItemData] = {
     # "Disable Jump Trap": GrinchItemData(["Traps"], 613, IC.trap,[GrinchRamData(0x010026, binary_bit_pos=6)])
 }
 EVENT_TABLE: dict[str, GrinchItemData] = {
-    grinch_items.events.ADVANCED_LOGIC: GrinchItemData(
+    #grinch_items.events.ADVANCED_LOGIC: GrinchItemData(
+    #    [],
+    #    0,
+    #    IC.progression_skip_balancing,
+    #    [],
+    #),
+    grinch_items.events.GLITCHED_LOGIC_ITEM: GrinchItemData(
         [],
         0,
         IC.progression_skip_balancing,
