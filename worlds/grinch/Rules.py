@@ -993,6 +993,19 @@ ALL_LOCATIONS_INFO: dict[str, GrinchLocationInfo] = {
                 grinch_items.moves.BAD_BREATH,
             ],
         ],
+        advanced_location_access=[
+            [
+                grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+                grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+                grinch_items.moves.PANCAKE,
+                grinch_items.moves.BAD_BREATH,
+            ],
+            [
+                grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+                grinch_items.moves.PANCAKE,
+                grinch_items.moves.SNEAK,
+            ],
+        ],
     ),
     "WF - Civic Center - GC BP in Frozen Ice": GrinchLocationInfo(
         location_access=[
@@ -1030,6 +1043,19 @@ ALL_LOCATIONS_INFO: dict[str, GrinchLocationInfo] = {
                 grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
                 grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
                 grinch_items.moves.PANCAKE,
+                grinch_items.moves.BAD_BREATH,
+            ],
+            [
+                grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+                grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+                grinch_items.moves.PANCAKE,
+                grinch_items.moves.SNEAK,
+            ],
+            [
+                grinch_items.gadgets.SLIME_SHOOTER,
+                grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+                grinch_items.moves.PANCAKE,
+                grinch_items.moves.SNEAK,
             ],
         ],
     ),
@@ -2465,13 +2491,6 @@ ALL_LOCATIONS_INFO: dict[str, GrinchLocationInfo] = {
                 grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
                 grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
                 grinch_items.gadgets.ROCKET_SPRING,
-                grinch_items.gadgets.SLIME_SHOOTER,
-                grinch_items.moves.BAD_BREATH,
-            ],
-            [
-                grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-                grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
-                grinch_items.gadgets.ROCKET_SPRING,
                 grinch_items.moves.SNEAK,
                 grinch_items.moves.BAD_BREATH,
             ],
@@ -2530,6 +2549,13 @@ ALL_LOCATIONS_INFO: dict[str, GrinchLocationInfo] = {
                 grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
                 grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
                 grinch_items.gadgets.ROCKET_SPRING,
+            ],
+        ],
+        advanced_location_access=[
+            [
+                grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+                grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+                grinch_items.moves.PANCAKE,
             ],
         ],
     ),
