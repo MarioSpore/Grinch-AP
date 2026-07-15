@@ -430,8 +430,28 @@ ALL_LOCATIONS_INFO: dict[str, GrinchLocationInfo] = {
         ],
         advanced_location_access=[
             [
-                grinch_items.moves.PANCAKE,
+                grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+                grinch_items.moves.MAX,
                 grinch_items.gadgets.ROCKET_SPRING,
+                grinch_items.moves.SNEAK,
+                grinch_items.level_items.WD_SCISSORS,
+            ],
+            [
+                grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+                grinch_items.moves.MAX,
+                grinch_items.moves.PANCAKE,
+                grinch_items.moves.SNEAK,
+                grinch_items.level_items.WD_SCISSORS,
+            ],
+            [
+                grinch_items.gadgets.SLIME_SHOOTER,
+                grinch_items.gadgets.ROCKET_SPRING,
+                grinch_items.moves.SNEAK,
+                grinch_items.level_items.WD_SCISSORS,
+            ],
+            [
+                grinch_items.gadgets.SLIME_SHOOTER,
+                grinch_items.moves.PANCAKE,
                 grinch_items.moves.SNEAK,
                 grinch_items.level_items.WD_SCISSORS,
             ],
@@ -1177,8 +1197,12 @@ ALL_LOCATIONS_INFO: dict[str, GrinchLocationInfo] = {
         ],
         advanced_location_access=[
             [
-                grinch_items.moves.PANCAKE,
+                grinch_items.gadgets.SLIME_SHOOTER,
                 grinch_items.gadgets.ROCKET_SPRING,
+            ],
+            [
+                grinch_items.gadgets.SLIME_SHOOTER,
+                grinch_items.moves.PANCAKE,
             ],
         ],
     ),
@@ -1195,8 +1219,22 @@ ALL_LOCATIONS_INFO: dict[str, GrinchLocationInfo] = {
         ],
         advanced_location_access=[
             [
-                grinch_items.moves.PANCAKE,
+                grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+                grinch_items.moves.MAX,
                 grinch_items.gadgets.ROCKET_SPRING,
+            ],
+            [
+                grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+                grinch_items.moves.MAX,
+                grinch_items.moves.PANCAKE,
+            ],
+            [
+                grinch_items.gadgets.SLIME_SHOOTER,
+                grinch_items.gadgets.ROCKET_SPRING,
+            ],
+            [
+                grinch_items.gadgets.SLIME_SHOOTER,
+                grinch_items.moves.PANCAKE,
             ],
         ],
     ),
@@ -1216,8 +1254,12 @@ ALL_LOCATIONS_INFO: dict[str, GrinchLocationInfo] = {
         ],
         advanced_location_access=[
             [
-                grinch_items.moves.PANCAKE,
+                grinch_items.gadgets.SLIME_SHOOTER,
                 grinch_items.gadgets.ROCKET_SPRING,
+            ],
+            [
+                grinch_items.gadgets.SLIME_SHOOTER,
+                grinch_items.moves.PANCAKE,
             ],
         ],
     ),
@@ -1625,8 +1667,22 @@ ALL_LOCATIONS_INFO: dict[str, GrinchLocationInfo] = {
         ],
         advanced_location_access=[
             [
-                grinch_items.moves.PANCAKE,
+                grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+                grinch_items.moves.MAX,
                 grinch_items.gadgets.ROCKET_SPRING,
+            ],
+            [
+                grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+                grinch_items.moves.MAX,
+                grinch_items.moves.PANCAKE,
+            ],
+            [
+                grinch_items.gadgets.SLIME_SHOOTER,
+                grinch_items.gadgets.ROCKET_SPRING,
+            ],
+            [
+                grinch_items.gadgets.SLIME_SHOOTER,
+                grinch_items.moves.PANCAKE,
             ],
         ],
     ),
@@ -4538,8 +4594,22 @@ ALL_LOCATIONS_INFO: dict[str, GrinchLocationInfo] = {
         ],
         advanced_location_access=[
             [
-                grinch_items.moves.PANCAKE,
+                grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+                grinch_items.moves.MAX,
                 grinch_items.gadgets.ROCKET_SPRING,
+            ],
+            [
+                grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+                grinch_items.moves.MAX,
+                grinch_items.moves.PANCAKE,
+            ],
+            [
+                grinch_items.gadgets.SLIME_SHOOTER,
+                grinch_items.gadgets.ROCKET_SPRING,
+            ],
+            [
+                grinch_items.gadgets.SLIME_SHOOTER,
+                grinch_items.moves.PANCAKE,
             ],
         ],
     ),
