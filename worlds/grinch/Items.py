@@ -548,8 +548,6 @@ KEYS_TABLE: dict[str, GrinchItemData] = {
 
 # Supadow
 # SUPADOW_TABLE: dict[str. GrinchItemData] = {
-# "Progressive Vacuum Tube": GrinchItemData(["Vacuum Tubes"], 404, IC.progression,
-#     [GrinchRamData()]),
 # "Spin N' Win Door Unlock": GrinchItemData(["Supadow Door Unlocks"], 405, IC.progression,
 #     [GrinchRamData()]),
 # "Dankamania Door Unlock": GrinchItemData(["Supadow Door Unlocks"], 406, IC.progression,
