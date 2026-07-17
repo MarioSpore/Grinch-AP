@@ -101,6 +101,7 @@ class GrinchClient(BizHawkClient):
     chosen_music: dict = {}
     randomize_mission_items: bool = False
     randomize_sleigh_parts: bool = False
+    supadow_minigames: bool = False
     #yes
 
     def __init__(self):
@@ -115,6 +116,7 @@ class GrinchClient(BizHawkClient):
         self.teleport_multibind = False
         self.randomize_mission_items = False
         self.randomize_sleigh_parts = False
+        self.supadow_minigames = False
 
     async def validate_rom(self, ctx: "BizHawkClientContext") -> bool:
         from CommonClient import logger
@@ -177,6 +179,7 @@ class GrinchClient(BizHawkClient):
                 self.teleport_multibind = bool(ctx.slot_data["teleport_multibind"])
                 self.randomize_mission_items = bool(ctx.slot_data["randomize_mission_items"])
                 self.randomize_sleigh_parts = bool(ctx.slot_data["randomize_sleigh_parts"])
+                self.supadow_minigames = bool(ctx.slot_data["supadow_minigames"])
                 self.unique_client_id = self._get_uuid()
                 # logger.info(
                 #     "You are now connected to the client. "
@@ -555,6 +558,14 @@ class GrinchClient(BizHawkClient):
                 continue
 
             if item_name == grinch_items.keys.PROGRESSIVE_VACUUM_TUBE and has_whoville_vacuum_tube:
+                continue
+
+            if (item_name in [grinch_items.supadow.SPIN_N_WIN,
+                grinch_items.supadow.DANKAMANIA,
+                grinch_items.supadow.COPTER_RACE,
+                grinch_items.supadow.BIKE_RACE]
+                and (ingame_map_id != 0x05
+                or not self.supadow_minigames)):
                 continue
 
             # This will either constantly update the item to ensure you still have it or take it away if you don't deserve it

@@ -102,6 +102,13 @@ class grinch_items:
         BEE_TRAP: str = "Bee Trap"
         PUSH_TRAP: str = "Push Trap"
 
+    class supadow:
+        SPIN_N_WIN: str = "Spin N' Win Supadow"
+        DANKAMANIA: str = "Dankamania Supadow"
+        COPTER_RACE: str = "The Copter Race Contest Supadow"
+        PROGRESSIVE_SUPADOW: str = "Progressive Supadow"
+        BIKE_RACE: str = "Bike Race Unlock"
+
     class events:
         #ADVANCED_LOGIC: str = "AdvancedLogic"
         GLITCHED_LOGIC_ITEM: str = "Glitched_Logic_Item"
@@ -123,6 +130,7 @@ class grinch_categories:
     USEFUL_IC: str = "Useful"
     PROGRESSION_IC: str = "Progression"
     VACUUM_TUBES: str = "Vacuum Tubes"
+    SUPADOW_MINIGAMES: str = "Supadow Door Unlocks"
 
 def get_region_health(region_name: str):
     from .Regions import ALL_REGIONS_INFO
@@ -547,18 +555,48 @@ KEYS_TABLE: dict[str, GrinchItemData] = {
 
 
 # Supadow
-# SUPADOW_TABLE: dict[str. GrinchItemData] = {
-# "Spin N' Win Door Unlock": GrinchItemData(["Supadow Door Unlocks"], 405, IC.progression,
-#     [GrinchRamData()]),
-# "Dankamania Door Unlock": GrinchItemData(["Supadow Door Unlocks"], 406, IC.progression,
-#     [GrinchRamData()]),
-# "The Copter Race Contest Door Unlock": GrinchItemData("Supadow Door Unlocks", 407, IC.progression,
-#     [GrinchRamData()]),
-# "Progressive Supadow Door Unlock": GrinchItemData("Supadow Door Unlocks", 408, IC.progression,
-#     [GrinchRamData()]),
-# "Bike Race Access": GrinchItemData(["Supadow Door Unlocks", 409, IC.progression,
-#     [GrinchRamData()])
-# }
+SUPADOW_TABLE: dict[str, GrinchItemData] = {
+    grinch_items.supadow.SPIN_N_WIN: GrinchItemData(
+        [
+            grinch_categories.SUPADOW_MINIGAMES,
+        ],
+        405,
+        IC.progression_skip_balancing,
+        [GrinchRamData()],
+    ),
+    grinch_items.supadow.DANKAMANIA: GrinchItemData(
+        [
+            grinch_categories.SUPADOW_MINIGAMES,
+        ],
+        406,
+        IC.progression_skip_balancing,
+        [GrinchRamData()],
+    ),
+    grinch_items.supadow.COPTER_RACE: GrinchItemData(
+        [
+            grinch_categories.SUPADOW_MINIGAMES,
+        ],
+        407,
+        IC.progression_skip_balancing,
+        [GrinchRamData()],
+    ),
+    grinch_items.supadow.BIKE_RACE: GrinchItemData(
+        [
+            grinch_categories.SUPADOW_MINIGAMES,
+        ],
+        408,
+        IC.progression_skip_balancing,
+        [GrinchRamData()],
+    ),
+    # grinch_items.supadow.PROGRESSIVE_SUPADOW: GrinchItemData(
+    #     [
+    #         grinch_categories.SUPADOW_MINIGAMES,
+    #     ],
+    #     409,
+    #     IC.progression_skip_balancing,
+    #     [GrinchRamData()],
+    # ),
+}
 
 # Misc Items
 MISC_ITEMS_TABLE: dict[str, GrinchItemData] = {
@@ -995,7 +1033,7 @@ ALL_ITEMS_TABLE: dict[str, GrinchItemData] = {
     **USEFUL_ITEMS_TABLE,
     **SLEIGH_TABLE,
     **MOVES_TABLE,
-    # **SUPADOW_TABLE,
+    **SUPADOW_TABLE,
     **EVENT_TABLE,
 }
 

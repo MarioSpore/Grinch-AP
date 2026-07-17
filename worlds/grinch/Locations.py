@@ -1250,70 +1250,72 @@ grinch_locations = {
             GrinchRamData(0x0100C3, binary_bit_pos=6),
         ],
     ),
+
     # Supadow Minigames
-    # "Spin N' Win - Easy": GrinchLocationData(
-    #     "Spin N' Win",
-    #     ["Supadow Minigames", "Spin N' Win"],
-    #     1500,
-    #     [GrinchRamData(0x0100FD, min_count=1, max_count=59)]),
-    # "Spin N' Win - Hard": GrinchLocationData(
-    #     "Spin N' Win",
-    #     ["Supadow Minigames", "Spin N' Win"],
-    #     1501,
-    #     [GrinchRamData(0x0100FD, min_count=1, max_count=44)]),
-    # "Spin N' Win - Real Tough": GrinchLocationData(
-    #     "Spin N' Win",
-    #     ["Supadow Minigames", "Spin N' Win"],
-    #     1502,
-    #     [GrinchRamData(0x0100FD, min_count=1, max_count=29)]),
-    # "Dankamania - 12 Points": GrinchLocationData(
-    #     "Dankamania",
-    #     ["Supadow Minigames", "Dankamania"],
-    #     1503,
-    #     [GrinchRamData(0x0100FB, min_count=12)]),
-    # "The Copter Race Contest - Easy": GrinchLocationData(
-    #     "The Copter Race Contest",
-    #     ["Supadow Minigames", "The Copter Race Contest"],
-    #     1504,
-    #     [GrinchRamData(0x0100FC, min_count=1, max_count=44)]),
-    # "The Copter Race Contest - Hard": GrinchLocationData(
-    #     "The Copter Race Contest",
-    #     ["Supadow Minigames", "The Copter Race Contest"],
-    #     1505,
-    #     [GrinchRamData(0x0100FC, min_count=1, max_count=34)]),
-    # "The Copter Race Contest - Real Tough": GrinchLocationData(
-    #     "The Copter Race Contest",
-    #     ["Supadow Minigames", "The Copter Race Contest"],
-    #     1506,
-    #     [GrinchRamData(0x0100FC, min_count=1, max_count=29)]),
-    # "Bike Race - 1st Place":  GrinchLocationData(
-    #     "Bike Race",
-    #     ["Supadow Minigames", "Bike Race"],
-    #     1509,
-    #     [
-    #         GrinchRamData(0x010000, value=0x18),
-    #         GrinchRamData(0x134CA5, value=1)]),
-    # "Bike Race - Top 2": GrinchLocationData(
-    #     "Bike Race",
-    #     ["Supadow Minigames", "Bike Race"],
-    #     1510,
-    #     [
-    #         GrinchRamData(0x010000, value=0x18),
-    #         GrinchRamData(0x134CA5, min_count=1, max_count=2)]),
-    # "Bike Race - Top 3": GrinchLocationData(
-    #     "Bike Race",
-    #     ["Supadow Minigames", "Bike Race"],
-    #     1511,
-    #     [
-    #         GrinchRamData(0x010000, value=0x18),
-    #         GrinchRamData(0x134CA5, min_count=1, max_count=3)]),
-    # "Bike Race - Top 4": GrinchLocationData(
-    #     "Bike Race",
-    #     ["Supadow Minigames", "Bike Race"],
-    #     1512,
-    #     [
-    #         GrinchRamData(0x010000, value=0x18),
-    #         GrinchRamData(0x134CA5, min_count=1, max_count=4)]),
+    "Spin N' Win - Easy": GrinchLocationData(
+        "Spin N' Win",
+        ["Supadow Minigames", "Spin N' Win"],
+        1500,
+        [GrinchRamData(0x0100FD, min_count=1, max_count=59)]),
+    "Spin N' Win - Hard": GrinchLocationData(
+        "Spin N' Win",
+        ["Supadow Minigames", "Spin N' Win"],
+        1501,
+        [GrinchRamData(0x0100FD, min_count=1, max_count=44)]),
+    "Spin N' Win - Real Tough": GrinchLocationData(
+        "Spin N' Win",
+        ["Supadow Minigames", "Spin N' Win"],
+        1502,
+        [GrinchRamData(0x0100FD, min_count=1, max_count=29)]),
+    "Dankamania - 12 Points": GrinchLocationData(
+        "Dankamania",
+        ["Supadow Minigames", "Dankamania"],
+        1503,
+        [GrinchRamData(0x0100FB, min_count=12)]),
+    "The Copter Race Contest - Easy": GrinchLocationData(
+        "The Copter Race Contest",
+        ["Supadow Minigames", "The Copter Race Contest"],
+        1504,
+        [GrinchRamData(0x0100FC, min_count=1, max_count=44)]),
+    "The Copter Race Contest - Hard": GrinchLocationData(
+        "The Copter Race Contest",
+        ["Supadow Minigames", "The Copter Race Contest"],
+        1505,
+        [GrinchRamData(0x0100FC, min_count=1, max_count=34)]),
+    "The Copter Race Contest - Real Tough": GrinchLocationData(
+        "The Copter Race Contest",
+        ["Supadow Minigames", "The Copter Race Contest"],
+        1506,
+        [GrinchRamData(0x0100FC, min_count=1, max_count=29)]),
+    "Bike Race - 1st Place":  GrinchLocationData(
+        "Bike Race",
+        ["Supadow Minigames", "Bike Race"],
+        1509,
+        [
+            GrinchRamData(0x010000, value=0x18),
+            GrinchRamData(0x134CA5, value=1)]),
+    "Bike Race - Top 2": GrinchLocationData(
+        "Bike Race",
+        ["Supadow Minigames", "Bike Race"],
+        1510,
+        [
+            GrinchRamData(0x010000, value=0x18),
+            GrinchRamData(0x134CA5, min_count=1, max_count=2)]),
+    "Bike Race - Top 3": GrinchLocationData(
+        "Bike Race",
+        ["Supadow Minigames", "Bike Race"],
+        1511,
+        [
+            GrinchRamData(0x010000, value=0x18),
+            GrinchRamData(0x134CA5, min_count=1, max_count=3)]),
+    "Bike Race - Top 4": GrinchLocationData(
+        "Bike Race",
+        ["Supadow Minigames", "Bike Race"],
+        1512,
+        [
+            GrinchRamData(0x010000, value=0x18),
+            GrinchRamData(0x134CA5, min_count=1, max_count=4)]),
+
     # Sleigh Part Locations
     "WV - Exhaust Pipes": GrinchLocationData(
         "Whoville",

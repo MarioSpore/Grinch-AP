@@ -89,9 +89,20 @@ ALL_REGIONS_INFO: dict[str, GrinchRegionInfo] = {
             [grinch_items.keys.SLEIGH_ROOM_KEY],
         ],),
 
-    "Spin N' Win": GrinchRegionInfo(0x1A, "Mount Crumpit", False, allow_music_rando=True),
-    "Dankamania": GrinchRegionInfo(0x1B, "Mount Crumpit", False, allow_music_rando=True),
-    "The Copter Race Contest": GrinchRegionInfo(0X1C, "Mount Crumpit", False, allow_music_rando=True),
+    "Spin N' Win": GrinchRegionInfo(0x1A, "Mount Crumpit", False, allow_music_rando=True,
+        region_access = [
+            [grinch_items.supadow.SPIN_N_WIN],
+        ],),
+
+    "Dankamania": GrinchRegionInfo(0x1B, "Mount Crumpit", False, allow_music_rando=True,
+       region_access=[
+           [grinch_items.supadow.DANKAMANIA],
+       ],),
+
+    "The Copter Race Contest": GrinchRegionInfo(0X1C, "Mount Crumpit", False, allow_music_rando=True,
+        region_access=[
+            [grinch_items.supadow.COPTER_RACE],
+        ],),
     "Post Office": GrinchRegionInfo(0x0A, "Whoville", False, 0x0DFB64, True,
         region_access=[
             [grinch_items.level_items.WV_WHO_CLOAK],
@@ -199,7 +210,11 @@ ALL_REGIONS_INFO: dict[str, GrinchRegionInfo] = {
         region_access=[
             [grinch_items.level_items.WL_SCOUT_CLOTHES],
         ],),
-    "Bike Race": GrinchRegionInfo(0x18, "Sleigh Room", False, allow_music_rando=True),
+    "Bike Race": GrinchRegionInfo(0x18, "Sleigh Room", False, allow_music_rando=True,
+        region_access=[
+            [grinch_items.supadow.BIKE_RACE,
+             grinch_items.keys.SLEIGH_ROOM_KEY],
+        ],),
     "Sleigh Ride": GrinchRegionInfo(0x19, "Sleigh Room", False, allow_music_rando=True,
         region_access=[
             [grinch_items.sleigh_parts.EXHAUST_PIPES,

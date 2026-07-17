@@ -1,7 +1,7 @@
 from BaseClasses import Item, Location
 from .Locations import grinch_locations_to_id, grinch_locations, GrinchLocation, get_location_names_per_category, GrinchLocationData
 from .Items import (grinch_items_to_id, GrinchItem, ALL_ITEMS_TABLE, MISC_ITEMS_TABLE, get_item_names_per_category,
-    TRAPS_TABLE, MOVES_TABLE, USEFUL_ITEMS_TABLE, EVENT_TABLE)
+                    TRAPS_TABLE, MOVES_TABLE, USEFUL_ITEMS_TABLE, EVENT_TABLE, SUPADOW_TABLE)
 from .Regions import connect_regions
 from .Rules import set_location_rules
 
@@ -185,6 +185,9 @@ class GrinchWorld(World):
 
                 if exclude_wl_squash:
                     continue  # Ignores the creation of WL Squashing all Gifts
+
+            if "Supadow Minigames" in data.location_group and not self.options.supadow_minigames:
+                continue
 
             if "Mission Specific Item Locations" in data.location_group and self.options.randomize_mission_items:
                 continue
@@ -475,6 +478,9 @@ class GrinchWorld(World):
             for _ in range(3):
                 self_itempool.append((self.create_item("Progressive Vacuum Tube")))
 
+        for supadow_door in SUPADOW_TABLE:
+            if self.options.supadow_minigames:
+                self_itempool.append(self.create_item(supadow_door))
 
         # Get number of current unfilled locations
         unfilled_locations: int = len(self.multiworld.get_unfilled_locations(self.player)) - len(self_itempool)
