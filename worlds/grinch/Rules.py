@@ -3538,16 +3538,6 @@ ALL_LOCATIONS_INFO: dict[str, GrinchLocationInfo] = {
                 grinch_items.moves.PANCAKE,
             ],
         ],
-        advanced_location_access=[
-            [
-                grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-                grinch_items.moves.MAX,
-            ],
-            [
-                grinch_items.gadgets.SLIME_SHOOTER,
-                grinch_items.moves.MAX,
-            ],
-        ],
     ),
     "WD - Stealing Food From Birds - Near blue tube in center area": GrinchLocationInfo(
         location_access=[
