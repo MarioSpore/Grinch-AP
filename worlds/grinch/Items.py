@@ -104,7 +104,7 @@ class grinch_items:
 
     class supadow:
         SPIN_N_WIN: str = "Spin N' Win Supadow"
-        DANKAMANIA: str = "Dankamania Supadow"
+        PANKAMANIA: str = "Pankamania Supadow"
         COPTER_RACE: str = "The Copter Race Contest Supadow"
         PROGRESSIVE_SUPADOW: str = "Progressive Supadow"
         BIKE_RACE: str = "Bike Race Unlock"
@@ -562,15 +562,15 @@ SUPADOW_TABLE: dict[str, GrinchItemData] = {
         ],
         405,
         IC.progression_skip_balancing,
-        [GrinchRamData()],
+        [],
     ),
-    grinch_items.supadow.DANKAMANIA: GrinchItemData(
+    grinch_items.supadow.PANKAMANIA: GrinchItemData(
         [
             grinch_categories.SUPADOW_MINIGAMES,
         ],
         406,
         IC.progression_skip_balancing,
-        [GrinchRamData()],
+        [],
     ),
     grinch_items.supadow.COPTER_RACE: GrinchItemData(
         [
@@ -578,7 +578,7 @@ SUPADOW_TABLE: dict[str, GrinchItemData] = {
         ],
         407,
         IC.progression_skip_balancing,
-        [GrinchRamData()],
+        [],
     ),
     grinch_items.supadow.BIKE_RACE: GrinchItemData(
         [
@@ -586,7 +586,7 @@ SUPADOW_TABLE: dict[str, GrinchItemData] = {
         ],
         408,
         IC.progression_skip_balancing,
-        [GrinchRamData()],
+        [],
     ),
     # grinch_items.supadow.PROGRESSIVE_SUPADOW: GrinchItemData(
     #     [

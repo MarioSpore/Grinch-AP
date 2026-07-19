@@ -36,7 +36,7 @@ subareas_list = [
 
 supadow_list = [
     "Spin N' Win Supadow",
-    "Dankamania Supadow",
+    "Pankamania Supadow",
     "The Copter Race Contest Supadow",
     "Bike Race",
 ]
@@ -94,9 +94,9 @@ ALL_REGIONS_INFO: dict[str, GrinchRegionInfo] = {
             [grinch_items.supadow.SPIN_N_WIN],
         ],),
 
-    "Dankamania": GrinchRegionInfo(0x1B, "Mount Crumpit", False, allow_music_rando=True,
+    "Pankamania": GrinchRegionInfo(0x1B, "Mount Crumpit", False, allow_music_rando=True,
        region_access=[
-           [grinch_items.supadow.DANKAMANIA],
+           [grinch_items.supadow.PANKAMANIA],
        ],),
 
     "The Copter Race Contest": GrinchRegionInfo(0X1C, "Mount Crumpit", False, allow_music_rando=True,
