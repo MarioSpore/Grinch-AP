@@ -513,6 +513,7 @@ class GrinchClient(BizHawkClient):
 
             if ingame_map_id == ALL_REGIONS_INFO["Mount Crumpit"].map_id:
 
+                # This adds each of the addresses listed from RamHandler to the reads variable list
                 SupadowReads += [(GrinchRamVariables.SpinNWinDoor["OpenTextGiftNum"], 2, "MainRAM")]
                 SupadowReads += [(GrinchRamVariables.SpinNWinDoor["AllowInteractGiftNum"], 2, "MainRAM")]
                 SupadowReads += [(GrinchRamVariables.SpinNWinDoor["LockedTextGiftNum"], 2, "MainRAM")]
@@ -526,6 +527,7 @@ class GrinchClient(BizHawkClient):
                 SupadowReads += [(GrinchRamVariables.GCContestDoor["LockedTextGiftNum"], 2, "MainRAM")]
                 reads = await bizhawk.read(ctx.bizhawk_ctx, SupadowReads)
 
+                # Reads the value from their respective addresses
                 SpinNWinDoor_OpenTextGiftNum = int.from_bytes(reads[0])
                 SpinNWinDoor_AllowInteractGiftNum = int.from_bytes(reads[1])
                 SpinNWinDoor_LockedTextGiftNum = int.from_bytes(reads[2])
@@ -537,6 +539,9 @@ class GrinchClient(BizHawkClient):
                 GCContestDoor_AllowInteractGiftNum = int.from_bytes(reads[7])
                 GCContestDoor_LockedTextGiftNum = int.from_bytes(reads[8])
 
+                # If any of the supadow items are received, set their respective values to 0000.
+                # Otherwise, lock them up by FFFF
+                # Both are written and added to the writes variable.
                 if SpinNWinReceived:
                     if SpinNWinDoor_OpenTextGiftNum != 0x0000:
                         SupadowWrites += [(GrinchRamVariables.SpinNWinDoor["OpenTextGiftNum"], 0x0000.to_bytes(2, "little"), "MainRAM")]
