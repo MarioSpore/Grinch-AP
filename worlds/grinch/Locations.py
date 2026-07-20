@@ -1284,7 +1284,6 @@ grinch_locations = {
     #     ["Supadow Minigames", "Pankamania", "Supadow Easy"],
     #     1503,
     #     [
-    #                     GrinchRamData(0x0100FB, value=4, min_count=4, max_count=99),
     #                     GrinchRamData(0x0100EB,value=4, min_count=4, max_count=99),
     #                     GrinchRamData(0x010000, value=27),
     #                     GrinchRamData(0x095346, value=0)]),
@@ -1293,7 +1292,6 @@ grinch_locations = {
     #     ["Supadow Minigames", "Pankamania", "Supadow Easy"],
     #     1504,
     #     [
-    #                     GrinchRamData(0x0100FB, value=8, min_count=8, max_count=99),
     #                     GrinchRamData(0x0100EB,value=8, min_count=8, max_count=99),
     #                     GrinchRamData(0x010000, value=27),
     #                     GrinchRamData(0x095346, value=0)]),
@@ -1302,8 +1300,7 @@ grinch_locations = {
         ["Supadow Minigames", "Pankamania", "Supadow Easy"],
         1505,
         [
-                        GrinchRamData(0x0100FB, value=12, min_count=12, max_count=99),
-                        # GrinchRamData(0x0100EB, value=12, min_count=12, max_count=99),
+                        GrinchRamData(0x0100EB, value=12, min_count=12, max_count=99),
                         GrinchRamData(0x010000, value=27),
                         GrinchRamData(0x095346, value=0)]),
     # "Pankamania - Hard - 4 Points": GrinchLocationData(
@@ -1311,7 +1308,6 @@ grinch_locations = {
     #     ["Supadow Minigames", "Pankamania", "Supadow Hard"],
     #     1506,
     #     [
-    #                     GrinchRamData(0x0100FB, value=4, min_count=4, max_count=99),
     #                     GrinchRamData(0x0100EB, value=4, min_count=4, max_count=99),
     #                     GrinchRamData(0x010000, value=27),
     #                     GrinchRamData(0x095346, value=1)]),
@@ -1320,7 +1316,6 @@ grinch_locations = {
     #     ["Supadow Minigames", "Pankamania", "Supadow Hard"],
     #     1507,
     #     [
-    #                     GrinchRamData(0x0100FB, value=8, min_count=8, max_count=99),
     #                     GrinchRamData(0x0100EB, value=8, min_count=8, max_count=99),
     #                     GrinchRamData(0x010000, value=27),
     #                     GrinchRamData(0x095346, value=1)]),
@@ -1337,7 +1332,6 @@ grinch_locations = {
     #     ["Supadow Minigames", "Pankamania", "Supadow Real Tough"],
     #     1509,
     #     [
-    #                     GrinchRamData(0x0100FB, value=4, min_count=8, max_count=99),
     #                     GrinchRamData(0x0100EB, value=4, min_count=4, max_count=99),
     #                     GrinchRamData(0x010000, value=27),
     #                     GrinchRamData(0x095346, value=2)]),
@@ -1346,7 +1340,6 @@ grinch_locations = {
     #     ["Supadow Minigames", "Pankamania", "Supadow Real Tough"],
     #     1510,
     #     [
-    #                     GrinchRamData(0x0100FB, value=8, min_count=8, max_count=99),
     #                     GrinchRamData(0x0100EB, value=8, min_count=8, max_count=99),
     #                     GrinchRamData(0x010000, value=27),
     #                     GrinchRamData(0x095346, value=2)]),
