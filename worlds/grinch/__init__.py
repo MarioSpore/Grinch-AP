@@ -131,6 +131,10 @@ class GrinchWorld(World):
                 region.add_event(location, "Goal", None, Location, Item)
                 continue
 
+            #Exclude bike races for now, since they are not accessible
+            if "Bike Race -" in location:
+                continue
+
             # No .value after self.options because UT no likey
             if location == "MC - Unlock the Grinch Copter" and self.options.exclude_gc:
                 continue
@@ -185,10 +189,15 @@ class GrinchWorld(World):
 
                 if exclude_wl_squash:
                     continue  # Ignores the creation of WL Squashing all Gifts
-
-            if "Supadow Minigames" in data.location_group and not self.options.supadow_minigames:
+            if "Supadow Minigames" in data.location_group and self.options.supadow_minigames.value == 0:
                 continue
-
+            if "Supadow Minigames" in data.location_group and self.options.supadow_minigames.value != 0:
+                #Exclude Hard supadow checks if on Easy
+                if "Supadow Hard" in data.location_group and self.options.supadow_minigames.value < 2:
+                    continue
+                # Exclude Real Tough supadow checks if on Hard and bellow
+                if "Supadow Real Tough" in data.location_group and self.options.supadow_minigames.value < 3:
+                    continue
             if "Mission Specific Item Locations" in data.location_group and self.options.randomize_mission_items:
                 continue
 
@@ -479,7 +488,7 @@ class GrinchWorld(World):
                 self_itempool.append((self.create_item("Progressive Vacuum Tube")))
 
         for supadow_door in SUPADOW_TABLE:
-            if self.options.supadow_minigames:
+            if self.options.supadow_minigames > 0:
                 self_itempool.append(self.create_item(supadow_door))
 
         # Get number of current unfilled locations

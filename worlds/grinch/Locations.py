@@ -1254,64 +1254,156 @@ grinch_locations = {
     # Supadow Minigames
     "Spin N' Win - Easy": GrinchLocationData(
         "Spin N' Win",
-        ["Supadow Minigames", "Spin N' Win"],
+        ["Supadow Minigames", "Spin N' Win", "Supadow Easy"],
         1500,
-        [GrinchRamData(0x0100FD, min_count=1, max_count=59)]),
+        [
+                        #GrinchRamData(0x0100B3, min_count=1, max_count=59),
+                        GrinchRamData(0x010000, value=26),
+                        GrinchRamData(0x095346, value=0),
+                        GrinchRamData(0x08F9D0, value=71)]),
     "Spin N' Win - Hard": GrinchLocationData(
         "Spin N' Win",
-        ["Supadow Minigames", "Spin N' Win"],
+        ["Supadow Minigames", "Spin N' Win", "Supadow Hard"],
         1501,
-        [GrinchRamData(0x0100FD, min_count=1, max_count=44)]),
+        [
+                        #GrinchRamData(0x0100B3, min_count=1, max_count=44),
+                        GrinchRamData(0x010000, value=26),
+                        GrinchRamData(0x095346, value=1),
+                        GrinchRamData(0x08F9D0, value=71)]),
     "Spin N' Win - Real Tough": GrinchLocationData(
         "Spin N' Win",
-        ["Supadow Minigames", "Spin N' Win"],
+        ["Supadow Minigames", "Spin N' Win", "Supadow Real Tough"],
         1502,
-        [GrinchRamData(0x0100FD, min_count=1, max_count=29)]),
-    "Dankamania - 12 Points": GrinchLocationData(
-        "Dankamania",
-        ["Supadow Minigames", "Dankamania"],
+        [
+                        #GrinchRamData(0x0100B3, min_count=1, max_count=29),
+                        GrinchRamData(0x010000, value=26),
+                        GrinchRamData(0x095346, value=2),
+                        GrinchRamData(0x08F9D0, value=71)]),
+    "Pankamania - Easy - 4 Points": GrinchLocationData(
+        "Pankamania",
+        ["Supadow Minigames", "Pankamania", "Supadow Easy"],
         1503,
-        [GrinchRamData(0x0100FB, min_count=12)]),
+        [
+                        GrinchRamData(0x0100EB,value=4, min_count=4, max_count=99),
+                        GrinchRamData(0x010000, value=27),
+                        GrinchRamData(0x095346, value=0)]),
+    "Pankamania - Easy - 8 Points": GrinchLocationData(
+        "Pankamania",
+        ["Supadow Minigames", "Pankamania", "Supadow Easy"],
+        1504,
+        [
+                        GrinchRamData(0x0100EB,value=8, min_count=8, max_count=99),
+                        GrinchRamData(0x010000, value=27),
+                        GrinchRamData(0x095346, value=0)]),
+    "Pankamania - Easy - 12 Points": GrinchLocationData(
+        "Pankamania",
+        ["Supadow Minigames", "Pankamania", "Supadow Easy"],
+        1505,
+        [
+                        GrinchRamData(0x0100EB, value=12, min_count=12, max_count=99),
+                        GrinchRamData(0x010000, value=27),
+                        GrinchRamData(0x095346, value=0)]),
+    "Pankamania - Hard - 4 Points": GrinchLocationData(
+        "Pankamania",
+        ["Supadow Minigames", "Pankamania", "Supadow Hard"],
+        1506,
+        [
+                        GrinchRamData(0x0100EB, value=4, min_count=4, max_count=99),
+                        GrinchRamData(0x010000, value=27),
+                        GrinchRamData(0x095346, value=1)]),
+    "Pankamania - Hard - 8 Points": GrinchLocationData(
+        "Pankamania",
+        ["Supadow Minigames", "Pankamania", "Supadow Hard"],
+        1507,
+        [
+                        GrinchRamData(0x0100EB, value=8, min_count=8, max_count=99),
+                        GrinchRamData(0x010000, value=27),
+                        GrinchRamData(0x095346, value=1)]),
+    "Pankamania - Hard - 12 Points": GrinchLocationData(
+        "Pankamania",
+        ["Supadow Minigames", "Pankamania", "Supadow Hard"],
+        1508,
+        [
+                        GrinchRamData(0x0100EB, value=12, min_count=12, max_count=99),
+                        GrinchRamData(0x010000, value=27),
+                        GrinchRamData(0x095346, value=1)]),
+    "Pankamania - Real Tough - 4 Points": GrinchLocationData(
+        "Pankamania",
+        ["Supadow Minigames", "Pankamania", "Supadow Real Tough"],
+        1509,
+        [
+                        GrinchRamData(0x0100EB, value=4, min_count=4, max_count=99),
+                        GrinchRamData(0x010000, value=27),
+                        GrinchRamData(0x095346, value=2)]),
+    "Pankamania - Real Tough - 8 Points": GrinchLocationData(
+        "Pankamania",
+        ["Supadow Minigames", "Pankamania", "Supadow Real Tough"],
+        1510,
+        [
+                        GrinchRamData(0x0100EB, value=8, min_count=8, max_count=99),
+                        GrinchRamData(0x010000, value=27),
+                        GrinchRamData(0x095346, value=2)]),
+    "Pankamania - Real Tough - 12 Points": GrinchLocationData(
+        "Pankamania",
+        ["Supadow Minigames", "Pankamania", "Supadow Real Tough"],
+        1511,
+        [
+                        GrinchRamData(0x0100EB, value=12, min_count=12, max_count=99),
+                        GrinchRamData(0x010000, value=27),
+                        GrinchRamData(0x095346, value=2)]),
+
     "The Copter Race Contest - Easy": GrinchLocationData(
         "The Copter Race Contest",
-        ["Supadow Minigames", "The Copter Race Contest"],
-        1504,
-        [GrinchRamData(0x0100FC, min_count=1, max_count=44)]),
+        ["Supadow Minigames", "The Copter Race Contest", "Supadow Easy"],
+        1512,
+        [
+                        #GrinchRamData(0x0100B3, min_count=1, max_count=44),
+                        GrinchRamData(0x095345, value=0),
+                        GrinchRamData(0x010000, value=28),
+                        GrinchRamData(0x08F9D0, value=71)]),
     "The Copter Race Contest - Hard": GrinchLocationData(
         "The Copter Race Contest",
-        ["Supadow Minigames", "The Copter Race Contest"],
-        1505,
-        [GrinchRamData(0x0100FC, min_count=1, max_count=34)]),
+        ["Supadow Minigames", "The Copter Race Contest", "Supadow Hard"],
+        1513,
+        [
+                        #GrinchRamData(0x0100B3, min_count=1, max_count=34),
+                        GrinchRamData(0x095345, value=1),
+                        GrinchRamData(0x010000, value=28),
+                        GrinchRamData(0x08F9D0, value=71)]),
     "The Copter Race Contest - Real Tough": GrinchLocationData(
         "The Copter Race Contest",
-        ["Supadow Minigames", "The Copter Race Contest"],
-        1506,
-        [GrinchRamData(0x0100FC, min_count=1, max_count=29)]),
+        ["Supadow Minigames", "The Copter Race Contest", "Supadow Real Tough"],
+        1514,
+        [
+                        #GrinchRamData(0x0100B3, min_count=1, max_count=29),
+                        GrinchRamData(0x095345, value=2),
+                        GrinchRamData(0x010000, value=28),
+                        GrinchRamData(0x08F9D0, value=71)]),
     "Bike Race - 1st Place":  GrinchLocationData(
         "Bike Race",
-        ["Supadow Minigames", "Bike Race"],
-        1509,
+        ["Supadow Minigames", "Bike Race", "Supadow Real Tough"],
+        1515,
         [
             GrinchRamData(0x010000, value=0x18),
             GrinchRamData(0x134CA5, value=1)]),
     "Bike Race - Top 2": GrinchLocationData(
         "Bike Race",
-        ["Supadow Minigames", "Bike Race"],
-        1510,
+        ["Supadow Minigames", "Bike Race", "Supadow Hard"],
+        1516,
         [
             GrinchRamData(0x010000, value=0x18),
             GrinchRamData(0x134CA5, min_count=1, max_count=2)]),
     "Bike Race - Top 3": GrinchLocationData(
         "Bike Race",
-        ["Supadow Minigames", "Bike Race"],
-        1511,
+        ["Supadow Minigames", "Bike Race", "Supadow Easy"],
+        1517,
         [
             GrinchRamData(0x010000, value=0x18),
             GrinchRamData(0x134CA5, min_count=1, max_count=3)]),
     "Bike Race - Top 4": GrinchLocationData(
         "Bike Race",
-        ["Supadow Minigames", "Bike Race"],
-        1512,
+        ["Supadow Minigames", "Bike Race", "Supadow Easy"],
+        1518,
         [
             GrinchRamData(0x010000, value=0x18),
             GrinchRamData(0x134CA5, min_count=1, max_count=4)]),

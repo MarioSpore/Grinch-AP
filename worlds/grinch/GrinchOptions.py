@@ -153,13 +153,19 @@ class ProgressiveGadgets(Toggle):  # DefaultOnToggle
     visibility = Visibility.none
 
 
-class Supadow(Toggle):
+class Supadow(Choice):
     """
     Enables completing minigames through the Supadows in Mount Crumpit as checks.
+    NOTE: Each difficulty will need to be played separately.
+    These are not mixed with other difficulties for how locations get checked
     """
 
     display_name = "Supadow Minigames"
-    visibility = Visibility.none
+    option_none = 0
+    option_easy = 1
+    option_hard = 2
+    option_real_tough = 3
+    default = 0
 
 
 class Gifts(Toggle):
