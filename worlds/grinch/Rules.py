@@ -1188,6 +1188,11 @@ ALL_LOCATIONS_INFO: dict[str, GrinchLocationInfo] = {
                 grinch_items.moves.PANCAKE,
             ],
         ],
+        advanced_location_access=[
+            [
+                grinch_items.moves.MAX,
+            ],
+        ],
     ),
     "WD - OCD BP near Who-Bris' Shack": GrinchLocationInfo(
         location_access=[
