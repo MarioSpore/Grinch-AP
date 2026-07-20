@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Dict
+from typing import Dict, Any
 
 from BaseClasses import Tutorial
 from worlds.AutoWorld import WebWorld
@@ -584,7 +584,7 @@ async_viable = {
     Missionsanity: "full",
     MiscLocations: "true",
 }
-grinch_options_presets: Dict[str, Dict] = {
+options_presets: Dict[str, Dict[str, Any]] = {
     "Beginner Friendly": beginner_friendly,
     "Developer Settings": dev_settings,
     "Pure Vanilla": vanilla,
