@@ -11,8 +11,7 @@ from typing import ClassVar
 from worlds.AutoWorld import World
 from Options import OptionError
 
-from .GrinchOptions import GrinchOptions
-from .Web import GrinchWeb
+from .GrinchOptions import GrinchOptions, GrinchWeb
 
 
 class GrinchWorld(World):
