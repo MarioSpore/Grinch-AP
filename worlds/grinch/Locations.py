@@ -1465,7 +1465,7 @@ grinch_locations = {
     #     ["Mount Crumpit"],
     #     1700,
     #     [
-    #         GrinchRamData(0x095343, value=1),
+    #         GrinchRamData(0x095343, value=1, min_count=1, max_count=5),
     #         GrinchRamData(0x010000, value=0x05),
     #     ],
     # ),
@@ -1474,7 +1474,7 @@ grinch_locations = {
     #     ["Mount Crumpit"],
     #     1701,
     #     [
-    #         GrinchRamData(0x095343, value=2),
+    #         GrinchRamData(0x095343, value=2, min_count=2, max_count=5),
     #         GrinchRamData(0x010000, value=0x05),
     #     ],
     # ),
@@ -1483,7 +1483,7 @@ grinch_locations = {
     #     ["Mount Crumpit"],
     #     1702,
     #     [
-    #         GrinchRamData(0x095343, value=3),
+    #         GrinchRamData(0x095343, value=3, min_count=3, max_count=5),
     #         GrinchRamData(0x010000, value=0x05),
     #     ],
     # ),
@@ -1492,7 +1492,7 @@ grinch_locations = {
     #     ["Mount Crumpit"],
     #     1703,
     #     [
-    #         GrinchRamData(0x095343, value=4),
+    #         GrinchRamData(0x095343, value=4, min_count=4, max_count=5),
     #         GrinchRamData(0x010000, value=0x05),
     #     ],
     # ),
@@ -2373,7 +2373,7 @@ grinch_locations = {
         ["Who Dump's Missions", "Missionsanity", "Who Dump"],
         2121,
         [
-            # GrinchRamData(0x0100FE, value=1),
+            # GrinchRamData(0x0100FE, value=1, min_count=1, max_count=10),
             GrinchRamData(0x010258, binary_bit_pos=7),
         ],
     ),
@@ -2382,7 +2382,7 @@ grinch_locations = {
         ["Who Dump's Missions", "Missionsanity", "Who Dump"],
         2122,
         [
-            # GrinchRamData(0x0100FE, value=2),
+            # GrinchRamData(0x0100FE, value=2, min_count=2, max_count=10),
             GrinchRamData(0x010259, binary_bit_pos=0),
         ],
     ),
@@ -2391,7 +2391,7 @@ grinch_locations = {
         ["Who Dump's Missions", "Missionsanity", "Who Dump"],
         2123,
         [
-            # GrinchRamData(0x0100FE, value=3),
+            # GrinchRamData(0x0100FE, value=3, min_count=3, max_count=10),
             GrinchRamData(0x010259, binary_bit_pos=1),
         ],
     ),
@@ -2400,7 +2400,7 @@ grinch_locations = {
         ["Who Dump's Missions", "Missionsanity", "Who Dump"],
         2124,
         [
-            # GrinchRamData(0x0100FE, value=4),
+            # GrinchRamData(0x0100FE, value=4, min_count=4, max_count=10),
             GrinchRamData(0x010259, binary_bit_pos=2),
         ],
     ),
@@ -2409,7 +2409,7 @@ grinch_locations = {
         ["Who Dump's Missions", "Missionsanity", "Who Dump"],
         2125,
         [
-            # GrinchRamData(0x0100FE, value=5),
+            # GrinchRamData(0x0100FE, value=5, min_count=5, max_count=10),
             GrinchRamData(0x010259, binary_bit_pos=3),
         ],
     ),
@@ -2418,7 +2418,7 @@ grinch_locations = {
         ["Who Dump's Missions", "Missionsanity", "Who Dump"],
         2126,
         [
-            # GrinchRamData(0x0100FE, value=6),
+            # GrinchRamData(0x0100FE, value=6, min_count=6 max_count=10),
             GrinchRamData(0x010259, binary_bit_pos=4),
         ],
     ),
@@ -2427,7 +2427,7 @@ grinch_locations = {
         ["Who Dump's Missions", "Missionsanity", "Who Dump"],
         2127,
         [
-            # GrinchRamData(0x0100FE, value=7),
+            # GrinchRamData(0x0100FE, value=7, min_count=7, max_count=10),
             GrinchRamData(0x010259, binary_bit_pos=5),
         ],
     ),
@@ -2436,7 +2436,7 @@ grinch_locations = {
         ["Who Dump's Missions", "Missionsanity", "Who Dump"],
         2128,
         [
-            # GrinchRamData(0x0100FE, value=8),
+            # GrinchRamData(0x0100FE, value=8, min_count=8, max_count=10),
             GrinchRamData(0x010259, binary_bit_pos=6),
         ],
     ),
@@ -2445,7 +2445,7 @@ grinch_locations = {
         ["Who Dump's Missions", "Missionsanity", "Who Dump"],
         2129,
         [
-            # GrinchRamData(0x0100FE, value=9),
+            # GrinchRamData(0x0100FE, value=9, min_count=9, max_count=10),
             GrinchRamData(0x010259, binary_bit_pos=7),
         ],
     ),
