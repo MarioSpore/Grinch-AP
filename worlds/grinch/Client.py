@@ -499,87 +499,88 @@ class GrinchClient(BizHawkClient):
         return addr_list_to_update
 
     async def supadow_handler(self, ctx: "BizHawkClientContext"):
-        # When in MC
-        list_recv_itemids: list[int] = [netItem.item for netItem in ctx.items_received]
-        SpinNWinReceived = (42069 + ALL_ITEMS_TABLE[grinch_items.supadow.SPIN_N_WIN].id) in list_recv_itemids
-        PankamaniaReceived = (42069 + ALL_ITEMS_TABLE[grinch_items.supadow.PANKAMANIA].id) in list_recv_itemids
-        CopterRaceReceived = (42069 + ALL_ITEMS_TABLE[grinch_items.supadow.COPTER_RACE].id) in list_recv_itemids
+        if self.supadow_minigames != 0:
+            # When in MC
+            list_recv_itemids: list[int] = [netItem.item for netItem in ctx.items_received]
+            SpinNWinReceived = (42069 + ALL_ITEMS_TABLE[grinch_items.supadow.SPIN_N_WIN].id) in list_recv_itemids
+            PankamaniaReceived = (42069 + ALL_ITEMS_TABLE[grinch_items.supadow.PANKAMANIA].id) in list_recv_itemids
+            CopterRaceReceived = (42069 + ALL_ITEMS_TABLE[grinch_items.supadow.COPTER_RACE].id) in list_recv_itemids
 
-        ingame_map_id = await self.get_current_map_id(ctx)
+            ingame_map_id = await self.get_current_map_id(ctx)
 
-        SupadowReads = []
-        SupadowWrites = []
+            SupadowReads = []
+            SupadowWrites = []
 
-        if ingame_map_id == ALL_REGIONS_INFO["Mount Crumpit"].map_id:
+            if ingame_map_id == ALL_REGIONS_INFO["Mount Crumpit"].map_id:
 
-            SupadowReads += [(GrinchRamVariables.SpinNWinDoor["OpenTextGiftNum"], 2, "MainRAM")]
-            SupadowReads += [(GrinchRamVariables.SpinNWinDoor["AllowInteractGiftNum"], 2, "MainRAM")]
-            SupadowReads += [(GrinchRamVariables.SpinNWinDoor["LockedTextGiftNum"], 2, "MainRAM")]
+                SupadowReads += [(GrinchRamVariables.SpinNWinDoor["OpenTextGiftNum"], 2, "MainRAM")]
+                SupadowReads += [(GrinchRamVariables.SpinNWinDoor["AllowInteractGiftNum"], 2, "MainRAM")]
+                SupadowReads += [(GrinchRamVariables.SpinNWinDoor["LockedTextGiftNum"], 2, "MainRAM")]
 
-            SupadowReads += [(GrinchRamVariables.PankamaniaDoor["OpenTextGiftNum"], 2, "MainRAM")]
-            SupadowReads += [(GrinchRamVariables.PankamaniaDoor["AllowInteractGiftNum"], 2, "MainRAM")]
-            SupadowReads += [(GrinchRamVariables.PankamaniaDoor["LockedTextGiftNum"], 2, "MainRAM")]
+                SupadowReads += [(GrinchRamVariables.PankamaniaDoor["OpenTextGiftNum"], 2, "MainRAM")]
+                SupadowReads += [(GrinchRamVariables.PankamaniaDoor["AllowInteractGiftNum"], 2, "MainRAM")]
+                SupadowReads += [(GrinchRamVariables.PankamaniaDoor["LockedTextGiftNum"], 2, "MainRAM")]
 
-            SupadowReads += [(GrinchRamVariables.GCContestDoor["OpenTextGiftNum"], 2, "MainRAM")]
-            SupadowReads += [(GrinchRamVariables.GCContestDoor["AllowInteractGiftNum"], 2, "MainRAM")]
-            SupadowReads += [(GrinchRamVariables.GCContestDoor["LockedTextGiftNum"], 2, "MainRAM")]
-            reads = await bizhawk.read(ctx.bizhawk_ctx, SupadowReads)
+                SupadowReads += [(GrinchRamVariables.GCContestDoor["OpenTextGiftNum"], 2, "MainRAM")]
+                SupadowReads += [(GrinchRamVariables.GCContestDoor["AllowInteractGiftNum"], 2, "MainRAM")]
+                SupadowReads += [(GrinchRamVariables.GCContestDoor["LockedTextGiftNum"], 2, "MainRAM")]
+                reads = await bizhawk.read(ctx.bizhawk_ctx, SupadowReads)
 
-            SpinNWinDoor_OpenTextGiftNum = int.from_bytes(reads[0])
-            SpinNWinDoor_AllowInteractGiftNum = int.from_bytes(reads[1])
-            SpinNWinDoor_LockedTextGiftNum = int.from_bytes(reads[2])
-            PankamaniaDoor_OpenTextGiftNum = int.from_bytes(reads[3])
-            PankamaniaDoor_AllowInteractGiftNum = int.from_bytes(reads[4])
-            PankamaniaDoor_LockedTextGiftNum = int.from_bytes(reads[5])
+                SpinNWinDoor_OpenTextGiftNum = int.from_bytes(reads[0])
+                SpinNWinDoor_AllowInteractGiftNum = int.from_bytes(reads[1])
+                SpinNWinDoor_LockedTextGiftNum = int.from_bytes(reads[2])
+                PankamaniaDoor_OpenTextGiftNum = int.from_bytes(reads[3])
+                PankamaniaDoor_AllowInteractGiftNum = int.from_bytes(reads[4])
+                PankamaniaDoor_LockedTextGiftNum = int.from_bytes(reads[5])
 
-            GCContestDoor_OpenTextGiftNum = int.from_bytes(reads[6])
-            GCContestDoor_AllowInteractGiftNum = int.from_bytes(reads[7])
-            GCContestDoor_LockedTextGiftNum = int.from_bytes(reads[8])
+                GCContestDoor_OpenTextGiftNum = int.from_bytes(reads[6])
+                GCContestDoor_AllowInteractGiftNum = int.from_bytes(reads[7])
+                GCContestDoor_LockedTextGiftNum = int.from_bytes(reads[8])
 
-            if SpinNWinReceived:
-                if SpinNWinDoor_OpenTextGiftNum != 0x0000:
-                    SupadowWrites += [(GrinchRamVariables.SpinNWinDoor["OpenTextGiftNum"], 0x0000.to_bytes(2, "little"), "MainRAM")]
-                if SpinNWinDoor_AllowInteractGiftNum != 0x0000:
-                    SupadowWrites += [(GrinchRamVariables.SpinNWinDoor["AllowInteractGiftNum"], 0x0000.to_bytes(2, "little"), "MainRAM")]
-                if SpinNWinDoor_LockedTextGiftNum != 0x0000:
-                    SupadowWrites += [(GrinchRamVariables.SpinNWinDoor["LockedTextGiftNum"], 0x0000.to_bytes(2, "little"), "MainRAM")]
-            else:
-                if SpinNWinDoor_OpenTextGiftNum != 0xFFFF:
-                    SupadowWrites += [(GrinchRamVariables.SpinNWinDoor["OpenTextGiftNum"], 0xFFFF.to_bytes(2, "little"), "MainRAM")]
-                if SpinNWinDoor_AllowInteractGiftNum != 0xFFFF:
-                    SupadowWrites += [(GrinchRamVariables.SpinNWinDoor["AllowInteractGiftNum"], 0xFFFF.to_bytes(2, "little"), "MainRAM")]
-                if SpinNWinDoor_LockedTextGiftNum != 0xFFFF:
-                    SupadowWrites += [(GrinchRamVariables.SpinNWinDoor["LockedTextGiftNum"], 0xFFFF.to_bytes(2, "little"), "MainRAM")]
-            if PankamaniaReceived:
-                if PankamaniaDoor_OpenTextGiftNum != 0x0000:
-                    SupadowWrites += [(GrinchRamVariables.PankamaniaDoor["OpenTextGiftNum"], 0x0000.to_bytes(2, "little"), "MainRAM")]
-                if PankamaniaDoor_AllowInteractGiftNum != 0x0000:
-                    SupadowWrites += [(GrinchRamVariables.PankamaniaDoor["AllowInteractGiftNum"], 0x0000.to_bytes(2, "little"), "MainRAM")]
-                if PankamaniaDoor_LockedTextGiftNum != 0x0000:
-                    SupadowWrites += [(GrinchRamVariables.PankamaniaDoor["LockedTextGiftNum"], 0x0000.to_bytes(2, "little"), "MainRAM")]
-            else:
-                if PankamaniaDoor_OpenTextGiftNum != 0xFFFF:
-                    SupadowWrites += [(GrinchRamVariables.PankamaniaDoor["OpenTextGiftNum"], 0xFFFF.to_bytes(2, "little"), "MainRAM")]
-                if PankamaniaDoor_AllowInteractGiftNum != 0xFFFF:
-                    SupadowWrites += [(GrinchRamVariables.PankamaniaDoor["AllowInteractGiftNum"], 0xFFFF.to_bytes(2, "little"), "MainRAM")]
-                if PankamaniaDoor_LockedTextGiftNum != 0xFFFF:
-                    SupadowWrites += [(GrinchRamVariables.PankamaniaDoor["LockedTextGiftNum"], 0xFFFF.to_bytes(2, "little"), "MainRAM")]
-            if CopterRaceReceived:
-                if GCContestDoor_OpenTextGiftNum != 0x0000:
-                    SupadowWrites += [(GrinchRamVariables.GCContestDoor["OpenTextGiftNum"], 0x0000.to_bytes(2, "little"), "MainRAM")]
-                if GCContestDoor_AllowInteractGiftNum != 0x0000:
-                    SupadowWrites += [(GrinchRamVariables.GCContestDoor["AllowInteractGiftNum"], 0x0000.to_bytes(2, "little"), "MainRAM")]
-                if GCContestDoor_LockedTextGiftNum != 0x0000:
-                    SupadowWrites += [(GrinchRamVariables.GCContestDoor["LockedTextGiftNum"], 0x0000.to_bytes(2, "little"), "MainRAM")]
-            else:
-                if GCContestDoor_OpenTextGiftNum != 0xFFFF:
-                    SupadowWrites += [(GrinchRamVariables.GCContestDoor["OpenTextGiftNum"], 0xFFFF.to_bytes(2, "little"), "MainRAM")]
-                if GCContestDoor_AllowInteractGiftNum != 0xFFFF:
-                    SupadowWrites += [(GrinchRamVariables.GCContestDoor["AllowInteractGiftNum"], 0xFFFF.to_bytes(2, "little"), "MainRAM")]
-                if GCContestDoor_LockedTextGiftNum != 0xFFFF:
-                    SupadowWrites += [(GrinchRamVariables.GCContestDoor["LockedTextGiftNum"], 0xFFFF.to_bytes(2, "little"), "MainRAM")]
-            if SupadowWrites:
-                await bizhawk.write(ctx.bizhawk_ctx,SupadowWrites)
+                if SpinNWinReceived:
+                    if SpinNWinDoor_OpenTextGiftNum != 0x0000:
+                        SupadowWrites += [(GrinchRamVariables.SpinNWinDoor["OpenTextGiftNum"], 0x0000.to_bytes(2, "little"), "MainRAM")]
+                    if SpinNWinDoor_AllowInteractGiftNum != 0x0000:
+                        SupadowWrites += [(GrinchRamVariables.SpinNWinDoor["AllowInteractGiftNum"], 0x0000.to_bytes(2, "little"), "MainRAM")]
+                    if SpinNWinDoor_LockedTextGiftNum != 0x0000:
+                        SupadowWrites += [(GrinchRamVariables.SpinNWinDoor["LockedTextGiftNum"], 0x0000.to_bytes(2, "little"), "MainRAM")]
+                else:
+                    if SpinNWinDoor_OpenTextGiftNum != 0xFFFF:
+                        SupadowWrites += [(GrinchRamVariables.SpinNWinDoor["OpenTextGiftNum"], 0xFFFF.to_bytes(2, "little"), "MainRAM")]
+                    if SpinNWinDoor_AllowInteractGiftNum != 0xFFFF:
+                        SupadowWrites += [(GrinchRamVariables.SpinNWinDoor["AllowInteractGiftNum"], 0xFFFF.to_bytes(2, "little"), "MainRAM")]
+                    if SpinNWinDoor_LockedTextGiftNum != 0xFFFF:
+                        SupadowWrites += [(GrinchRamVariables.SpinNWinDoor["LockedTextGiftNum"], 0xFFFF.to_bytes(2, "little"), "MainRAM")]
+                if PankamaniaReceived:
+                    if PankamaniaDoor_OpenTextGiftNum != 0x0000:
+                        SupadowWrites += [(GrinchRamVariables.PankamaniaDoor["OpenTextGiftNum"], 0x0000.to_bytes(2, "little"), "MainRAM")]
+                    if PankamaniaDoor_AllowInteractGiftNum != 0x0000:
+                        SupadowWrites += [(GrinchRamVariables.PankamaniaDoor["AllowInteractGiftNum"], 0x0000.to_bytes(2, "little"), "MainRAM")]
+                    if PankamaniaDoor_LockedTextGiftNum != 0x0000:
+                        SupadowWrites += [(GrinchRamVariables.PankamaniaDoor["LockedTextGiftNum"], 0x0000.to_bytes(2, "little"), "MainRAM")]
+                else:
+                    if PankamaniaDoor_OpenTextGiftNum != 0xFFFF:
+                        SupadowWrites += [(GrinchRamVariables.PankamaniaDoor["OpenTextGiftNum"], 0xFFFF.to_bytes(2, "little"), "MainRAM")]
+                    if PankamaniaDoor_AllowInteractGiftNum != 0xFFFF:
+                        SupadowWrites += [(GrinchRamVariables.PankamaniaDoor["AllowInteractGiftNum"], 0xFFFF.to_bytes(2, "little"), "MainRAM")]
+                    if PankamaniaDoor_LockedTextGiftNum != 0xFFFF:
+                        SupadowWrites += [(GrinchRamVariables.PankamaniaDoor["LockedTextGiftNum"], 0xFFFF.to_bytes(2, "little"), "MainRAM")]
+                if CopterRaceReceived:
+                    if GCContestDoor_OpenTextGiftNum != 0x0000:
+                        SupadowWrites += [(GrinchRamVariables.GCContestDoor["OpenTextGiftNum"], 0x0000.to_bytes(2, "little"), "MainRAM")]
+                    if GCContestDoor_AllowInteractGiftNum != 0x0000:
+                        SupadowWrites += [(GrinchRamVariables.GCContestDoor["AllowInteractGiftNum"], 0x0000.to_bytes(2, "little"), "MainRAM")]
+                    if GCContestDoor_LockedTextGiftNum != 0x0000:
+                        SupadowWrites += [(GrinchRamVariables.GCContestDoor["LockedTextGiftNum"], 0x0000.to_bytes(2, "little"), "MainRAM")]
+                else:
+                    if GCContestDoor_OpenTextGiftNum != 0xFFFF:
+                        SupadowWrites += [(GrinchRamVariables.GCContestDoor["OpenTextGiftNum"], 0xFFFF.to_bytes(2, "little"), "MainRAM")]
+                    if GCContestDoor_AllowInteractGiftNum != 0xFFFF:
+                        SupadowWrites += [(GrinchRamVariables.GCContestDoor["AllowInteractGiftNum"], 0xFFFF.to_bytes(2, "little"), "MainRAM")]
+                    if GCContestDoor_LockedTextGiftNum != 0xFFFF:
+                        SupadowWrites += [(GrinchRamVariables.GCContestDoor["LockedTextGiftNum"], 0xFFFF.to_bytes(2, "little"), "MainRAM")]
+                if SupadowWrites:
+                    await bizhawk.write(ctx.bizhawk_ctx,SupadowWrites)
 
     # Removes the regional access until you actually received it from AP.
     async def constant_address_update(self, ctx: "BizHawkClientContext"):
@@ -592,6 +593,7 @@ class GrinchClient(BizHawkClient):
             **SLEIGH_TABLE,
             **GADGETS_TABLE,
             **MOVES_TABLE,
+            # Do not include **SUPADOW_TABLE as the supadow_handler function is doing it all for us
         }
 
         heart_count = len(
@@ -657,13 +659,13 @@ class GrinchClient(BizHawkClient):
             if item_name == grinch_items.keys.PROGRESSIVE_VACUUM_TUBE and has_whoville_vacuum_tube:
                 continue
 
-            if (item_name in [grinch_items.supadow.SPIN_N_WIN,
-                grinch_items.supadow.PANKAMANIA,
-                grinch_items.supadow.COPTER_RACE,
-                grinch_items.supadow.BIKE_RACE]
-                and (ingame_map_id != 0x05
-                or self.supadow_minigames == 0)):
-                continue
+            # if (item_name in [grinch_items.supadow.SPIN_N_WIN,
+            #     grinch_items.supadow.PANKAMANIA,
+            #     grinch_items.supadow.COPTER_RACE,
+            #     grinch_items.supadow.BIKE_RACE]
+            #     and (ingame_map_id != 0x05
+            #     or self.supadow_minigames == 0)):
+            #     continue
 
             # This will either constantly update the item to ensure you still have it or take it away if you don't deserve it
             for addr_to_update in item_data.update_ram_addr:
