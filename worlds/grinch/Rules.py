@@ -1734,46 +1734,46 @@ ALL_LOCATIONS_INFO: dict[str, GrinchLocationInfo] = {
             [],
         ],
     ),
-    "Pankamania - Easy - 4 Points": GrinchLocationInfo(
-        location_access=[
-            [],
-        ],
-    ),
-    "Pankamania - Easy - 8 Points": GrinchLocationInfo(
-        location_access=[
-            [],
-        ],
-    ),
+    # "Pankamania - Easy - 4 Points": GrinchLocationInfo(
+    #     location_access=[
+    #         [],
+    #     ],
+    # ),
+    # "Pankamania - Easy - 8 Points": GrinchLocationInfo(
+    #     location_access=[
+    #         [],
+    #     ],
+    # ),
     "Pankamania - Easy - 12 Points": GrinchLocationInfo(
         location_access=[
             [],
         ],
     ),
-    "Pankamania - Hard - 4 Points": GrinchLocationInfo(
-        location_access=[
-            [],
-        ],
-    ),
-    "Pankamania - Hard - 8 Points": GrinchLocationInfo(
-        location_access=[
-            [],
-        ],
-    ),
+    # "Pankamania - Hard - 4 Points": GrinchLocationInfo(
+    #     location_access=[
+    #         [],
+    #     ],
+    # ),
+    # "Pankamania - Hard - 8 Points": GrinchLocationInfo(
+    #     location_access=[
+    #         [],
+    #     ],
+    # ),
     "Pankamania - Hard - 12 Points": GrinchLocationInfo(
         location_access=[
             [],
         ],
     ),
-    "Pankamania - Real Tough - 4 Points": GrinchLocationInfo(
-        location_access=[
-            [],
-        ],
-    ),
-    "Pankamania - Real Tough - 8 Points": GrinchLocationInfo(
-        location_access=[
-            [],
-        ],
-    ),
+    # "Pankamania - Real Tough - 4 Points": GrinchLocationInfo(
+    #     location_access=[
+    #         [],
+    #     ],
+    # ),
+    # "Pankamania - Real Tough - 8 Points": GrinchLocationInfo(
+    #     location_access=[
+    #         [],
+    #     ],
+    # ),
     "Pankamania - Real Tough - 12 Points": GrinchLocationInfo(
         location_access=[
             [],
