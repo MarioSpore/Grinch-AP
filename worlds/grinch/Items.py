@@ -580,14 +580,14 @@ SUPADOW_TABLE: dict[str, GrinchItemData] = {
         IC.progression_skip_balancing,
         [],
     ),
-    grinch_items.supadow.BIKE_RACE: GrinchItemData(
-        [
-            grinch_categories.SUPADOW_MINIGAMES,
-        ],
-        408,
-        IC.progression_skip_balancing,
-        [],
-    ),
+    # grinch_items.supadow.BIKE_RACE: GrinchItemData(
+    #     [
+    #         grinch_categories.SUPADOW_MINIGAMES,
+    #     ],
+    #     408,
+    #     IC.progression_skip_balancing,
+    #     [],
+    # ),
     # grinch_items.supadow.PROGRESSIVE_SUPADOW: GrinchItemData(
     #     [
     #         grinch_categories.SUPADOW_MINIGAMES,
