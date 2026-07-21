@@ -1724,97 +1724,97 @@ ALL_LOCATIONS_INFO: dict[str, GrinchLocationInfo] = {
             ],
         ],
     ),
-    "Spin N' Win - Easy": GrinchLocationInfo(
+    "MC - Supadow - Spin N' Win - Easy": GrinchLocationInfo(
         location_access=[
             [],
         ],
     ),
-    "Spin N' Win - Hard": GrinchLocationInfo(
+    "MC - Supadow - Spin N' Win - Hard": GrinchLocationInfo(
         location_access=[
             [],
         ],
     ),
-    "Spin N' Win - Real Tough": GrinchLocationInfo(
+    "MC - Supadow - Spin N' Win - Real Tough": GrinchLocationInfo(
         location_access=[
             [],
         ],
     ),
-    # "Pankamania - Easy - 4 Points": GrinchLocationInfo(
+    # "MC - Supadow - Pankamania - Easy - 4 Points": GrinchLocationInfo(
     #     location_access=[
     #         [],
     #     ],
     # ),
-    # "Pankamania - Easy - 8 Points": GrinchLocationInfo(
+    # "MC - Supadow - Pankamania - Easy - 8 Points": GrinchLocationInfo(
     #     location_access=[
     #         [],
     #     ],
     # ),
-    "Pankamania - Easy - 12 Points": GrinchLocationInfo(
+    "MC - Supadow - Pankamania - Easy - 12 Points": GrinchLocationInfo(
         location_access=[
             [],
         ],
     ),
-    # "Pankamania - Hard - 4 Points": GrinchLocationInfo(
+    # "MC - Supadow - Pankamania - Hard - 4 Points": GrinchLocationInfo(
     #     location_access=[
     #         [],
     #     ],
     # ),
-    # "Pankamania - Hard - 8 Points": GrinchLocationInfo(
+    # "MC - Supadow - Pankamania - Hard - 8 Points": GrinchLocationInfo(
     #     location_access=[
     #         [],
     #     ],
     # ),
-    "Pankamania - Hard - 12 Points": GrinchLocationInfo(
+    "MC - Supadow - Pankamania - Hard - 12 Points": GrinchLocationInfo(
         location_access=[
             [],
         ],
     ),
-    # "Pankamania - Real Tough - 4 Points": GrinchLocationInfo(
+    # "MC - Supadow - Pankamania - Real Tough - 4 Points": GrinchLocationInfo(
     #     location_access=[
     #         [],
     #     ],
     # ),
-    # "Pankamania - Real Tough - 8 Points": GrinchLocationInfo(
+    # "MC - Supadow - Pankamania - Real Tough - 8 Points": GrinchLocationInfo(
     #     location_access=[
     #         [],
     #     ],
     # ),
-    "Pankamania - Real Tough - 12 Points": GrinchLocationInfo(
+    "MC - Supadow - Pankamania - Real Tough - 12 Points": GrinchLocationInfo(
         location_access=[
             [],
         ],
     ),
-    "The Copter Race Contest - Easy": GrinchLocationInfo(
+    "MC - Supadow - The Copter Race Contest - Easy": GrinchLocationInfo(
         location_access=[
             [],
         ],
     ),
-    "The Copter Race Contest - Hard": GrinchLocationInfo(
+    "MC - Supadow - The Copter Race Contest - Hard": GrinchLocationInfo(
         location_access=[
             [],
         ],
     ),
-    "The Copter Race Contest - Real Tough": GrinchLocationInfo(
+    "MC - Supadow - The Copter Race Contest - Real Tough": GrinchLocationInfo(
         location_access=[
             [],
         ],
     ),
-    "Bike Race - 1st Place": GrinchLocationInfo(
+    "MC - Sleigh Room - Bike Race - 1st Place": GrinchLocationInfo(
         location_access=[
             [],
         ],
     ),
-    "Bike Race - Top 2": GrinchLocationInfo(
+    "MC - Sleigh Room - Bike Race - Top 2": GrinchLocationInfo(
         location_access=[
             [],
         ],
     ),
-    "Bike Race - Top 3": GrinchLocationInfo(
+    "MC - Sleigh Room - Bike Race - Top 3": GrinchLocationInfo(
         location_access=[
             [],
         ],
     ),
-    "Bike Race - Top 4": GrinchLocationInfo(
+    "MC - Sleigh Room - Bike Race - Top 4": GrinchLocationInfo(
         location_access=[
             [],
         ],
