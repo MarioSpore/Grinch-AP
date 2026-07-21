@@ -504,6 +504,85 @@ class GrinchWeb(WebWorld):
         ]),
     ]
 
+    ## Yaml presets
+    vanilla = {
+        ProgressiveVacuums: "true",
+        StartingArea: "whoville",
+        Missionsanity: "completion",
+        # FillerWeight: "0",
+        RandomizeMissionItems: "false",
+        RandomizeSleighParts: "false",
+        Gadgetrando: "true",
+        Moverando: "false",
+        TeleportMultibind: "false",
+        UnlimitedEggs: "false",
+        MusicRando: "false",
+    }
+    beginner_friendly = {
+        ProgressiveVacuums: "true",
+        Gadgetrando: "false",
+        Moverando: "false",
+        StartingArea: "whoville",
+        TeleportMultibind: "true",
+        RandomizeMissionItems: "false",
+        RandomizeSleighParts: "false",
+        Missionsanity: "none",
+        ExcludeEnvironments: ["Post Office", "Clock Tower", "City Hall", "Ski Resort",
+                              "Civic Center", "Minefield", "Power Plant", "Generator Building",
+                              "Scout's Hut", "North Shore", "Mayor's Villa", "Submarine World"],
+    }
+    dev_settings = {
+        Missionsanity: "both",
+        MusicRando: "true",
+        ReducedCutscenes: "true"
+    }
+    allsanity = {
+        ExcludeEnvironments: [],
+        Gifts: "true",
+        Supadow: 3,
+        MiscLocations: "true",
+        Moverando: "true",
+        Gadgetrando: "true",
+        RandomizeMissionItems: "true",
+        RandomizeSleighParts: "true",
+        Missionsanity: "both",
+        ExcludeGC: "false",
+    }
+    minsanity = {
+        Missionsanity: "none",
+        ExcludeEnvironments: ["Post Office", "Clock Tower", "City Hall", "Ski Resort",
+                              "Civic Center", "Minefield", "Power Plant", "Generator Building",
+                              "Scout's Hut", "North Shore", "Mayor's Villa", "Submarine World"],
+        Gadgetrando: "false",
+        Moverando: "false",
+        MiscLocations: "false",
+        RandomizeMissionItems: "false",
+        RandomizeSleighParts: "false",
+    }
+    sync_viable = {
+        "progression_balancing": 60,
+        Gifts: "false",
+        ReducedCutscenes: "true",
+        TeleportMultibind: "true",
+        Missionsanity: "completion",
+        UnlimitedEggs: "true",
+        ExcludeGC: "false",
+    }
+    async_viable = {
+        "progression_balancing": "disabled",
+        Missionsanity: "full",
+        MiscLocations: "true",
+    }
+    options_presets: Dict[str, Dict[str, Any]] = {
+        "Beginner Friendly": beginner_friendly,
+        "Developer Settings": dev_settings,
+        "Pure Vanilla": vanilla,
+        "Allsanity": allsanity,
+        "Minsanity": minsanity,
+        "Sync Viable": sync_viable,
+        "Async Viable": async_viable,
+    }
+
     tutorials = [
         Tutorial(
             "Multiworld Setup Guide",
@@ -514,82 +593,3 @@ class GrinchWeb(WebWorld):
             ["MarioSpore"],
         )
     ]
-
-## Yaml presets
-vanilla = {
-    ProgressiveVacuums: "true",
-    StartingArea: "whoville",
-    Missionsanity: "completion",
-    # FillerWeight: "0",
-    RandomizeMissionItems: "false",
-    RandomizeSleighParts: "false",
-    Gadgetrando: "true",
-    Moverando: "false",
-    TeleportMultibind: "false",
-    UnlimitedEggs: "false",
-    MusicRando: "false",
-}
-beginner_friendly = {
-    ProgressiveVacuums: "true",
-    Gadgetrando: "false",
-    Moverando: "false",
-    StartingArea: "whoville",
-    TeleportMultibind: "true",
-    RandomizeMissionItems: "false",
-    RandomizeSleighParts: "false",
-    Missionsanity: "none",
-    ExcludeEnvironments: ["Post Office", "Clock Tower", "City Hall", "Ski Resort",
-                          "Civic Center", "Minefield", "Power Plant", "Generator Building",
-                          "Scout's Hut", "North Shore", "Mayor's Villa", "Submarine World"],
-}
-dev_settings = {
-    Missionsanity: "both",
-    MusicRando: "true",
-    ReducedCutscenes: "true"
-}
-allsanity = {
-    ExcludeEnvironments: [],
-    Gifts: "true",
-    Supadow: 3,
-    MiscLocations: "true",
-    Moverando: "true",
-    Gadgetrando: "true",
-    RandomizeMissionItems: "true",
-    RandomizeSleighParts: "true",
-    Missionsanity: "both",
-    ExcludeGC: "false",
-}
-minsanity = {
-    Missionsanity: "none",
-    ExcludeEnvironments: ["Post Office", "Clock Tower", "City Hall", "Ski Resort",
-                          "Civic Center", "Minefield", "Power Plant", "Generator Building",
-                          "Scout's Hut", "North Shore", "Mayor's Villa", "Submarine World"],
-    Gadgetrando: "false",
-    Moverando: "false",
-    MiscLocations: "false",
-    RandomizeMissionItems: "false",
-    RandomizeSleighParts: "false",
-}
-sync_viable = {
-    "progression_balancing": 60,
-    Gifts: "false",
-    ReducedCutscenes: "true",
-    TeleportMultibind: "true",
-    Missionsanity: "completion",
-    UnlimitedEggs: "true",
-    ExcludeGC: "false",
-}
-async_viable = {
-    "progression_balancing": "disabled",
-    Missionsanity: "full",
-    MiscLocations: "true",
-}
-options_presets: Dict[str, Dict[str, Any]] = {
-    "Beginner Friendly": beginner_friendly,
-    "Developer Settings": dev_settings,
-    "Pure Vanilla": vanilla,
-    "Allsanity": allsanity,
-    "Minsanity": minsanity,
-    "Sync Viable": sync_viable,
-    "Async Viable": async_viable,
-}
