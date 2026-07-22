@@ -78,21 +78,21 @@ class GrinchWorld(World):
                 self.options.starting_area.value = slot_data["starting_area"]
                 self.options.exclude_environments.value = ["exclude_environments"]
                 self.options.giftsanity.value = slot_data["giftsanity"]
-                self.options.progressive_vacuums = slot_data["progressive_vacuums"]
-                self.options.missionsanity = slot_data["missionsanity"]
-                self.options.supadow_minigames = slot_data["supadow_minigames"]
-                self.options.move_rando = slot_data["move_rando"]
-                self.options.moves_to_randomize = slot_data["moves_to_randomize"]
-                self.options.gadget_rando = slot_data["gadget_rando"]
-                self.options.gadgets_to_randomize = slot_data["gadgets_to_randomize"]
-                self.options.exclude_gc = slot_data["exclude_gc"]
-                self.options.progressive_gadgets = slot_data["progressive_gadgets"]
-                self.options.killsanity = slot_data["killsanity"]
-                self.options.misc_checks = slot_data["misc_checks"]
-                self.options.randomize_mission_items = slot_data["randomize_mission_items"]
-                self.options.randomize_sleigh_parts = slot_data["randomize_sleigh_parts"]
-                self.options.goal = slot_data["goal"]
-                self.options.advanced_logic = slot_data["advanced_logic"]
+                self.options.progressive_vacuums.value = slot_data["progressive_vacuums"]
+                self.options.missionsanity.value = slot_data["missionsanity"]
+                self.options.supadow_minigames.value = slot_data["supadow_minigames"]
+                self.options.move_rando.value = slot_data["move_rando"]
+                self.options.moves_to_randomize.value = slot_data["moves_to_randomize"]
+                self.options.gadget_rando.value = slot_data["gadget_rando"]
+                self.options.gadgets_to_randomize.value = slot_data["gadgets_to_randomize"]
+                self.options.exclude_gc.value = slot_data["exclude_gc"]
+                self.options.progressive_gadgets.value = slot_data["progressive_gadgets"]
+                self.options.killsanity.value = slot_data["killsanity"]
+                self.options.misc_checks.value = slot_data["misc_checks"]
+                self.options.randomize_mission_items.value = slot_data["randomize_mission_items"]
+                self.options.randomize_sleigh_parts.value = slot_data["randomize_sleigh_parts"]
+                self.options.goal.value = slot_data["goal"]
+                self.options.advanced_logic.value = slot_data["advanced_logic"]
             else:
                 self.using_ut = False
         else:
@@ -188,14 +188,14 @@ class GrinchWorld(World):
 
                 if exclude_wl_squash:
                     continue  # Ignores the creation of WL Squashing all Gifts
-            if "Supadow Minigames" in data.location_group and self.options.supadow_minigames.value == 0:
+            if "Supadow Minigames" in data.location_group and self.options.supadow_minigames == 0:
                 continue
-            if "Supadow Minigames" in data.location_group and self.options.supadow_minigames.value != 0:
+            if "Supadow Minigames" in data.location_group and self.options.supadow_minigames != 0:
                 #Exclude Hard supadow checks if on Easy
-                if "Supadow Hard" in data.location_group and self.options.supadow_minigames.value < 2:
+                if "Supadow Hard" in data.location_group and self.options.supadow_minigames < 2:
                     continue
                 # Exclude Real Tough supadow checks if on Hard and bellow
-                if "Supadow Real Tough" in data.location_group and self.options.supadow_minigames.value < 3:
+                if "Supadow Real Tough" in data.location_group and self.options.supadow_minigames < 3:
                     continue
             if "Mission Specific Item Locations" in data.location_group and self.options.randomize_mission_items:
                 continue
