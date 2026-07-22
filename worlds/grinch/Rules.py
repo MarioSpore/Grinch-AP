@@ -28,11 +28,8 @@ def set_location_rules(world):
                     loc_rules.append(advanced_rule)
                 #print(f"[A]Access_rules:{loc_rules}")
         rule_list = interpret_rule(loc_rules, world.player)
-        for access_rule in rule_list:
-            if rule_list.index(access_rule) == 0:
-                add_rule(location, access_rule)
-            else:
-                add_rule(location, access_rule, "or")
+        if rule_list:
+            add_rule(location, lambda state, rules=tuple(rule_list): any(rule(state) for rule in rules))
 
 
 def interpret_rule(
