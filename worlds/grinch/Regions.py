@@ -35,9 +35,9 @@ subareas_list = [
 ]
 
 supadow_list = [
-    "Spin N' Win Supadow",
-    "Pankamania Supadow",
-    "The Copter Race Contest Supadow",
+    "Spin N' Win",
+    "Pankamania",
+    "The Copter Race Contest",
     "Bike Race",
 ]
 
@@ -252,8 +252,13 @@ def grinchconnect(
 
 def connect_regions(world: "GrinchWorld", multiworld: MultiWorld):
     for grinch_region, grinch_data in ALL_REGIONS_INFO.items():
+
+        if world.options.supadow_minigames == 0 and grinch_region in supadow_list:
+            #Prevent supadow region being created if supadows are off
+            continue
         multiworld.regions.append(GrinchRegion(grinch_region, grinch_data, world.player, multiworld))
-        access_list = [item_set.copy() for item_set in grinch_data.region_access]
+
+        access_list = [] if grinch_data.region_access is None else [item_set.copy() for item_set in grinch_data.region_access]
 
         if world.options.advanced_logic or world.using_ut:
             if grinch_data.advanced_region_access is not None:
@@ -265,4 +270,5 @@ def connect_regions(world: "GrinchWorld", multiworld: MultiWorld):
 
         if grinch_region == "Mount Crumpit":
             continue
+
         grinchconnect(world, grinch_region, grinch_data.parent_region, access_list)
