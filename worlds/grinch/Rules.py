@@ -1011,6 +1011,10 @@ ALL_LOCATIONS_INFO: dict[str, GrinchLocationInfo] = {
         advanced_location_access=[
             [
                 grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+                grinch_items.moves.PANCAKE,
+            ],
+            [
+                grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
                 grinch_items.gadgets.ROCKET_SPRING,
             ],
             [
