@@ -27,18 +27,21 @@ class Goal(Choice):
     physically collect them to goal.
     missions_completed: You must complete a certain number of missions to
     goal.
-    squashing_all_gifts: You must squash every gift in the entire game to goal.
+    macguffin_hunt: Same as sleigh_ride, except you must allow the Grinch's
+    heart to grow just enough to access the Sleigh Room.
     supadows_completed: You are required to win every supadow minigame to
     goal and obtain access to their minigames to do so.
     slaughter: You must kill every Who, every animal, and every robot to goal.
+    squashing_all_gifts: You must squash every gift in the entire game to goal.
     """
 
     display_name = "Goal"
     option_sleigh_ride = 0
     option_missions_completed = 1
-    option_squashing_all_gifts = 2
+    macguffin_hunt = 2
     option_supadows_completed = 3
     option_slaughter = 4
+    option_squashing_all_gifts = 5
     default = 0
     visibility = Visibility.none
 
@@ -56,6 +59,19 @@ class MissionsCompleted(Range):
     default = 12
     visibility = Visibility.none
 
+
+class HeartSizeGoalCount(Range):
+    """
+    If your goal is macguffin_hunt, set how many Heart Size Increase items you
+    want to allow access to the Sleigh Room.
+    """
+    display_name = "Heart Size Increase Requirement"
+    range_start = 0
+    range_end = 30
+    default = 20
+    visibility = Visibility.none
+
+
 # We will make a list of every mission in the game, excluding squashing gifts.
 # Randomly pick whatever range is chosen via missions_completed to include
 # in the location pool. If they include squashing all gifts, include those in the
@@ -67,6 +83,7 @@ class MissionCompletedIncludeGiftSquash(Toggle):
     """
     display_name = "Include Gift Squashing in Missions Completed Goal"
     visibility = Visibility.none
+
 
 
 class StartingArea(Choice):
