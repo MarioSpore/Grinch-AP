@@ -1013,13 +1013,11 @@ ALL_LOCATIONS_INFO: dict[str, GrinchLocationInfo] = {
                 grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
                 grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
                 grinch_items.moves.PANCAKE,
-                grinch_items.moves.BAD_BREATH,
             ],
             [
                 grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
-                grinch_items.moves.PANCAKE,
-                grinch_items.moves.SNEAK,
-            ],
+                grinch_items.gadgets.ROCKET_SPRING,
+            ]
         ],
     ),
     "WF - Civic Center - GC BP in Frozen Ice": GrinchLocationInfo(
@@ -1058,19 +1056,21 @@ ALL_LOCATIONS_INFO: dict[str, GrinchLocationInfo] = {
                 grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
                 grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
                 grinch_items.moves.PANCAKE,
-                grinch_items.moves.BAD_BREATH,
-            ],
-            [
-                grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
-                grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
-                grinch_items.moves.PANCAKE,
-                grinch_items.moves.SNEAK,
             ],
             [
                 grinch_items.gadgets.SLIME_SHOOTER,
                 grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
                 grinch_items.moves.PANCAKE,
-                grinch_items.moves.SNEAK,
+            ],
+            [
+                grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+                grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+                grinch_items.gadgets.ROCKET_SPRING,
+            ],
+            [
+                grinch_items.gadgets.SLIME_SHOOTER,
+                grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+                grinch_items.gadgets.ROCKET_SPRING,
             ],
         ],
     ),
@@ -2591,6 +2591,11 @@ ALL_LOCATIONS_INFO: dict[str, GrinchLocationInfo] = {
                 grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
                 grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
                 grinch_items.moves.PANCAKE,
+            ],
+            [
+                grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+                grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+                grinch_items.gadgets.ROCKET_SPRING,
             ],
         ],
     ),
