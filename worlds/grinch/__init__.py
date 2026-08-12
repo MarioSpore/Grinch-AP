@@ -149,11 +149,11 @@ class GrinchWorld(World):
                 continue
 
             # No .value after self.options because UT no likey
-            if "Missions" in data.location_group and self.options.missionsanity in [0,2]:
-                continue
+            # if "Missions" in data.location_group and self.options.missionsanity in [0,2]:
+            #     continue
 
             # No .value after self.options because UT no likey
-            if "Missionsanity" in data.location_group and self.options.missionsanity in [0,1]:
+            if "Missionsanity" in data.location_group and not self.options.missionsanity:
                 continue
 
             if "Miscellaneous" in data.location_group and self.options.misc_checks == False:

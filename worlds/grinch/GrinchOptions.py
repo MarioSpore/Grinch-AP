@@ -93,22 +93,12 @@ class ProgressiveVacuums(Toggle):  # DefaultOnToggle
     display_name = "Progressive Vacuum Tubes"
 
 
-class Missionsanity(Choice):
+class Missionsanity(Toggle):
     """
-    How mission checks are randomized in the pool.
-    - none: Does not add mission checks
-    - completion: Only completing the mission gives you a check
-    - individual: Individual tasks for one mission, such as individual snowmen
-    squashed, are checks.
-    - both: Both individual tasks and mission completion are randomized.
+    Adds individual tasks of a particular mission as locations.
     """
 
     display_name = "Mission Locations"
-    option_none = 0
-    option_completion = 1
-    option_individual = 2
-    option_both = 3
-    default = 1
 
 class AdvancedLogic(Toggle):
 
@@ -508,7 +498,7 @@ class GrinchWeb(WebWorld):
     vanilla = {
         ProgressiveVacuums: "true",
         StartingArea: "whoville",
-        Missionsanity: "completion",
+        Missionsanity: "false",
         # FillerWeight: "0",
         RandomizeMissionItems: "false",
         RandomizeSleighParts: "false",
@@ -526,13 +516,13 @@ class GrinchWeb(WebWorld):
         TeleportMultibind: "true",
         RandomizeMissionItems: "false",
         RandomizeSleighParts: "false",
-        Missionsanity: "none",
+        Missionsanity: "false",
         ExcludeEnvironments: ["Post Office", "Clock Tower", "City Hall", "Ski Resort",
                               "Civic Center", "Minefield", "Power Plant", "Generator Building",
                               "Scout's Hut", "North Shore", "Mayor's Villa", "Submarine World"],
     }
     dev_settings = {
-        Missionsanity: "both",
+        Missionsanity: "true",
         MusicRando: "true",
         ReducedCutscenes: "true"
     }
@@ -549,7 +539,7 @@ class GrinchWeb(WebWorld):
         ExcludeGC: "false",
     }
     minsanity = {
-        Missionsanity: "none",
+        Missionsanity: "false",
         ExcludeEnvironments: ["Post Office", "Clock Tower", "City Hall", "Ski Resort",
                               "Civic Center", "Minefield", "Power Plant", "Generator Building",
                               "Scout's Hut", "North Shore", "Mayor's Villa", "Submarine World"],
@@ -564,13 +554,13 @@ class GrinchWeb(WebWorld):
         Gifts: "false",
         ReducedCutscenes: "true",
         TeleportMultibind: "true",
-        Missionsanity: "completion",
+        Missionsanity: "false",
         UnlimitedEggs: "true",
         ExcludeGC: "false",
     }
     async_viable = {
         "progression_balancing": "disabled",
-        Missionsanity: "full",
+        Missionsanity: "true",
         MiscLocations: "true",
     }
     options_presets: Dict[str, Dict[str, Any]] = {
