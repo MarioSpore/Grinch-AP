@@ -697,15 +697,15 @@ MISC_ITEMS_TABLE: dict[str, GrinchItemData] = {
             #               byte_size=1, ),
         ],
     ),
-    "Heart Size Increase": GrinchItemData(
-        [
-            grinch_categories.PROGRESSION_IC,
-        ],
-        506,
-        IC.progression_skip_balancing,
-        [
-        ],
-    ),
+    # "Heart Size Increase": GrinchItemData(
+    #     [
+    #         grinch_categories.PROGRESSION_IC,
+    #     ],
+    #     506,
+    #     IC.progression_skip_balancing,
+    #     [
+    #     ],
+    # ),
 }
 
 USEFUL_ITEMS_TABLE: dict[str, GrinchItemData] = {
