@@ -3474,6 +3474,30 @@ grinch_locations = {
             GrinchRamData(0x010275, binary_bit_pos=1),
         ],
     ),
+    "MC - Complete Missions Goal": GrinchLocationData(
+        "Mount Crumpit",
+        ["Mount Crumpit"],
+        2900,
+    ),
+    "MC - Complete MacGuffin Goal": GrinchLocationData(
+        "Mount Crumpit",
+        ["Mount Crumpit"],
+        2901,
+    ),
+    "MC - Supadow - Complete Each Supadow in Hardest Difficulty": GrinchLocationData(
+        "Mount Crumpit",
+        ["Supadow Minigames"],
+        2902,
+    ),
+    "MC - Squashed all Gifts": GrinchLocationData(
+        "Mount Crumpit",
+        ["Giftsanity", "Hard Require GC"],
+        2903,
+        [GrinchRamData(0x01005C, value=500, byte_size=2),
+        GrinchRamData(0x01005E, value=750, byte_size=2),
+        GrinchRamData(0x010060, value=750, byte_size=2),
+        GrinchRamData(0x010062, value=1000, byte_size=2)],
+    ),
 }
 def grinch_locations_to_id() -> dict[str, int]:
     location_mappings: dict[str, int] = {}

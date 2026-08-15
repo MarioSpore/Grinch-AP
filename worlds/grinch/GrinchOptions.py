@@ -31,8 +31,8 @@ class Goal(Choice):
     heart to grow just enough to access the Sleigh Room.
     supadows_completed: You are required to win every supadow minigame to
     goal and obtain access to their minigames to do so.
-    slaughter: You must kill every Who, every animal, and every robot to goal.
     squashing_all_gifts: You must squash every gift in the entire game to goal.
+    slaughter: You must kill every Who, every animal, and every robot to goal.
     """
 
     display_name = "Goal"
@@ -40,8 +40,8 @@ class Goal(Choice):
     option_missions_completed = 1
     macguffin_hunt = 2
     option_supadows_completed = 3
-    option_slaughter = 4
-    option_squashing_all_gifts = 5
+    option_squashing_all_gifts = 4
+    option_slaughter = 5
     default = 0
     visibility = Visibility.none
 
@@ -460,6 +460,7 @@ class GrinchOptions(PerGameCommonOptions):
     randomize_sleigh_parts: RandomizeSleighParts
     teleport_multibind: TeleportMultibind
     death_link: DeathLinkOption
+    heart_size_required: HeartSizeGoalCount
 
 
 # Web for option group support

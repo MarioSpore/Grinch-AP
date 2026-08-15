@@ -5,7 +5,8 @@ from BaseClasses import CollectionState
 from worlds.AutoWorld import World
 from worlds.generic.Rules import add_rule
 from .Items import grinch_items
-from .Locations import GrinchLocationInfo
+from .Locations import GrinchLocationInfo, GrinchLocationData
+import GrinchOptions
 
 # Adds all rules from rules_dict to locations
 def set_location_rules(world):
@@ -4775,6 +4776,61 @@ ALL_LOCATIONS_INFO: dict[str, GrinchLocationInfo] = {
                 grinch_items.gadgets.ROCKET_SPRING,
                 grinch_items.moves.PANCAKE,
                 grinch_items.moves.BAD_BREATH,
+            ],
+        ],
+    ),
+    "MC - Complete Missions Goal": GrinchLocationInfo(
+        location_access=[
+            self.options.missions_complete + location_group == "Missions",
+            ],
+    ),
+    "MC - Complete MacGuffin Goal": GrinchLocationInfo(
+        location_access=[
+            self.options.heart_size_required + "Heart Size Increase",
+            ],
+    ),
+    "MC - Supadow - Complete Each Supadow in Hardest Difficulty": GrinchLocationInfo(
+        location_access=[
+            [
+                grinch_items.supadow.SPIN_N_WIN,
+                grinch_items.supadow.PANKAMANIA,
+                grinch_items.supadow.COPTER_RACE,
+            ],
+        ],
+    ),
+    "MC - Squashed all Gifts": GrinchLocationInfo(
+        location_access=[
+            [
+                grinch_items.gadgets.GRINCH_COPTER,
+                grinch_items.gadgets.SLIME_SHOOTER,
+                grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+                grinch_items.gadgets.ROCKET_SPRING,
+                grinch_items.gadgets.MARINE_MOBILE,
+                grinch_items.level_items.WV_WHO_CLOAK,
+                grinch_items.gadgets.ROCKET_SPRING,
+                grinch_items.moves.PANCAKE,
+                grinch_items.moves.MAX,
+                grinch_items.moves.SEIZE,
+                grinch_items.level_items.WF_CABLE_CAR_ACCESS_CARD,
+                grinch_items.moves.BAD_BREATH,
+                grinch_items.level_items.WL_SCOUT_CLOTHES,
+                grinch_items.level_items.WL_HOOK,
+            ],
+            [
+                grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+                grinch_items.gadgets.SLIME_SHOOTER,
+                grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+                grinch_items.gadgets.ROCKET_SPRING,
+                grinch_items.gadgets.MARINE_MOBILE,
+                grinch_items.level_items.WV_WHO_CLOAK,
+                grinch_items.gadgets.ROCKET_SPRING,
+                grinch_items.moves.PANCAKE,
+                grinch_items.moves.MAX,
+                grinch_items.moves.SEIZE,
+                grinch_items.level_items.WF_CABLE_CAR_ACCESS_CARD,
+                grinch_items.moves.BAD_BREATH,
+                grinch_items.level_items.WL_SCOUT_CLOTHES,
+                grinch_items.level_items.WL_HOOK,
             ],
         ],
     ),
