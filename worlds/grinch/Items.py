@@ -59,6 +59,7 @@ class grinch_items:
         WHO_LAKE: str = "Who Lake Vacuum Tube"
         PROGRESSIVE_VACUUM_TUBE: str = "Progressive Vacuum Tube"
         SLEIGH_ROOM_KEY: str = "Sleigh Room Key"
+        PROG_HEART_SIZE: str = "Progressive Heart Size"
 
     class sleigh_parts:
         EXHAUST_PIPES: str = "Exhaust Pipes"
@@ -104,6 +105,7 @@ class grinch_items:
         FIVE_EGGS: str = "5 Rotten Eggs"
         TEN_EGGS: str = "10 Rotten Eggs"
         TWENTY_EGGS: str = "20 Rotten Eggs"
+        PRESENT: str = "Present"
 
     class supadow:
         SPIN_N_WIN: str = "Spin N' Win Supadow"
@@ -701,9 +703,9 @@ MISC_ITEMS_TABLE: dict[str, GrinchItemData] = {
             #               byte_size=1, ),
         ],
     ),
-    # "Heart Size Increase": GrinchItemData(
+    # grinch_items.keys.PROG_HEART_SIZE: GrinchItemData(
     #     [
-    #         grinch_categories.PROGRESSION_IC,
+    #         grinch_categories.HEART,
     #     ],
     #     506,
     #     IC.progression_skip_balancing,
