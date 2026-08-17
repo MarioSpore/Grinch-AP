@@ -285,13 +285,13 @@ class GrinchWorld(World):
                 # self.multiworld.get_location("WF - Putting Beehives In Cabins - Event",
                 # self.player).place_locked_item(self.create_item(grinch_items.events.BEEHIVES_DOOR))
 
-        if self.options.goal.option_macguffin_hunt:
+        if self.options.goal == self.options.goal.option_macguffin_hunt:
             for _ in range(30):
                 self_itempool.append(self.create_item(grinch_items.keys.MACGUFFIN))
 
         for sleigh_parts in SLEIGH_TABLE:
             if grinch_items.keys.SLEIGH_ROOM_KEY in sleigh_parts:
-                if self.options.goal.option_sleigh_ride and not self.options.randomize_sleigh_parts:
+                if self.options.goal == self.options.goal.option_sleigh_ride and not self.options.randomize_sleigh_parts:
                     self_itempool.append(self.create_item(sleigh_parts))
                 else:
                     self_itempool.append(self.set_skip_balancing(sleigh_parts))
@@ -414,7 +414,7 @@ class GrinchWorld(World):
                     self.multiworld.push_precollected(self.create_item(mission_item))
                 # Else if the player disables missionsanity, add the item into start inventory
                 # No .value after self.options.missionsanity because UT no likey
-                elif self.options.goal.option_missions_completed:
+                elif self.options.goal == self.options.goal.option_missions_completed:
                     self_itempool.append(self.create_item(mission_item))
                 # Else, let the multiworld create the item normally.
                 else:
@@ -425,7 +425,7 @@ class GrinchWorld(World):
             # Only create the item if it doesn't already exist in the player's start inventory.
 
             if self.options.move_rando and moves_added in self.options.moves_to_randomize:
-                if moves_added in [grinch_items.moves.SEIZE, grinch_items.moves.PANCAKE, grinch_items.moves.MAX] and self.options.goal.option_sleigh_ride:
+                if moves_added in [grinch_items.moves.SEIZE, grinch_items.moves.PANCAKE, grinch_items.moves.MAX] and self.options.goal == self.options.goal.option_sleigh_ride:
                     self_itempool.append(self.create_item(moves_added))
                 else:
                     self_itempool.append(self.set_skip_balancing(moves_added))
@@ -444,12 +444,12 @@ class GrinchWorld(World):
 
             if self.options.gadget_rando and gadgets_added in self.options.gadgets_to_randomize:
                 if gadgets_added in [grinch_items.gadgets.ROTTEN_EGG_LAUNCHER, grinch_items.gadgets.ROCKET_SPRING, grinch_items.gadgets.MARINE_MOBILE]:
-                    if self.options.goal.option_sleigh_ride:
+                    if self.options.goal == self.options.goal.option_sleigh_ride:
                         self_itempool.append(self.create_item(gadgets_added))
                     else:
                         self_itempool.append(self.set_skip_balancing(gadgets_added))
                 elif gadgets_added == grinch_items.gadgets.GRINCH_COPTER:
-                    if self.options.advanced_logic and self.options.goal.option_sleigh_ride:
+                    if self.options.advanced_logic and self.options.goal == self.options.goal.option_sleigh_ride:
                         self_itempool.append(self.create_item(gadgets_added))
                     else:
                         self_itempool.append(self.set_skip_balancing(gadgets_added))
