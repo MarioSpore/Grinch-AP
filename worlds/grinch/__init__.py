@@ -248,22 +248,22 @@ class GrinchWorld(World):
     def create_items(self):  # Generates all items for the multiworld
         self_itempool: list[GrinchItem] = []
         sub_area_items: dict[str, list[str]] = {
-            "Who Cloak": ["Post Office"],
-            "Scout Clothes": ["Mayor's Villa", "North Shore"],
-            "Cable Car Access Card": ["Ski Resort"],
+            grinch_items.level_items.WV_WHO_CLOAK: ["Post Office"],
+            grinch_items.level_items.WL_SCOUT_CLOTHES: ["Mayor's Villa", "North Shore"],
+            grinch_items.level_items.WF_CABLE_CAR_ACCESS_CARD: ["Ski Resort"],
         }
         missionsanity_items: dict[str, list[str]] = {
-            "Who Cloak": ["Post Office"],
-            "Scout Clothes": ["Mayor's Villa", "North Shore"],
-            "Drill": ["North Shore"],
-            "Painting Bucket": ["Whoville"],
+            grinch_items.level_items.WV_WHO_CLOAK: ["Post Office"],
+            grinch_items.level_items.WL_SCOUT_CLOTHES: ["Mayor's Villa", "North Shore"],
+            grinch_items.level_items.WL_DRILL: ["North Shore"],
+            grinch_items.level_items.WV_PAINT_BUCKET: ["Whoville"],
         }
         sleigh_pieces: set[str] = {
-            "Exhaust Pipes",
-            "Skis",
-            "Tires",
-            "GPS",
-            "Twin-End Tuba",
+            grinch_items.sleigh_parts.EXHAUST_PIPES,
+            grinch_items.sleigh_parts.SKIS,
+            grinch_items.sleigh_parts.TIRES,
+            grinch_items.sleigh_parts.GPS,
+            grinch_items.sleigh_parts.TWIN_END_TUBA,
         }
 
         # Precollected items is stored per player. First, we must get the current player's starting inventory.
@@ -280,10 +280,10 @@ class GrinchWorld(World):
             # if "MissionItemsNotRandomized" in option and not self.options.randomize_mission_items:
             #     self.multiworld.push_precollected(self.create_item(option))
 
-            if "BeehivesDoor" in option:
+            if grinch_items.events.BEEHIVES_DOOR in option:
                 continue
                 # self.multiworld.get_location("WF - Putting Beehives In Cabins - Event",
-                # self.player).place_locked_item(self.create_item("BeehivesDoor"))
+                # self.player).place_locked_item(self.create_item(grinch_items.events.BEEHIVES_DOOR))
 
         if self.options.goal.option_macguffin_hunt:
             for _ in range(30):
