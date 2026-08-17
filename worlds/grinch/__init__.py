@@ -270,10 +270,6 @@ class GrinchWorld(World):
         # From here, we get an AP item list. But, we only care about the name. So we get a list of strings as a result.
         player_start_inv: list[str] = [item.name for item in self.multiworld.precollected_items[self.player]]
 
-        if self.options.goal.macguffin_hunt:
-            for _ in range(30):
-                self_itempool.append(self.create_item(grinch_items.keys.MACGUFFIN))
-
         for option in EVENT_TABLE:
             #if "AdvancedLogic" in option and self.options.advanced_logic:
                 #self.multiworld.push_precollected(self.create_item(option))
@@ -289,6 +285,9 @@ class GrinchWorld(World):
                 # self.multiworld.get_location("WF - Putting Beehives In Cabins - Event",
                 # self.player).place_locked_item(self.create_item("BeehivesDoor"))
 
+        if self.options.goal.option_macguffin_hunt:
+            for _ in range(30):
+                self_itempool.append(self.create_item(grinch_items.keys.MACGUFFIN))
 
         for sleigh_parts in SLEIGH_TABLE:
             if "Sleigh Room Key" in sleigh_parts:
