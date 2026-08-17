@@ -38,7 +38,7 @@ class Goal(Choice):
     display_name = "Goal"
     option_sleigh_ride = 0
     option_missions_completed = 1
-    macguffin_hunt = 2
+    option_macguffin_hunt = 2
     option_supadows_completed = 3
     option_squashing_all_gifts = 4
     option_slaughter = 5
