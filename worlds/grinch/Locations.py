@@ -3498,6 +3498,12 @@ grinch_locations = {
         GrinchRamData(0x010060, value=750, byte_size=2),
         GrinchRamData(0x010062, value=1000, byte_size=2)],
     ),
+    # "WF - Putting Beehives In Cabins - Event": GrinchLocationData(
+    #     "Who Forest",
+    #     ["Who Forest Missions", "Missions", "Who Forest"],
+    #     3000,
+    #     [GrinchRamData(0x0100CA, value=10)],
+    # ),
 }
 def grinch_locations_to_id() -> dict[str, int]:
     location_mappings: dict[str, int] = {}
