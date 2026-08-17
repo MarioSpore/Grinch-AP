@@ -59,7 +59,7 @@ class grinch_items:
         WHO_LAKE: str = "Who Lake Vacuum Tube"
         PROGRESSIVE_VACUUM_TUBE: str = "Progressive Vacuum Tube"
         SLEIGH_ROOM_KEY: str = "Sleigh Room Key"
-        PROG_HEART_SIZE: str = "Progressive Heart Size"
+        MACGUFFIN: str = "Progressive Heart Size"
 
     class sleigh_parts:
         EXHAUST_PIPES: str = "Exhaust Pipes"
@@ -703,7 +703,7 @@ MISC_ITEMS_TABLE: dict[str, GrinchItemData] = {
             #               byte_size=1, ),
         ],
     ),
-    # grinch_items.keys.PROG_HEART_SIZE: GrinchItemData(
+    # grinch_items.keys.MACGUFFIN: GrinchItemData(
     #     [
     #         grinch_categories.HEART,
     #     ],
