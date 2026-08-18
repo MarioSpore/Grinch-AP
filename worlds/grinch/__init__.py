@@ -194,14 +194,14 @@ class GrinchWorld(World):
 
                 if exclude_wl_squash:
                     continue  # Ignores the creation of WL Squashing all Gifts
-            if "Supadow Minigames" in data.location_group and self.options.supadow_minigames == 0:
+            if "Supadow Minigames" in data.location_group and self.options.supadow_minigames == self.options.supadow_minigames.option_none:
                 continue
-            if "Supadow Minigames" in data.location_group and self.options.supadow_minigames != 0:
+            if "Supadow Minigames" in data.location_group and self.options.supadow_minigames != self.options.supadow_minigames.option_none:
                 #Exclude Hard supadow checks if on Easy
-                if "Supadow Hard" in data.location_group and self.options.supadow_minigames < 2:
+                if "Supadow Hard" in data.location_group and self.options.supadow_minigames == self.options.supadow_minigames.option_easy:
                     continue
                 # Exclude Real Tough supadow checks if on Hard and bellow
-                if "Supadow Real Tough" in data.location_group and self.options.supadow_minigames < 3:
+                if "Supadow Real Tough" in data.location_group and self.options.supadow_minigames != self.options.supadow_minigames.option_real_tough:
                     continue
             if "Mission Specific Item Locations" in data.location_group and self.options.randomize_mission_items:
                 continue
