@@ -225,14 +225,9 @@ class GrinchWorld(World):
 
             # If the region is in the list to be ignored, DON'T create the location and just continue.
             # Ex if Mount Crumpit is in the exclude env list, no locations should exist in Mount Crumpit.
-            if region.name in self.options.exclude_environments:
-                if region.name == "Mount Crumpit":
-                    logger.warning(f"Player {self.player_name} has excluded Mount Crumpit, which is where a large number of Sphere 1 locations usually exist.")
+            if "Mount Crumpit" in self.options.exclude_environments:
+                logger.warning(f"Player {self.player_name} has excluded Mount Crumpit, which is where a large number of Sphere 1 locations usually exist.")
                 continue
-
-
-            entry = GrinchLocation(self.player, location, region, data)
-            region.locations.append(entry)
 
     def create_item(self, item: str) -> GrinchItem:  # Creates specific items on demand
         if item in ALL_ITEMS_TABLE.keys():
