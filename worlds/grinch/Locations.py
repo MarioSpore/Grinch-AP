@@ -1204,7 +1204,7 @@ grinch_locations = {
     ),
     "MC - Sleigh Ride - Save Christmas": GrinchLocationData(
         "Sleigh Ride",
-        ["Sleigh Ride"],
+        ["Sleigh Ride", "Goal"],
         1302,
         [GrinchRamData(0x010000, value=0x3E)],
     ),
@@ -3476,22 +3476,22 @@ grinch_locations = {
     ),
     "MC - Complete Missions Goal": GrinchLocationData(
         "Mount Crumpit",
-        ["Mount Crumpit"],
+        ["Mount Crumpit", "Goal"],
         2900,
     ),
     "MC - Complete MacGuffin Goal": GrinchLocationData(
         "Mount Crumpit",
-        ["Mount Crumpit"],
+        ["Mount Crumpit", "Goal"],
         2901,
     ),
     "MC - Supadow - Complete Each Supadow in Hardest Difficulty": GrinchLocationData(
         "Mount Crumpit",
-        ["Supadow Minigames"],
+        ["Supadow Minigames", "Goal"],
         2902,
     ),
     "MC - Squashed all Gifts": GrinchLocationData(
         "Mount Crumpit",
-        ["Giftsanity", "Hard Require GC"],
+        ["Giftsanity", "Hard Require GC", "Goal"],
         2903,
         [GrinchRamData(0x01005C, value=500, byte_size=2),
         GrinchRamData(0x01005E, value=750, byte_size=2),

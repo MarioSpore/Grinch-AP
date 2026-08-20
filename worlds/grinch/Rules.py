@@ -26,6 +26,11 @@ def set_location_rules(world):
                         #print(f"[G]ADDED GLITCHED ITEM to : {advanced_rule}")
                     loc_rules.append(advanced_rule)
                 #print(f"[A]Access_rules:{loc_rules}")
+        if location == "MC - Complete MacGuffin Goal":
+            items: dict[str, int] = {}
+            items[grinch_items.keys.MACGUFFIN] = world.options.heart_size_required.value
+            add_rule(world, lambda state, heart_size_required=MappingProxyType(items):
+            state.has_all_counts(heart_size_required, world.player))
         rule_list = interpret_rule(loc_rules, world.player)
         if rule_list:
             add_rule(location, lambda state, rules=tuple(rule_list): any(rule(state) for rule in rules))
@@ -4786,8 +4791,11 @@ ALL_LOCATIONS_INFO: dict[str, GrinchLocationInfo] = {
     ),
     "MC - Complete MacGuffin Goal": GrinchLocationInfo(
         location_access=[
-            self.options.heart_size_required + "Heart Size Increase",
-            ],
+            [grinch_items.sleigh_parts.EXHAUST_PIPES,
+            grinch_items.sleigh_parts.TWIN_END_TUBA,
+            grinch_items.sleigh_parts.SKIS,
+            grinch_items.sleigh_parts.TIRES]
+        ],
     ),
     "MC - Supadow - Complete Each Supadow in Hardest Difficulty": GrinchLocationInfo(
         location_access=[
