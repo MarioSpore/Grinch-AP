@@ -971,6 +971,9 @@ ALL_LOCATIONS_INFO: dict[str, GrinchLocationInfo] = {
             [
                 grinch_items.gadgets.GRINCH_COPTER,
             ],
+            [
+                grinch_items.moves.MAX,
+            ],
         ],
         advanced_location_access=[
             [],
