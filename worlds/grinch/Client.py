@@ -1057,7 +1057,7 @@ class GrinchClient(BizHawkClient):
             lt_pressed: bool = (get_other_buttons_state & (1 << 0)) > 0
 
             # If RT and LT are both held + start, sending player up to the top of MC / Tutorial area.
-            if await self.paused_state(ctx) and self.teleport_multibind:
+            if self.teleport_multibind:
                 # if rt_pressed and lt_pressed:
                 #     lobby_val = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx, [(LOBBY_TRIGGER_ADDR,
                 #         TRIGGER_ADDR_SIZE, "MainRAM")]))[0],"little")
