@@ -650,14 +650,14 @@ class GrinchClient(BizHawkClient):
                 continue
 
             if (item_name in
-                    ["Painting Bucket", "Who Cloak", "Sculpting Tools", "Hammer",
-                    "Cable Car Access Card", "Glue Bucket",
-                    "Scissors",
-                    "Scout Clothes", "Drill", "Hook", "Rope"]
+                    [grinch_items.level_items.WV_PAINT_BUCKET, grinch_items.level_items.WV_WHO_CLOAK, grinch_items.level_items.WV_SCULPTING_TOOLS, grinch_items.level_items.WV_HAMMER,
+                    grinch_items.level_items.WF_CABLE_CAR_ACCESS_CARD, grinch_items.level_items.WF_GLUE_BUCKET,
+                    grinch_items.level_items.WD_SCISSORS,
+                    grinch_items.level_items.WL_SCOUT_CLOTHES, grinch_items.level_items.WL_DRILL, grinch_items.level_items.WL_HOOK, grinch_items.level_items.WL_ROPE]
                     and not self.randomize_mission_items):
                 continue
 
-            if (item_name in ["Exhaust Pipes", "Skis", "Tires", "Twin-End Tuba", "GPS"]
+            if (item_name in [grinch_items.sleigh_parts.EXHAUST_PIPES, grinch_items.sleigh_parts.SKIS, grinch_items.sleigh_parts.TIRES, grinch_items.sleigh_parts.TWIN_END_TUBA, grinch_items.sleigh_parts.GPS]
                     and not self.randomize_sleigh_parts):
                 continue
 
