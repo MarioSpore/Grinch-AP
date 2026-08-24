@@ -739,7 +739,7 @@ class GrinchClient(BizHawkClient):
         # If not in game or at a menu, or loading the publisher logos
         # If it is not greater than 0x02 and less than 0x35, you are not in game
         # 0x3E is an exception to allow goaling directly after defeating santa instead of after end credits.
-        if ingame_map_id in [0x00, 0x02, 0x35, 0x36, 0x37]:
+        if ingame_map_id in MENU_MAP_IDS:
             await bizhawk.write(
                 ctx.bizhawk_ctx,
                 [(0x08FA20, int(1).to_bytes(1, "little"), "MainRAM")],
@@ -1030,9 +1030,10 @@ class GrinchClient(BizHawkClient):
 
     async def watch_to_teleport_player(self, ctx: "BizHawkClientContext"):
         while ctx.slot:
-            if not await self.ingame_checker(ctx):
-                await asyncio.sleep(5)
-                continue
+            ingame_map_id = self.get_current_map_id(ctx)
+            # if not await self.ingame_checker(ctx):
+            #     await asyncio.sleep(5)
+            #     continue
 
             # Start button pressed and held is captured at bit 3
             get_start_button_state: int = int.from_bytes(
@@ -1057,7 +1058,9 @@ class GrinchClient(BizHawkClient):
             lt_pressed: bool = (get_other_buttons_state & (1 << 0)) > 0
 
             # If RT and LT are both held + start, sending player up to the top of MC / Tutorial area.
-            if self.teleport_multibind:
+            if (self.teleport_multibind and
+                    (self.paused_state(ctx) or
+                     (not await self.ingame_checker(ctx) and not ingame_map_id in MENU_MAP_IDS))):
                 # if rt_pressed and lt_pressed:
                 #     lobby_val = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx, [(LOBBY_TRIGGER_ADDR,
                 #         TRIGGER_ADDR_SIZE, "MainRAM")]))[0],"little")
