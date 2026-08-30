@@ -483,25 +483,25 @@ class GrinchWorld(World):
                 continue
 
         if not self.options.progressive_vacuums:
-            if self.options.starting_area.option_whoville:
+            if self.options.starting_area == self.options.starting_area.option_whoville:
                 self.multiworld.push_precollected(self.create_item(grinch_items.keys.WHOVILLE))
                 for vacuums_added in KEYS_TABLE.keys():
                     if vacuums_added in [grinch_items.keys.PROGRESSIVE_VACUUM_TUBE, grinch_items.keys.WHOVILLE]:
                         continue
                     self_itempool.append((self.create_item(vacuums_added)))
-            elif self.options.starting_area.option_who_forest:
+            elif self.options.starting_area == self.options.starting_area.option_who_forest:
                 self.multiworld.push_precollected(self.create_item(grinch_items.keys.WHO_FOREST))
                 for vacuums_added in KEYS_TABLE.keys():
                     if vacuums_added in [grinch_items.keys.PROGRESSIVE_VACUUM_TUBE, grinch_items.keys.WHO_FOREST]:
                         continue
                     self_itempool.append((self.create_item(vacuums_added)))
-            elif self.options.starting_area.option_who_dump:
+            elif self.options.starting_area == self.options.starting_area.option_who_dump:
                 self.multiworld.push_precollected(self.create_item(grinch_items.keys.WHO_DUMP))
                 for vacuums_added in KEYS_TABLE.keys():
                     if vacuums_added in [grinch_items.keys.PROGRESSIVE_VACUUM_TUBE, grinch_items.keys.WHO_DUMP]:
                         continue
                     self_itempool.append((self.create_item(vacuums_added)))
-            elif self.options.starting_area.option_who_lake:
+            elif self.options.starting_area == self.options.starting_area.option_who_lake:
                 self.multiworld.push_precollected(self.create_item(grinch_items.keys.WHO_LAKE))
                 for vacuums_added in KEYS_TABLE.keys():
                     if vacuums_added in [grinch_items.keys.PROGRESSIVE_VACUUM_TUBE, grinch_items.keys.WHO_LAKE]:
@@ -514,7 +514,7 @@ class GrinchWorld(World):
                 self_itempool.append((self.create_item(grinch_items.keys.PROGRESSIVE_VACUUM_TUBE)))
 
         for supadow_door in SUPADOW_TABLE:
-            if not self.options.supadow_minigames.option_none:
+            if self.options.supadow_minigames != self.options.supadow_minigames.option_none:
                 self_itempool.append(self.create_item(supadow_door))
 
         # Get number of current unfilled locations
