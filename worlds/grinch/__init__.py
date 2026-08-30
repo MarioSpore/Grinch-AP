@@ -131,7 +131,7 @@ class GrinchWorld(World):
                 #print(f"Location skipped due to missing region:{location}")
                 continue
 
-            if data.location_group == "Goal":
+            if location == "MC - Sleigh Ride - Save Christmas":
                 # Place the "Goal" item in the location as an event
                 region.add_event(location, "Goal", None, Location, Item)
                 continue
@@ -223,23 +223,26 @@ class GrinchWorld(World):
                     and not self.options.randomize_sleigh_parts):
                 continue
 
-            if "Goal" in data.location_group:
-                if self.options.goal == self.options.goal.option_sleigh_ride and "MC - Sleigh Ride - Save Christmas" not in location:
-                    continue
-                if self.options.goal == self.options.goal.option_missions_completed and "MC - Complete Missions Goal" not in location:
-                    continue
-                if self.options.goal == self.options.goal.option_macguffin_hunt and "MC - Complete MacGuffin Goal" not in location:
-                    continue
-                if self.options.goal == self.options.goal.option_supadows_completed and "MC - Supadow - Complete Each Supadow in Hardest Difficulty" not in location:
-                    continue
-                if self.options.goal == self.options.goal.option_squashing_all_gifts and "MC - Squashed all Gifts" not in location:
-                    continue
+            # if "Goal" in data.location_group:
+            #     if self.options.goal == self.options.goal.option_sleigh_ride and "MC - Sleigh Ride - Save Christmas" not in location:
+            #         continue
+            #     if self.options.goal == self.options.goal.option_missions_completed and "MC - Complete Missions Goal" not in location:
+            #         continue
+            #     if self.options.goal == self.options.goal.option_macguffin_hunt and "MC - Complete MacGuffin Goal" not in location:
+            #         continue
+            #     if self.options.goal == self.options.goal.option_supadows_completed and "MC - Supadow - Complete Each Supadow in Hardest Difficulty" not in location:
+            #         continue
+            #     if self.options.goal == self.options.goal.option_squashing_all_gifts and "MC - Squashed all Gifts" not in location:
+            #         continue
 
             # If the region is in the list to be ignored, DON'T create the location and just continue.
             # Ex if Mount Crumpit is in the exclude env list, no locations should exist in Mount Crumpit.
             if "Mount Crumpit" in self.options.exclude_environments:
                 logger.warning(f"Player {self.player_name} has excluded Mount Crumpit, which is where a large number of Sphere 1 locations usually exist.")
                 continue
+
+            entry = GrinchLocation(self.player, location, region, data)
+            region.locations.append(entry)
 
     def create_item(self, item: str) -> GrinchItem:  # Creates specific items on demand
         if item in ALL_ITEMS_TABLE.keys():
@@ -250,6 +253,11 @@ class GrinchWorld(World):
     def set_skip_balancing(self, item: str) -> GrinchItem: # Creates the item and sets classification of the item to skip balance
         grinch_item: GrinchItem = self.create_item(item)
         grinch_item.classification = ItemClassification.progression_skip_balancing
+        return grinch_item
+
+    def set_useful(self, item: str) -> GrinchItem: # Creates the item and sets classification of the item to useful
+        grinch_item: GrinchItem = self.create_item(item)
+        grinch_item.classification = ItemClassification.useful
         return grinch_item
 
     def create_items(self):  # Generates all items for the multiworld
@@ -294,11 +302,11 @@ class GrinchWorld(World):
 
         for sleigh_parts in SLEIGH_TABLE:
 
-            if self.options.goal == self.options.goal.option_macguffin_hunt:
-                if grinch_items.keys.SLEIGH_ROOM_KEY in sleigh_parts:
-                    continue
-                for _ in range(30):
-                    self_itempool.append(self.create_item(grinch_items.keys.MACGUFFIN))
+            # if self.options.goal == self.options.goal.option_macguffin_hunt:
+            #     if grinch_items.keys.SLEIGH_ROOM_KEY in sleigh_parts:
+            #         continue
+            #     for _ in range(30):
+            #         self_itempool.append(self.create_item(grinch_items.keys.MACGUFFIN))
 
             if grinch_items.keys.SLEIGH_ROOM_KEY in sleigh_parts:
                 if self.options.goal == self.options.goal.option_sleigh_ride and not self.options.randomize_sleigh_parts:
@@ -465,9 +473,9 @@ class GrinchWorld(World):
                         self_itempool.append(self.set_skip_balancing(gadgets_added))
                 elif gadgets_added == grinch_items.gadgets.BINOCULARS:
                     if not self.options.advanced_logic:
-                        self_itempool.append(self.create_item(gadgets_added))
+                        self_itempool.append(self.set_useful(gadgets_added))
                     else:
-                        self_itempool.append(self.set_skip_balancing(gadgets_added))
+                        self_itempool.append(self.create_item(gadgets_added))
                 else:
                     self_itempool.append(self.create_item(gadgets_added))
             else:
@@ -554,7 +562,7 @@ class GrinchWorld(World):
             return ", ".join(descriptions)
 
         for item in self_itempool:
-            debug_class_desc = False
+            debug_class_desc = True
             if debug_class_desc:
                 desc = get_classification_description(item.classification)
                 print(f"{item.name}: {desc}")

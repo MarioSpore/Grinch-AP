@@ -20,6 +20,8 @@ from Options import (
     StartInventoryPool, OptionGroup, Visibility,
     DeathLinkMixin,
 )
+from worlds.grinch import grinch_items
+
 
 class Goal(Choice):
     """
@@ -225,13 +227,13 @@ class Gadgetrandolist(OptionSet):
 
     display_name = "Gadgets Randomized"
     default = [
-        "Binoculars",
-        "Rotten Egg Launcher",
-        "Rocket Spring",
-        "Slime Shooter",
-        "Octopus Climbing Device",
-        "Marine Mobile",
-        "Grinch Copter",
+        grinch_items.gadgets.BINOCULARS,
+        grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+        grinch_items.gadgets.ROCKET_SPRING,
+        grinch_items.gadgets.SLIME_SHOOTER,
+        grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+        grinch_items.gadgets.MARINE_MOBILE,
+        grinch_items.gadgets.GRINCH_COPTER,
     ]
 
 
@@ -261,11 +263,11 @@ class Moverandolist(OptionSet):
 
     display_name = "Moves Randomized"
     default = [
-        "Pancake",
-        "Bad Breath",
-        "Seize",
-        "Max",
-        "Sneak",
+        grinch_items.moves.PANCAKE,
+        grinch_items.moves.BAD_BREATH,
+        grinch_items.moves.SEIZE,
+        grinch_items.moves.MAX,
+        grinch_items.moves.SNEAK,
     ]
 
 
@@ -312,9 +314,9 @@ class FillerWeight(OptionCounter):
     # min = 0
     # max = 100
     default = {
-        "5 Rotten Eggs": 50,
-        "10 Rotten Eggs": 25,
-        "20 Rotten Eggs": 25,
+        grinch_items.filler_trap.FIVE_EGGS: 50,
+        grinch_items.filler_trap.TEN_EGGS: 25,
+        grinch_items.filler_trap.TWENTY_EGGS: 25,
     }
 
 
@@ -338,16 +340,16 @@ class TrapWeight(OptionCounter):
     # min = 0
     # max = 100
     default = {
-        "Dump it to Crumpit": 33,
-        "Who sent me back?": 33,
-        "Depletion Trap": 34,
-        # "Bonk Trap": 25,
-        # "Push Trap": 25,
-        # "Damage Trap": 25,
-        # "Electrocution Trap": 25,
-        # "Ice Trap": 25,
-        # "Bee Trap": 25,
-        # "Banana Trap": 25,
+        grinch_items.filler_trap.DUMP_IT_TO_CRUMPIT: 33,
+        grinch_items.filler_trap.WHO_SENT_ME_BACK: 33,
+        grinch_items.filler_trap.DEPLETION_TRAP: 34,
+        # grinch_items.filler_trap.BONK_TRAP: 25,
+        # grinch_items.filler_trap.PUSH_TRAP: 25,
+        # grinch_items.filler_trap.DAMAGE_TRAP: 25,
+        # grinch_items.filler_trap.ELECTROCUTION_TRAP: 25,
+        # grinch_items.filler_trap.ICE_TRAP: 25,
+        # grinch_items.filler_trap.BEE_TRAP: 25,
+        # grinch_items.filler_trap.BANANA_TRAP: 25,
     }
 
 class MiscLocations(Toggle):

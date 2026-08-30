@@ -155,7 +155,7 @@ GADGETS_TABLE: dict[str, GrinchItemData] = {
             grinch_categories.USEFUL_IC,
         ],
         100,
-        IC.useful,
+        IC.progression_skip_balancing,
         [
             GrinchRamData(0x0102B6, value=0x40),
             GrinchRamData(0x0102B7, value=0x41),
