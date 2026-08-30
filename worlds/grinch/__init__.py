@@ -303,7 +303,12 @@ class GrinchWorld(World):
         for sleigh_parts in SLEIGH_TABLE:
 
             # if self.options.goal == self.options.goal.option_macguffin_hunt:
-            #     if grinch_items.keys.SLEIGH_ROOM_KEY in sleigh_parts:
+            #     if sleigh_parts in [grinch_items.keys.SLEIGH_ROOM_KEY,
+            #         grinch_items.sleigh_parts.EXHAUST_PIPES,
+            #         grinch_items.sleigh_parts.SKIS,
+            #         grinch_items.sleigh_parts.TIRES,
+            #         grinch_items.sleigh_parts.TWIN_END_TUBA,
+            #         grinch_items.sleigh_parts.GPS]:
             #         continue
             #     for _ in range(30):
             #         self_itempool.append(self.create_item(grinch_items.keys.MACGUFFIN))

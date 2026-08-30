@@ -505,6 +505,15 @@ SLEIGH_TABLE: dict[str, GrinchItemData] = {
         [
             GrinchRamData(0x0101FB, binary_bit_pos=6)],
     ),
+    # grinch_items.keys.MACGUFFIN: GrinchItemData(
+    #     [
+    #         grinch_categories.HEART,
+    #     ],
+    #     416,
+    #     IC.progression_skip_balancing,
+    #     [
+    #     ],
+    # ),
 }
 
 # Access Keys
@@ -703,15 +712,6 @@ MISC_ITEMS_TABLE: dict[str, GrinchItemData] = {
             #               byte_size=1, ),
         ],
     ),
-    # grinch_items.keys.MACGUFFIN: GrinchItemData(
-    #     [
-    #         grinch_categories.HEART,
-    #     ],
-    #     506,
-    #     IC.progression_skip_balancing,
-    #     [
-    #     ],
-    # ),
 }
 
 USEFUL_ITEMS_TABLE: dict[str, GrinchItemData] = {
