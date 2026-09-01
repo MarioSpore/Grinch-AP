@@ -433,7 +433,7 @@ class GrinchWorld(World):
                             sub_area_has_no_locations = False
 
                 # If the item is a sub_area_item that has 0 locations, add it to start inventory
-                if sub_area_has_no_locations or not self.options.missionsanity:
+                if sub_area_has_no_locations:
                     self.multiworld.push_precollected(self.create_item(mission_item))
                 # Else if the player disables missionsanity, add the item into start inventory
                 # No .value after self.options.missionsanity because UT no likey
