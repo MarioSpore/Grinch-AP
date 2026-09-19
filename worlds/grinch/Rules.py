@@ -1647,6 +1647,18 @@ ALL_LOCATIONS_INFO: dict[str, GrinchLocationInfo] = {
                 grinch_items.moves.SEIZE,
                 grinch_items.moves.PANCAKE,
             ],
+            [
+                grinch_items.gadgets.ROCKET_SPRING,
+                grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+                grinch_items.moves.SEIZE,
+                grinch_items.moves.PANCAKE,
+            ],
+            [
+                grinch_items.gadgets.GRINCH_COPTER,
+                grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+                grinch_items.moves.SEIZE,
+                grinch_items.moves.PANCAKE,
+            ],
         ],
     ),
     "WL - Submarine World - Twin-End Tuba": GrinchLocationInfo(
