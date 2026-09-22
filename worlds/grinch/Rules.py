@@ -3949,6 +3949,10 @@ ALL_LOCATIONS_INFO: dict[str, GrinchLocationInfo] = {
                 grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
                 grinch_items.gadgets.GRINCH_COPTER,
             ],
+            [
+                grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+                grinch_items.gadgets.BINOCULARS,
+            ],
         ],
     ),
     "WL - South Shore - Putting Thistles In Shorts - Right of rack near North Shore Bridge": GrinchLocationInfo(
