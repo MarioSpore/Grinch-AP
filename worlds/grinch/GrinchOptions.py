@@ -22,6 +22,17 @@ from Options import (
 )
 from worlds.grinch import grinch_items
 
+class Language(Choice):
+    """
+    Select which language you use. This is mainly to allow telescope locations to send
+    as well as QOL to automatically select your language.
+    """
+
+    display_name = "Language"
+    option_english = 0
+    option_french = 1
+    option_spanish = 3
+    default = 0
 
 class Goal(Choice):
     """
@@ -436,6 +447,7 @@ class DeathLinkOption(Toggle):
 
 @dataclass
 class GrinchOptions(PerGameCommonOptions):
+    language: Language
     randomize_vacuum_tubes: RandomizeVacuumTubes
     progressive_vacuums: ProgressiveVacuums
     starting_area: StartingArea

@@ -102,6 +102,7 @@ class GrinchClient(BizHawkClient):
     randomize_mission_items: bool = False
     randomize_sleigh_parts: bool = False
     supadow_minigames: int = 0
+    language: int = 0
     #yes
 
     def __init__(self):
@@ -116,6 +117,7 @@ class GrinchClient(BizHawkClient):
         self.teleport_multibind = False
         self.randomize_mission_items = False
         self.randomize_sleigh_parts = False
+        self.language = 0
         self.supadow_minigames = 0
 
     async def validate_rom(self, ctx: "BizHawkClientContext") -> bool:
@@ -180,6 +182,7 @@ class GrinchClient(BizHawkClient):
                 self.randomize_mission_items = bool(ctx.slot_data["randomize_mission_items"])
                 self.randomize_sleigh_parts = bool(ctx.slot_data["randomize_sleigh_parts"])
                 self.supadow_minigames = bool(ctx.slot_data["supadow_minigames"])
+                self.language = int(ctx.slot_data["language"])
                 self.unique_client_id = self._get_uuid()
                 # logger.info(
                 #     "You are now connected to the client. "
@@ -265,6 +268,7 @@ class GrinchClient(BizHawkClient):
             await self.option_handler(ctx)
             await self.constant_address_update(ctx)
             await self.supadow_handler(ctx)
+            await self.language_select(ctx)
             # await self.funny_secret_goal(ctx)
             #await self.adjust_damage_rate(ctx)
 
@@ -745,7 +749,7 @@ class GrinchClient(BizHawkClient):
                 [(0x08FA20, int(1).to_bytes(1, "little"), "MainRAM")],
             )
             if not self.menu_log:
-                print("Currently in menu screen")
+                # print("Currently in menu screen")
                 self.menu_log = True
             self.ingame_log = False
             self.cutscene_goo_log = False
@@ -783,7 +787,7 @@ class GrinchClient(BizHawkClient):
         # Add failsafe for goal region to ensure it is able to trigger goal
         if await self.loading_state(ctx) and not ingame_map_id == 0x3E:
             if not self.cutscene_goo_log:
-                print("Currently in cutscene or goo")
+                # print("Currently in cutscene or goo")
                 self.cutscene_goo_log = True
             self.ingame_log = False
             self.menu_log = False
@@ -804,7 +808,7 @@ class GrinchClient(BizHawkClient):
 
         if demo_mode == 1:
             if not self.demo_log:
-                print("Connected in demo mode, warping back to main menu")
+                # print("Connected in demo mode, warping back to main menu")
                 self.demo_log = True
             await bizhawk.write(
                 ctx.bizhawk_ctx,
@@ -820,7 +824,7 @@ class GrinchClient(BizHawkClient):
             return False
 
         if not self.ingame_log:
-            print("You can now start sending locations from the Grinch!")
+            # print("You can now start sending locations from the Grinch!")
             self.ingame_log = True
             self.cutscene_goo_log = False
             self.menu_log = False
@@ -1170,6 +1174,28 @@ class GrinchClient(BizHawkClient):
                 [(0x0952A5, 1, "MainRAM")]))[0], "little")
         # This function returns true if the player is paused
         return is_game_paused > 0
+
+    async def language_select(self, ctx: "BizHawkClientContext"):
+
+        ingame_map_id = await self.get_current_map_id(ctx)
+        # print("Got map ID:", ingame_map_id)
+        language_address_value: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
+                [(0x010093, 1, "MainRAM")]))[0], "little")
+
+        # print(language_address_value)
+        if (self.ingame_checker or ingame_map_id in [0,3]) and language_address_value != self.language:
+                # print(self.language)
+                await bizhawk.write(
+                    ctx.bizhawk_ctx,
+                    [(0x010093, self.language.to_bytes(1, "little"), "MainRAM"), ],)
+                if ingame_map_id == 0:
+                    await bizhawk.write(
+                        ctx.bizhawk_ctx,
+                        [(MAP_REGION_ADDR, int(3).to_bytes(1, "little"), "MainRAM")], )
+                await bizhawk.write(
+                    ctx.bizhawk_ctx,
+                    [(TRIGGER_PLAYER_TELEPORT, int(1).to_bytes(1, "little"), "MainRAM")],)
+
 
     async def randomize_music(self, ctx: "BizHawkClientContext"):
         from CommonClient import logger

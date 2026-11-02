@@ -1840,6 +1840,36 @@ ALL_LOCATIONS_INFO: dict[str, GrinchLocationInfo] = {
             [],
         ],
     ),
+    "MC - Odio a los Whos!": GrinchLocationInfo(
+        location_access=[
+            [],
+        ],
+    ),
+    "MC - Odio la Navidad!": GrinchLocationInfo(
+        location_access=[
+            [],
+        ],
+    ),
+    "MC - Mi corazon es como un guisante!": GrinchLocationInfo(
+        location_access=[
+            [],
+        ],
+    ),
+    "MC - Je deteste les Whos!": GrinchLocationInfo(
+        location_access=[
+            [],
+        ],
+    ),
+    "MC - Je deteste Noel!": GrinchLocationInfo(
+        location_access=[
+            [],
+        ],
+    ),
+    "MC - Mon coeur est comme un petit pois!": GrinchLocationInfo(
+        location_access=[
+            [],
+        ],
+    ),
     "MC - I hate Whos!": GrinchLocationInfo(
         location_access=[
             [],

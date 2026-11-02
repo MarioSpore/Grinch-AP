@@ -1515,7 +1515,7 @@ grinch_locations = {
     ),
     "MC - I hate Whos!": GrinchLocationData(
         "Mount Crumpit",
-        ["Mount Crumpit"],
+        ["Mount Crumpit", "English"],
         1706,
         [
             GrinchRamData(0x010111, value=1),
@@ -1524,7 +1524,7 @@ grinch_locations = {
     ),
     "MC - I hate Christmas!": GrinchLocationData(
         "Mount Crumpit",
-        ["Mount Crumpit"],
+        ["Mount Crumpit", "English"],
         1707,
         [
             GrinchRamData(0x010111, value=1),
@@ -1533,7 +1533,7 @@ grinch_locations = {
     ),
     "MC - My heart is like a pea!": GrinchLocationData(
         "Mount Crumpit",
-        ["Mount Crumpit"],
+        ["Mount Crumpit", "English"],
         1708,
         [
             GrinchRamData(0x010111, value=1),
@@ -1572,6 +1572,60 @@ grinch_locations = {
     #         GrinchRamData(0x0101FE, binary_bit_pos=0),
     #     ],
     # ),
+    "MC - Odio la Navidad!": GrinchLocationData(
+        "Mount Crumpit",
+        ["Mount Crumpit", "Spanish"],
+        1713,
+        [
+            GrinchRamData(0x010111, value=1),
+            GrinchRamData(0x0F8B04, value=0x58),
+        ],
+    ),
+    "MC - Odio a los Whos!": GrinchLocationData(
+        "Mount Crumpit",
+        ["Mount Crumpit", "Spanish"],
+        1714,
+        [
+            GrinchRamData(0x010111, value=1),
+            GrinchRamData(0x0F8B04, value=0x68),
+        ],
+    ),
+    "MC - Mi corazon es como un guisante!": GrinchLocationData(
+        "Mount Crumpit",
+        ["Mount Crumpit", "Spanish"],
+        1715,
+        [
+            GrinchRamData(0x010111, value=1),
+            GrinchRamData(0x0F8B04, value=0x78),
+        ],
+    ),
+    "MC - Je deteste Noel!": GrinchLocationData(
+        "Mount Crumpit",
+        ["Mount Crumpit", "French"],
+        1716,
+        [
+            GrinchRamData(0x010111, value=1),
+            GrinchRamData(0x0F8A40, value=0x94),
+        ],
+    ),
+    "MC - Je deteste les Whos!": GrinchLocationData(
+        "Mount Crumpit",
+        ["Mount Crumpit", "French"],
+        1717,
+        [
+            GrinchRamData(0x010111, value=1),
+            GrinchRamData(0x0F8A40, value=0xA4),
+        ],
+    ),
+    "MC - Mon coeur est comme un petit pois!": GrinchLocationData(
+        "Mount Crumpit",
+        ["Mount Crumpit", "French"],
+        1718,
+        [
+            GrinchRamData(0x010111, value=1),
+            GrinchRamData(0x0F8A40, value=0xB4),
+        ],
+    ),
     "WL - Scout's Hut - Steal Scout's Hat": GrinchLocationData(
         "Scout's Hut",
         ["Scout's Hut", "Who Lake", "Miscellaneous", "Mission Specific Item Locations"],

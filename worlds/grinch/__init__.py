@@ -94,6 +94,7 @@ class GrinchWorld(World):
                 self.options.goal.value = slot_data["goal"]
                 self.options.advanced_logic.value = slot_data["advanced_logic"]
                 self.options.randomize_vacuum_tubes = slot_data["randomize_vacuum_tubes"]
+                self.options.language = slot_data["language"]
             else:
                 self.using_ut = False
         else:
@@ -222,6 +223,17 @@ class GrinchWorld(World):
             if ("WL - Submarine World - Twin-End Tuba" in location
                     and "Submarine World" in self.options.exclude_environments
                     and not self.options.randomize_sleigh_parts):
+                continue
+
+            if "English" in data.location_group and self.options.language != self.options.language.option_english:
+                continue
+            if "French" in data.location_group and self.options.language != self.options.language.option_french:
+                continue
+            if "Spanish" in data.location_group and self.options.language != self.options.language.option_spanish:
+                continue
+            if "Dutch" in data.location_group and self.options.language != self.options.language.option_dutch:
+                continue
+            if "Italian" in data.location_group and self.options.language != self.options.language.option_italian:
                 continue
 
             # if "Goal" in data.location_group:
@@ -626,6 +638,7 @@ class GrinchWorld(World):
             "goal": self.options.goal.value,
             "advanced_logic": self.options.advanced_logic.value,
             "randomize_vacuum_tubes": self.options.randomize_vacuum_tubes.value,
+            "language": self.options.language.value,
         }
 
     def generate_output(self, output_directory: str) -> None:
