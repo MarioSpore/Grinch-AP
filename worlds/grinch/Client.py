@@ -784,8 +784,14 @@ class GrinchClient(BizHawkClient):
             # Update the previous map we were on to be the current map.
             self.last_map_location = ingame_map_id
 
+        curr_region_data = ALL_REGIONS_INFO[await self.get_current_region()]
+
+        death_cutscene: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
+        [(curr_region_data.map_table_addr + DEATHLINK_CHECK_OFFSET,
+                                                                      1, "MainRAM")]))[0], "little")
+
         # Add failsafe for goal region to ensure it is able to trigger goal
-        if await self.loading_state(ctx) and not ingame_map_id == 0x3E:
+        if await self.loading_state(ctx) and not ingame_map_id == 0x3E and not self.is_grinch_dead and death_cutscene != 2:
             if not self.cutscene_goo_log:
                 # print("Currently in cutscene or goo")
                 self.cutscene_goo_log = True
@@ -1089,14 +1095,18 @@ class GrinchClient(BizHawkClient):
                 continue
 
     async def check_grinch_alive(self, ctx: "BizHawkClientContext"):
+        # This constantly checks if grinch dies at any moment in the game.
         reg_name = await self.get_current_region()
         if not reg_name:
+            # print("not reg_name")
             return
         elif self.is_grinch_dead:
+            # print("if grinch dead")
             return
 
         curr_region_data = ALL_REGIONS_INFO[reg_name]
         if not curr_region_data.allow_deathlink:
+            # print("not in valid death region")
             return
 
         death_cutscene: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
@@ -1106,24 +1116,46 @@ class GrinchClient(BizHawkClient):
         loading_goo: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
                                                                  [(0x010094, 1, "MainRAM")]))[0], "little")
 
-        if not await self.paused_state(ctx) and death_cutscene == 2 and not self.is_grinch_dead:
+        in_cutscene: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
+                [(0x01009E, 1, "MainRAM")]))[0], "little")
+
+        # print("actively checking deaths")
+
+        if death_cutscene == 2 and not self.is_grinch_dead and in_cutscene:
+            # print("grinch died1")
             self.is_grinch_dead = True
             await ctx.send_death(ctx.player_names[ctx.slot] + " could not fight off the Christmas cheer...")
             await self.kill_grinch(ctx)
 
     async def kill_grinch(self, ctx: "BizHawkClientContext"):
+        # This triggers grinch's deaths ingame
         reg_name = await self.get_current_region()
         if not (await self.ingame_checker(ctx) and reg_name):
+            # print("not currently ingame")
             return
 
         curr_region_data = ALL_REGIONS_INFO[reg_name]
+        death_cutscene: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
+                                                                 [(
+                                                                      curr_region_data.map_table_addr + DEATHLINK_CHECK_OFFSET,
+                                                                      1, "MainRAM")]))[0], "little")
+        in_cutscene: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
+                [(0x01009E, 1, "MainRAM")]))[0], "little")
+
         if not curr_region_data.allow_deathlink:
+            # print("not in approved region")
             return
 
+        if death_cutscene == 0 and not self.loading_state:
+            return
+        # print(death_cutscene)
+
         if await self.paused_state(ctx): # or await self.loading_state(ctx):
+            # print("in a paused state")
             return
 
         # Update the Health Address to X amount and DeathLink Trigger to 0
+        # print("grinch should be dying!")
         self.is_grinch_dead = True
         await bizhawk.write(
             ctx.bizhawk_ctx,
@@ -1136,6 +1168,7 @@ class GrinchClient(BizHawkClient):
             [(curr_region_data.map_table_addr + DEATHLINK_REGION_OFFSET, int(death_init_val+0x40).to_bytes(1, "little"), "MainRAM"),],
         )
 
+        # print("waiting for grinch death cutscene to complete")
         await self.wait_for_grinch_alive(ctx)
 
     async def adjust_damage_rate(self, ctx: "BizHawkClientContext"):
@@ -1145,20 +1178,26 @@ class GrinchClient(BizHawkClient):
         )
 
     async def wait_for_grinch_alive(self, ctx: "BizHawkClientContext"):
+        # While the grinch is in the death cutscene animation, we wait until he is
+        # ready to receive another death without breaking anything.
         curr_region_data = ALL_REGIONS_INFO[await self.get_current_region()]
 
         death_cutscene: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
         [(curr_region_data.map_table_addr + DEATHLINK_CHECK_OFFSET,
                                                                       1, "MainRAM")]))[0], "little")
 
+
         while death_cutscene == 2 and not await self.paused_state(ctx):
+            # print("currently in death cutscene")
             await asyncio.sleep(3.0)
             death_cutscene: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
                                                                      [(
                                                                           curr_region_data.map_table_addr + DEATHLINK_CHECK_OFFSET,
                                                                           1, "MainRAM")]))[0], "little")
 
+        # print("grinch is no longer dead")
         self.is_grinch_dead = False
+        # await self.check_grinch_alive(ctx)
 
     async def loading_state(self, ctx: "BizHawkClientContext"):
         loading_goo: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
