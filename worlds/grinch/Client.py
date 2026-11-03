@@ -268,7 +268,7 @@ class GrinchClient(BizHawkClient):
             await self.option_handler(ctx)
             await self.constant_address_update(ctx)
             await self.supadow_handler(ctx)
-            await self.language_select(ctx)
+            # await self.language_select(ctx) # TODO Re-enable until you figure out offsets for grinch table for dedicated language
             # await self.funny_secret_goal(ctx)
             #await self.adjust_damage_rate(ctx)
 
@@ -1215,7 +1215,6 @@ class GrinchClient(BizHawkClient):
         return is_game_paused > 0
 
     async def language_select(self, ctx: "BizHawkClientContext"):
-
         ingame_map_id = await self.get_current_map_id(ctx)
         # print("Got map ID:", ingame_map_id)
         language_address_value: int = int.from_bytes((await bizhawk.read(ctx.bizhawk_ctx,
