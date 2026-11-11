@@ -316,6 +316,13 @@ ALL_LOCATIONS_INFO: dict[str, GrinchLocationInfo] = {
                 grinch_items.moves.MAX,
             ],
         ],
+        advanced_location_access=[
+            [
+                grinch_items.gadgets.ROTTEN_EGG_LAUNCHER,
+                grinch_items.gadgets.OCTOPUS_CLIMBING_DEVICE,
+                grinch_items.moves.PANCAKE,
+            ],
+        ]
     ),
     "WF - Squashing All Gifts": GrinchLocationInfo(
         location_access=[
