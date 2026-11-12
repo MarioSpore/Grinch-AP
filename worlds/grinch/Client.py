@@ -240,8 +240,8 @@ class GrinchClient(BizHawkClient):
                 ):
                     Utils.async_start(self.ring_link_input(args["data"]["amount"], ctx), "Grinch - SyncEggs")
 
-    async def set_auth(self, ctx: "BizHawkClientContext") -> None:
-        await ctx.get_username()
+    # async def set_auth(self, ctx: "BizHawkClientContext") -> None:
+    #     await ctx.get_username()
 
     async def game_watcher(self, ctx: "BizHawkClientContext") -> None:
         from CommonClient import logger
