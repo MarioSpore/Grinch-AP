@@ -340,7 +340,8 @@ class FillerWeight(OptionCounter):
 
 class TrapPercentage(Range):
     """
-    Determines how much filler is replaced with traps.
+    Determines how much filler is replaced with the Depletion Trap, which sets
+    your eggs back to 1.
     """
 
     display_name = "Trap Percentage"
@@ -352,14 +353,19 @@ class TrapPercentage(Range):
 class TrapWeight(OptionCounter):
     """
     Determines which traps are replaced with filler in the pool.
+
+    Dump it to Crumpit: Teleports the Grinch back to Mount Crumpit.
+    Who sent me back?: Teleports the Grinch back to the start of the current
+    region he is in.
+    Depletion Trap: Sets your rotten egg counter to 1.
     """
 
     display_name = "Trap Weights"
     # min = 0
     # max = 100
     default = {
-        grinch_items.filler_trap.DUMP_IT_TO_CRUMPIT: 33,
-        grinch_items.filler_trap.WHO_SENT_ME_BACK: 33,
+        # grinch_items.filler_trap.DUMP_IT_TO_CRUMPIT: 33,
+        # grinch_items.filler_trap.WHO_SENT_ME_BACK: 33,
         grinch_items.filler_trap.DEPLETION_TRAP: 34,
         # grinch_items.filler_trap.BONK_TRAP: 25,
         # grinch_items.filler_trap.PUSH_TRAP: 25,
@@ -369,6 +375,7 @@ class TrapWeight(OptionCounter):
         # grinch_items.filler_trap.BEE_TRAP: 25,
         # grinch_items.filler_trap.BANANA_TRAP: 25,
     }
+    visibility = Visibility.none
 
 class MiscLocations(Toggle):
     """
@@ -466,7 +473,7 @@ class GrinchOptions(PerGameCommonOptions):
     unlimited_eggs: UnlimitedEggs
     filler_weight: FillerWeight
     trap_percentage: TrapPercentage
-    trap_weight: TrapWeight
+    # trap_weight: TrapWeight
     ring_link: RingLinkOption
     trap_link: TrapLinkOption
     advanced_logic: AdvancedLogic
