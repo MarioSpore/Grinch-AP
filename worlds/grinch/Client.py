@@ -182,7 +182,7 @@ class GrinchClient(BizHawkClient):
                 self.randomize_mission_items = bool(ctx.slot_data["randomize_mission_items"])
                 self.randomize_sleigh_parts = bool(ctx.slot_data["randomize_sleigh_parts"])
                 self.supadow_minigames = bool(ctx.slot_data["supadow_minigames"])
-                self.language = int(ctx.slot_data["language"])
+                # self.language = int(ctx.slot_data["language"])
                 self.unique_client_id = self._get_uuid()
                 # logger.info(
                 #     "You are now connected to the client. "
