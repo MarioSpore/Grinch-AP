@@ -33,7 +33,6 @@ class Language(Choice):
     option_french = 1
     option_spanish = 3
     default = 0
-    visibility = Visibility.none
 
 class Goal(Choice):
     """
@@ -515,6 +514,7 @@ class GrinchWeb(WebWorld):
             RandomizeSleighParts,
         ]),
         OptionGroup("Location Settings", [
+            Language,
             Missionsanity,
             ExcludeEnvironments,
             Gifts,
