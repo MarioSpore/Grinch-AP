@@ -472,7 +472,7 @@ class GrinchOptions(PerGameCommonOptions):
     unlimited_eggs: UnlimitedEggs
     filler_weight: FillerWeight
     trap_percentage: TrapPercentage
-    # trap_weight: TrapWeight
+    trap_weight: TrapWeight
     ring_link: RingLinkOption
     trap_link: TrapLinkOption
     advanced_logic: AdvancedLogic
